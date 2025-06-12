@@ -1,8 +1,0 @@
-<!-- Временный логотип в SVG формате -->
-<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="48" height="48" rx="8" fill="#2F5E2F"/>
-  <path d="M24 8L32 16H28V32H20V16H16L24 8Z" fill="white"/>
-  <rect x="12" y="34" width="24" height="4" fill="white"/>
-  <circle cx="18" cy="20" r="2" fill="#2F5E2F"/>
-  <circle cx="30" cy="20" r="2" fill="#2F5E2F"/>
-</svg>
