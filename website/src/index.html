@@ -1,0 +1,30 @@
+<!-- Пример главной страницы с использованием MainLayout и компонентов -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ультимативный Гайд по РГАУ-МСХА</title>
+  <link rel="stylesheet" href="/src/assets/styles/style.css" />
+  <link rel="stylesheet" href="/src/assets/styles/responsive.css" />
+</head>
+<body>
+  <!--#include file="src/components/common/Header.html" -->
+  <main class="main-content">
+    <section class="hero">
+      <h1>Добро пожаловать!</h1>
+      <p>Всё о поступлении, обучении, проживании и жизни в РГАУ-МСХА.</p>
+      <!--#include file="src/components/common/SearchBar.html" -->
+    </section>
+    <section>
+      <h2>Разделы</h2>
+      <div class="ui-card-list">
+        <!--#include file="src/components/ui/Card.html" -->
+        <!-- Здесь можно выводить карточки для основных разделов -->
+      </div>
+    </section>
+  </main>
+  <!--#include file="src/components/common/Footer.html" -->
+  <script src="/src/js/main.js"></script>
+</body>
+</html>

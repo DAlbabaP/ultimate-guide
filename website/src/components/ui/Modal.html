@@ -1,0 +1,7 @@
+<!-- Modal.html: Модальное окно -->
+<div class="ui-modal" id="modal" style="display:none;">
+  <div class="ui-modal__content">
+    <button class="ui-modal__close" onclick="document.getElementById('modal').style.display='none'">×</button>
+    <slot>Контент модального окна</slot>
+  </div>
+</div>

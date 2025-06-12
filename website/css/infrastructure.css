@@ -1,0 +1,660 @@
+/* ===== СТИЛИ ДЛЯ СТРАНИЦЫ ИНФРАСТРУКТУРЫ ===== */
+
+:root {
+    --primary-green: #2f5e2f;
+    --light-gray: #f8f9fa;
+    --dark-gray: #6c757d;
+    --white: #ffffff;
+    --black: #212529;
+    --blue: #007bff;
+    --success: #28a745;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --info: #17a2b8;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 2.5rem;
+    --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    --transition-base: all 0.3s ease;
+}
+
+/* Обзор покупок */
+.shopping-overview {
+    margin: var(--spacing-xl) 0;
+}
+
+.main-mall {
+    background: var(--light-gray);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.mall-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.mall-icon {
+    font-size: var(--font-size-2xl);
+}
+
+.mall-header h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--black);
+    margin: 0;
+}
+
+.distance-badge {
+    background: var(--success);
+    color: var(--white);
+    padding: 4px 12px;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+.mall-info {
+    background: var(--white);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid #dee2e6;
+}
+
+.mall-info p {
+    margin: 0 0 var(--spacing-xs) 0;
+    color: var(--dark-gray);
+}
+
+.mall-info p:last-child {
+    margin-bottom: 0;
+}
+
+/* Удобства торгового центра */
+.mall-facilities {
+    margin: var(--spacing-lg) 0;
+}
+
+.mall-facilities h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-md);
+}
+
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.facility-card {
+    background: var(--white);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    border: 1px solid #dee2e6;
+    transition: var(--transition-base);
+}
+
+.facility-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-green);
+}
+
+.facility-icon {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.facility-card h5 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-xs);
+}
+
+.facility-card p {
+    color: var(--dark-gray);
+    font-size: var(--font-size-sm);
+    margin: 0;
+}
+
+/* Список магазинов */
+.stores-list {
+    margin: var(--spacing-lg) 0;
+}
+
+.stores-list h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-md);
+}
+
+.stores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.store-card {
+    background: var(--white);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    border: 1px solid #dee2e6;
+    transition: var(--transition-base);
+}
+
+.store-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-green);
+}
+
+.store-card h5 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-xs);
+}
+
+.store-card p {
+    color: var(--dark-gray);
+    font-size: var(--font-size-sm);
+    margin: 0;
+}
+
+/* Альтернативный магазин */
+.alternative-store {
+    margin: var(--spacing-lg) 0;
+}
+
+.store-highlight {
+    background: var(--white);
+    border: 2px solid var(--primary-green);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+}
+
+.store-icon {
+    font-size: var(--font-size-2xl);
+    color: var(--primary-green);
+}
+
+.store-info h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-sm);
+}
+
+.store-info p {
+    color: var(--dark-gray);
+    margin: 0 0 var(--spacing-xs) 0;
+}
+
+.store-info p:last-child {
+    margin-bottom: 0;
+}
+
+/* Информация о бюджете */
+.budget-info {
+    margin: var(--spacing-lg) 0;
+}
+
+.budget-info h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-md);
+}
+
+.budget-card {
+    background: rgba(40, 167, 69, 0.1);
+    border: 2px solid var(--success);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    text-align: center;
+}
+
+.budget-amount {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--primary-green);
+    margin-bottom: var(--spacing-xs);
+}
+
+.budget-description {
+    font-size: var(--font-size-base);
+    color: var(--dark-gray);
+    margin-bottom: var(--spacing-md);
+}
+
+.budget-note {
+    font-size: var(--font-size-sm);
+    color: var(--dark-gray);
+    font-style: italic;
+    margin: 0;
+}
+
+/* Предупреждение о почте */
+.postal-warning {
+    background: rgba(255, 193, 7, 0.1);
+    border: 2px solid var(--warning);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.warning-icon {
+    font-size: var(--font-size-xl);
+    color: var(--warning);
+    flex-shrink: 0;
+}
+
+.warning-content h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-sm);
+}
+
+.warning-content p {
+    color: var(--dark-gray);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Пункты выдачи */
+.delivery-points {
+    margin: var(--spacing-xl) 0;
+}
+
+.delivery-points h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-md);
+}
+
+.delivery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.delivery-card {
+    background: var(--white);
+    border: 1px solid #dee2e6;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    transition: var(--transition-base);
+}
+
+.delivery-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.delivery-card--postal {
+    border-color: var(--warning);
+    background: rgba(255, 193, 7, 0.05);
+}
+
+.delivery-card--ozon {
+    border-color: #005bff;
+    background: rgba(0, 91, 255, 0.05);
+}
+
+.delivery-card--wb {
+    border-color: #8b5cf6;
+    background: rgba(139, 92, 246, 0.05);
+}
+
+.delivery-card--cdek {
+    border-color: var(--success);
+    background: rgba(40, 167, 69, 0.05);
+}
+
+.delivery-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.delivery-icon {
+    font-size: var(--font-size-lg);
+}
+
+.delivery-header h5 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--black);
+    margin: 0;
+}
+
+.delivery-info p {
+    color: var(--dark-gray);
+    margin: 0 0 var(--spacing-xs) 0;
+    font-size: var(--font-size-sm);
+}
+
+.delivery-info p:last-child {
+    margin-bottom: var(--spacing-sm);
+}
+
+.map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--blue);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    transition: var(--transition-base);
+}
+
+.map-link:hover {
+    color: var(--primary-green);
+}
+
+/* Спортивные сооружения */
+.sports-facility {
+    margin: var(--spacing-xl) 0;
+}
+
+.facility-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.facility-header .facility-icon {
+    font-size: var(--font-size-2xl);
+    color: var(--primary-green);
+}
+
+.facility-header h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--black);
+    margin: 0;
+}
+
+.facility-details {
+    background: var(--light-gray);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+}
+
+.detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.detail-icon {
+    font-size: var(--font-size-lg);
+    color: var(--primary-green);
+    flex-shrink: 0;
+}
+
+.detail-content h4 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-xs);
+}
+
+.detail-content p {
+    color: var(--dark-gray);
+    margin: 0;
+}
+
+/* Ценообразование */
+.pricing-info h4 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-md);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.price-card {
+    background: var(--white);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    border: 2px solid #dee2e6;
+    transition: var(--transition-base);
+}
+
+.price-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.price-card--first {
+    border-color: var(--warning);
+    background: rgba(255, 193, 7, 0.05);
+}
+
+.price-card--regular {
+    border-color: var(--success);
+    background: rgba(40, 167, 69, 0.05);
+}
+
+.price-card h5 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-sm);
+}
+
+.price {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--primary-green);
+}
+
+/* Медицинские услуги */
+.medical-intro {
+    background: var(--light-gray);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.medical-intro p {
+    color: var(--dark-gray);
+    margin: 0;
+    text-align: center;
+}
+
+.medical-facilities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.medical-card {
+    background: var(--white);
+    border: 2px solid #dee2e6;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    transition: var(--transition-base);
+}
+
+.medical-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.medical-card--children {
+    border-color: var(--info);
+    background: rgba(23, 162, 184, 0.05);
+}
+
+.medical-card--adults {
+    border-color: var(--primary-green);
+    background: rgba(47, 94, 47, 0.05);
+}
+
+.medical-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.medical-icon {
+    font-size: var(--font-size-xl);
+    color: var(--primary-green);
+}
+
+.medical-header h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--black);
+    margin: 0;
+}
+
+.age-badge {
+    background: var(--primary-green);
+    color: var(--white);
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+.medical-info h5 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-sm);
+}
+
+.medical-info p {
+    color: var(--dark-gray);
+    margin: 0 0 var(--spacing-sm) 0;
+    font-size: var(--font-size-sm);
+}
+
+/* Медицинские советы */
+.medical-tips {
+    background: var(--light-gray);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+}
+
+.medical-tips h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-md);
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.tip-card {
+    background: var(--white);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    border: 1px solid #dee2e6;
+    transition: var(--transition-base);
+}
+
+.tip-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-green);
+}
+
+.tip-card h5 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-xs);
+}
+
+.tip-card p {
+    color: var(--dark-gray);
+    font-size: var(--font-size-sm);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .mall-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .store-highlight {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .facilities-grid,
+    .stores-grid,
+    .delivery-grid,
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .medical-facilities {
+        grid-template-columns: 1fr;
+    }
+    
+    .postal-warning {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .detail-item {
+        flex-direction: column;
+        text-align: center;
+    }
+}

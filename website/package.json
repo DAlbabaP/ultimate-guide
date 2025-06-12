@@ -1,0 +1,14 @@
+{
+  "name": "timiriazev-guide",
+  "version": "1.0.0",
+  "description": "Ультимативный гайд по РГАУ-МСХА им. К.А. Тимирязева",
+  "scripts": {
+    "start": "npx serve ./src",
+    "dev": "npx serve ./src",
+    "build": "echo 'Vanilla JS: сборка не требуется'"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}

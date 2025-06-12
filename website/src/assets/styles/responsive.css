@@ -1,0 +1,47 @@
+/* ===== АДАПТИВНЫЕ СТИЛИ ===== */
+
+/* Планшеты (768px - 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+    /* ...existing code... */
+}
+
+/* Десктопы и большие экраны (1025px и выше) */
+@media (min-width: 1025px) {
+    .container {
+        max-width: 1200px;
+    }
+    .hero__title {
+        font-size: 3rem;
+    }
+    .section__title {
+        font-size: 2rem;
+    }
+    .quick-links__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .widgets__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Очень большие экраны (1400px и выше) */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1400px;
+    }
+    .hero__title {
+        font-size: 3.5rem;
+    }
+    .section__title {
+        font-size: 2.5rem;
+    }
+    .quick-links__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .widgets__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

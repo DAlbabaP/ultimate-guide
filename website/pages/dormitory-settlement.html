@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заселение в общежитие - Гид студента РГАУ-МСХА</title>
+    <link rel="stylesheet" href="/src/assets/styles/style.css">
+    <link rel="stylesheet" href="/src/assets/styles/responsive.css">
+    <link rel="stylesheet" href="/src/assets/styles/pages/dormitory-settlement.css">
+</head>
+<body>
+    <!--#include file="../components/common/Header.html" -->
+    <main class="main">
+        <!-- Хлебные крошки -->
+        <nav class="breadcrumbs">
+            <div class="container">
+                <div class="breadcrumb__nav">
+                    <a href="../index.html" class="breadcrumb__link"><i class="fas fa-home"></i> Главная</a>
+                    <span class="breadcrumb__separator">/</span>
+                    <a href="../index.html#timeline" class="breadcrumb__link">Путь абитуриента</a>
+                    <span class="breadcrumb__separator">/</span>
+                    <span class="breadcrumb__current">Заселение</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero секция -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="page-hero__content">
+                    <h1 class="page-hero__title">
+                        <i class="fas fa-home"></i>
+                        КОНЕЦ АВГУСТА: Заселение
+                    </h1>
+                    <p class="page-hero__description">
+                        Финальный этап пути абитуриента — заселение в общежитие. Подготовьте все документы заранее, 
+                        запаситесь терпением и будьте готовы к новому этапу жизни!
+                    </p>
+                    <div class="page-hero__stats">
+                        <div class="stat__item">
+                            <span class="stat__number">27 августа</span>
+                            <span class="stat__label">иногородние</span>
+                        </div>
+                        <div class="stat__item">
+                            <span class="stat__number">30 августа</span>
+                            <span class="stat__label">москвичи</span>
+                        </div>
+                        <div class="stat__item">
+                            <span class="stat__number">30 дней</span>
+                            <span class="stat__label">срок заселения</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Быстрая навигация -->
+        <section class="quick-nav">
+            <div class="container">
+                <div class="quick-nav__grid">
+                    <a href="#dates" class="quick-nav__item">
+                        <i class="fas fa-calendar"></i>
+                        <span>Даты заселения</span>
+                        <small>Кто когда заселяется</small>
+                    </a>
+                    <a href="#documents" class="quick-nav__item">
+                        <i class="fas fa-file-medical"></i>
+                        <span>Документы</span>
+                        <small>Полный список</small>
+                    </a>
+                    <a href="#medical" class="quick-nav__item">
+                        <i class="fas fa-notes-medical"></i>
+                        <span>Медицинские справки</span>
+                        <small>Сроки действия</small>
+                    </a>
+                    <a href="#process" class="quick-nav__item">
+                        <i class="fas fa-route"></i>
+                        <span>Процесс заселения</span>
+                        <small>Как это происходит</small>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Основной контент -->
+        <main class="page-content">
+            <!-- Даты заселения -->
+            <section id="dates" class="content-section">
+                <div class="container">
+                    <h2 class="section__title">Даты заселения абитуриентов</h2>
+                    <p class="section__description">
+                        Заселение происходит в несколько этапов в зависимости от места проживания
+                    </p>
+
+                    <div class="settlement__schedule">
+                        <div class="schedule__item schedule__item--priority">
+                            <div class="schedule__date">
+                                <span class="date__day">27</span>
+                                <span class="date__month">августа</span>
+                            </div>
+                            <div class="schedule__content">
+                                <h3>Иногородние обучающиеся</h3>
+                                <p>Студенты из других городов и регионов</p>
+                                <div class="schedule__benefits">
+                                    <i class="fas fa-star"></i>
+                                    <span>Приоритетное заселение</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="schedule__item">
+                            <div class="schedule__date">
+                                <span class="date__day">30</span>
+                                <span class="date__month">августа</span>
+                            </div>
+                            <div class="schedule__content">
+                                <h3>Москвичи и жители МО</h3>
+                                <p>Обучающиеся из Москвы и Московской области</p>
+                                <div class="schedule__note">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>После иногородних</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settlement__restrictions">
+                        <div class="restriction__card restriction__card--warning">
+                            <div class="restriction__icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <h3>Ограничение по расстоянию</h3>
+                            <p>
+                                Обучающимся, проживающим в населённых пунктах <strong>ближе 60 км</strong> от университета, 
+                                места предоставляются только после полного обеспечения местами приоритетных категорий.
+                            </p>
+                        </div>
+
+                        <div class="restriction__card restriction__card--danger">
+                            <div class="restriction__icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3>Срок заселения</h3>
+                            <p>
+                                Абитуриент, <strong>не заселившийся в течение 30 дней</strong>, признаётся не нуждающимся 
+                                в общежитии и теряет право на предоставление места.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Документы для заселения -->
+            <section id="documents" class="content-section">
+                <div class="container">
+                    <h2 class="section__title">Документы для заселения</h2>
+                    <p class="section__description">
+                        Подготовьте все документы заранее, чтобы избежать задержек в день заселения
+                    </p>
+
+                    <div class="documents__checklist">
+                        <div class="doc__category">
+                            <h3><i class="fas fa-id-card"></i> Документы удостоверяющие личность</h3>
+                            <div class="doc__items">
+                                <div class="doc__item">
+                                    <div class="doc__icon">
+                                        <i class="fas fa-passport"></i>
+                                    </div>
+                                    <div class="doc__info">
+                                        <h4>Копия паспорта</h4>
+                                        <p>Страницы 2-3 + действующая регистрация по месту жительства</p>
+                                        <div class="doc__note">
+                                            <i class="fas fa-info-circle"></i>
+                                            <span>Для иностранных граждан — нотариально заверенный перевод</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="doc__category">
+                            <h3><i class="fas fa-camera"></i> Фотографии</h3>
+                            <div class="doc__items">
+                                <div class="doc__item">
+                                    <div class="doc__icon">
+                                        <i class="fas fa-images"></i>
+                                    </div>
+                                    <div class="doc__info">
+                                        <h4>2 матовые фотографии 3×4</h4>
+                                        <p>Для оформления документов общежития</p>
+                                        <div class="doc__requirements">
+                                            <strong>Требования:</strong>
+                                            <ul>
+                                                <li>Размер строго 3×4 см</li>
+                                                <li>Матовая бумага</li>
+                                                <li>Без головного убора</li>
+                                                <li>Деловой стиль одежды</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Медицинские документы -->
+            <section id="medical" class="content-section">
+                <div class="container">
+                    <h2 class="section__title">Медицинские документы</h2>
+                    <p class="section__description">
+                        Все медицинские справки должны быть действующими на момент заселения
+                    </p>
+
+                    <div class="medical__grid">
+                        <div class="medical__item">
+                            <div class="medical__header">
+                                <i class="fas fa-file-medical"></i>
+                                <h3>Справка формы № 086-У</h3>
+                            </div>
+                            <div class="medical__content">
+                                <div class="medical__validity">
+                                    <span class="validity__label">Срок действия:</span>
+                                    <span class="validity__time validity__time--medium">6 месяцев</span>
+                                </div>
+                                <p>Копия медицинской справки о состоянии здоровья</p>
+                            </div>
+                        </div>
+
+                        <div class="medical__item">
+                            <div class="medical__header">
+                                <i class="fas fa-vial"></i>
+                                <h3>Анализ крови на сифилис</h3>
+                            </div>
+                            <div class="medical__content">
+                                <div class="medical__validity">
+                                    <span class="validity__label">Срок действия:</span>
+                                    <span class="validity__time validity__time--short">10 дней</span>
+                                </div>
+                                <p>Результат лабораторного исследования</p>
+                            </div>
+                        </div>
+
+                        <div class="medical__item">
+                            <div class="medical__header">
+                                <i class="fas fa-lungs"></i>
+                                <h3>Флюорография</h3>
+                            </div>
+                            <div class="medical__content">
+                                <div class="medical__validity">
+                                    <span class="validity__label">Срок действия:</span>
+                                    <span class="validity__time validity__time--long">1 год</span>
+                                </div>
+                                <p>Результат флюорографического обследования</p>
+                            </div>
+                        </div>
+
+                        <div class="medical__item">
+                            <div class="medical__header">
+                                <i class="fas fa-user-md"></i>
+                                <h3>Заключение дерматолога</h3>
+                            </div>
+                            <div class="medical__content">
+                                <div class="medical__validity">
+                                    <span class="validity__label">Срок действия:</span>
+                                    <span class="validity__time validity__time--short">30 дней</span>
+                                </div>
+                                <p>Об отсутствии контактно-бытовых кожных и венерических заболеваний</p>
+                            </div>
+                        </div>
+
+                        <div class="medical__item">
+                            <div class="medical__header">
+                                <i class="fas fa-syringe"></i>
+                                <h3>Прививочный сертификат</h3>
+                            </div>
+                            <div class="medical__content">
+                                <div class="medical__validity">
+                                    <span class="validity__label">Срок действия:</span>
+                                    <span class="validity__time validity__time--permanent">постоянно</span>
+                                </div>
+                                <p>Копия с датами вакцинации против: АКДС, кори, краснухи, паротита, гепатита В, БЦЖ</p>
+                            </div>
+                        </div>
+
+                        <div class="medical__item">
+                            <div class="medical__header">
+                                <i class="fas fa-brain"></i>
+                                <h3>Справки из диспансеров</h3>
+                            </div>
+                            <div class="medical__content">
+                                <div class="medical__validity">
+                                    <span class="validity__label">Срок действия:</span>
+                                    <span class="validity__time validity__time--medium">3 месяца</span>
+                                </div>
+                                <p>Из наркологического и психоневрологического диспансеров по месту жительства</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="medical__private">
+                        <div class="private__warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div>
+                                <h4>Частные медучреждения</h4>
+                                <p>
+                                    Если обследование проходило в негосударственном учреждении, 
+                                    необходимо предоставить <strong>копию лицензии</strong> медицинского учреждения 
+                                    на указанные виды деятельности.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="medical__timeline">
+                        <h3>Планирование медобследования</h3>
+                        <div class="timeline__tip">
+                            <i class="fas fa-calendar-check"></i>
+                            <div>
+                                <h4>Рекомендуемые сроки</h4>
+                                <ul>
+                                    <li><strong>За 2 недели:</strong> Начните сбор справок с долгим сроком действия</li>
+                                    <li><strong>За 1 неделю:</strong> Сдайте анализы с коротким сроком действия</li>
+                                    <li><strong>За 3 дня:</strong> Получите заключение дерматолога</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Процесс заселения -->
+            <section id="process" class="content-section">
+                <div class="container">
+                    <h2 class="section__title">Как проходит заселение</h2>
+                    <p class="section__description">
+                        Пошаговое описание процедуры заселения от студентов старших курсов
+                    </p>
+
+                    <div class="process__steps">
+                        <div class="process__step">
+                            <div class="step__number">1</div>
+                            <div class="step__content">
+                                <h3>Ожидание очереди</h3>
+                                <p>
+                                    Приезжайте к назначенному времени и спокойно ждите своей очереди. 
+                                    Процесс может занять <strong>до 8 часов</strong>, особенно в первые дни.
+                                </p>
+                                <div class="step__tip">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>Возьмите с собой еду, воду и что-то для развлечения</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="process__step">
+                            <div class="step__number">2</div>
+                            <div class="step__content">
+                                <h3>Предложение вариантов</h3>
+                                <p>
+                                    Вам предложат несколько вариантов комнат. Вы сможете осмотреть их 
+                                    вместе с сопровождающим и выбрать наиболее подходящую.
+                                </p>
+                                <div class="step__options">
+                                    <div class="option__item">
+                                        <i class="fas fa-users"></i>
+                                        <span>Заселение с друзьями в один блок</span>
+                                    </div>
+                                    <div class="option__item">
+                                        <i class="fas fa-user-graduate"></i>
+                                        <span>Размещение со старшекурсниками</span>
+                                    </div>
+                                    <div class="option__item">
+                                        <i class="fas fa-globe"></i>
+                                        <span>Соседство с иностранными студентами</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="process__step">
+                            <div class="step__number">3</div>
+                            <div class="step__content">
+                                <h3>Оформление документов</h3>
+                                <p>
+                                    После выбора комнаты подписываете договор найма жилого помещения 
+                                    и получаете ключи от комнаты.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="process__step">
+                            <div class="step__number">4</div>
+                            <div class="step__content">
+                                <h3>Заселение и обустройство</h3>
+                                <p>
+                                    Знакомитесь с соседями, изучаете правила общежития и обустраиваете свой быт.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process__options">
+                        <h3>Особые случаи</h3>
+                        <div class="options__grid">
+                            <div class="option__card">
+                                <i class="fas fa-calendar-alt"></i>
+                                <h4>Досрочное заселение</h4>
+                                <p>
+                                    Если есть уважительная причина, можно приехать раньше назначенной даты. 
+                                    Об этом нужно <strong>ЗАРАНЕЕ договориться</strong> с администрацией.
+                                </p>
+                            </div>
+
+                            <div class="option__card">
+                                <i class="fas fa-user-friends"></i>
+                                <h4>Заселение компанией</h4>
+                                <p>
+                                    Можно заселиться всей компанией в один блок. Просто сообщите об этом 
+                                    при подаче документов — так процесс пойдёт быстрее.
+                                </p>
+                            </div>
+
+                            <div class="option__card">
+                                <i class="fas fa-bed"></i>
+                                <h4>Остаточные места</h4>
+                                <p>
+                                    Когда целые блоки закончатся, будут заселять в оставшиеся места к 
+                                    старшекурсникам или иностранным студентам.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Советы от студентов -->
+            <section class="student-advice">
+                <div class="container">
+                    <h2 class="section__title">Советы от старших курсов</h2>
+                    <p class="section__description">
+                        Рекомендации от студентов, которые уже прошли через процедуру заселения
+                    </p>
+
+                    <div class="advice__grid">
+                        <div class="advice__card advice__card--important">
+                            <div class="advice__icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <h3>Документы перепроверяйте по 10 раз</h3>
+                            <p>
+                                Документы на заселение и поступление нужно проверять множество раз. 
+                                Любая ошибка может привести к задержке в заселении.
+                            </p>
+                        </div>
+
+                        <div class="advice__card advice__card--behavior">
+                            <div class="advice__icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3>Ведите себя корректно</h3>
+                            <p>
+                                Будьте вежливы с сотрудниками и другими абитуриентами. 
+                                Приводите с собой родителей — их присутствие поможет в решении вопросов.
+                            </p>
+                        </div>
+
+                        <div class="advice__card advice__card--patience">
+                            <div class="advice__icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3>Запаситесь терпением</h3>
+                            <p>
+                                Процесс может быть долгим, особенно в первые дни. 
+                                Возьмите с собой еду, воду и зарядку для телефона.
+                            </p>
+                        </div>
+
+                        <div class="advice__card advice__card--preparation">
+                            <div class="advice__icon">
+                                <i class="fas fa-suitcase"></i>
+                            </div>
+                            <h3>Подготовьтесь к переезду</h3>
+                            <p>
+                                Заранее продумайте, что брать с собой. В комнатах есть базовая мебель, 
+                                но постельное бельё и личные вещи нужно привезти самостоятельно.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="advice__quote">
+                        <div class="quote__content">
+                            <i class="fas fa-quote-left"></i>
+                            <p>
+                                «Заселение — это начало новой жизни. Не бойтесь знакомиться с соседями, 
+                                задавать вопросы и обращаться за помощью. Все мы когда-то были первокурсниками!»
+                            </p>
+                            <cite>— Студенты старших курсов</cite>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Следующие шаги -->
+            <section class="next-steps">
+                <div class="container">
+                    <h2 class="section__title">Что дальше?</h2>
+                    <div class="next-steps__grid">
+                        <a href="enrollment.html" class="next-step__card">
+                            <div class="next-step__icon">
+                                <i class="fas fa-arrow-left"></i>
+                            </div>
+                            <h3>Зачисление</h3>
+                            <p>Вернуться к предыдущему этапу</p>
+                            <span class="next-step__date">Август</span>
+                        </a>
+                        <a href="adaptation.html" class="next-step__card">
+                            <div class="next-step__icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h3>Адаптация</h3>
+                            <p>Начало учёбы и студенческой жизни</p>
+                            <span class="next-step__date">Сентябрь</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    <!--#include file="../components/common/Footer.html" -->
+    <script src="/src/js/main.js"></script>
+</body>
+</html>

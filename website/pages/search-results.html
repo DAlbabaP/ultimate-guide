@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты поиска - РГАУ-МСХА имени К.А. Тимирязева</title>
+    <meta name="description" content="Результаты поиска по сайту РГАУ-МСХА имени К.А. Тимирязева">
+    <link rel="stylesheet" href="/src/assets/styles/style.css">
+    <link rel="stylesheet" href="/src/assets/styles/responsive.css">
+    <link rel="stylesheet" href="/src/assets/styles/pages/search-results.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="/src/assets/favicon.ico">
+</head>
+<body>
+    <!--#include file="../components/common/Header.html" -->
+    <main class="main">
+        <!-- Хлебные крошки -->
+        <div class="breadcrumb">
+            <div class="container">
+                <a href="../index.html" class="breadcrumb__link">
+                    <i class="fas fa-home"></i>
+                    Главная
+                </a>
+                <span class="breadcrumb__separator">/</span>
+                <span class="breadcrumb__current">Результаты поиска</span>
+            </div>
+        </div>
+
+        <!-- Секция результатов поиска -->
+        <section class="search-results-page" id="searchResultsPage">
+            <div class="container">
+                <!-- Заголовок с информацией о поиске -->
+                <div class="search-results-header">
+                    <h1 class="search-results-title">
+                        Результаты поиска
+                        <span class="search-query" id="searchQueryDisplay"></span>
+                    </h1>
+                    <div class="search-meta">
+                        <span class="search-count" id="searchCount">Найдено результатов: 0</span>
+                        <span class="search-time" id="searchTime"></span>
+                    </div>
+                </div>
+
+                <!-- Фильтры и сортировка -->
+                <div class="search-controls">
+                    <div class="search-filters-extended">
+                        <label class="filter-label">Категория:</label>                        <div class="filter-buttons" id="categoryFilters">
+                            <button class="filter-btn active" data-category="all">Все</button>
+                            <button class="filter-btn" data-category="Поступление">Поступление</button>
+                            <button class="filter-btn" data-category="Финансы">Финансы</button>
+                            <button class="filter-btn" data-category="Проживание">Проживание</button>
+                            <button class="filter-btn" data-category="Военная подготовка">Военная подготовка</button>
+                            <button class="filter-btn" data-category="Поддержка">Поддержка</button>
+                        </div>
+                    </div>
+                    
+                    <div class="search-sort">
+                        <label class="sort-label">Сортировка:</label>
+                        <select class="sort-select" id="sortSelect">
+                            <option value="relevance">По релевантности</option>
+                            <option value="date">По дате</option>
+                            <option value="alphabetical">По алфавиту</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Результаты поиска -->
+                <div class="search-results-grid" id="searchResultsGrid">
+                    <!-- Результаты будут добавлены динамически -->
+                </div>
+
+                <!-- Пагинация -->
+                <div class="pagination" id="pagination" style="display: none;">
+                    <button class="pagination-btn pagination-prev" id="paginationPrev">
+                        <i class="fas fa-chevron-left"></i>
+                        Предыдущая
+                    </button>
+                    <div class="pagination-numbers" id="paginationNumbers">
+                        <!-- Номера страниц добавятся динамически -->
+                    </div>
+                    <button class="pagination-btn pagination-next" id="paginationNext">
+                        Следующая
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Состояние "ничего не найдено" -->
+                <div class="search-no-results" id="searchNoResults" style="display: none;">
+                    <div class="search-no-results__icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="search-no-results__title">Ничего не найдено</h3>
+                    <p class="search-no-results__text">
+                        Попробуйте изменить поисковый запрос или воспользуйтесь другими фильтрами
+                    </p>
+                    <div class="search-suggestions">
+                        <h4>Популярные разделы:</h4>
+                        <div class="suggestions-grid">
+                            <a href="admission.html" class="suggestion-card">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Поступление</span>
+                            </a>
+                            <a href="finances.html" class="suggestion-card">
+                                <i class="fas fa-ruble-sign"></i>
+                                <span>Финансы</span>
+                            </a>
+                            <a href="dormitory.html" class="suggestion-card">
+                                <i class="fas fa-bed"></i>
+                                <span>Общежитие</span>
+                            </a>
+                            <a href="faq.html" class="suggestion-card">
+                                <i class="fas fa-question-circle"></i>
+                                <span>FAQ</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!--#include file="../components/common/Footer.html" -->
+    <script src="/src/js/main.js"></script>
+</body>
+</html>

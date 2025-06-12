@@ -1,0 +1,19 @@
+/* ===== СТИЛИ ДЛЯ СТРАНИЦЫ ОБЩЕЖИТИЯ ===== */
+
+.dormitory-overview {
+    margin: var(--spacing-xl) 0;
+}
+
+@media (max-width: 480px) {
+    .overview-stats {
+        grid-template-columns: 1fr;
+    }
+    .category-header {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-xs);
+    }
+    .violation-item {
+        padding: var(--spacing-lg);
+    }
+}

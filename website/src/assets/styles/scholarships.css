@@ -1,0 +1,299 @@
+/* ===== СТИЛИ ДЛЯ СТРАНИЦЫ СТИПЕНДИЙ ===== */
+
+/* Hero секция для страниц */
+.hero--small {
+    background: linear-gradient(135deg, var(--primary-green) 0%, #3a7a3a 100%);
+    color: var(--white);
+    padding: var(--spacing-xl) 0;
+    margin-top: 80px;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all var(--transition-base);
+}
+
+.breadcrumb a:hover {
+    color: var(--white);
+}
+
+.breadcrumb span {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.hero__title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.hero__stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.hero__stat {
+    text-align: center;
+}
+
+.hero__stat-number {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: var(--spacing-xs);
+}
+
+.hero__stat-label {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Навигация по странице */
+.page-nav {
+    background: var(--light-gray);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.page-nav h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-md);
+}
+
+.page-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.page-nav li {
+    margin: 0;
+}
+
+.page-nav a {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: var(--white);
+    color: var(--primary-green);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--primary-green);
+    transition: all var(--transition-base);
+}
+
+.page-nav a:hover {
+    background: var(--primary-green);
+    color: var(--white);
+}
+
+/* Список стипендий */
+.scholarship-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.scholarship-item {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.scholarship-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.scholarship-item__header {
+    background: var(--primary-green);
+    color: var(--white);
+    padding: var(--spacing-md);
+    text-align: center;
+}
+
+.scholarship-item__title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    margin: 0;
+}
+
+.scholarship-item__amount {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    margin: var(--spacing-xs) 0;
+}
+
+.scholarship-item__details {
+    padding: var(--spacing-md);
+    font-size: var(--font-size-sm);
+    color: var(--text-gray);
+}
+
+.scholarship-item__apply {
+    display: block;
+    text-align: center;
+    padding: var(--spacing-md);
+    background: var(--primary-green);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: background var(--transition-base);
+}
+
+.scholarship-item__apply:hover {
+    background: #3a7a3a;
+}
+
+/* Форма заявки на стипендию */
+.scholarship-form {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-md);
+}
+
+.scholarship-form h2 {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.scholarship-form .form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.scholarship-form label {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+}
+
+.scholarship-form input,
+.scholarship-form select,
+.scholarship-form textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    font-size: var(--font-size-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-base);
+}
+
+.scholarship-form input:focus,
+.scholarship-form select:focus,
+.scholarship-form textarea:focus {
+    border-color: var(--primary-green);
+    outline: none;
+}
+
+.scholarship-form button {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-md);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--white);
+    background: var(--primary-green);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background var(--transition-base);
+}
+
+.scholarship-form button:hover {
+    background: #3a7a3a;
+}
+
+/* Подвал страницы */
+.footer {
+    background: var(--dark-gray);
+    color: var(--white);
+    padding: var(--spacing-xl) 0;
+    margin-top: var(--spacing-xl);
+}
+
+.footer__logo {
+    display: block;
+    margin: 0 auto var(--spacing-md);
+}
+
+.footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.footer__link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+.footer__link:hover {
+    color: var(--white);
+}
+
+.footer__social {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+.footer__social-icon {
+    color: var(--white);
+    font-size: var(--font-size-xl);
+    transition: color var(--transition-base);
+}
+
+.footer__social-icon:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .hero__title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .hero__stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero__stat {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .page-nav {
+        padding: var(--spacing-md);
+    }
+
+    .scholarship-list {
+        grid-template-columns: 1fr;
+    }
+}

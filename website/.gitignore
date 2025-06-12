@@ -1,0 +1,22 @@
+# .gitignore
+# Node
+node_modules/
+dist/
+.env
+*.log
+
+# VS Code
+.vscode/
+.history/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+/build/
+.cache/
+
+# Misc
+*.tmp
+*.bak

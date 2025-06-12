@@ -1,0 +1,639 @@
+/* ===== СТИЛИ ДЛЯ СТРАНИЦЫ КАРТА МОСКВИЧА ===== */
+
+:root {
+    --primary-green: #2f5e2f;
+    --light-gray: #f8f9fa;
+    --dark-gray: #6c757d;
+    --white: #ffffff;
+    --black: #212529;
+    --blue: #007bff;
+    --success: #28a745;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --info: #17a2b8;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 2.5rem;
+    --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    --transition-base: all 0.3s ease;
+}
+
+/* Обзор карты */
+.card-overview {
+    margin: var(--spacing-xl) 0;
+}
+
+.overview-content {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
+    background: var(--light-gray);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.overview-icon {
+    font-size: var(--font-size-3xl);
+    color: var(--primary-green);
+    flex-shrink: 0;
+}
+
+.overview-text h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-md);
+}
+
+.overview-text p {
+    color: var(--dark-gray);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Особенности карты */
+.card-features h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-md);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.feature-item {
+    background: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    border: 1px solid #dee2e6;
+    transition: var(--transition-base);
+}
+
+.feature-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-green);
+}
+
+.feature-icon {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.feature-item h5 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-xs);
+}
+
+.feature-item p {
+    color: var(--dark-gray);
+    font-size: var(--font-size-sm);
+    margin: 0;
+}
+
+/* Преимущества */
+.benefits-overview {
+    margin: var(--spacing-xl) 0;
+}
+
+.main-benefit {
+    background: var(--light-gray);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.benefit-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.benefit-header .benefit-icon {
+    font-size: var(--font-size-2xl);
+    color: var(--primary-green);
+}
+
+.benefit-header h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--black);
+    margin: 0;
+}
+
+.main-benefit p {
+    color: var(--dark-gray);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Транспортные льготы */
+.transport-benefits h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-md);
+}
+
+.transport-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.transport-card {
+    background: var(--white);
+    border: 2px solid #dee2e6;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: var(--transition-base);
+    position: relative;
+}
+
+.transport-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.transport-card--metro {
+    border-color: #dc143c;
+    background: rgba(220, 20, 60, 0.05);
+}
+
+.transport-card--bus {
+    border-color: #1e90ff;
+    background: rgba(30, 144, 255, 0.05);
+}
+
+.transport-card--trolley {
+    border-color: #ff6347;
+    background: rgba(255, 99, 71, 0.05);
+}
+
+.transport-card--tram {
+    border-color: #32cd32;
+    background: rgba(50, 205, 50, 0.05);
+}
+
+.transport-card--mcc {
+    border-color: #ff69b4;
+    background: rgba(255, 105, 180, 0.05);
+}
+
+.transport-card--train {
+    border-color: var(--success);
+    background: rgba(40, 167, 69, 0.05);
+}
+
+.transport-icon {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.transport-card h5 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-sm);
+}
+
+.transport-card p {
+    color: var(--dark-gray);
+    font-size: var(--font-size-sm);
+    margin: 0;
+}
+
+.discount-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--success);
+    color: var(--white);
+    padding: 4px 8px;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+/* Дополнительные преимущества */
+.additional-benefits h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-md);
+}
+
+.additional-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.additional-item {
+    background: var(--white);
+    border: 1px solid #dee2e6;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: var(--transition-base);
+}
+
+.additional-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-green);
+}
+
+.additional-icon {
+    font-size: var(--font-size-xl);
+    color: var(--primary-green);
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.additional-item h5 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-sm);
+}
+
+.additional-item p {
+    color: var(--dark-gray);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Процесс подачи заявления */
+.application-process {
+    margin: var(--spacing-xl) 0;
+}
+
+.process-intro {
+    background: var(--light-gray);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.process-intro h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-md);
+}
+
+.process-intro p {
+    color: var(--dark-gray);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Шаги подачи заявления */
+.application-steps h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-md);
+}
+
+.steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
+    background: var(--white);
+    border: 1px solid #dee2e6;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    transition: var(--transition-base);
+}
+
+.step-item:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-green);
+}
+
+.step-number {
+    min-width: 50px;
+    height: 50px;
+    background: var(--primary-green);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    flex-shrink: 0;
+}
+
+.step-content h5 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-sm);
+}
+
+.step-content p {
+    color: var(--dark-gray);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-md);
+}
+
+.step-note {
+    background: rgba(23, 162, 184, 0.1);
+    border: 1px solid var(--info);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    color: var(--dark-gray);
+    margin-bottom: var(--spacing-md);
+}
+
+.step-action {
+    margin-top: var(--spacing-md);
+}
+
+/* Требования */
+.requirements h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-md);
+}
+
+.requirements-list {
+    background: var(--light-gray);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+}
+
+.requirement-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.requirement-item:last-child {
+    margin-bottom: 0;
+}
+
+.requirement-icon {
+    color: var(--success);
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.requirement-item p {
+    color: var(--dark-gray);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Информация о датах */
+.dates-info {
+    margin: var(--spacing-xl) 0;
+}
+
+.main-date-info {
+    margin-bottom: var(--spacing-xl);
+}
+
+.date-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    background: var(--white);
+    border: 2px solid #dee2e6;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+}
+
+.date-card--critical {
+    border-color: var(--warning);
+    background: rgba(255, 193, 7, 0.05);
+}
+
+.date-icon {
+    font-size: var(--font-size-2xl);
+    color: var(--warning);
+    flex-shrink: 0;
+}
+
+.date-content h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: var(--spacing-xs);
+}
+
+.date-content p {
+    font-size: var(--font-size-base);
+    color: var(--dark-gray);
+    margin-bottom: var(--spacing-sm);
+}
+
+.date-description {
+    font-size: var(--font-size-sm);
+    color: var(--dark-gray);
+    font-style: italic;
+}
+
+/* Причины сентябрьского оформления */
+.why-september h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-md);
+}
+
+.reason-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.reason-card {
+    background: var(--white);
+    border: 1px solid #dee2e6;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: var(--transition-base);
+}
+
+.reason-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-green);
+}
+
+.reason-icon {
+    font-size: var(--font-size-xl);
+    color: var(--primary-green);
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.reason-card h5 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-sm);
+}
+
+.reason-card p {
+    color: var(--dark-gray);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Временная линия */
+.timeline-info h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-md);
+}
+
+.timeline-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.timeline-step {
+    background: var(--light-gray);
+    border: 2px solid #dee2e6;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+    text-align: center;
+    transition: var(--transition-base);
+}
+
+.timeline-step--active {
+    border-color: var(--primary-green);
+    background: rgba(47, 94, 47, 0.05);
+}
+
+.timeline-date {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-xs);
+}
+
+.timeline-description {
+    font-size: var(--font-size-sm);
+    color: var(--dark-gray);
+}
+
+/* Советы */
+.tips-section h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-md);
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.tip-card {
+    background: var(--white);
+    border: 1px solid #dee2e6;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+    transition: var(--transition-base);
+}
+
+.tip-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-green);
+}
+
+.tip-card h5 {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--spacing-xs);
+}
+
+.tip-card p {
+    color: var(--dark-gray);
+    font-size: var(--font-size-sm);
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .overview-content,
+    .date-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .step-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .features-grid,
+    .transport-grid,
+    .additional-grid,
+    .reason-cards,
+    .timeline-steps,
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .overview-icon,
+    .date-icon {
+        font-size: var(--font-size-xl);
+    }
+}
