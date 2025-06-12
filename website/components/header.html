@@ -1,0 +1,129 @@
+<!-- ===== ЕДИНЫЙ ШАБЛОН ШАПКИ ===== -->
+<header class="header">
+  <!-- Верхняя панель с контактами -->
+  <div class="header__top">
+    <div class="container">
+      <div class="header__top-content">
+        <div class="header__contacts">
+          <a href="tel:+74999762490">📞 +7 (499) 976-24-90</a>
+          <a href="mailto:info@timacad.ru">✉️ info@timacad.ru</a>
+        </div>
+        <div class="header__social">
+          <a href="https://vk.com/timacad" target="_blank" rel="noopener">ВК</a>
+          <a href="https://t.me/timacad" target="_blank" rel="noopener">TG</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Основная шапка -->
+  <div class="header__main">
+    <div class="container">
+      <div class="header__content">
+        <!-- Логотип -->
+        <a href="./" class="header__logo">
+          <div class="header__logo-image">🎓</div>
+          <div class="header__logo-text">
+            <div>Гайд абитуриента</div>
+            <small>РГАУ-МСХА</small>
+          </div>
+        </a>
+
+        <!-- Навигация -->
+        <nav class="header__nav nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="./pages/applicant-path/" class="nav__link">Поступление</a>
+              <div class="nav__dropdown">
+                <ul class="nav__dropdown-list">
+                  <li><a href="./pages/applicant-path/documents.html" class="nav__dropdown-link">Подача документов</a></li>
+                  <li><a href="./pages/applicant-path/selection.html" class="nav__dropdown-link">Конкурсный отбор</a></li>
+                  <li><a href="./pages/applicant-path/enrollment.html" class="nav__dropdown-link">Зачисление</a></li>
+                  <li><a href="./pages/applicant-path/settlement.html" class="nav__dropdown-link">Заселение</a></li>
+                  <li><a href="./pages/applicant-path/adaptation.html" class="nav__dropdown-link">Адаптация</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a href="./pages/university-life/" class="nav__link">Жизнь в вузе</a>
+              <div class="nav__dropdown">
+                <ul class="nav__dropdown-list">
+                  <li><a href="./pages/university-life/dormitory.html" class="nav__dropdown-link">Общежитие</a></li>
+                  <li><a href="./pages/university-life/infrastructure.html" class="nav__dropdown-link">Инфраструктура</a></li>
+                  <li><a href="./pages/university-life/academic-process.html" class="nav__dropdown-link">Учебный процесс</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a href="./pages/scholarships/" class="nav__link">Льготы</a>
+              <div class="nav__dropdown">
+                <ul class="nav__dropdown-list">
+                  <li><a href="./pages/scholarships/standard.html" class="nav__dropdown-link">Стандартная стипендия</a></li>
+                  <li><a href="./pages/scholarships/increased.html" class="nav__dropdown-link">Повышенная стипендия</a></li>
+                  <li><a href="./pages/scholarships/moscow-card.html" class="nav__dropdown-link">Карта москвича</a></li>
+                  <li><a href="./pages/scholarships/other-benefits.html" class="nav__dropdown-link">Прочие льготы</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a href="./pages/organizations/" class="nav__link">Организации</a>
+              <div class="nav__dropdown">
+                <ul class="nav__dropdown-list">
+                  <li><a href="./pages/organizations/it-tech/" class="nav__dropdown-link">IT и технологии</a></li>
+                  <li><a href="./pages/organizations/science/" class="nav__dropdown-link">Наука и образование</a></li>
+                  <li><a href="./pages/organizations/culture/" class="nav__dropdown-link">Творчество и культура</a></li>
+                  <li><a href="./pages/organizations/sports/" class="nav__dropdown-link">Спорт и здоровье</a></li>
+                  <li><a href="./pages/organizations/social/" class="nav__dropdown-link">Социальные проекты</a></li>
+                  <li><a href="./pages/organizations/entertainment/" class="nav__dropdown-link">Развлечения и досуг</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <a href="./pages/support/" class="nav__link">Поддержка</a>
+              <div class="nav__dropdown">
+                <ul class="nav__dropdown-list">
+                  <li><a href="./pages/support/faq.html" class="nav__dropdown-link">Часто задаваемые вопросы</a></li>
+                  <li><a href="./pages/support/contacts.html" class="nav__dropdown-link">Контакты авторов</a></li>
+                  <li><a href="./pages/support/additional.html" class="nav__dropdown-link">Дополнительные вопросы</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Поиск -->
+        <div class="header__search">
+          <input type="search" class="header__search-input search__input" placeholder="Поиск по сайту...">
+          <button type="button" class="header__search-btn search__button">🔍</button>
+        </div>
+
+        <!-- Мобильное меню -->
+        <button class="header__mobile-toggle">☰</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Мобильная навигация -->
+<div class="nav--mobile">
+  <div class="nav__mobile-content">
+    <button class="nav__mobile-close">&times;</button>
+    <ul class="nav__mobile-list">
+      <li class="nav__mobile-item">
+        <a href="./pages/applicant-path/" class="nav__mobile-link">Поступление</a>
+      </li>
+      <li class="nav__mobile-item">
+        <a href="./pages/university-life/" class="nav__mobile-link">Жизнь в вузе</a>
+      </li>
+      <li class="nav__mobile-item">
+        <a href="./pages/scholarships/" class="nav__mobile-link">Льготы</a>
+      </li>
+      <li class="nav__mobile-item">
+        <a href="./pages/organizations/" class="nav__mobile-link">Организации</a>
+      </li>
+      <li class="nav__mobile-item">
+        <a href="./pages/support/" class="nav__mobile-link">Поддержка</a>
+      </li>
+    </ul>
+  </div>
+</div>

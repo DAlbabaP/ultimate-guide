@@ -1,0 +1,697 @@
+/* ===== СПЕЦИФИЧНЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ ИНФРАСТРУКТУРЫ ===== */
+
+/* Hero Section */
+.infrastructure-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Main Overview */
+.main-overview {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+  background: linear-gradient(135deg, var(--card-background) 0%, #f0f8ff 100%);
+  padding: var(--spacing-xxl);
+  border-radius: var(--border-radius-lg);
+  margin: var(--spacing-xl) 0;
+  border: 1px solid var(--border-color);
+}
+
+.overview-icon {
+  font-size: 4rem;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.overview-content h2 {
+  margin: 0 0 var(--spacing-md) 0;
+  color: var(--primary-green);
+  font-size: var(--font-size-h2);
+}
+
+.overview-content p {
+  margin: 0 0 var(--spacing-md) 0;
+  color: var(--text-color);
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.quick-tip {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: var(--background-light);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  border-left: 3px solid var(--accent-blue);
+}
+
+.tip-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* Shopping Section */
+.shopping-section {
+  background: var(--background-light);
+}
+
+.shopping-locations {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-xl);
+  margin: var(--spacing-xl) 0;
+}
+
+.location-card {
+  background: var(--primary-white);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.location-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--primary-green);
+}
+
+.main-location {
+  border: 2px solid var(--primary-green);
+}
+
+.location-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.location-icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.location-info h3 {
+  margin: 0 0 var(--spacing-xs) 0;
+  color: var(--primary-green);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.location-address {
+  margin: 0 0 var(--spacing-xs) 0;
+  color: var(--text-muted);
+  font-size: var(--font-size-small);
+}
+
+.location-distance {
+  margin: 0;
+  color: var(--accent-blue);
+  font-size: var(--font-size-small);
+  font-weight: 600;
+}
+
+.location-features h4 {
+  margin: 0 0 var(--spacing-md) 0;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background: var(--background-light);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-small);
+}
+
+.feature-icon {
+  font-size: 1.1rem;
+}
+
+.stores-list h5 {
+  margin: 0 0 var(--spacing-sm) 0;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.store-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.store-tag {
+  background: var(--primary-green);
+  color: var(--primary-white);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.location-benefits {
+  margin-top: var(--spacing-md);
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-small);
+  color: var(--text-color);
+}
+
+.benefit-icon {
+  font-size: 1.1rem;
+  color: var(--success-color);
+}
+
+/* Budget Info */
+.budget-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--success-color);
+  margin: var(--spacing-xl) 0;
+}
+
+.budget-icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.budget-content h3 {
+  margin: 0 0 var(--spacing-sm) 0;
+  color: var(--success-color);
+  font-size: 1.3rem;
+}
+
+.budget-content p {
+  margin: 0;
+  color: #155724;
+  line-height: 1.5;
+}
+
+/* Delivery Section */
+.delivery-section {
+  background: var(--card-background);
+}
+
+.postal-warning {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--warning-color);
+  margin: var(--spacing-xl) 0;
+}
+
+.warning-icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.warning-content h3 {
+  margin: 0 0 var(--spacing-sm) 0;
+  color: #856404;
+  font-size: 1.2rem;
+}
+
+.warning-content p {
+  margin: 0;
+  color: #856404;
+  line-height: 1.5;
+}
+
+.delivery-points h3 {
+  color: var(--primary-green);
+  margin: 0 0 var(--spacing-xl) 0;
+  font-size: var(--font-size-h3);
+  text-align: center;
+}
+
+.points-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.point-card {
+  background: var(--primary-white);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.point-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-small);
+  border-color: var(--accent-blue);
+}
+
+.postal-card {
+  border-color: var(--warning-color);
+}
+
+.postal-card:hover {
+  border-color: var(--warning-color);
+  box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
+}
+
+.point-logo {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+.point-info h4 {
+  margin: 0 0 var(--spacing-sm) 0;
+  color: var(--primary-green);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.point-address {
+  margin: 0 0 var(--spacing-xs) 0;
+  color: var(--text-muted);
+  font-size: var(--font-size-small);
+  text-align: center;
+}
+
+.point-number {
+  margin: 0 0 var(--spacing-md) 0;
+  color: var(--text-color);
+  font-size: var(--font-size-small);
+  text-align: center;
+  font-weight: 500;
+}
+
+.point-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.point-link:hover {
+  color: var(--primary-green);
+  text-decoration: underline;
+}
+
+.link-icon {
+  font-size: 1rem;
+}
+
+/* Sports Section */
+.sports-section {
+  background: var(--background-light);
+}
+
+.sports-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+  background: var(--primary-white);
+  padding: var(--spacing-xxl);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.sports-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-large);
+  border-color: var(--primary-green);
+}
+
+.sports-icon {
+  font-size: 4rem;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sports-content h3 {
+  margin: 0 0 var(--spacing-sm) 0;
+  color: var(--primary-green);
+  font-size: var(--font-size-h3);
+}
+
+.sports-distance {
+  margin: 0 0 var(--spacing-lg) 0;
+  color: var(--accent-blue);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.pricing-info h4 {
+  margin: 0 0 var(--spacing-md) 0;
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.price-item {
+  background: var(--background-light);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  text-align: center;
+  border: 1px solid var(--border-color);
+}
+
+.price-label {
+  color: var(--text-muted);
+  font-size: var(--font-size-small);
+  margin-bottom: var(--spacing-xs);
+}
+
+.price-value {
+  color: var(--primary-green);
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.sports-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* Healthcare Section */
+.healthcare-section {
+  background: var(--card-background);
+}
+
+.healthcare-info {
+  text-align: center;
+  margin: var(--spacing-xl) 0;
+}
+
+.healthcare-description {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.clinics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-xl);
+  margin: var(--spacing-xl) 0;
+}
+
+.clinic-card {
+  background: var(--primary-white);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  border: 2px solid;
+  transition: all 0.3s ease;
+}
+
+.minor-clinic {
+  border-color: #17a2b8;
+}
+
+.minor-clinic:hover {
+  box-shadow: 0 10px 30px rgba(23, 162, 184, 0.2);
+  transform: translateY(-5px);
+}
+
+.adult-clinic {
+  border-color: var(--primary-green);
+}
+
+.adult-clinic:hover {
+  box-shadow: 0 10px 30px rgba(40, 167, 69, 0.2);
+  transform: translateY(-5px);
+}
+
+.clinic-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.clinic-icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.clinic-category h3 {
+  margin: 0 0 var(--spacing-xs) 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.minor-clinic .clinic-category h3 {
+  color: #17a2b8;
+}
+
+.adult-clinic .clinic-category h3 {
+  color: var(--primary-green);
+}
+
+.age-info {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--font-size-small);
+}
+
+.clinic-info h4 {
+  margin: 0 0 var(--spacing-sm) 0;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.clinic-address {
+  margin: 0 0 var(--spacing-md) 0;
+  color: var(--text-muted);
+  font-size: var(--font-size-small);
+}
+
+.clinic-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.clinic-link:hover {
+  color: var(--primary-green);
+  text-decoration: underline;
+}
+
+/* Tips Section */
+.tips-section {
+  background: var(--background-light);
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.tip-card {
+  background: var(--primary-white);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.tip-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-small);
+  border-color: var(--accent-blue);
+}
+
+.tip-card .tip-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+  display: block;
+}
+
+.tip-card h3 {
+  margin: 0 0 var(--spacing-md) 0;
+  color: var(--primary-green);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.tip-card p {
+  margin: 0;
+  color: var(--text-color);
+  line-height: 1.5;
+  font-size: var(--font-size-small);
+}
+
+/* Summary Section */
+.summary-section {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-blue) 100%);
+  color: var(--primary-white);
+}
+
+.summary-banner {
+  text-align: center;
+  padding: var(--spacing-xxl) 0;
+}
+
+.summary-content h2 {
+  margin: 0 0 var(--spacing-lg) 0;
+  font-size: var(--font-size-h2);
+  color: var(--primary-white);
+}
+
+.summary-content p {
+  margin: 0 0 var(--spacing-xl) 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.summary-stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xxl);
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--primary-white);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: var(--font-size-small);
+  opacity: 0.8;
+  margin-top: var(--spacing-xs);
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+
+@media (max-width: 768px) {
+  .main-overview,
+  .sports-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .overview-icon,
+  .sports-icon {
+    font-size: 3rem;
+  }
+  
+  .shopping-locations {
+    grid-template-columns: 1fr;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .points-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .clinics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tips-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+  .summary-stats {
+    gap: var(--spacing-lg);
+  }
+  
+  .postal-warning,
+  .budget-info {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .location-card,
+  .sports-card {
+    padding: var(--spacing-lg);
+  }
+  
+  .clinic-card {
+    padding: var(--spacing-lg);
+  }
+  
+  .clinic-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .main-overview {
+    padding: var(--spacing-lg);
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+}

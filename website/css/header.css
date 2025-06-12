@@ -1,0 +1,146 @@
+/* ===== СТИЛИ ДЛЯ ШАПКИ САЙТА ===== */
+
+.header {
+  background-color: var(--primary-green);
+  color: var(--primary-white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-medium);
+}
+
+.header__top {
+  background-color: var(--primary-dark-gray);
+  padding: var(--spacing-xs) 0;
+  font-size: var(--font-size-small);
+}
+
+.header__top-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__contacts {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.header__contacts a {
+  color: var(--primary-white);
+  text-decoration: none;
+}
+
+.header__contacts a:hover {
+  text-decoration: underline;
+}
+
+.header__main {
+  padding: var(--spacing-sm) 0;
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--primary-white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.header__logo:hover {
+  text-decoration: none;
+}
+
+.header__logo-image {
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-white);
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--primary-green);
+}
+
+.header__nav {
+  flex: 1;
+  margin: 0 var(--spacing-lg);
+}
+
+.header__search {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.header__search-input {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-body);
+  min-width: 200px;
+}
+
+.header__search-btn {
+  background-color: var(--accent-blue);
+  color: var(--primary-white);
+  border: none;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.header__search-btn:hover {
+  background-color: #1a4f95;
+}
+
+/* Мобильное меню */
+.header__mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--primary-white);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .header__top {
+    display: none;
+  }
+  
+  .header__content {
+    flex-wrap: wrap;
+  }
+  
+  .header__logo {
+    font-size: 1rem;
+  }
+  
+  .header__search {
+    order: 3;
+    width: 100%;
+    margin-top: var(--spacing-sm);
+  }
+  
+  .header__search-input {
+    flex: 1;
+    min-width: auto;
+  }
+  
+  .header__mobile-toggle {
+    display: block;
+  }
+}
