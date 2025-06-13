@@ -13,28 +13,11 @@
     <link rel="stylesheet" href="../../../css/responsive.css">
 </head>
 <body>
-    <div class="page-container">
-        <!-- Header -->
-        <header class="header" id="header"></header>
+    <!-- Header -->
+    <header id="header"></header>
 
-        <!-- Navigation -->
-        <nav class="navigation" id="navigation"></nav>
-
-        <!-- Main Content -->
+    <div class="page-container">        <!-- Main Content -->
         <main class="main-content">
-            <!-- Breadcrumbs -->
-            <section class="breadcrumb-section">
-                <div class="container">
-                    <div class="breadcrumb">
-                        <a href="../../../index.html">Главная</a>
-                        <span class="breadcrumb-separator">→</span>
-                        <a href="../index.html">Студенческое самоуправление</a>
-                        <span class="breadcrumb-separator">→</span>
-                        <span class="breadcrumb-current">Кто такой староста</span>
-                    </div>
-                </div>
-            </section>
-
             <!-- Page Hero -->
             <section class="page-hero leader-requirements-hero">
                 <div class="container">
@@ -332,17 +315,13 @@
 
         <!-- Footer -->
         <footer class="footer" id="footer"></footer>
-    </div>
-
-    <!-- Scripts -->
+    </div>    <!-- Scripts -->
+    <script src="../../../js/utils.js"></script>
+    <script src="../../../js/navigation.js"></script>
     <script src="../../../js/main.js"></script>
     <script>
         // Load components
         document.addEventListener('DOMContentLoaded', function() {
-            loadComponent('header', '../../../components/header.html');
-            loadComponent('navigation', '../../../components/nav.html');
-            loadComponent('footer', '../../../components/footer.html');
-            
             // Initialize assessment
             initializeAssessment();
         });
@@ -390,8 +369,15 @@
                         <p>${recommendation}</p>
                     </div>
                 `;
-            }
-        }
+            }        }
     </script>
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+
+    <!-- JavaScript files -->
+    <script src="../../../js/utils.js"></script>
+    <script src="../../../js/navigation.js"></script>
+    <script src="../../../js/main.js"></script>
 </body>
 </html>

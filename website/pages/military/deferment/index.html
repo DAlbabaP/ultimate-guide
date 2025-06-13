@@ -2,25 +2,19 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Отсрочка от армии - Справочник абитуриента РГАУ-МСХА</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Отсрочка от армии - Справочник абитуриента РГАУ-МСХА</title>
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <link rel="stylesheet" href="../../../css/header.css">
+    <link rel="stylesheet" href="../../../css/footer.css">
+    <link rel="stylesheet" href="../../../css/navigation.css">
     <link rel="stylesheet" href="../../../css/pages.css">
     <link rel="stylesheet" href="../../../css/deferment.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <!-- Хлебные крошки -->
-    <nav class="breadcrumbs">
-        <div class="container">
-            <a href="../../../index.html">Главная</a>
-            <span class="separator">→</span>
-            <a href="../index.html">Военная подготовка</a>
-            <span class="separator">→</span>
-            <span class="current">Отсрочка от армии</span>
-        </div>
-    </nav>
+<body>    <!-- Header -->
+    <header id="header"></header>
 
     <!-- Hero секция -->
     <section class="deferment-hero">
@@ -317,6 +311,14 @@
         </div>
     </section>
 
+
+
+    <script src="../../../js/main.js"></script>   
+    <script src="../../../js/search.js"></script>
+    <script src="../../../js/animations.js"></script>
+    <script src="../../../js/timeline.js"></script>
+    <script src="../../../js/main.js"></script>
+
     <script>
         // FAQ Toggle
         document.querySelectorAll('.faq-question').forEach(question => {
@@ -371,8 +373,15 @@
         }, observerOptions);
 
         document.querySelectorAll('.info-card, .document-card, .timeline-card, .important-card').forEach(el => {
-            observer.observe(el);
-        });
+            observer.observe(el);        });
     </script>
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+
+    <!-- JavaScript files -->
+    <script src="../../../js/utils.js"></script>
+    <script src="../../../js/navigation.js"></script>
+    <script src="../../../js/main.js"></script>
 </body>
 </html>

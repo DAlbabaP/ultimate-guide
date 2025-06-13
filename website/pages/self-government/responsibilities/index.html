@@ -13,27 +13,10 @@
     <link rel="stylesheet" href="../../../css/responsive.css">
 </head>
 <body>
-    <div class="page-container">
-        <!-- Header -->
-        <header class="header" id="header"></header>
-
-        <!-- Navigation -->
-        <nav class="navigation" id="navigation"></nav>
-
+    <!-- Header -->
+    <header id="header"></header>    <div class="page-container">
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Breadcrumbs -->
-            <section class="breadcrumb-section">
-                <div class="container">
-                    <div class="breadcrumb">
-                        <a href="../../../index.html">Главная</a>
-                        <span class="breadcrumb-separator">→</span>
-                        <a href="../index.html">Студенческое самоуправление</a>
-                        <span class="breadcrumb-separator">→</span>
-                        <span class="breadcrumb-current">Что делают старосты</span>
-                    </div>
-                </div>
-            </section>
 
             <!-- Page Hero -->
             <section class="page-hero responsibilities-hero">
@@ -410,21 +393,13 @@
                     </div>
                 </div>
             </section>
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer" id="footer"></footer>
+        </main>        <!-- Footer -->
+        <footer id="footer"></footer>
     </div>
 
     <!-- Scripts -->
+    <script src="../../../js/utils.js"></script>
+    <script src="../../../js/navigation.js"></script>
     <script src="../../../js/main.js"></script>
-    <script>
-        // Load components
-        document.addEventListener('DOMContentLoaded', function() {
-            loadComponent('header', '../../../components/header.html');
-            loadComponent('navigation', '../../../components/nav.html');
-            loadComponent('footer', '../../../components/footer.html');
-        });
-    </script>
 </body>
 </html>

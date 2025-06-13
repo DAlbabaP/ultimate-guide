@@ -15,13 +15,9 @@
     <link rel="stylesheet" href="../../../css/enrollment.css">
     <link rel="stylesheet" href="../../../css/responsive.css">
 </head>
-<body>
-    <div class="page-container">
+<body>    <div class="page-container">
         <!-- Header -->
-        <header class="header" id="header"></header>
-
-        <!-- Navigation -->
-        <nav class="navigation" id="navigation"></nav>
+        <header id="header"></header>
 
         <!-- Main Content -->
         <main class="main-content">
@@ -306,17 +302,12 @@
 
         <!-- Footer -->
         <footer class="footer" id="footer"></footer>
-    </div>
+    </div>    <!-- Footer -->
+    <footer id="footer"></footer>
 
-    <!-- Scripts -->
+    <!-- JavaScript files -->
+    <script src="../../../js/utils.js"></script>
+    <script src="../../../js/navigation.js"></script>
     <script src="../../../js/main.js"></script>
-    <script>
-        // Load components
-        document.addEventListener('DOMContentLoaded', function() {
-            loadComponent('header', '../../../components/header.html');
-            loadComponent('navigation', '../../../components/nav.html');
-            loadComponent('footer', '../../../components/footer.html');
-        });
-    </script>
 </body>
 </html>

@@ -25,17 +25,25 @@ const App = {
     } else {
       this.start();
     }
-  },
-  // Запуск всех компонентов
+  },  // Запуск всех компонентов
   async start() {
     // Определяем базовый путь для загрузки компонентов
     const currentPath = window.location.pathname;
     let basePath = '';
     
     if (currentPath.includes('/pages/')) {
-      const depth = (currentPath.match(/\//g) || []).length;
-      basePath = '../'.repeat(Math.max(0, depth - 1));
+      // Считаем количество уровней от папки pages
+      const pathParts = currentPath.split('/').filter(part => part && part !== 'index.html');
+      const pagesIndex = pathParts.findIndex(part => part === 'pages');
+      
+      if (pagesIndex >= 0) {
+        const levelsFromPages = pathParts.length - pagesIndex - 1;
+        basePath = '../'.repeat(levelsFromPages + 1);
+      }
     }
+    
+    console.log('Current path:', currentPath);
+    console.log('Base path:', basePath);
     
     // Загружаем компоненты
     await Utils.loadAllComponents(basePath);
