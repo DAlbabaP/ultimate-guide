@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../../css/timeline.css">
     <link rel="stylesheet" href="../../css/pages.css">
     <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/header-search.css">
 </head>
 <body>
     <!-- Header -->
@@ -313,14 +314,11 @@
                 </div>
             </div>
         </section>
-    </main>
-
-    <!-- Footer -->
+    </main>    <!-- Footer -->
     <footer id="footer"></footer>
 
     <!-- JavaScript files -->
     <script src="../../js/utils.js"></script>
-    <script src="../../js/search.js"></script>
     <script src="../../js/navigation.js"></script>
     <script src="../../js/animations.js"></script>
     <script src="../../js/timeline.js"></script>
@@ -340,8 +338,7 @@
                     item.querySelector('.faq-answer').style.maxHeight = null;
                 }
             });
-            
-            // Toggle current FAQ
+              // Toggle current FAQ
             faqItem.classList.toggle('open');
             
             if (faqItem.classList.contains('open')) {
@@ -349,7 +346,11 @@
             } else {
                 answer.style.maxHeight = null;
             }        }
-    </script>
+    </script>    <!-- Scripts -->
+    <script src="../../js/utils.js"></script>
+    <script src="../../js/search-modal.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/main.js"></script>
 
     <!-- Footer -->
     <footer id="footer"></footer>

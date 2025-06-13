@@ -98,12 +98,15 @@
               </div>
             </li>
           </ul>
-        </nav>
-
-        <!-- Поиск -->
+        </nav>        <!-- Поиск -->
         <div class="header__search">
-          <input type="search" class="header__search-input search__input" placeholder="Поиск по сайту...">
-          <button type="button" class="header__search-btn search__button">🔍</button>
+          <input type="search" class="header__search-input" placeholder="Поиск по сайту..." autocomplete="off">
+          <button type="button" class="header__search-btn">🔍</button>
+          
+          <!-- Dropdown результаты -->
+          <div class="search__dropdown" id="searchDropdown">
+            <!-- Результаты будут загружены сюда через JS -->
+          </div>
         </div>
 
         <!-- Мобильное меню -->
@@ -135,6 +138,5 @@
       <li class="nav__mobile-item">
         <a href="./pages/support/" class="nav__mobile-link">Поддержка</a>
       </li>
-    </ul>
-  </div>
+    </ul>  </div>
 </div>
