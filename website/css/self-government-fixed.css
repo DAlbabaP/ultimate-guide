@@ -1,0 +1,513 @@
+/* ===== СПЕЦИФИЧНЫЕ СТИЛИ ДЛЯ РАЗДЕЛА "СТУДЕНЧЕСКОЕ САМОУПРАВЛЕНИЕ" ===== */
+
+/* Цветовая схема */
+:root {
+    --primary-green: #2F5E2F;
+    --accent-blue: #1E5AA8;
+    --secondary-blue: #4A90E2;
+    --primary-white: #FFFFFF;
+    --background-light: #F8F9FA;
+    --text-color: #333333;
+    --text-secondary: #666666;
+    --border-color: #E5E7EB;
+    --success-color: #10B981;
+    --warning-color: #F59E0B;
+    --danger-color: #EF4444;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    background: #F5F5F5;
+    padding: 12px 0;
+}
+
+.breadcrumbs .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.breadcrumbs a {
+    color: #1E5AA8;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.separator {
+    margin: 0 8px;
+    color: #666;
+}
+
+.current {
+    color: #666;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.self-government-hero {
+    background: linear-gradient(135deg, #2F5E2F 0%, #1E5AA8 100%);
+    color: #FFFFFF;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin: 0 auto 40px;
+    opacity: 0.95;
+    max-width: 800px;
+    color: #FFFFFF;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.stat-item {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 24px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    min-width: 120px;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #FFFFFF;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    color: #FFFFFF;
+}
+
+/* Overview Section */
+.overview-section {
+    background: #F8F9FA;
+    padding: 80px 0;
+}
+
+.overview-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 40px 0;
+    border: 1px solid #E5E7EB;
+}
+
+.overview-header h2 {
+    color: #2F5E2F;
+    margin-bottom: 24px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.overview-content p {
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    font-size: 1rem;
+}
+
+/* Team Structure Section */
+.structure-section {
+    background: #FFFFFF;
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    color: #2F5E2F;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    font-weight: 600;
+}
+
+.structure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.structure-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border: 1px solid #E5E7EB;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.structure-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.structure-card h3 {
+    color: #2F5E2F;
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.structure-card p {
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2F5E2F, #1E5AA8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #FFFFFF;
+}
+
+/* Benefits Section */
+.benefits-section {
+    background: #F8F9FA;
+    padding: 80px 0;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.benefit-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    border: 1px solid #E5E7EB;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-3px);
+}
+
+.benefit-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #10B981, #2F5E2F);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.benefit-card h3 {
+    color: #2F5E2F;
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.benefit-card p {
+    color: #666666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Duties Section */
+.duties-section {
+    background: #FFFFFF;
+    padding: 80px 0;
+}
+
+.duties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.duty-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-left: 4px solid #1E5AA8;
+    border-top: 1px solid #E5E7EB;
+    border-right: 1px solid #E5E7EB;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.duty-card h3 {
+    color: #2F5E2F;
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.duty-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.duty-card li {
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    padding-left: 24px;
+    position: relative;
+}
+
+.duty-card li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #10B981;
+    font-weight: bold;
+}
+
+/* Warning Section */
+.warning-section {
+    background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+    padding: 60px 0;
+    margin: 40px 0;
+    border-radius: 16px;
+}
+
+.warning-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-left: 6px solid #F59E0B;
+}
+
+.warning-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.warning-icon {
+    width: 40px;
+    height: 40px;
+    background: #F59E0B;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    color: #FFFFFF;
+    font-size: 18px;
+}
+
+.warning-header h3 {
+    color: #92400E;
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.warning-content p {
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, #2F5E2F 0%, #1E5AA8 100%);
+    padding: 80px 0;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #FFFFFF;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background: #FFFFFF;
+    color: #2F5E2F;
+    padding: 16px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid #FFFFFF;
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #FFFFFF;
+    padding: 16px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 2px solid #FFFFFF;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: #FFFFFF;
+    color: #2F5E2F;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-stats {
+        gap: 20px;
+    }
+    
+    .stat-item {
+        min-width: 100px;
+        padding: 16px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .structure-grid,
+    .benefits-grid,
+    .duties-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .overview-card,
+    .structure-card,
+    .benefit-card,
+    .duty-card {
+        padding: 20px;
+    }
+    
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .overview-card {
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .warning-card {
+        padding: 20px;
+    }
+    
+    .warning-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .warning-icon {
+        margin: 0 0 16px 0;
+    }
+}

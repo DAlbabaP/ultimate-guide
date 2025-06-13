@@ -1,0 +1,504 @@
+/* VUC (Military Department) Styles */
+
+/* Hero Section */
+.vuc-hero {
+    background: linear-gradient(135deg, #2F5E2F 0%, #1E5AA8 100%);
+    color: white;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.vuc-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10,10 L90,10 L90,90 L10,90 Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>') repeat;
+    opacity: 0.3;
+}
+
+.vuc-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Overview Section */
+.vuc-overview {
+    background: #F5F5F5;
+    padding: 60px 0;
+}
+
+.overview-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.overview-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #2F5E2F, #1E5AA8);
+    border-radius: 12px;
+    color: white;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Selection Process Timeline */
+.selection-timeline {
+    position: relative;
+    padding: 40px 0;
+}
+
+.selection-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, #2F5E2F, #1E5AA8);
+    transform: translateX(-50%);
+}
+
+.timeline-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.timeline-step:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-step:nth-child(even) .step-content {
+    text-align: right;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2F5E2F, #1E5AA8);
+    border: 4px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.step-content {
+    flex: 1;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    margin: 0 40px;
+    max-width: 400px;
+}
+
+.timeline-step:nth-child(odd) .step-content {
+    margin-left: calc(50% + 40px);
+}
+
+.timeline-step:nth-child(even) .step-content {
+    margin-right: calc(50% + 40px);
+}
+
+.step-title {
+    color: #2F5E2F;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.step-description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.step-details {
+    background: #F5F5F5;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Physical Standards */
+.standards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.standard-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-top: 4px solid #2F5E2F;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.standard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.standard-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.standard-title {
+    color: #2F5E2F;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.standard-requirements {
+    margin-top: 20px;
+}
+
+.requirement-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.requirement-item:last-child {
+    border-bottom: none;
+}
+
+.requirement-grade {
+    background: #1E5AA8;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Scoring System */
+.scoring-system {
+    background: linear-gradient(135deg, #F5F5F5, #E8F4E8);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 40px 0;
+}
+
+.scoring-breakdown {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.score-category {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.score-value {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #2F5E2F;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.score-label {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.score-details {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Benefits Grid */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.benefit-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    border-color: #2F5E2F;
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.benefit-title {
+    color: #2F5E2F;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.benefit-description {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Tips Section */
+.tips-container {
+    background: #F5F5F5;
+    border-radius: 20px;
+    padding: 40px;
+    margin: 40px 0;
+}
+
+.tips-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.tip-item {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    border-left: 4px solid #1E5AA8;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+.tip-title {
+    color: #1E5AA8;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tip-icon {
+    font-size: 1.2rem;
+}
+
+.tip-description {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Important Alert */
+.vuc-alert {
+    background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+    color: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 40px 0;
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+}
+
+.alert-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.alert-icon {
+    font-size: 2rem;
+}
+
+.alert-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.alert-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.alert-highlight {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .vuc-hero {
+        padding: 60px 0;
+    }
+    
+    .overview-stats {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+    }
+    
+    .selection-timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-step {
+        flex-direction: row !important;
+    }
+    
+    .timeline-step:nth-child(even) .step-content {
+        text-align: left;
+    }
+    
+    .step-number {
+        left: 30px;
+        transform: none;
+    }
+    
+    .step-content {
+        margin-left: 80px !important;
+        margin-right: 0 !important;
+        max-width: none;
+    }
+    
+    .scoring-breakdown {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .standards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tips-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .overview-card {
+        padding: 25px;
+    }
+    
+    .scoring-system {
+        padding: 25px;
+    }
+    
+    .tips-container {
+        padding: 25px;
+    }
+    
+    .vuc-alert {
+        padding: 20px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+
+/* Animations */
+@keyframes militaryMarch {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.benefit-card:hover {
+    animation: militaryMarch 0.5s ease-in-out;
+}
+
+.standard-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.timeline-step {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+    .overview-card,
+    .standard-card,
+    .benefit-card,
+    .tip-item,
+    .step-content,
+    .score-category {
+        background: #1a1a1a;
+        color: #e0e0e0;
+    }
+    
+    .step-description,
+    .benefit-description,
+    .tip-description {
+        color: #b0b0b0;
+    }
+}

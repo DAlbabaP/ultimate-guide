@@ -1,0 +1,737 @@
+/* Enhanced Scholarship Styles - Повышенная стипендия */
+
+/* CSS Variables для согласованности с общей темой */
+:root {
+    --enhanced-primary: var(--color-primary);      /* #2F5E2F */
+    --enhanced-secondary: var(--color-secondary);  /* #1E5AA8 */
+    --enhanced-white: var(--color-white);          /* #FFFFFF */
+    --enhanced-light: var(--color-light);          /* #F5F5F5 */
+    --enhanced-text: var(--color-text-dark);       /* #333333 */
+    
+    /* Специальные цвета для повышенной стипендии */
+    --enhanced-gold: #FFD700;
+    --enhanced-platinum: #E5E4E2;
+    --enhanced-silver: #C0C0C0;
+    --enhanced-bronze: #CD7F32;
+    --enhanced-gradient-1: linear-gradient(135deg, var(--enhanced-primary), var(--enhanced-secondary));
+    --enhanced-gradient-2: linear-gradient(135deg, var(--enhanced-gold), #FFA500);
+    --enhanced-gradient-3: linear-gradient(135deg, var(--enhanced-platinum), #B8B8B8);
+    
+    /* Анимации */
+    --enhanced-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --enhanced-shadow: 0 4px 15px rgba(47, 94, 47, 0.1);
+    --enhanced-shadow-hover: 0 8px 30px rgba(47, 94, 47, 0.15);
+}
+
+/* Page Hero Section */
+.enhanced-hero {
+    background: var(--enhanced-gradient-1);
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 0;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+}
+
+.enhanced-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(30, 90, 168, 0.1) 0%, transparent 50%);
+    animation: enhancedFloat 6s ease-in-out infinite;
+}
+
+.enhanced-hero .page-title {
+    color: var(--enhanced-white);
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: enhancedTitleGlow 3s ease-in-out infinite alternate;
+}
+
+.enhanced-hero .page-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.3rem;
+    margin-bottom: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Анимации */
+@keyframes enhancedFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes enhancedTitleGlow {
+    0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.3); }
+    100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 215, 0, 0.5); }
+}
+
+@keyframes enhancedPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+@keyframes enhancedBounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+@keyframes enhancedSparkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    25% { transform: scale(1.1) rotate(90deg); opacity: 0.8; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 0.6; }
+    75% { transform: scale(1.1) rotate(270deg); opacity: 0.8; }
+}
+
+@keyframes enhancedShine {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Scholarship Overview */
+.scholarship-overview {
+    background: var(--enhanced-white);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: var(--enhanced-shadow);
+    margin-bottom: 3rem;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    overflow: hidden;
+    transition: var(--enhanced-transition);
+}
+
+.scholarship-overview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--enhanced-gradient-2);
+    opacity: 0.03;
+    border-radius: 18px;
+    transition: var(--enhanced-transition);
+}
+
+.scholarship-overview:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--enhanced-shadow-hover);
+}
+
+.scholarship-overview:hover::before {
+    opacity: 0.08;
+}
+
+.scholarship-overview {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.scholarship-overview .overview-icon {
+    font-size: 4rem;
+    animation: enhancedSparkle 4s ease-in-out infinite;
+    filter: drop-shadow(2px 2px 4px rgba(255, 215, 0, 0.3));
+}
+
+.scholarship-overview .overview-content h2 {
+    color: var(--enhanced-primary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.scholarship-overview .overview-content p {
+    color: var(--enhanced-text);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Enhanced Info */
+.enhanced-info {
+    background: var(--enhanced-gradient-2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: var(--enhanced-transition);
+}
+
+.enhanced-info::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: enhancedShine 3s linear infinite;
+}
+
+.enhanced-info:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+.enhanced-info .info-icon {
+    font-size: 3.5rem;
+    animation: enhancedBounce 2s ease-in-out infinite;
+}
+
+.enhanced-info .info-content {
+    flex: 1;
+}
+
+.enhanced-info .info-content h3 {
+    color: var(--enhanced-white);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.enhanced-info .info-content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.enhanced-info .info-amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--enhanced-white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: enhancedPulse 2s ease-in-out infinite;
+}
+
+/* Points System */
+.points-section {
+    background: linear-gradient(135deg, #f8fffe 0%, #f0f9ff 100%);
+    padding: 4rem 0;
+    margin: 3rem 0;
+}
+
+.points-system {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.points-card {
+    background: var(--enhanced-white);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--enhanced-shadow);
+    transition: var(--enhanced-transition);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.points-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    transition: var(--enhanced-transition);
+}
+
+.clubs-card::before { background: var(--enhanced-gradient-1); }
+.sports-card::before { background: linear-gradient(135deg, #FF6B6B, #FF8E53); }
+.research-card::before { background: linear-gradient(135deg, #4ECDC4, #44A08D); }
+.events-card::before { background: linear-gradient(135deg, #A8E6CF, #88D8A3); }
+
+.points-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--enhanced-shadow-hover);
+}
+
+.points-card:hover::before {
+    height: 6px;
+}
+
+.points-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.points-header .points-icon {
+    font-size: 2.5rem;
+    animation: enhancedBounce 3s ease-in-out infinite;
+}
+
+.points-header h3 {
+    color: var(--enhanced-primary);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.points-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.points-list li {
+    padding: 0.5rem 0;
+    color: var(--enhanced-text);
+    position: relative;
+    padding-left: 1.5rem;
+    transition: var(--enhanced-transition);
+}
+
+.points-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--enhanced-primary);
+    font-weight: bold;
+    transition: var(--enhanced-transition);
+}
+
+.points-list li:hover {
+    color: var(--enhanced-primary);
+    transform: translateX(5px);
+}
+
+.points-list li:hover::before {
+    animation: enhancedSparkle 0.5s ease-in-out;
+}
+
+.points-badge {
+    background: var(--enhanced-gradient-1);
+    color: var(--enhanced-white);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(47, 94, 47, 0.2);
+}
+
+/* Competition Timeline */
+.competition-section {
+    padding: 4rem 0;
+    background: var(--enhanced-white);
+}
+
+.competition-timeline {
+    position: relative;
+    margin-top: 3rem;
+}
+
+.competition-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--enhanced-gradient-1);
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.competition-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.competition-step:nth-child(odd) {
+    flex-direction: row;
+}
+
+.competition-step:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--enhanced-gradient-2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--enhanced-white);
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    animation: enhancedPulse 3s ease-in-out infinite;
+}
+
+.step-content {
+    flex: 1;
+    max-width: 45%;
+    background: var(--enhanced-white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--enhanced-shadow);
+    margin: 0 2rem;
+    transition: var(--enhanced-transition);
+    border: 2px solid transparent;
+}
+
+.step-content:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--enhanced-shadow-hover);
+    border-color: var(--enhanced-primary);
+}
+
+.step-content h3 {
+    color: var(--enhanced-primary);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.step-content p {
+    color: var(--enhanced-text);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.step-timing {
+    background: var(--enhanced-light);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: var(--enhanced-primary);
+    font-weight: 500;
+    display: inline-block;
+}
+
+/* Payment Levels */
+.levels-section {
+    background: linear-gradient(135deg, #f8fffe 0%, #f0f9ff 100%);
+    padding: 4rem 0;
+}
+
+.levels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.level-card {
+    background: var(--enhanced-white);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: var(--enhanced-shadow);
+    transition: var(--enhanced-transition);
+    position: relative;
+    overflow: hidden;
+    border: 3px solid transparent;
+}
+
+.platinum-level {
+    background: linear-gradient(135deg, var(--enhanced-platinum), #F8F8FF);
+    border-color: var(--enhanced-platinum);
+}
+
+.gold-level {
+    background: linear-gradient(135deg, var(--enhanced-gold), #FFF8DC);
+    border-color: var(--enhanced-gold);
+}
+
+.silver-level {
+    background: linear-gradient(135deg, var(--enhanced-silver), #F5F5F5);
+    border-color: var(--enhanced-silver);
+}
+
+.level-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--enhanced-shadow-hover);
+}
+
+.level-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: rotate(45deg);
+    animation: enhancedShine 4s linear infinite;
+}
+
+.level-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.level-icon {
+    font-size: 3rem;
+    animation: enhancedSparkle 5s ease-in-out infinite;
+}
+
+.level-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--enhanced-text);
+}
+
+.level-amount {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--enhanced-primary);
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.level-criteria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.level-criteria span {
+    background: var(--enhanced-primary);
+    color: var(--enhanced-white);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Tips Section */
+.tips-section {
+    padding: 4rem 0;
+    background: var(--enhanced-white);
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.tip-card {
+    background: var(--enhanced-light);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: var(--enhanced-transition);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.tip-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--enhanced-gradient-1);
+    opacity: 0;
+    transition: var(--enhanced-transition);
+    border-radius: 13px;
+}
+
+.tip-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--enhanced-primary);
+    color: var(--enhanced-white);
+}
+
+.tip-card:hover::before {
+    opacity: 1;
+}
+
+.tip-card:hover .tip-icon,
+.tip-card:hover h3,
+.tip-card:hover p {
+    position: relative;
+    z-index: 2;
+    color: var(--enhanced-white);
+}
+
+.tip-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: enhancedBounce 4s ease-in-out infinite;
+}
+
+.tip-card h3 {
+    color: var(--enhanced-primary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    transition: var(--enhanced-transition);
+}
+
+.tip-card p {
+    color: var(--enhanced-text);
+    line-height: 1.5;
+    margin: 0;
+    transition: var(--enhanced-transition);
+}
+
+/* Important Section */
+.important-section {
+    background: linear-gradient(135deg, #FFF8E1 0%, #F3E5AB 100%);
+    padding: 3rem 0;
+    margin: 3rem 0;
+}
+
+.important-warning {
+    background: var(--enhanced-white);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: var(--enhanced-shadow);
+    border-left: 6px solid var(--enhanced-secondary);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.important-warning::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(30, 90, 168, 0.03), transparent);
+    animation: enhancedShine 5s linear infinite;
+}
+
+.important-warning .warning-icon {
+    font-size: 3rem;
+    color: var(--enhanced-secondary);
+    animation: enhancedPulse 2s ease-in-out infinite;
+}
+
+.important-warning .warning-content h2 {
+    color: var(--enhanced-secondary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.important-warning .warning-content p {
+    color: var(--enhanced-text);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .enhanced-hero .page-title {
+        font-size: 2.5rem;
+    }
+    
+    .enhanced-hero .page-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .scholarship-overview,
+    .enhanced-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .points-system {
+        grid-template-columns: 1fr;
+    }
+    
+    .competition-timeline::before {
+        left: 30px;
+    }
+    
+    .competition-step {
+        flex-direction: row !important;
+        align-items: flex-start;
+    }
+    
+    .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        margin-right: 1.5rem;
+    }
+    
+    .step-content {
+        max-width: none;
+        margin: 0;
+    }
+    
+    .levels-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tips-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    .important-warning {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .enhanced-hero {
+        padding: 2rem 0;
+        min-height: 300px;
+    }
+    
+    .enhanced-hero .page-title {
+        font-size: 2rem;
+    }
+    
+    .scholarship-overview,
+    .enhanced-info,
+    .points-card,
+    .level-card,
+    .important-warning {
+        padding: 1.5rem;
+    }
+    
+    .level-amount {
+        font-size: 1.8rem;
+    }
+    
+    .enhanced-info .info-amount {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,867 @@
+/* Moscow Card Styles - Карта москвича */
+
+/* CSS Variables для согласованности с общей темой */
+:root {
+    --moscow-primary: var(--color-primary);        /* #2F5E2F */
+    --moscow-secondary: var(--color-secondary);    /* #1E5AA8 */
+    --moscow-white: var(--color-white);            /* #FFFFFF */
+    --moscow-light: var(--color-light);            /* #F5F5F5 */
+    --moscow-text: var(--color-text-dark);         /* #333333 */
+    
+    /* Специальные цвета для карты москвича */
+    --moscow-red: #DC143C;
+    --moscow-blue: #4169E1;
+    --moscow-metro: #0077BE;
+    --moscow-transport: #FF6347;
+    --moscow-discount: #32CD32;
+    
+    /* Градиенты */
+    --moscow-gradient-1: linear-gradient(135deg, var(--moscow-red), var(--moscow-blue));
+    --moscow-gradient-2: linear-gradient(135deg, var(--moscow-metro), var(--moscow-secondary));
+    --moscow-gradient-3: linear-gradient(135deg, var(--moscow-primary), var(--moscow-discount));
+    
+    /* Анимации */
+    --moscow-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --moscow-shadow: 0 4px 15px rgba(220, 20, 60, 0.1);
+    --moscow-shadow-hover: 0 8px 30px rgba(220, 20, 60, 0.15);
+}
+
+/* Page Hero Section */
+.moscow-hero {
+    background: var(--moscow-gradient-1);
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 0;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+}
+
+.moscow-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(65, 105, 225, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(220, 20, 60, 0.1) 0%, transparent 50%);
+    animation: moscowFloat 6s ease-in-out infinite;
+}
+
+.moscow-hero .page-title {
+    color: var(--moscow-white);
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: moscowTitleGlow 3s ease-in-out infinite alternate;
+}
+
+.moscow-hero .page-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.3rem;
+    margin-bottom: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Анимации */
+@keyframes moscowFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes moscowTitleGlow {
+    0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(220, 20, 60, 0.3); }
+    100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(220, 20, 60, 0.5); }
+}
+
+@keyframes moscowPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+@keyframes moscowBounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+@keyframes moscowSparkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    25% { transform: scale(1.1) rotate(90deg); opacity: 0.8; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 0.6; }
+    75% { transform: scale(1.1) rotate(270deg); opacity: 0.8; }
+}
+
+@keyframes moscowShine {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes moscowSlide {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Card Overview */
+.card-overview {
+    background: var(--moscow-white);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: var(--moscow-shadow);
+    margin-bottom: 3rem;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    transition: var(--moscow-transition);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.card-overview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--moscow-gradient-1);
+    opacity: 0.03;
+    border-radius: 18px;
+    transition: var(--moscow-transition);
+}
+
+.card-overview:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--moscow-shadow-hover);
+}
+
+.card-overview:hover::before {
+    opacity: 0.08;
+}
+
+.card-overview .overview-icon {
+    font-size: 4rem;
+    animation: moscowSparkle 4s ease-in-out infinite;
+    filter: drop-shadow(2px 2px 4px rgba(220, 20, 60, 0.3));
+}
+
+.card-overview .overview-content h2 {
+    color: var(--moscow-primary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.card-overview .overview-content p {
+    color: var(--moscow-text);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Benefits Grid */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.benefit-card {
+    background: var(--moscow-white);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: var(--moscow-shadow);
+    transition: var(--moscow-transition);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    transition: var(--moscow-transition);
+}
+
+.transport-card::before { background: var(--moscow-gradient-2); }
+.suburban-card::before { background: linear-gradient(135deg, var(--moscow-transport), #FF8C00); }
+.discounts-card::before { background: var(--moscow-gradient-3); }
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--moscow-shadow-hover);
+    border-color: var(--moscow-red);
+}
+
+.benefit-card:hover::before {
+    height: 6px;
+}
+
+.benefit-card .benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    animation: moscowBounce 3s ease-in-out infinite;
+}
+
+.benefit-card h3 {
+    color: var(--moscow-primary);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.benefit-card p {
+    color: var(--moscow-text);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.benefit-badge {
+    background: var(--moscow-gradient-1);
+    color: var(--moscow-white);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+    animation: moscowPulse 2s ease-in-out infinite;
+}
+
+/* Transport Section */
+.transport-section {
+    background: linear-gradient(135deg, #f8fffe 0%, #f0f9ff 100%);
+    padding: 4rem 0;
+    margin: 3rem 0;
+}
+
+.transport-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.transport-item {
+    background: var(--moscow-white);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: var(--moscow-shadow);
+    transition: var(--moscow-transition);
+    position: relative;
+    overflow: hidden;
+    border: 3px solid transparent;
+}
+
+.metro-item {
+    background: linear-gradient(135deg, var(--moscow-white), #F0F8FF);
+    border-color: var(--moscow-metro);
+}
+
+.surface-item {
+    background: linear-gradient(135deg, var(--moscow-white), #FFF8DC);
+    border-color: var(--moscow-transport);
+}
+
+.suburban-item {
+    background: linear-gradient(135deg, var(--moscow-white), #F0FFF0);
+    border-color: var(--moscow-discount);
+}
+
+.transport-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--moscow-shadow-hover);
+}
+
+.transport-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: rotate(45deg);
+    animation: moscowShine 4s linear infinite;
+}
+
+.transport-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.transport-header .transport-icon {
+    font-size: 2.5rem;
+    animation: moscowSparkle 5s ease-in-out infinite;
+}
+
+.transport-header h3 {
+    color: var(--moscow-primary);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.transport-price {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 1.1rem;
+}
+
+.new-price {
+    color: var(--moscow-red);
+    font-size: 1.5rem;
+    font-weight: 700;
+    animation: moscowPulse 2s ease-in-out infinite;
+}
+
+.transport-content p {
+    color: var(--moscow-text);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.transport-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.transport-features li {
+    padding: 0.5rem 0;
+    color: var(--moscow-text);
+    position: relative;
+    padding-left: 1.5rem;
+    transition: var(--moscow-transition);
+}
+
+.transport-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--moscow-discount);
+    font-weight: bold;
+    transition: var(--moscow-transition);
+}
+
+.transport-features li:hover {
+    color: var(--moscow-primary);
+    transform: translateX(5px);
+}
+
+.transport-features li:hover::before {
+    animation: moscowSparkle 0.5s ease-in-out;
+}
+
+/* Benefits Categories */
+.benefits-section {
+    padding: 4rem 0;
+    background: var(--moscow-white);
+}
+
+.benefits-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.category-card {
+    background: var(--moscow-light);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--moscow-shadow);
+    transition: var(--moscow-transition);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: var(--moscow-transition);
+    border-radius: 18px;
+}
+
+.food-category::before { background: linear-gradient(135deg, #FF6347, #FFB347); }
+.shopping-category::before { background: linear-gradient(135deg, #9370DB, #BA55D3); }
+.entertainment-category::before { background: linear-gradient(135deg, #FF1493, #FF69B4); }
+.services-category::before { background: linear-gradient(135deg, #00CED1, #48D1CC); }
+
+.category-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--moscow-red);
+    color: var(--moscow-white);
+}
+
+.category-card:hover::before {
+    opacity: 1;
+}
+
+.category-card:hover .category-header,
+.category-card:hover .category-content,
+.category-card:hover .benefits-list,
+.category-card:hover .discount-range {
+    position: relative;
+    z-index: 2;
+}
+
+.category-card:hover h3,
+.category-card:hover .benefits-list li {
+    color: var(--moscow-white);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.category-header .category-icon {
+    font-size: 2.5rem;
+    animation: moscowBounce 4s ease-in-out infinite;
+}
+
+.category-header h3 {
+    color: var(--moscow-primary);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+    transition: var(--moscow-transition);
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.benefits-list li {
+    padding: 0.5rem 0;
+    color: var(--moscow-text);
+    position: relative;
+    padding-left: 1.5rem;
+    transition: var(--moscow-transition);
+}
+
+.benefits-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--moscow-red);
+    font-weight: bold;
+    transition: var(--moscow-transition);
+}
+
+.discount-range {
+    background: var(--moscow-gradient-1);
+    color: var(--moscow-white);
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(220, 20, 60, 0.2);
+}
+
+/* Application Timeline */
+.application-section {
+    background: linear-gradient(135deg, #FFF0F5 0%, #F8F8FF 100%);
+    padding: 4rem 0;
+    margin: 3rem 0;
+}
+
+.application-timeline {
+    position: relative;
+    margin-top: 3rem;
+}
+
+.application-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--moscow-gradient-1);
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.application-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.application-step:nth-child(odd) {
+    flex-direction: row;
+}
+
+.application-step:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--moscow-gradient-1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--moscow-white);
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+    animation: moscowPulse 3s ease-in-out infinite;
+}
+
+.step-content {
+    flex: 1;
+    max-width: 45%;
+    background: var(--moscow-white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--moscow-shadow);
+    margin: 0 2rem;
+    transition: var(--moscow-transition);
+    border: 2px solid transparent;
+}
+
+.step-content:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--moscow-shadow-hover);
+    border-color: var(--moscow-red);
+}
+
+.step-content h3 {
+    color: var(--moscow-primary);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.step-content p {
+    color: var(--moscow-text);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.step-action {
+    margin-top: 1rem;
+}
+
+.action-button {
+    background: var(--moscow-gradient-1);
+    color: var(--moscow-white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    transition: var(--moscow-transition);
+    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.2);
+}
+
+.action-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(220, 20, 60, 0.3);
+    color: var(--moscow-white);
+}
+
+.step-timing {
+    background: var(--moscow-light);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: var(--moscow-primary);
+    font-weight: 500;
+    display: inline-block;
+}
+
+/* Important Section */
+.important-section {
+    background: linear-gradient(135deg, #FFF8E1 0%, #F3E5AB 100%);
+    padding: 3rem 0;
+    margin: 3rem 0;
+}
+
+.important-warning {
+    background: var(--moscow-white);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: var(--moscow-shadow);
+    border-left: 6px solid var(--moscow-red);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.important-warning::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(220, 20, 60, 0.03), transparent);
+    animation: moscowShine 5s linear infinite;
+}
+
+.important-warning .warning-icon {
+    font-size: 3rem;
+    color: var(--moscow-red);
+    animation: moscowPulse 2s ease-in-out infinite;
+}
+
+.important-warning .warning-content h2 {
+    color: var(--moscow-red);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.important-warning .warning-content p {
+    color: var(--moscow-text);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+/* Tips Grid */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.tip-card {
+    background: var(--moscow-white);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: var(--moscow-transition);
+    border: 2px solid transparent;
+    box-shadow: var(--moscow-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.tip-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--moscow-gradient-1);
+    opacity: 0;
+    transition: var(--moscow-transition);
+    border-radius: 13px;
+}
+
+.tip-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--moscow-red);
+    color: var(--moscow-white);
+}
+
+.tip-card:hover::before {
+    opacity: 1;
+}
+
+.tip-card:hover .tip-icon,
+.tip-card:hover h3,
+.tip-card:hover p {
+    position: relative;
+    z-index: 2;
+    color: var(--moscow-white);
+}
+
+.tip-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: moscowBounce 4s ease-in-out infinite;
+}
+
+.tip-card h3 {
+    color: var(--moscow-primary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    transition: var(--moscow-transition);
+}
+
+.tip-card p {
+    color: var(--moscow-text);
+    line-height: 1.5;
+    margin: 0;
+    transition: var(--moscow-transition);
+}
+
+/* FAQ Section */
+.faq-section {
+    background: var(--moscow-white);
+    padding: 4rem 0;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.faq-item {
+    background: var(--moscow-light);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: var(--moscow-transition);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.faq-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--moscow-gradient-1);
+    transition: var(--moscow-transition);
+}
+
+.faq-item:hover {
+    transform: translateY(-3px);
+    border-color: var(--moscow-red);
+    box-shadow: var(--moscow-shadow);
+}
+
+.faq-item:hover::before {
+    height: 6px;
+}
+
+.faq-item h3 {
+    color: var(--moscow-primary);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.faq-item p {
+    color: var(--moscow-text);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .moscow-hero .page-title {
+        font-size: 2.5rem;
+    }
+    
+    .moscow-hero .page-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .card-overview {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .benefits-grid,
+    .transport-grid,
+    .benefits-categories {
+        grid-template-columns: 1fr;
+    }
+    
+    .application-timeline::before {
+        left: 30px;
+    }
+    
+    .application-step {
+        flex-direction: row !important;
+        align-items: flex-start;
+    }
+    
+    .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        margin-right: 1.5rem;
+    }
+    
+    .step-content {
+        max-width: none;
+        margin: 0;
+    }
+    
+    .important-warning {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .moscow-hero {
+        padding: 2rem 0;
+        min-height: 300px;
+    }
+    
+    .moscow-hero .page-title {
+        font-size: 2rem;
+    }
+    
+    .card-overview,
+    .benefit-card,
+    .transport-item,
+    .category-card,
+    .important-warning,
+    .tip-card,
+    .faq-item {
+        padding: 1.5rem;
+    }
+    
+    .transport-price {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+    
+    .new-price {
+        font-size: 1.3rem;
+    }
+}

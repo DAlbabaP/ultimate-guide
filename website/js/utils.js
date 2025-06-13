@@ -365,7 +365,222 @@ const Utils = {
       isValid: errors.length === 0,
       errors: errors
     };
-  }
+  },
+
+  // Загрузка компонентов (header, footer)
+  async loadComponent(elementId, componentPath, basePath = '') {
+    try {
+      const element = document.getElementById(elementId);
+      if (!element) {
+        console.warn(`Элемент с ID "${elementId}" не найден`);
+        return false;
+      }
+
+      const response = await fetch(basePath + componentPath);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const html = await response.text();
+      element.innerHTML = html;
+      
+      // Если загружен header, инициализируем навигацию
+      if (elementId === 'header-placeholder' || elementId === 'header') {
+        this.initNavigation();
+      }
+      
+      return true;
+    } catch (error) {
+      console.error(`Ошибка загрузки компонента ${componentPath}:`, error);
+      return false;
+    }
+  },  // Загрузка всех компонентов страницы
+  async loadAllComponents(basePath = '') {
+    const components = [
+      { id: 'header-placeholder', path: 'components/header.html' },
+      { id: 'header', path: 'components/header.html' },
+      { id: 'nav-placeholder', path: 'components/nav.html' },
+      { id: 'footer-placeholder', path: 'components/footer.html' },
+      { id: 'footer', path: 'components/footer.html' }
+    ];
+
+    const promises = components.map(component => 
+      this.loadComponent(component.id, component.path, basePath)
+    );
+
+    await Promise.all(promises);
+    
+    // Исправляем пути в загруженных компонентах
+    this.fixComponentPaths(basePath);
+    
+    // Генерируем breadcrumb навигацию
+    this.generateBreadcrumb();
+    
+    // Инициализируем поиск после загрузки компонентов
+    if (typeof Search !== 'undefined') {
+      Search.init();
+    }
+  },
+
+  // Исправление путей в компонентах
+  fixComponentPaths(basePath = '') {
+    // Исправляем пути в логотипе
+    const logoLinks = document.querySelectorAll('.header__logo');
+    logoLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === './') {
+        link.setAttribute('href', basePath || './');
+      }
+    });
+
+    // Исправляем пути в навигации
+    const navLinks = document.querySelectorAll('.nav__link, .nav__dropdown-link, .nav__mobile-link, .footer__links a');
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('./pages/')) {
+        link.setAttribute('href', basePath + href);
+      }
+    });
+  },
+
+  // Инициализация навигации после загрузки header
+  initNavigation() {
+    // Мобильное меню
+    const mobileToggle = document.querySelector('.header__mobile-toggle');
+    const mobileNav = document.querySelector('.nav--mobile');
+    const mobileClose = document.querySelector('.nav__mobile-close');
+
+    if (mobileToggle && mobileNav) {
+      mobileToggle.addEventListener('click', () => {
+        mobileNav.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+
+    if (mobileClose && mobileNav) {
+      mobileClose.addEventListener('click', () => {
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+
+    // Закрытие по клику вне меню
+    if (mobileNav) {
+      mobileNav.addEventListener('click', (e) => {
+        if (e.target === mobileNav) {
+          mobileNav.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+
+    // Dropdown меню
+    const navItems = document.querySelectorAll('.nav__item');
+    navItems.forEach(item => {
+      const link = item.querySelector('.nav__link');
+      const dropdown = item.querySelector('.nav__dropdown');
+      
+      if (link && dropdown) {
+        let timeout;
+        
+        item.addEventListener('mouseenter', () => {
+          clearTimeout(timeout);
+          dropdown.style.display = 'block';
+          setTimeout(() => dropdown.classList.add('active'), 10);
+        });
+        
+        item.addEventListener('mouseleave', () => {
+          dropdown.classList.remove('active');
+          timeout = setTimeout(() => {
+            dropdown.style.display = 'none';
+          }, 300);
+        });
+      }
+    });
+
+    // Активная страница
+    this.setActiveNavItem();
+  },
+
+  // Установка активного пункта навигации
+  setActiveNavItem() {
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav__link, .nav__mobile-link');
+    
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      const href = link.getAttribute('href');
+      
+      if (href && currentPath.includes(href.replace('./', ''))) {
+        link.classList.add('active');
+      }
+    });
+  },
+
+  // Генерация breadcrumb навигации
+  generateBreadcrumb() {
+    const breadcrumbList = document.getElementById('breadcrumb-list');
+    if (!breadcrumbList) return;
+
+    const currentPath = window.location.pathname;
+    const pathParts = currentPath.split('/').filter(part => part && part !== 'index.html');
+    
+    // Всегда добавляем главную страницу
+    const breadcrumbItems = [
+      { title: 'Главная', url: '/' }
+    ];
+
+    // Маппинг путей к человекочитаемым названиям
+    const pathMap = {
+      'pages': '',
+      'applicant-path': 'Путь абитуриента',
+      'university-life': 'Жизнь в университете',
+      'scholarships': 'Стипендии и льготы',
+      'organizations': 'Студенческие организации',
+      'self-government': 'Студенческое самоуправление',
+      'leader-requirements': 'Кто такой староста',
+      'responsibilities': 'Что делают старосты',
+      'military': 'Военная подготовка',
+      'support': 'Поддержка',
+      'faq': 'Часто задаваемые вопросы'
+    };
+
+    let currentUrl = '';
+    
+    pathParts.forEach((part, index) => {
+      if (pathMap[part]) {
+        currentUrl += '/' + part;
+        breadcrumbItems.push({
+          title: pathMap[part],
+          url: currentUrl
+        });
+      }
+    });
+
+    // Очищаем список
+    breadcrumbList.innerHTML = '';
+
+    // Генерируем элементы
+    breadcrumbItems.forEach((item, index) => {
+      const li = document.createElement('li');
+      li.className = 'breadcrumb__item';
+
+      if (index === breadcrumbItems.length - 1) {
+        // Последний элемент - текущая страница
+        li.innerHTML = `<span class="breadcrumb__current">${item.title}</span>`;
+      } else {
+        // Ссылка на предыдущие уровни
+        const depth = (window.location.pathname.match(/\//g) || []).length;
+        const basePath = '../'.repeat(Math.max(0, depth - 1));
+        li.innerHTML = `
+          <a href="${basePath}${item.url}" class="breadcrumb__link">${item.title}</a>
+          <span class="breadcrumb__separator">›</span>
+        `;
+      }
+
+      breadcrumbList.appendChild(li);
+    });
+  },
 };
 
 // Экспортируем для использования в других модулях

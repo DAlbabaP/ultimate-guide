@@ -1,0 +1,926 @@
+/* Other Benefits Styles - Прочие льготы и поддержка */
+
+/* CSS Variables для согласованности с общей темой */
+:root {
+    --benefits-primary: var(--color-primary);      /* #2F5E2F */
+    --benefits-secondary: var(--color-secondary);  /* #1E5AA8 */
+    --benefits-white: var(--color-white);          /* #FFFFFF */
+    --benefits-light: var(--color-light);          /* #F5F5F5 */
+    --benefits-text: var(--color-text-dark);       /* #333333 */
+    
+    /* Специальные цвета для льгот */
+    --benefits-purple: #8A2BE2;
+    --benefits-orange: #FF8C00;
+    --benefits-teal: #20B2AA;
+    --benefits-crimson: #DC143C;
+    --benefits-gold: #DAA520;
+    --benefits-navy: #191970;
+    
+    /* Градиенты */
+    --benefits-gradient-1: linear-gradient(135deg, var(--benefits-primary), var(--benefits-secondary));
+    --benefits-gradient-2: linear-gradient(135deg, var(--benefits-purple), var(--benefits-orange));
+    --benefits-gradient-3: linear-gradient(135deg, var(--benefits-teal), var(--benefits-navy));
+    
+    /* Анимации */
+    --benefits-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --benefits-shadow: 0 4px 15px rgba(47, 94, 47, 0.1);
+    --benefits-shadow-hover: 0 8px 30px rgba(47, 94, 47, 0.15);
+}
+
+/* Page Hero Section */
+.benefits-hero {
+    background: var(--benefits-gradient-1);
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 0;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+}
+
+.benefits-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(255, 140, 0, 0.1) 0%, transparent 50%);
+    animation: benefitsFloat 6s ease-in-out infinite;
+}
+
+.benefits-hero .page-title {
+    color: var(--benefits-white);
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: benefitsTitleGlow 3s ease-in-out infinite alternate;
+}
+
+.benefits-hero .page-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.3rem;
+    margin-bottom: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Анимации */
+@keyframes benefitsFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes benefitsTitleGlow {
+    0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(138, 43, 226, 0.3); }
+    100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(138, 43, 226, 0.5); }
+}
+
+@keyframes benefitsPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+@keyframes benefitsBounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+@keyframes benefitsSparkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    25% { transform: scale(1.1) rotate(90deg); opacity: 0.8; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 0.6; }
+    75% { transform: scale(1.1) rotate(270deg); opacity: 0.8; }
+}
+
+@keyframes benefitsShine {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes benefitsGlow {
+    0%, 100% { box-shadow: 0 0 5px rgba(138, 43, 226, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(138, 43, 226, 0.6); }
+}
+
+/* Benefits Overview */
+.benefits-overview {
+    background: var(--benefits-white);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: var(--benefits-shadow);
+    margin-bottom: 3rem;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    transition: var(--benefits-transition);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.benefits-overview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--benefits-gradient-2);
+    opacity: 0.03;
+    border-radius: 18px;
+    transition: var(--benefits-transition);
+}
+
+.benefits-overview:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--benefits-shadow-hover);
+}
+
+.benefits-overview:hover::before {
+    opacity: 0.08;
+}
+
+.benefits-overview .overview-icon {
+    font-size: 4rem;
+    animation: benefitsSparkle 4s ease-in-out infinite;
+    filter: drop-shadow(2px 2px 4px rgba(138, 43, 226, 0.3));
+}
+
+.benefits-overview .overview-content h2 {
+    color: var(--benefits-primary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.benefits-overview .overview-content p {
+    color: var(--benefits-text);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Proforg Info */
+.proforg-info {
+    background: var(--benefits-gradient-2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: var(--benefits-transition);
+}
+
+.proforg-info::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: benefitsShine 3s linear infinite;
+}
+
+.proforg-info:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+.proforg-info .info-icon {
+    font-size: 3.5rem;
+    animation: benefitsBounce 2s ease-in-out infinite;
+}
+
+.proforg-info .info-content {
+    flex: 1;
+}
+
+.proforg-info .info-content h3 {
+    color: var(--benefits-white);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.proforg-info .info-content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Social Scholarship */
+.social-section {
+    background: linear-gradient(135deg, #f8fffe 0%, #f0f9ff 100%);
+    padding: 4rem 0;
+    margin: 3rem 0;
+}
+
+.social-scholarship-card {
+    background: var(--benefits-white);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: var(--benefits-shadow);
+    margin-top: 3rem;
+    transition: var(--benefits-transition);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.social-scholarship-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--benefits-gradient-1);
+    transition: var(--benefits-transition);
+}
+
+.social-scholarship-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--benefits-shadow-hover);
+    border-color: var(--benefits-primary);
+}
+
+.social-scholarship-card:hover::before {
+    height: 6px;
+}
+
+.scholarship-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.scholarship-header .scholarship-icon {
+    font-size: 3rem;
+    animation: benefitsPulse 3s ease-in-out infinite;
+}
+
+.scholarship-info {
+    flex: 1;
+}
+
+.scholarship-info h3 {
+    color: var(--benefits-primary);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.scholarship-info p {
+    color: var(--benefits-text);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.scholarship-amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--benefits-secondary);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    animation: benefitsPulse 2s ease-in-out infinite;
+}
+
+.scholarship-criteria {
+    background: var(--benefits-light);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.scholarship-criteria h4 {
+    color: var(--benefits-primary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.criteria-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.criteria-list li {
+    padding: 0.5rem 0;
+    color: var(--benefits-text);
+    position: relative;
+    padding-left: 1.5rem;
+    transition: var(--benefits-transition);
+}
+
+.criteria-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--benefits-primary);
+    font-weight: bold;
+    transition: var(--benefits-transition);
+}
+
+.criteria-list li:hover {
+    color: var(--benefits-primary);
+    transform: translateX(5px);
+}
+
+.criteria-list li:hover::before {
+    animation: benefitsSparkle 0.5s ease-in-out;
+}
+
+/* Categories Section */
+.categories-section {
+    padding: 4rem 0;
+    background: var(--benefits-white);
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.category-card {
+    background: var(--benefits-white);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: var(--benefits-shadow);
+    transition: var(--benefits-transition);
+    position: relative;
+    overflow: hidden;
+    border: 3px solid transparent;
+}
+
+.disability-card {
+    background: linear-gradient(135deg, var(--benefits-white), #F0F8FF);
+    border-color: var(--benefits-purple);
+}
+
+.orphans-card {
+    background: linear-gradient(135deg, var(--benefits-white), #FFF8DC);
+    border-color: var(--benefits-orange);
+}
+
+.military-card {
+    background: linear-gradient(135deg, var(--benefits-white), #F0FFF0);
+    border-color: var(--benefits-crimson);
+}
+
+.radiation-card {
+    background: linear-gradient(135deg, var(--benefits-white), #FFFACD);
+    border-color: var(--benefits-gold);
+}
+
+.category-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--benefits-shadow-hover);
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: rotate(45deg);
+    animation: benefitsShine 4s linear infinite;
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.category-header .category-icon {
+    font-size: 2.5rem;
+    animation: benefitsSparkle 5s ease-in-out infinite;
+}
+
+.category-header h3 {
+    color: var(--benefits-primary);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+}
+
+.category-list li {
+    padding: 0.5rem 0;
+    color: var(--benefits-text);
+    position: relative;
+    padding-left: 1.5rem;
+    transition: var(--benefits-transition);
+}
+
+.category-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--benefits-secondary);
+    font-weight: bold;
+    transition: var(--benefits-transition);
+}
+
+.category-list li:hover {
+    color: var(--benefits-primary);
+    transform: translateX(5px);
+}
+
+.category-list li:hover::before {
+    animation: benefitsSparkle 0.5s ease-in-out;
+}
+
+.category-amount {
+    background: var(--benefits-gradient-1);
+    color: var(--benefits-white);
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(47, 94, 47, 0.3);
+    animation: benefitsGlow 3s ease-in-out infinite;
+}
+
+/* Graduate Section */
+.graduate-section {
+    background: linear-gradient(135deg, #f8fffe 0%, #f0f9ff 100%);
+    padding: 4rem 0;
+    margin: 3rem 0;
+}
+
+.graduate-scholarships {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.graduate-card {
+    background: var(--benefits-white);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: var(--benefits-shadow);
+    transition: var(--benefits-transition);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.standard-graduate {
+    border-color: var(--benefits-teal);
+}
+
+.enhanced-graduate {
+    border-color: var(--benefits-gold);
+    background: linear-gradient(135deg, var(--benefits-white), #FFFACD);
+}
+
+.graduate-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--benefits-shadow-hover);
+}
+
+.graduate-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    transition: var(--benefits-transition);
+}
+
+.standard-graduate::before {
+    background: linear-gradient(135deg, var(--benefits-teal), var(--benefits-navy));
+}
+
+.enhanced-graduate::before {
+    background: linear-gradient(135deg, var(--benefits-gold), var(--benefits-crimson));
+}
+
+.graduate-card:hover::before {
+    height: 6px;
+}
+
+.graduate-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.graduate-header .graduate-icon {
+    font-size: 2.5rem;
+    animation: benefitsBounce 4s ease-in-out infinite;
+}
+
+.graduate-header h3 {
+    color: var(--benefits-primary);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.graduate-content p {
+    color: var(--benefits-text);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.graduate-amount {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--benefits-secondary);
+    margin-bottom: 1rem;
+    text-align: center;
+    animation: benefitsPulse 2s ease-in-out infinite;
+}
+
+.graduate-amount.enhanced {
+    color: var(--benefits-gold);
+    font-size: 2.5rem;
+    animation: benefitsGlow 2s ease-in-out infinite;
+}
+
+.graduate-note {
+    background: var(--benefits-light);
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: var(--benefits-text);
+    text-align: center;
+    font-weight: 500;
+}
+
+.graduate-note.priority {
+    background: var(--benefits-gradient-3);
+    color: var(--benefits-white);
+    animation: benefitsPulse 3s ease-in-out infinite;
+}
+
+/* Process Timeline */
+.process-section {
+    padding: 4rem 0;
+    background: var(--benefits-white);
+}
+
+.process-timeline {
+    position: relative;
+    margin-top: 3rem;
+}
+
+.process-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--benefits-gradient-1);
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.process-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.process-step:nth-child(odd) {
+    flex-direction: row;
+}
+
+.process-step:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--benefits-gradient-2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--benefits-white);
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+    animation: benefitsPulse 3s ease-in-out infinite;
+}
+
+.step-content {
+    flex: 1;
+    max-width: 45%;
+    background: var(--benefits-white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--benefits-shadow);
+    margin: 0 2rem;
+    transition: var(--benefits-transition);
+    border: 2px solid transparent;
+}
+
+.step-content:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--benefits-shadow-hover);
+    border-color: var(--benefits-primary);
+}
+
+.step-content h3 {
+    color: var(--benefits-primary);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.step-content p {
+    color: var(--benefits-text);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.step-timing {
+    background: var(--benefits-light);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: var(--benefits-primary);
+    font-weight: 500;
+    display: inline-block;
+}
+
+/* Documents Section */
+.documents-section {
+    background: linear-gradient(135deg, #f8fffe 0%, #f0f9ff 100%);
+    padding: 4rem 0;
+    margin: 3rem 0;
+}
+
+.documents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.document-card {
+    background: var(--benefits-white);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: var(--benefits-shadow);
+    transition: var(--benefits-transition);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.document-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--benefits-gradient-1);
+    transition: var(--benefits-transition);
+}
+
+.document-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--benefits-shadow-hover);
+    border-color: var(--benefits-primary);
+}
+
+.document-card:hover::before {
+    height: 6px;
+}
+
+.document-card .document-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    animation: benefitsBounce 4s ease-in-out infinite;
+}
+
+.document-card h3 {
+    color: var(--benefits-primary);
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.document-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.document-list li {
+    padding: 0.5rem 0;
+    color: var(--benefits-text);
+    position: relative;
+    padding-left: 1.5rem;
+    transition: var(--benefits-transition);
+}
+
+.document-list li::before {
+    content: '📄';
+    position: absolute;
+    left: 0;
+    transition: var(--benefits-transition);
+}
+
+.document-list li:hover {
+    color: var(--benefits-primary);
+    transform: translateX(5px);
+}
+
+.document-list li:hover::before {
+    animation: benefitsSparkle 0.5s ease-in-out;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 4rem 0;
+    background: var(--benefits-white);
+}
+
+.contact-info {
+    background: var(--benefits-gradient-1);
+    border-radius: 20px;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-info::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: benefitsShine 4s linear infinite;
+}
+
+.contact-info .contact-icon {
+    font-size: 4rem;
+    color: var(--benefits-white);
+    animation: benefitsPulse 2s ease-in-out infinite;
+}
+
+.contact-info .contact-content {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-info .contact-content h2 {
+    color: var(--benefits-white);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.contact-info .contact-content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.contact-highlight {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    color: var(--benefits-white);
+    font-weight: 500;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: benefitsPulse 3s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .benefits-hero .page-title {
+        font-size: 2.5rem;
+    }
+    
+    .benefits-hero .page-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .benefits-overview,
+    .proforg-info,
+    .contact-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .categories-grid,
+    .graduate-scholarships,
+    .documents-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .process-timeline::before {
+        left: 30px;
+    }
+    
+    .process-step {
+        flex-direction: row !important;
+        align-items: flex-start;
+    }
+    
+    .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        margin-right: 1.5rem;
+    }
+    
+    .step-content {
+        max-width: none;
+        margin: 0;
+    }
+    
+    .scholarship-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .scholarship-amount {
+        font-size: 2rem;
+        order: -1;
+    }
+}
+
+@media (max-width: 480px) {
+    .benefits-hero {
+        padding: 2rem 0;
+        min-height: 300px;
+    }
+    
+    .benefits-hero .page-title {
+        font-size: 2rem;
+    }
+    
+    .benefits-overview,
+    .proforg-info,
+    .social-scholarship-card,
+    .category-card,
+    .graduate-card,
+    .document-card,
+    .contact-info {
+        padding: 1.5rem;
+    }
+    
+    .scholarship-amount,
+    .category-amount,
+    .graduate-amount {
+        font-size: 1.8rem;
+    }
+    
+    .graduate-amount.enhanced {
+        font-size: 2rem;
+    }
+}

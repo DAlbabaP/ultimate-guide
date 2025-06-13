@@ -26,9 +26,20 @@ const App = {
       this.start();
     }
   },
-
   // Запуск всех компонентов
-  start() {
+  async start() {
+    // Определяем базовый путь для загрузки компонентов
+    const currentPath = window.location.pathname;
+    let basePath = '';
+    
+    if (currentPath.includes('/pages/')) {
+      const depth = (currentPath.match(/\//g) || []).length;
+      basePath = '../'.repeat(Math.max(0, depth - 1));
+    }
+    
+    // Загружаем компоненты
+    await Utils.loadAllComponents(basePath);
+    
     this.initComponents();
     this.bindEvents();
     this.loadContent();
