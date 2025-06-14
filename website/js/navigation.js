@@ -4,8 +4,10 @@ const Navigation = {
   // Элементы DOM
   elements: {
     mobileToggle: null,
-    mobileNav: null,
-    mobileClose: null,
+    mobileMenu: null,
+    mobileMenuOverlay: null,
+    mobileMenuClose: null,
+    mobileMenuToggles: null,
     navLinks: null,
     dropdowns: null
   },
@@ -21,39 +23,52 @@ const Navigation = {
     this.updateBreadcrumbs();
     console.log('🧭 Навигация инициализирована');
   },
-
   // Поиск элементов в DOM
   findElements() {
-    this.elements.mobileToggle = document.querySelector('.header__mobile-toggle');
-    this.elements.mobileNav = document.querySelector('.nav--mobile');
-    this.elements.mobileClose = document.querySelector('.nav__mobile-close');
+    this.elements.mobileToggle = document.querySelector('#mobileMenuToggle');
+    this.elements.mobileMenu = document.querySelector('#mobileMenu');
+    this.elements.mobileMenuOverlay = document.querySelector('#mobileMenuOverlay');
+    this.elements.mobileMenuClose = document.querySelector('#mobileMenuClose');
+    this.elements.mobileMenuToggles = document.querySelectorAll('.mobile-menu__toggle');
     this.elements.navLinks = document.querySelectorAll('.nav__link');
     this.elements.dropdowns = document.querySelectorAll('.nav__dropdown');
   },
 
   // Привязка событий
   bindEvents() {
-    // Мобильное меню
+    // Мобильное меню - открытие
     if (this.elements.mobileToggle) {
       this.elements.mobileToggle.addEventListener('click', () => {
         this.toggleMobileMenu();
       });
     }
 
-    if (this.elements.mobileClose) {
-      this.elements.mobileClose.addEventListener('click', () => {
+    // Мобильное меню - закрытие
+    if (this.elements.mobileMenuClose) {
+      this.elements.mobileMenuClose.addEventListener('click', () => {
         this.closeMobileMenu();
       });
     }
 
-    // Закрытие мобильного меню при клике на фон
-    if (this.elements.mobileNav) {
-      this.elements.mobileNav.addEventListener('click', (e) => {
-        if (e.target === this.elements.mobileNav) {
-          this.closeMobileMenu();
-        }
+    // Закрытие мобильного меню при клике на overlay
+    if (this.elements.mobileMenuOverlay) {
+      this.elements.mobileMenuOverlay.addEventListener('click', () => {
+        this.closeMobileMenu();
       });
     }
+
+    // Аккордеон в мобильном меню
+    this.elements.mobileMenuToggles.forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        this.toggleMobileSubmenu(e.target.closest('.mobile-menu__toggle'));
+      });
+    });    // Закрытие меню при клике на ссылку
+    const mobileLinks = document.querySelectorAll('.mobile-menu__link');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        this.closeMobileMenu();
+      });
+    });
 
     // Выпадающие меню на десктопе
     this.elements.navLinks.forEach(link => {
@@ -86,7 +101,6 @@ const Navigation = {
       this.updateActiveSection();
     }, 100));
   },
-
   // Переключить мобильное меню
   toggleMobileMenu() {
     if (this.isMobileMenuOpen) {
@@ -98,8 +112,10 @@ const Navigation = {
 
   // Открыть мобильное меню
   openMobileMenu() {
-    if (this.elements.mobileNav) {
-      this.elements.mobileNav.classList.add('active');
+    if (this.elements.mobileMenu && this.elements.mobileMenuOverlay) {
+      this.elements.mobileMenu.classList.add('active');
+      this.elements.mobileMenuOverlay.classList.add('active');
+      this.elements.mobileToggle.classList.add('active');
       document.body.style.overflow = 'hidden';
       this.isMobileMenuOpen = true;
     }
@@ -107,11 +123,45 @@ const Navigation = {
 
   // Закрыть мобильное меню
   closeMobileMenu() {
-    if (this.elements.mobileNav) {
-      this.elements.mobileNav.classList.remove('active');
+    if (this.elements.mobileMenu && this.elements.mobileMenuOverlay) {
+      this.elements.mobileMenu.classList.remove('active');
+      this.elements.mobileMenuOverlay.classList.remove('active');
+      this.elements.mobileToggle.classList.remove('active');
       document.body.style.overflow = '';
       this.isMobileMenuOpen = false;
+      
+      // Закрываем все открытые подменю
+      this.closeAllMobileSubmenus();
     }
+  },
+
+  // Переключить подменю в мобильном меню
+  toggleMobileSubmenu(toggle) {
+    const section = toggle.dataset.section;
+    const submenu = document.getElementById(`submenu-${section}`);
+    const isActive = toggle.classList.contains('active');
+
+    if (isActive) {
+      // Закрываем подменю
+      toggle.classList.remove('active');
+      submenu.classList.remove('active');
+    } else {
+      // Закрываем все другие подменю
+      this.closeAllMobileSubmenus();
+      
+      // Открываем выбранное подменю
+      toggle.classList.add('active');
+      submenu.classList.add('active');
+    }
+  },
+
+  // Закрыть все мобильные подменю
+  closeAllMobileSubmenus() {
+    const activeToggles = document.querySelectorAll('.mobile-menu__toggle.active');
+    const activeSubmenus = document.querySelectorAll('.mobile-menu__submenu.active');
+    
+    activeToggles.forEach(toggle => toggle.classList.remove('active'));
+    activeSubmenus.forEach(submenu => submenu.classList.remove('active'));
   },
 
   // Показать выпадающее меню

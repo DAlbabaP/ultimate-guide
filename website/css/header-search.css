@@ -428,7 +428,7 @@
 
 @media (max-width: 768px) {
   .header__search {
-    max-width: 200px;
+    max-width: 400px;
   }
   
   .header__search-input {
@@ -463,7 +463,7 @@
 
 @media (max-width: 480px) {
   .header__search {
-    max-width: 150px;
+    max-width: 400px;
   }
   
   .search__filters {

@@ -19,8 +19,7 @@
   <!-- Основная шапка -->
   <div class="header__main">
     <div class="container">
-      <div class="header__content">
-        <!-- Логотип -->
+      <div class="header__content">        <!-- Логотип -->
         <a href="./" class="header__logo">
           <div class="header__logo-image">🎓</div>
           <div class="header__logo-text">
@@ -28,6 +27,13 @@
             <small>РГАУ-МСХА</small>
           </div>
         </a>
+
+        <!-- Кнопка мобильного меню -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Открыть меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
         <!-- Навигация -->
         <nav class="header__nav nav">
@@ -105,38 +111,113 @@
           
           <!-- Dropdown результаты -->
           <div class="search__dropdown" id="searchDropdown">
-            <!-- Результаты будут загружены сюда через JS -->
-          </div>
+            <!-- Результаты будут загружены сюда через JS -->          </div>
         </div>
-
-        <!-- Мобильное меню -->
-        <button class="header__mobile-toggle">☰</button>
       </div>
     </div>
   </div>
 </header>
 
+<!-- Мобильное меню overlay -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
 <!-- Мобильная навигация -->
-<div class="nav--mobile">
-  <div class="nav__mobile-content">
-    <button class="nav__mobile-close">&times;</button>
-    <ul class="nav__mobile-list">
-      <li class="nav__mobile-item">
-        <a href="./pages/applicant-path/" class="nav__mobile-link">Поступление</a>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu__header">
+    <div class="mobile-menu__logo">
+      <div class="header__logo-image">🎓</div>
+      <div>Гайд абитуриента</div>
+    </div>
+    <button class="mobile-menu__close" id="mobileMenuClose">&times;</button>
+  </div>
+  
+  <div class="mobile-menu__content">
+    <ul class="mobile-menu__list">
+      <li class="mobile-menu__item">
+        <button class="mobile-menu__toggle" data-section="applicant">
+          <span>🎯 Поступление</span>
+          <span class="mobile-menu__arrow">▶</span>
+        </button>
+        <ul class="mobile-menu__submenu" id="submenu-applicant">
+          <li><a href="./pages/applicant-path/documents.html" class="mobile-menu__link">📄 Подача документов</a></li>
+          <li><a href="./pages/applicant-path/selection.html" class="mobile-menu__link">🏆 Конкурсный отбор</a></li>
+          <li><a href="./pages/applicant-path/enrollment.html" class="mobile-menu__link">✅ Зачисление</a></li>
+          <li><a href="./pages/applicant-path/settlement.html" class="mobile-menu__link">🏠 Заселение</a></li>
+          <li><a href="./pages/applicant-path/adaptation.html" class="mobile-menu__link">🎓 Адаптация</a></li>
+        </ul>
       </li>
-      <li class="nav__mobile-item">
-        <a href="./pages/university-life/" class="nav__mobile-link">Жизнь в вузе</a>
+      
+      <li class="mobile-menu__item">
+        <button class="mobile-menu__toggle" data-section="university">
+          <span>🏛️ Жизнь в университете</span>
+          <span class="mobile-menu__arrow">▶</span>
+        </button>
+        <ul class="mobile-menu__submenu" id="submenu-university">
+          <li><a href="./pages/university-life/academic-process.html" class="mobile-menu__link">📚 Учебный процесс</a></li>
+          <li><a href="./pages/university-life/infrastructure.html" class="mobile-menu__link">🏢 Инфраструктура</a></li>
+          <li><a href="./pages/university-life/dormitory.html" class="mobile-menu__link">🏠 Общежитие</a></li>
+        </ul>
       </li>
-      <li class="nav__mobile-item">
-        <a href="./pages/scholarships/" class="nav__mobile-link">Льготы</a>
-      </li>      <li class="nav__mobile-item">
-        <a href="./pages/organizations/" class="nav__mobile-link">Организации</a>
+      
+      <li class="mobile-menu__item">
+        <button class="mobile-menu__toggle" data-section="scholarships">
+          <span>💰 Стипендии и льготы</span>
+          <span class="mobile-menu__arrow">▶</span>
+        </button>
+        <ul class="mobile-menu__submenu" id="submenu-scholarships">
+          <li><a href="./pages/scholarships/standard.html" class="mobile-menu__link">💵 Стандартная стипендия</a></li>
+          <li><a href="./pages/scholarships/enhanced.html" class="mobile-menu__link">⭐ Повышенная стипендия</a></li>
+          <li><a href="./pages/scholarships/moscow-card.html" class="mobile-menu__link">🎫 Карта москвича</a></li>
+          <li><a href="./pages/scholarships/other-benefits.html" class="mobile-menu__link">🎁 Прочие льготы</a></li>
+        </ul>
       </li>
-      <li class="nav__mobile-item">
-        <a href="./pages/self-government/" class="nav__mobile-link">Самоуправление</a>
+      
+      <li class="mobile-menu__item">
+        <button class="mobile-menu__toggle" data-section="military">
+          <span>⚔️ Военная подготовка</span>
+          <span class="mobile-menu__arrow">▶</span>
+        </button>
+        <ul class="mobile-menu__submenu" id="submenu-military">
+          <li><a href="./pages/military/deferment.html" class="mobile-menu__link">📋 Отсрочка от армии</a></li>
+          <li><a href="./pages/military/military-office.html" class="mobile-menu__link">🏢 Военкомат</a></li>
+          <li><a href="./pages/military/vuc.html" class="mobile-menu__link">🎖️ ВУЦ (военная кафедра)</a></li>
+        </ul>
       </li>
-      <li class="nav__mobile-item">
-        <a href="./pages/support/" class="nav__mobile-link">Поддержка</a>
+      
+      <li class="mobile-menu__item">
+        <button class="mobile-menu__toggle" data-section="organizations">
+          <span>👥 Студенческие организации</span>
+          <span class="mobile-menu__arrow">▶</span>
+        </button>
+        <ul class="mobile-menu__submenu" id="submenu-organizations">
+          <li><a href="./pages/organizations/it/" class="mobile-menu__link">💻 IT и технологии</a></li>
+          <li><a href="./pages/organizations/science/" class="mobile-menu__link">🔬 Наука и образование</a></li>
+          <li><a href="./pages/organizations/creativity/" class="mobile-menu__link">🎨 Творчество и культура</a></li>
+          <li><a href="./pages/organizations/sports/" class="mobile-menu__link">⚽ Спорт и здоровье</a></li>
+        </ul>
       </li>
-    </ul>  </div>
+      
+      <li class="mobile-menu__item">
+        <a href="./pages/self-government/" class="mobile-menu__link mobile-menu__link--main">
+          🤝 Студенческое самоуправление
+        </a>
+      </li>
+      
+      <li class="mobile-menu__item">
+        <a href="./FAQ И ПОДДЕРЖКА/" class="mobile-menu__link mobile-menu__link--main">
+          ❓ FAQ и поддержка
+        </a>
+      </li>
+    </ul>
+    
+    <!-- Быстрые действия -->
+    <div class="mobile-menu__actions">
+      <a href="./FAQ И ПОДДЕРЖКА/Контакты авторов.html" class="mobile-menu__action">
+        📞 Контакты
+      </a>
+      <a href="./FAQ И ПОДДЕРЖКА/Часто задаваемые вопросы.html" class="mobile-menu__action">
+        💬 Вопросы
+      </a>
+    </div>
+  </div>
 </div>

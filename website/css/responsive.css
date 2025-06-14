@@ -276,3 +276,121 @@
     border: 2px solid var(--primary-green);
   }
 }
+
+/* ===== ДОПОЛНИТЕЛЬНЫЕ МОБИЛЬНЫЕ УЛУЧШЕНИЯ ===== */
+
+/* Очень маленькие экраны (320px - 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--spacing-xs);
+  }
+  
+  /* Touch-friendly элементы */
+  .btn,
+  .header__mobile-toggle,
+  .nav__link,
+  .card__link {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+  }
+  
+  /* Улучшенные отступы для маленьких экранов */
+  .section {
+    padding: var(--spacing-md) 0;
+  }
+  
+  .hero {
+    padding: var(--spacing-md) 0;
+  }
+  
+  /* Карточки на очень маленьких экранах */
+  .card {
+    padding: var(--spacing-xs);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .card__title {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+  
+  /* Timeline адаптация */
+  .timeline__content {
+    font-size: var(--font-size-small);
+    padding: var(--spacing-xs);
+  }
+  
+  /* Footer адаптация */
+  .footer {
+    text-align: center;
+  }
+  
+  .footer__content {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  /* Breadcrumbs для маленьких экранов */
+  .breadcrumb {
+    padding: var(--spacing-xs) 0;
+    font-size: 0.75rem;
+  }
+  
+  .breadcrumb__item {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Таблицы на мобильных */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  table {
+    min-width: 100%;
+    font-size: var(--font-size-small);
+  }
+  
+  th, td {
+    padding: var(--spacing-xs);
+    min-width: 120px;
+  }
+}
+
+/* Landscape ориентация для мобильных */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .hero__title {
+    font-size: 1.5rem;
+  }
+  
+  .mobile-menu {
+    width: 280px;
+  }
+  
+  .header__search {
+    max-width: 160px;
+  }
+}
+
+/* Высокие плотности экрана (Retina) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Оптимизация для Retina дисплеев */
+  .header__logo-image {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+  
+  /* Более тонкие границы для четкости */
+  .card,
+  .btn {
+    border-width: 0.5px;
+  }
+}
