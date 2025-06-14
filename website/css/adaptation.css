@@ -545,13 +545,13 @@
   transition: all 0.3s ease;
 }
 
-.checklist-item input:checked + .checkmark {
+.checklist-item input:checked+.checkmark {
   background: var(--primary-green);
   border-color: var(--primary-green);
   color: var(--primary-white);
 }
 
-.checklist-item input:checked + .checkmark::after {
+.checklist-item input:checked+.checkmark::after {
   content: '✓';
   font-weight: bold;
 }
@@ -645,48 +645,49 @@
 /* ===== АДАПТИВНОСТЬ ===== */
 
 @media (max-width: 768px) {
+
   .welcome-banner,
   .intro-card,
   .quest-banner {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .welcome-icon,
   .intro-icon,
   .quest-icon {
     font-size: 3rem;
   }
-  
+
   .task-grid,
   .benefits-grid,
   .categories-grid,
   .journey-cards {
     grid-template-columns: 1fr;
   }
-  
+
   .timeline-step {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .timeline-step:not(:last-child)::after {
     display: none;
   }
-  
+
   .schedule-features {
     grid-template-columns: 1fr;
   }
-  
+
   .tip-item {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .quest-features {
     align-items: center;
   }
-  
+
   .checklist-item {
     flex-direction: column;
     text-align: center;

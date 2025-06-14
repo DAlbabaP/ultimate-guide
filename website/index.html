@@ -69,6 +69,32 @@
                     </div>
                 </div>
             </div>
+        </section>        <!-- Important Dates Widget -->
+        <section class="important-dates-section">
+            <div class="container">
+                <div class="important-dates-widget">
+                    <div class="widget-header">
+                        <h3 class="widget-title">
+                            <svg class="widget-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                            </svg>
+                            Важные даты
+                        </h3>
+                        <div class="widget-subtitle">Актуальные сроки и события</div>
+                    </div>
+                    <div class="dates-container" id="importantDatesContainer">
+                        <!-- Даты будут добавлены динамически -->
+                    </div>
+                    <div class="widget-footer">
+                        <button class="show-all-dates-btn" id="showAllDatesBtn">
+                            Показать все даты
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Main Navigation Cards -->
@@ -388,9 +414,7 @@
                         </div>
                         <div class="quick-title">Поиск по сайту</div>
                         <div class="quick-description">Найти нужную информацию</div>
-                    </a>
-
-                    <a href="pages/support/contacts/" class="quick-access-item">
+                    </a>                    <a href="pages/support/contacts/" class="quick-access-item">
                         <div class="quick-icon">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
@@ -399,6 +423,16 @@
                         <div class="quick-title">Контакты</div>
                         <div class="quick-description">Связаться с авторами</div>
                     </a>
+
+                    <button class="quick-access-item" id="startQuizBtn" style="background: linear-gradient(135deg, #4a9058 0%, #2d5e2f 100%); color: white; border: none;">
+                        <div class="quick-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                            </svg>
+                        </div>
+                        <div class="quick-title">Подходит ли мне РГАУ-МСХА?</div>
+                        <div class="quick-description">Пройти тест и узнать рекомендуемые факультеты</div>
+                    </button>
                 </div>
             </div>
         </section>
@@ -411,6 +445,8 @@
     <script src="js/navigation.js"></script>
     <script src="js/animations.js"></script>
     <script src="js/timeline.js"></script>
+    <script src="js/important-dates.js"></script>
+    <script src="js/university-quiz.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

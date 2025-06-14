@@ -244,10 +244,21 @@
   font-weight: 600;
 }
 
-.lecture-card h3 { color: #6f42c1; }
-.seminar-card h3 { color: #17a2b8; }
-.lab-card h3 { color: #fd7e14; }
-.practice-card h3 { color: var(--success-color); }
+.lecture-card h3 {
+  color: #6f42c1;
+}
+
+.seminar-card h3 {
+  color: #17a2b8;
+}
+
+.lab-card h3 {
+  color: #fd7e14;
+}
+
+.practice-card h3 {
+  color: var(--success-color);
+}
 
 .class-content p {
   margin: 0 0 var(--spacing-lg) 0;
@@ -342,10 +353,21 @@
   line-height: 1;
 }
 
-.excellent .grade-value { color: var(--success-color); }
-.good .grade-value { color: #17a2b8; }
-.satisfactory .grade-value { color: var(--warning-color); }
-.unsatisfactory .grade-value { color: var(--error-color); }
+.excellent .grade-value {
+  color: var(--success-color);
+}
+
+.good .grade-value {
+  color: #17a2b8;
+}
+
+.satisfactory .grade-value {
+  color: var(--warning-color);
+}
+
+.unsatisfactory .grade-value {
+  color: var(--error-color);
+}
 
 .grade-label {
   margin: var(--spacing-xs) 0;
@@ -580,49 +602,49 @@
     flex-direction: column;
     text-align: center;
   }
-  
+
   .overview-icon {
     font-size: 3rem;
   }
-  
+
   .features-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .academic-timeline {
     grid-template-columns: 1fr;
   }
-  
+
   .classes-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .assessment-info {
     grid-template-columns: 1fr;
     gap: var(--spacing-xl);
   }
-  
+
   .grades-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .digital-platforms {
     grid-template-columns: 1fr;
   }
-  
+
   .support-options {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
-  
+
   .tips-grid {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
-  
+
   .component-item {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .component-weight {
     margin-left: 0;
     align-self: center;
@@ -633,20 +655,20 @@
   .academic-overview {
     padding: var(--spacing-lg);
   }
-  
+
   .semester-block,
   .class-card {
     padding: var(--spacing-lg);
   }
-  
+
   .platform-card {
     padding: var(--spacing-lg);
   }
-  
+
   .grades-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .grade-item {
     padding: var(--spacing-md);
   }

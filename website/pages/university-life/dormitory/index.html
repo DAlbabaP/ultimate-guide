@@ -81,6 +81,129 @@
                                 <h4>Постельное белье</h4>
                                 <p>Выдается в котельной</p>
                             </div>
+                        </div>                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Dormitory Guide -->
+            <section class="content-section guide-section">
+                <div class="container">
+                    <div class="interactive-guide">
+                        <div class="guide-header">
+                            <h3>🏠 Интерактивный гид по общежитиям</h3>
+                            <p>Найдите подходящее общежитие по вашим критериям: цена, расстояние, условия проживания</p>
+                        </div>
+
+                        <!-- Фильтры -->
+                        <div class="dormitory-filters">
+                            <div class="filters-header">
+                                <h4 class="filters-title">🔍 Настройте фильтры</h4>
+                                <button id="reset-filters" class="reset-filters">Сбросить все</button>
+                            </div>
+
+                            <form id="dormitory-filters" class="filters-form">
+                                <div class="filters-grid">
+                                    <div class="filter-group">
+                                        <label for="max-price">Максимальная цена</label>
+                                        <input type="range" name="max-price" id="max-price" 
+                                               min="1000" max="1500" value="1500" step="50" 
+                                               data-output="price-output">
+                                        <div class="range-display">
+                                            <span>1000 ₽</span>
+                                            <span id="price-output" class="range-value">1500 ₽</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="filter-group">
+                                        <label for="max-distance">Максимальное расстояние</label>
+                                        <input type="range" name="max-distance" id="max-distance" 
+                                               min="5" max="15" value="15" step="1" 
+                                               data-output="distance-output">
+                                        <div class="range-display">
+                                            <span>5 мин</span>
+                                            <span id="distance-output" class="range-value">15 мин</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="filter-group">
+                                        <label for="people-per-block">Людей в блоке</label>
+                                        <select name="people-per-block" id="people-per-block">
+                                            <option value="any">Неважно</option>
+                                            <option value="4">До 4 человек</option>
+                                            <option value="5">До 5 человек</option>
+                                            <option value="6">До 6 человек</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="filter-group">
+                                        <label for="has-renovation">Состояние</label>
+                                        <select name="has-renovation" id="has-renovation">
+                                            <option value="any">Неважно</option>
+                                            <option value="true">После ремонта</option>
+                                            <option value="false">Требует ремонта</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="filter-group amenities-filter">
+                                        <label>Необходимые удобства</label>
+                                        <div class="amenities-checkboxes">
+                                            <div class="amenity-checkbox">
+                                                <input type="checkbox" name="amenities" value="душ в блоке" id="shower-in-block">
+                                                <label for="shower-in-block">Душ в блоке</label>
+                                            </div>
+                                            <div class="amenity-checkbox">
+                                                <input type="checkbox" name="amenities" value="туалет в блоке" id="toilet-in-block">
+                                                <label for="toilet-in-block">Туалет в блоке</label>
+                                            </div>
+                                            <div class="amenity-checkbox">
+                                                <input type="checkbox" name="amenities" value="прачечная" id="laundry">
+                                                <label for="laundry">Прачечная</label>
+                                            </div>
+                                            <div class="amenity-checkbox">
+                                                <input type="checkbox" name="amenities" value="охрана" id="security">
+                                                <label for="security">Охрана 24/7</label>
+                                            </div>
+                                            <div class="amenity-checkbox">
+                                                <input type="checkbox" name="amenities" value="интернет" id="internet">
+                                                <label for="internet">Интернет</label>
+                                            </div>
+                                            <div class="amenity-checkbox">
+                                                <input type="checkbox" name="amenities" value="спортзал" id="gym">
+                                                <label for="gym">Спортзал</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Результаты -->
+                        <div class="results-header">
+                            <div class="results-count">
+                                Найдено общежитий: <span id="results-count">8</span>
+                            </div>
+                            <div class="sort-controls">
+                                <label for="sort-by">Сортировать по:</label>
+                                <select id="sort-by">
+                                    <option value="rating">Рейтингу</option>
+                                    <option value="price-low">Цене (возрастание)</option>
+                                    <option value="price-high">Цене (убывание)</option>
+                                    <option value="distance">Расстоянию</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="dormitory-results" class="dormitory-results">
+                            <!-- Результаты будут отображены здесь -->
+                        </div>
+
+                        <div id="no-results" class="no-results" style="display: none;">
+                            <div class="no-results-icon">🏠</div>
+                            <h3>Общежитий не найдено</h3>
+                            <p>
+                                Попробуйте изменить критерии поиска или сбросить фильтры.<br>
+                                Все общежития РГАУ-МСХА предоставляют достойные условия для проживания.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -325,6 +448,7 @@
     <script src="../../../js/navigation.js"></script>
     <script src="../../../js/animations.js"></script>
     <script src="../../../js/timeline.js"></script>
+    <script src="../../../js/dormitory-guide.js"></script>
     <script src="../../../js/main.js"></script>
 
 </body>

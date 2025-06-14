@@ -193,7 +193,104 @@
                                 </div>
                             </div>
                             <div class="card-arrow">→</div>
-                        </a>
+                        </a>                    </div>
+                </div>
+            </section>
+
+            <!-- Scholarship Calculator -->
+            <section class="content-section calculator-section">
+                <div class="container">
+                    <div class="scholarship-calculator">
+                        <div class="calculator-header">
+                            <h3>🧮 Калькулятор стипендии</h3>
+                            <p>Рассчитайте размер своей стипендии на основе успеваемости и активности</p>
+                        </div>
+
+                        <form id="scholarship-calculator-form" class="calculator-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="study-type">Форма обучения</label>
+                                    <select name="study-type" id="study-type" required>
+                                        <option value="">Выберите форму обучения</option>
+                                        <option value="budget">Бюджет</option>
+                                        <option value="contract">Договор</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="study-year">Курс</label>
+                                    <select name="study-year" id="study-year" required>
+                                        <option value="">Выберите курс</option>
+                                        <option value="1">1 курс</option>
+                                        <option value="2">2 курс</option>
+                                        <option value="3">3 курс</option>
+                                        <option value="4">4 курс</option>
+                                        <option value="5">5 курс</option>
+                                        <option value="6">6 курс</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="average-grade">Средний балл</label>
+                                    <input type="number" name="average-grade" id="average-grade" 
+                                           min="3" max="5" step="0.1" placeholder="4.5" required>
+                                    <div class="form-note">
+                                        Укажите ваш средний балл от 3.0 до 5.0
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="social-category">Социальная категория</label>
+                                    <select name="social-category" id="social-category">
+                                        <option value="none">Обычная категория</option>
+                                        <option value="eligible">Имею право на социальную стипендию</option>
+                                    </select>
+                                    <div class="form-note">
+                                        Инвалиды, сироты, дети из многодетных семей и др.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Дополнительные достижения</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="excellent-grades" id="excellent-grades">
+                                        <label for="excellent-grades">Все оценки "отлично" (красный диплом)</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="science-activity" id="science-activity">
+                                        <label for="science-activity">Научная деятельность (конференции, публикации)</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="cultural-activity" id="cultural-activity">
+                                        <label for="cultural-activity">Культурно-творческая деятельность</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="sports-activity" id="sports-activity">
+                                        <label for="sports-activity">Спортивные достижения</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="social-activity" id="social-activity">
+                                        <label for="social-activity">Общественная деятельность (студсовет, волонтерство)</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="leadership-role" id="leadership-role">
+                                        <label for="leadership-role">Руководящая должность (староста, председатель)</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div id="scholarship-result" style="display: none;">
+                            <!-- Результаты будут отображены здесь -->
+                        </div>
+
+                        <div id="scholarship-recommendations">
+                            <!-- Рекомендации будут отображены здесь -->
+                        </div>
                     </div>
                 </div>
             </section>
@@ -382,13 +479,12 @@
 
         <!-- Footer -->
         <footer class="footer" id="footer"></footer>
-    </div>
-
-    <!-- Scripts -->
+    </div>    <!-- Scripts -->
     <script src="../../js/utils.js"></script>
     <script src="../../js/search-modal.js"></script>
     <script src="../../js/animations.js"></script>
     <script src="../../js/timeline.js"></script>
+    <script src="../../js/scholarship-calculator.js"></script>
     <script src="../../js/main.js"></script>
 </body>
 </html>

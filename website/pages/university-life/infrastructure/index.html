@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Инфраструктура | Жизнь в университете | Справочник абитуриента</title>
-    <link rel="stylesheet" href="../../../css/styles.css">
+    <title>Инфраструктура | Жизнь в университете | Справочник абитуриента</title>    <link rel="stylesheet" href="../../../css/styles.css">
     <link rel="stylesheet" href="../../../css/header.css">
     <link rel="stylesheet" href="../../../css/footer.css">
     <link rel="stylesheet" href="../../../css/navigation.css">
     <link rel="stylesheet" href="../../../css/cards.css">
     <link rel="stylesheet" href="../../../css/timeline.css">
     <link rel="stylesheet" href="../../../css/forms.css">
-    <link rel="stylesheet" href="../../../css/pages.css">
-    <link rel="stylesheet" href="../../../css/infrastructure.css">
+    <link rel="stylesheet" href="../../../css/pages.css">    <link rel="stylesheet" href="../../../css/infrastructure.css">
+    <link rel="stylesheet" href="../../../css/infrastructure-map.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="../../../css/responsive.css">
 </head>
 <body>
@@ -57,6 +57,68 @@
                             <div class="quick-tip">
                                 <span class="tip-icon">📱</span>
                                 <span>Достаточно открыть Яндекс.Карты, выбрать нужное заведение, и маршрут будет построен</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>            </section>
+
+            <!-- Interactive Map Section -->
+            <section class="content-section map-section">
+                <div class="container">
+                    <h2 class="section-title">🗺️ Интерактивная карта инфраструктуры</h2>
+                    
+                    <div class="infrastructure-map-container">
+                        <!-- Map Controls -->
+                        <div class="map-controls">
+                            <div class="filter-buttons">
+                                <button class="filter-btn active" data-category="all">
+                                    <span class="filter-icon">🏢</span>
+                                    Все объекты
+                                </button>
+                                <button class="filter-btn" data-category="shopping">
+                                    <span class="filter-icon">🛒</span>
+                                    Магазины
+                                </button>
+                                <button class="filter-btn" data-category="food">
+                                    <span class="filter-icon">🍽️</span>
+                                    Еда
+                                </button>
+                                <button class="filter-btn" data-category="delivery">
+                                    <span class="filter-icon">📦</span>
+                                    Доставка
+                                </button>
+                                <button class="filter-btn" data-category="sports">
+                                    <span class="filter-icon">💪</span>
+                                    Спорт
+                                </button>
+                                <button class="filter-btn" data-category="health">
+                                    <span class="filter-icon">🏥</span>
+                                    Медицина
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="map-content">
+                            <!-- Map Display -->
+                            <div class="map-display">
+                                <div class="map-placeholder">
+                                    <div class="map-placeholder-content">
+                                        <div class="placeholder-icon">🗺️</div>
+                                        <p>Интерактивная карта</p>
+                                        <small>Выберите категорию для отображения объектов</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Places List -->
+                            <div class="places-list">
+                                <div class="places-header">
+                                    <h3>Найденные места</h3>
+                                    <span class="places-count">0 объектов</span>
+                                </div>
+                                <div class="places-items" id="places-list">
+                                    <!-- Places will be inserted here -->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -382,13 +444,13 @@
 
         <!-- Footer -->
         <footer class="footer" id="footer"></footer>
-    </div>
-
-    <!-- Scripts -->
+    </div>    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="../../../js/utils.js"></script>
     <script src="../../../js/search-modal.js"></script>
     <script src="../../../js/animations.js"></script>
     <script src="../../../js/timeline.js"></script>
+    <script src="../../../js/infrastructure-map.js"></script>
     <script src="../../../js/main.js"></script>
 </body>
 </html>
