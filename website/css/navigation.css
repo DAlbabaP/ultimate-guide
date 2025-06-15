@@ -456,9 +456,13 @@
     display: none;
   }
   
-  /* Показываем мобильное меню и overlay */
-  .mobile-menu,
-  .mobile-menu-overlay {
+  /* Показываем только мобильное меню, overlay остается скрытым до активации */
+  .mobile-menu {
+    display: block;
+  }
+  
+  /* Overlay показывается только когда активен */
+  .mobile-menu-overlay.active {
     display: block;
   }
 }
