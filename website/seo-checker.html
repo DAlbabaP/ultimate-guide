@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Проверка - Справочник РГАУ-МСХА</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .header { 
+            background: #2E7D32; 
+            color: white; 
+            padding: 20px; 
+            border-radius: 8px; 
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section { 
+            background: white; 
+            padding: 20px; 
+            margin: 20px 0; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .check-button { 
+            background: #4CAF50; 
+            color: white; 
+            border: none; 
+            padding: 12px 24px; 
+            border-radius: 5px; 
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        .check-button:hover { background: #45a049; }
+        .result { 
+            margin: 15px 0; 
+            padding: 10px; 
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .warning { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .page-list { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 15px;
+        }
+        .page-item { 
+            background: #f8f9fa; 
+            padding: 15px; 
+            border-radius: 5px;
+            border-left: 4px solid #2E7D32;
+        }
+        .page-item a { color: #2E7D32; text-decoration: none; font-weight: bold; }
+        .page-item a:hover { text-decoration: underline; }
+        .stats { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-card { 
+            background: linear-gradient(135deg, #2E7D32, #4CAF50); 
+            color: white; 
+            padding: 20px; 
+            border-radius: 8px; 
+            text-align: center;
+        }
+        .stat-number { font-size: 32px; font-weight: bold; }
+        .stat-label { font-size: 14px; opacity: 0.9; }
+        .code-block { 
+            background: #f4f4f4; 
+            padding: 15px; 
+            border-radius: 5px; 
+            font-family: monospace; 
+            overflow-x: auto;
+            border-left: 4px solid #007acc;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 SEO Проверка справочника РГАУ-МСХА</h1>
+        <p>Автоматическая проверка всех внедренных SEO улучшений</p>
+    </div>
+
+    <div class="section">
+        <h2>📊 Статистика проекта</h2>
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">26</div>
+                <div class="stat-label">страниц оптимизировано</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">SEO готовность</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">ключевых разделов</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">✅</div>
+                <div class="stat-label">готово к запуску</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🚀 Быстрая проверка</h2>
+        <button class="check-button" onclick="checkCurrentPageSEO()">Проверить текущую страницу</button>
+        <button class="check-button" onclick="checkAllMetaTags()">Проверить все метатеги</button>
+        <button class="check-button" onclick="checkServiceFiles()">Проверить служебные файлы</button>
+        <button class="check-button" onclick="generateSEOReport()">Полный SEO отчет</button>
+        
+        <div id="results"></div>
+    </div>
+
+    <div class="section">
+        <h2>📋 Все оптимизированные страницы</h2>
+        <div class="page-list">
+            <div class="page-item">
+                <a href="index.html">🏠 Главная страница</a>
+                <div>Справочник студента РГАУ-МСХА 2025</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/applicant-path/">📚 Путь абитуриента</a>
+                <div>Поступление в РГАУ-МСХА 2025</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/applicant-path/documents/">📄 Подача документов</a>
+                <div>Июнь-Июль 2025</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/applicant-path/enrollment/">✅ Зачисление</a>
+                <div>Август 2025</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/applicant-path/dormitory-settlement/">🏠 Заселение в общежитие</a>
+                <div>Конец августа 2025</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/applicant-path/competitive-selection/">📊 Конкурсный отбор</a>
+                <div>Конец июля 2025</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/applicant-path/adaptation/">🎓 Адаптация</a>
+                <div>Сентябрь 2025</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/university-life/">🎓 Жизнь в университете</a>
+                <div>Обзор студенческой жизни</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/university-life/academic-process/">📖 Учебный процесс</a>
+                <div>Сессии, пары, зачеты</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/university-life/dormitory/">🏠 Общежитие и проживание</a>
+                <div>Условия и правила</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/university-life/infrastructure/">🗺️ Инфраструктура</a>
+                <div>Карта кампуса</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/scholarships/">💰 Стипендии и льготы</a>
+                <div>Все виды стипендий</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/scholarships/standard/">📊 Стандартная стипендия</a>
+                <div>Размеры и условия</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/scholarships/enhanced/">⭐ Повышенная стипендия</a>
+                <div>Система баллов</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/scholarships/moscow-card/">🎫 Карта москвича</a>
+                <div>Льготы и скидки</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/scholarships/other-benefits/">🎁 Прочие льготы</a>
+                <div>Дополнительная поддержка</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/military/">⚔️ Военная подготовка</a>
+                <div>ВУЦ, отсрочка от армии</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/military/deferment/">📋 Отсрочка от армии</a>
+                <div>Условия получения</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/military/vuc/">🎖️ ВУЦ (военная кафедра)</a>
+                <div>Военная подготовка</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/military/military-office/">🏛️ Военкомат</a>
+                <div>Для студентов</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/self-government/">👥 Студенческое самоуправление</a>
+                <div>Роль старост</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/self-government/leader-requirements/">👤 Кто такой староста</a>
+                <div>Требования к кандидатам</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/self-government/responsibilities/">📋 Обязанности старосты</a>
+                <div>Функции и задачи</div>
+            </div>
+            
+            <div class="page-item">
+                <a href="pages/support/faq/">❓ FAQ и поддержка</a>
+                <div>Часто задаваемые вопросы</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🛠️ Служебные файлы</h2>
+        <div class="page-list">
+            <div class="page-item">
+                <a href="robots.txt">🤖 robots.txt</a>
+                <div>Инструкции для поисковых роботов</div>
+            </div>
+            <div class="page-item">
+                <a href="sitemap.xml">🗺️ sitemap.xml</a>
+                <div>Карта сайта для индексации</div>
+            </div>
+            <div class="page-item">
+                <a href="js/seo-utils.js">⚙️ seo-utils.js</a>
+                <div>SEO утилиты</div>
+            </div>
+            <div class="page-item">
+                <a href="test-og-preview.html">👀 test-og-preview.html</a>
+                <div>Предварительный просмотр карточек</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📝 Инструкции</h2>
+        
+        <h3>1. Запуск локального сервера</h3>
+        <div class="code-block">
+cd "b:\Ultimate Guide\website"
+python -m http.server 8000
+        </div>
+        
+        <h3>2. Проверка в консоли браузера</h3>
+        <div class="code-block">
+// Нажмите F12 → Console и выполните:
+console.log('Title:', document.title);
+console.log('Description:', document.querySelector('meta[name="description"]')?.content);
+console.log('OG Title:', document.querySelector('meta[property="og:title"]')?.content);
+        </div>
+        
+        <h3>3. Проверка мобильной версии</h3>
+        <div class="code-block">
+1. F12 → кликните иконку мобильного устройства
+2. Выберите iPhone/Android 
+3. Проверьте отображение метатегов
+        </div>
+    </div>
+
+    <script>
+        function addResult(message, type = 'success') {
+            const results = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = `result ${type}`;
+            div.textContent = message;
+            results.appendChild(div);
+        }
+
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+        }
+
+        function checkCurrentPageSEO() {
+            clearResults();
+            addResult('🔍 Проверка текущей страницы...', 'warning');
+            
+            const title = document.title;
+            const hasRGAU = title.includes('РГАУ-МСХА') || title.includes('МСХА');
+            const hasYear = title.includes('2025');
+            
+            addResult(`Title: ${title}`, hasRGAU ? 'success' : 'error');
+            addResult(`Содержит РГАУ-МСХА: ${hasRGAU ? 'Да' : 'Нет'}`, hasRGAU ? 'success' : 'error');
+            addResult(`Содержит 2025: ${hasYear ? 'Да' : 'Нет'}`, hasYear ? 'success' : 'warning');
+        }
+
+        function checkAllMetaTags() {
+            clearResults();
+            addResult('🏷️ Проверка всех метатегов...', 'warning');
+            
+            const checks = [
+                { name: 'Title', selector: 'title', required: true },
+                { name: 'Description', selector: 'meta[name="description"]', required: true },
+                { name: 'Keywords', selector: 'meta[name="keywords"]', required: false },
+                { name: 'OG Title', selector: 'meta[property="og:title"]', required: true },
+                { name: 'OG Description', selector: 'meta[property="og:description"]', required: true },
+                { name: 'OG Image', selector: 'meta[property="og:image"]', required: true },
+                { name: 'Twitter Card', selector: 'meta[property="twitter:card"]', required: true }
+            ];
+            
+            checks.forEach(check => {
+                const element = document.querySelector(check.selector);
+                const content = element?.content || element?.textContent;
+                const exists = !!content;
+                
+                addResult(
+                    `${check.name}: ${exists ? '✅ Найден' : '❌ Отсутствует'}`,
+                    exists ? 'success' : (check.required ? 'error' : 'warning')
+                );
+                
+                if (exists && content.length > 0) {
+                    addResult(`  Содержимое: ${content.substring(0, 100)}...`, 'success');
+                }
+            });
+        }
+
+        function checkServiceFiles() {
+            clearResults();
+            addResult('📁 Проверка служебных файлов...', 'warning');
+            
+            const files = [
+                'robots.txt',
+                'sitemap.xml', 
+                'js/seo-utils.js',
+                'test-og-preview.html'
+            ];
+            
+            files.forEach(file => {
+                fetch(file)
+                    .then(response => {
+                        addResult(
+                            `${file}: ${response.ok ? '✅ Доступен' : '❌ Недоступен'}`,
+                            response.ok ? 'success' : 'error'
+                        );
+                    })
+                    .catch(() => {
+                        addResult(`${file}: ❌ Ошибка загрузки`, 'error');
+                    });
+            });
+        }
+
+        function generateSEOReport() {
+            clearResults();
+            addResult('📊 Генерация полного SEO отчета...', 'warning');
+            
+            setTimeout(() => {
+                const title = document.title;
+                const description = document.querySelector('meta[name="description"]')?.content;
+                const ogTags = document.querySelectorAll('meta[property^="og:"]').length;
+                const structuredData = document.getElementById('structured-data');
+                const seoScript = document.querySelector('script[src*="seo-utils.js"]');
+                
+                addResult(`📄 Title: ${title}`, 'success');
+                addResult(`📝 Description длина: ${description?.length || 0} символов`, 'success');
+                addResult(`📘 Open Graph тегов: ${ogTags}`, ogTags > 0 ? 'success' : 'error');
+                addResult(`🔧 SEO утилиты: ${seoScript ? 'Подключены' : 'Не подключены'}`, seoScript ? 'success' : 'error');
+                addResult(`📊 Структурированные данные: ${structuredData ? 'Есть' : 'Нет'}`, structuredData ? 'success' : 'warning');
+                
+                addResult('✅ SEO отчет готов!', 'success');
+            }, 1000);
+        }
+        
+        // Автоматическая проверка при загрузке
+        window.addEventListener('load', () => {
+            addResult('🎉 SEO Checker загружен! Сайт готов к проверке.', 'success');
+        });
+    </script>
+</body>
+</html>

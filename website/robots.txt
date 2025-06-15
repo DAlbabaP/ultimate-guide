@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+
+# Разрешить доступ к ресурсам
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /data/
+
+# Запретить доступ к служебным файлам
+Disallow: /components/
+Disallow: /*.md$
+Disallow: /ошибки.md
+Disallow: /улучшения.md
+
+# Карта сайта
+Sitemap: https://rgau-guide.ru/sitemap.xml
+
+# Время ожидания между запросами (в секундах)
+Crawl-delay: 1
+
+# Дополнительные настройки для популярных поисковиков
+User-agent: Googlebot
+Crawl-delay: 0
+
+User-agent: Yandex
+Crawl-delay: 1
+
+User-agent: Bingbot
+Crawl-delay: 1

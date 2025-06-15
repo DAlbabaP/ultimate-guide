@@ -3,8 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Полный гайд для абитуриентов РГАУ-МСХА</title>
-    <meta name="description" content="Исчерпывающий путеводитель для поступающих в РГАУ-МСХА имени К.А. Тимирязева. Все этапы от подачи документов до адаптации в университете.">      <!-- CSS files -->
+    <title>Справочник абитуриента РГАУ-МСХА | Полный гайд для поступающих</title>
+    <meta name="description" content="Исчерпывающий путеводитель для поступающих в РГАУ-МСХА имени К.А. Тимирязева. Все этапы от подачи документов до адаптации в университете. Общежития, стипендии, студенческие организации.">
+    <meta name="keywords" content="РГАУ-МСХА, абитуриент, поступление, университет, студент, Тимирязевка, сельхозакадемия, общежитие, стипендия, студенческие организации">
+    <meta name="author" content="Студенты РГАУ-МСХА">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rgau-guide.ru/">
+    
+    <!-- Open Graph метатеги -->
+    <meta property="og:title" content="Справочник абитуриента РГАУ-МСХА | Полный гайд для поступающих">
+    <meta property="og:description" content="Исчерпывающий путеводитель для поступающих в РГАУ-МСХА имени К.А. Тимирязева. Все этапы от подачи документов до адаптации в университете.">
+    <meta property="og:image" content="https://rgau-guide.ru/images/og-image.jpg">
+    <meta property="og:url" content="https://rgau-guide.ru/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Справочник РГАУ-МСХА">
+    <meta property="og:locale" content="ru_RU">
+    
+    <!-- Twitter Card метатеги -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@rgau_guide">
+    <meta name="twitter:title" content="Справочник абитуриента РГАУ-МСХА">
+    <meta name="twitter:description" content="Полный гайд для поступающих в РГАУ-МСХА имени К.А. Тимирязева">
+    <meta name="twitter:image" content="https://rgau-guide.ru/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    
+    <!-- CSS files -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/header-search.css">
@@ -436,9 +462,7 @@
                 </div>
             </div>
         </section>
-    </main>
-
-    <!-- Footer -->
+    </main>    <!-- Footer -->
     <footer id="footer"></footer>    <!-- JavaScript files -->
     <script src="js/utils.js"></script>
     <script src="js/search-modal.js"></script>
@@ -447,6 +471,67 @@
     <script src="js/timeline.js"></script>
     <script src="js/important-dates.js"></script>
     <script src="js/university-quiz.js"></script>
+    <script src="js/seo-utils.js"></script>
     <script src="js/main.js"></script>
+    
+    <!-- Структурированные данные JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "РГАУ-МСХА имени К.А. Тимирязева",
+      "alternateName": "Российский государственный аграрный университет - МСХА имени К.А. Тимирязева",
+      "url": "https://www.timacad.ru",
+      "logo": "https://rgau-guide.ru/images/logo/university-logo.png",
+      "image": "https://rgau-guide.ru/images/og-image.jpg",
+      "description": "Ведущий аграрный университет России, основанный в 1865 году",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Тимирязевская ул., 49",
+        "addressLocality": "Москва",
+        "postalCode": "127550",
+        "addressCountry": "RU"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+7-499-976-24-90",
+        "contactType": "customer service",
+        "areaServed": "RU",
+        "availableLanguage": "Russian"
+      },
+      "sameAs": [
+        "https://vk.com/timacad",
+        "https://t.me/timacad",
+        "https://youtube.com/timacad"
+      ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Справочник абитуриента РГАУ-МСХА",
+      "url": "https://rgau-guide.ru",
+      "description": "Полный гайд для поступающих в РГАУ-МСХА имени К.А. Тимирязева",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Студенты РГАУ-МСХА"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://rgau-guide.ru/?search={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Поступление в университет",
+        "description": "Информация о поступлении, общежитиях, стипендиях и студенческой жизни в РГАУ-МСХА"
+      }
+    }
+    </script>
 </body>
 </html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Предварительный просмотр Open Graph карточек</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        h1 {
+            color: #1877f2;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #1877f2;
+            padding-bottom: 10px;
+        }
+        
+        .platform {
+            margin-bottom: 40px;
+        }
+        
+        .preview-card {
+            border: 1px solid #dadde1;
+            border-radius: 8px;
+            max-width: 500px;
+            margin: 20px 0;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .preview-image {
+            width: 100%;
+            height: 260px;
+            background: linear-gradient(135deg, #2E7D32, #4CAF50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .preview-content {
+            padding: 12px;
+        }
+        
+        .preview-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #1d2129;
+            line-height: 1.3;
+        }
+        
+        .preview-description {
+            color: #606770;
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+        
+        .preview-url {
+            color: #1877f2;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        
+        /* Telegram стиль */
+        .telegram-card {
+            border-left: 3px solid #0088cc;
+            background: #f8f9fa;
+        }
+        
+        .telegram-card .preview-title {
+            color: #0088cc;
+            font-size: 15px;
+        }
+        
+        /* VK стиль */
+        .vk-card {
+            border-radius: 4px;
+        }
+        
+        .vk-card .preview-title {
+            color: #2a5885;
+        }
+        
+        .vk-card .preview-url {
+            color: #939393;
+        }
+        
+        .instructions {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .code-block {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Предварительный просмотр Open Graph карточек</h1>
+    
+    <div class="instructions">
+        <strong>Как использовать:</strong><br>
+        1. Запустите локальный сервер в папке website<br>
+        2. Откройте браузер и перейдите на http://localhost:8000<br>
+        3. Сравните метатеги страниц с карточками ниже<br>
+        4. Используйте F12 → Elements для проверки метатегов
+    </div>
+
+    <h2>📘 Facebook / Общие соцсети</h2>
+    <div class="platform">
+        <!-- Главная страница -->
+        <div class="preview-card">
+            <div class="preview-image">🏫</div>
+            <div class="preview-content">
+                <div class="preview-title">Справочник студента РГАУ-МСХА 2025</div>
+                <div class="preview-description">Полный гайд для абитуриентов и студентов РГАУ-МСХА: поступление, общежитие, стипендии, военная кафедра и студенческая жизнь</div>
+                <div class="preview-url">ргау-справочник.рф</div>
+            </div>
+        </div>
+
+        <!-- Жизнь в университете -->
+        <div class="preview-card">
+            <div class="preview-image">🎓</div>
+            <div class="preview-content">
+                <div class="preview-title">Жизнь в университете РГАУ-МСХА</div>
+                <div class="preview-description">Все о студенческой жизни в МСХА: инфраструктура кампуса, общежития, учебный процесс и внеучебная деятельность</div>
+                <div class="preview-url">ргау-справочник.рф/pages/university-life/</div>
+            </div>
+        </div>
+
+        <!-- Поступление -->
+        <div class="preview-card">
+            <div class="preview-image">📚</div>
+            <div class="preview-content">
+                <div class="preview-title">Поступление в РГАУ-МСХА 2025</div>
+                <div class="preview-description">Пошаговый календарь поступления: подача документов, конкурсный отбор, зачисление и заселение в общежитие</div>
+                <div class="preview-url">ргау-справочник.рф/pages/enrollment/</div>
+            </div>
+        </div>
+
+        <!-- Общежитие -->
+        <div class="preview-card">
+            <div class="preview-image">🏠</div>
+            <div class="preview-content">
+                <div class="preview-title">Общежитие РГАУ-МСХА</div>
+                <div class="preview-description">Полный гайд по общежитиям МСХА: как получить место, условия проживания, правила заселения и быт</div>
+                <div class="preview-url">ргау-справочник.рф/pages/dormitory/</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>💬 Telegram</h2>
+    <div class="platform">
+        <div class="preview-card telegram-card">
+            <div class="preview-image">🎓</div>
+            <div class="preview-content">
+                <div class="preview-title">Справочник студента РГАУ-МСХА 2025</div>
+                <div class="preview-description">Полный гайд для абитуриентов и студентов РГАУ-МСХА</div>
+                <div class="preview-url">ргау-справочник.рф</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>📘 ВКонтакте</h2>
+    <div class="platform">
+        <div class="preview-card vk-card">
+            <div class="preview-image">🏫</div>
+            <div class="preview-content">
+                <div class="preview-title">Справочник студента РГАУ-МСХА 2025</div>
+                <div class="preview-description">Полный гайд для абитуриентов и студентов</div>
+                <div class="preview-url">ргау-справочник.рф</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>🛠️ Инструкции для проверки</h2>
+    
+    <div class="instructions">
+        <strong>Проверка метатегов в браузере:</strong>
+        <div class="code-block">
+1. Откройте любую страницу сайта<br>
+2. Нажмите F12 (Инструменты разработчика)<br>
+3. Перейдите на вкладку "Elements"<br>
+4. Найдите секцию &lt;head&gt;<br>
+5. Проверьте наличие всех метатегов
+        </div>
+    </div>
+
+    <div class="instructions">
+        <strong>Проверка через консоль:</strong>
+        <div class="code-block">
+// Скопируйте и вставьте в консоль браузера (F12 → Console):<br><br>
+
+console.log('=== ЗАГОЛОВОК СТРАНИЦЫ ===');<br>
+console.log('Title:', document.title);<br><br>
+
+console.log('=== ОСНОВНЫЕ МЕТАТЕГИ ===');<br>
+['description', 'keywords', 'author'].forEach(name => {<br>
+&nbsp;&nbsp;const meta = document.querySelector(`meta[name="${name}"]`);<br>
+&nbsp;&nbsp;console.log(`${name}:`, meta?.content || 'НЕ НАЙДЕН');<br>
+});<br><br>
+
+console.log('=== OPEN GRAPH ТЕГИ ===');<br>
+['og:title', 'og:description', 'og:image', 'og:url', 'og:type'].forEach(prop => {<br>
+&nbsp;&nbsp;const meta = document.querySelector(`meta[property="${prop}"]`);<br>
+&nbsp;&nbsp;console.log(`${prop}:`, meta?.content || 'НЕ НАЙДЕН');<br>
+});
+        </div>
+    </div>
+
+    <div class="instructions">
+        <strong>Запуск локального сервера:</strong>
+        <div class="code-block">
+# Перейдите в папку website и выполните одну из команд:<br><br>
+
+# Python (самый простой способ):<br>
+cd "b:\Ultimate Guide\website"<br>
+python -m http.server 8000<br><br>
+
+# Node.js:<br>
+npx http-server -p 8000<br><br>
+
+# VS Code Live Server:<br>
+1. Установите расширение "Live Server"<br>
+2. Кликните правой кнопкой на index.html<br>
+3. Выберите "Open with Live Server"
+        </div>
+    </div>
+
+    <script>
+        // Добавляем интерактивность для демонстрации
+        document.querySelectorAll('.preview-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.style.transform = card.style.transform ? '' : 'scale(1.02)';
+                card.style.transition = 'transform 0.2s';
+            });
+        });
+    </script>
+</body>
+</html>
