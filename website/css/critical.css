@@ -1,0 +1,68 @@
+/* Критический CSS для быстрой загрузки */
+:root {
+  --primary-green: #2F5E2F;
+  --primary-white: #FFFFFF;
+  --text-color: #333333;
+  --background-light: #F8F9FA;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-light);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header {
+  background: var(--primary-green);
+  color: var(--primary-white);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, var(--primary-green), #4a9058);
+  color: var(--primary-white);
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+/* Скрываем не критичный контент до загрузки остальных стилей */
+.cards-grid,
+.timeline-section,
+.quick-access-section {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.styles-loaded .cards-grid,
+.styles-loaded .timeline-section,
+.styles-loaded .quick-access-section {
+  opacity: 1;
+}
