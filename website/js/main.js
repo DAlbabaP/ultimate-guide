@@ -46,12 +46,44 @@ const App = {
     console.log('Base path:', basePath);
     
     // Загружаем компоненты
-    await Utils.loadAllComponents(basePath);
-    
+    await Utils.loadAllComponents(basePath);    
     this.initComponents();
     this.bindEvents();
     this.loadContent();
-    console.log('✅ Сайт успешно инициализирован');
+      // Инициализация PWA после загрузки основных компонентов
+    if (typeof PWA !== 'undefined') {
+      console.log('🔄 PWA уже инициализирован автоматически');
+      
+      // Добавляем обработчик для кнопки установки в quick access
+      this.initPWAInstallButton();
+    }
+      console.log('✅ Сайт успешно инициализирован');
+  },
+
+  // Инициализация кнопки установки PWA
+  initPWAInstallButton() {
+    const installBtn = document.getElementById('pwa-install-main-btn');
+    if (!installBtn) return;
+
+    // Показываем кнопку, если PWA можно установить
+    const checkInstallable = () => {
+      if (window.PWA && window.PWA.state.isInstallable && !window.PWA.state.isInstalled) {
+        installBtn.style.display = 'block';
+      } else {
+        installBtn.style.display = 'none';
+      }
+    };
+
+    // Обработчик клика на кнопку установки
+    installBtn.addEventListener('click', () => {
+      if (window.PWA) {
+        window.PWA.installApp();
+      }
+    });
+
+    // Проверяем периодически
+    setInterval(checkInstallable, 1000);
+    checkInstallable();
   },
 
   // Инициализация компонентов

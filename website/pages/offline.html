@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="../manifest.json">
+    <title>Офлайн режим | Справочник РГАУ-МСХА</title>
+    <meta name="description" content="Страница для работы в офлайн режиме">
+    
+    <!-- Минимальные стили для офлайн страницы -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+        
+        .offline-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 20px;
+        }
+        
+        .offline-icon {
+            font-size: 80px;
+            margin-bottom: 24px;
+            opacity: 0.8;
+        }
+        
+        .offline-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2F5E2F;
+            margin-bottom: 16px;
+        }
+        
+        .offline-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 32px;
+        }
+        
+        .offline-features {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+        
+        .offline-features h3 {
+            color: #2F5E2F;
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+        
+        .offline-feature-list {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .offline-feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .feature-icon {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .offline-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #2F5E2F, #4a9058);
+            color: white;
+            border: none;
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #2F5E2F;
+            border: 2px solid #2F5E2F;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .connection-status {
+            margin-top: 24px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .status-offline {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .status-online {
+            background: #d1edff;
+            color: #004085;
+            border: 1px solid #bee5eb;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .offline-container {
+            animation: fadeIn 0.6s ease;
+        }
+        
+        .offline-icon {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 480px) {
+            .offline-container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            .offline-title {
+                font-size: 24px;
+            }
+            
+            .offline-icon {
+                font-size: 60px;
+            }
+            
+            .offline-actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">📡</div>
+        <h1 class="offline-title">Офлайн режим</h1>
+        <p class="offline-description">
+            Вы находитесь в офлайн режиме, но не волнуйтесь! Многие функции справочника 
+            доступны и без подключения к интернету.
+        </p>
+        
+        <div class="offline-features">
+            <h3>Доступно в офлайн режиме:</h3>
+            <ul class="offline-feature-list">
+                <li><span class="feature-icon">✓</span> Основные разделы справочника</li>
+                <li><span class="feature-icon">✓</span> Информация о поступлении</li>
+                <li><span class="feature-icon">✓</span> Данные об общежитиях</li>
+                <li><span class="feature-icon">✓</span> Справка по стипендиям</li>
+                <li><span class="feature-icon">✓</span> Контактная информация</li>
+                <li><span class="feature-icon">✓</span> Часто задаваемые вопросы</li>
+            </ul>
+        </div>
+        
+        <div class="offline-actions">
+            <button class="btn btn-primary" onclick="goToHomepage()">
+                🏠 На главную
+            </button>
+            <button class="btn btn-secondary" onclick="tryReconnect()">
+                🔄 Проверить соединение
+            </button>
+        </div>
+        
+        <div class="connection-status status-offline" id="connectionStatus">
+            <span id="statusText">🔴 Нет подключения к интернету</span>
+        </div>
+    </div>
+
+    <script>
+        // Проверка состояния сети
+        function updateConnectionStatus() {
+            const statusElement = document.getElementById('connectionStatus');
+            const statusText = document.getElementById('statusText');
+            
+            if (navigator.onLine) {
+                statusElement.className = 'connection-status status-online';
+                statusText.textContent = '🟢 Соединение восстановлено';
+                
+                // Предлагаем вернуться к обычному режиму
+                setTimeout(() => {
+                    if (confirm('Соединение восстановлено! Перейти к обычному режиму?')) {
+                        window.location.href = '/';
+                    }
+                }, 1000);
+            } else {
+                statusElement.className = 'connection-status status-offline';
+                statusText.textContent = '🔴 Нет подключения к интернету';
+            }
+        }        // Переход на главную страницу
+        function goToHomepage() {
+            try {
+                window.location.href = '../';
+            } catch (error) {
+                // Если не удается перейти, показываем сообщение
+                alert('Для перехода на главную страницу необходимо подключение к интернету');
+            }
+        }
+
+        // Попытка переподключения
+        function tryReconnect() {
+            updateConnectionStatus();
+              if (navigator.onLine) {
+                // Если есть соединение, пытаемся загрузить главную страницу
+                fetch('../', { method: 'HEAD', cache: 'no-cache' })
+                    .then(() => {
+                        window.location.href = '../';
+                    })
+                    .catch(() => {
+                        alert('Соединение есть, но сервер недоступен');
+                    });
+            } else {
+                alert('Подключение к интернету отсутствует');
+            }
+        }
+
+        // Слушатели событий сети
+        window.addEventListener('online', updateConnectionStatus);
+        window.addEventListener('offline', updateConnectionStatus);
+
+        // Инициализация
+        updateConnectionStatus();
+
+        // Периодическая проверка соединения
+        setInterval(updateConnectionStatus, 5000);
+
+        // Обработка нажатий клавиш
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                const activeElement = document.activeElement;
+                if (activeElement && activeElement.tagName === 'BUTTON') {
+                    activeElement.click();
+                }
+            }
+        });
+
+        // Логирование для отладки
+        console.log('📡 Офлайн страница загружена');
+        console.log('🌐 Статус сети:', navigator.onLine ? 'онлайн' : 'офлайн');
+    </script>
+</body>
+</html>

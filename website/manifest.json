@@ -1,0 +1,134 @@
+{
+  "name": "Справочник абитуриента РГАУ-МСХА",
+  "short_name": "РГАУ Гайд",
+  "description": "Полный справочник для поступающих в РГАУ-МСХА имени К.А. Тимирязева. Путь абитуриента, общежития, стипендии, студенческие организации.",  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2F5E2F",
+  "orientation": "portrait-primary",
+  "scope": "./",
+  "lang": "ru",
+  "categories": ["education", "reference", "productivity"],  "icons": [
+    {
+      "src": "./images/logo/72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./images/logo/76.png",
+      "sizes": "76x76",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./images/logo/80.png",
+      "sizes": "80x80",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./images/logo/87.png",
+      "sizes": "87x87",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./images/logo/128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./images/logo/144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./images/logo/152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./images/logo/192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./images/logo/512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/screenshots/desktop-1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "images/screenshots/mobile-1.png",
+      "sizes": "360x640",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],  "shortcuts": [    {
+      "name": "Путь абитуриента",
+      "short_name": "Поступление",
+      "description": "Пошаговый путь от подачи документов до адаптации",
+      "url": "./pages/applicant-path/",
+      "icons": [
+        {
+          "src": "./images/logo/192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },    {
+      "name": "Общежития",
+      "short_name": "Общежития",
+      "description": "Информация о проживании в общежитиях",
+      "url": "./pages/university-life/dormitory/",
+      "icons": [
+        {
+          "src": "./images/logo/192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },    {
+      "name": "Стипендии",
+      "short_name": "Стипендии",
+      "description": "Виды стипендий и льгот для студентов",
+      "url": "./pages/scholarships/",
+      "icons": [
+        {
+          "src": "./images/logo/192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },    {
+      "name": "Поиск",
+      "short_name": "Поиск",
+      "description": "Быстрый поиск по сайту",
+      "url": "./?search=true",
+      "icons": [
+        {
+          "src": "./images/logo/192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
+}
