@@ -1,64 +1,47 @@
 // ===== SERVICE WORKER ДЛЯ PWA ФУНКЦИОНАЛЬНОСТИ =====
 
-const CACHE_NAME = 'rgau-guide-v1.2.0';
-const STATIC_CACHE_NAME = 'rgau-guide-static-v1.2.0';
-const DATA_CACHE_NAME = 'rgau-guide-data-v1.2.0';
+const CACHE_NAME = 'rgau-guide-v1.0';
+const STATIC_CACHE_NAME = 'rgau-guide-static-v1.0';
+const DATA_CACHE_NAME = 'rgau-guide-data-v1.0';
 
-// Файлы для кэширования при установке
+// Файлы для кэширования при установке (критически важные для всех страниц)
 const STATIC_FILES = [
   './',
   './index.html',
   './manifest.json',
+  '/website/',
+  '/website/index.html', 
+  '/website/manifest.json',
   
-  // CSS файлы
+  // Все основные CSS файлы (необходимые для большинства страниц)
   './css/styles.css',
   './css/header.css',
   './css/footer.css',
   './css/navigation.css',
+  './css/homepage.css',
+  './css/responsive.css',
+  './css/pwa.css',
   './css/cards.css',
   './css/timeline.css',
-  './css/homepage.css',
   './css/pages.css',
-  './css/responsive.css',
-  './css/header-search.css',
-  './css/pwa.css',
+  './css/forms.css',
   
-  // JavaScript файлы
+  // Все основные JavaScript файлы
   './js/main.js',
   './js/utils.js',
   './js/navigation.js',
   './js/search.js',
   './js/search-modal.js',
-  './js/animations.js',
-  './js/timeline.js',
-  './js/important-dates.js',
-  './js/university-quiz.js',
-  './js/seo-utils.js',
   './js/pwa.js',
-  './js/data.js',
+  './js/animations.js',
+  './js/seo-utils.js',
   
   // Компоненты
   './components/header.html',
   './components/footer.html',
   './components/search.html',
   
-  // Основные страницы
-  './pages/applicant-path/',
-  './pages/applicant-path/index.html',
-  './pages/university-life/',
-  './pages/university-life/index.html',
-  './pages/scholarships/',
-  './pages/scholarships/index.html',
-  './pages/organizations/',
-  './pages/organizations/index.html',
-  './pages/military/',
-  './pages/military/index.html',
-  './pages/self-government/',
-  './pages/self-government/index.html',
-  './pages/support/',
-  './pages/support/index.html',
-  
-  // Данные
+  // Основные данные
   './data/content.json',
   './data/search-index.json',
   
@@ -90,20 +73,38 @@ self.addEventListener('install', event => {
   
   event.waitUntil(
     Promise.all([
-      // Кэширование статических файлов
-      caches.open(STATIC_CACHE_NAME).then(cache => {
+      // Кэширование статических файлов с проверкой доступности
+      caches.open(STATIC_CACHE_NAME).then(async cache => {
         console.log('📦 Кэширование статических файлов...');
-        return cache.addAll(STATIC_FILES.map(url => new Request(url, {
-          cache: 'reload'
-        })));
-      }),
-      
-      // Создание кэша для данных
+        
+        const cachePromises = STATIC_FILES.map(async url => {
+          try {
+            const request = new Request(url, { cache: 'reload' });
+            const response = await fetch(request);
+            
+            if (response.ok) {
+              await cache.put(request, response);
+              console.log('✅ Кэширован:', url);
+            } else {
+              console.warn('⚠️ Пропущен (недоступен):', url, response.status);
+            }
+          } catch (error) {
+            console.warn('⚠️ Пропущен (ошибка):', url, error.message);
+          }
+        });
+        
+        await Promise.all(cachePromises);
+        console.log('📦 Кэширование статических файлов завершено');
+      }),      // Создание кэша для данных
       caches.open(DATA_CACHE_NAME),
       
       // Пропуск ожидания
       self.skipWaiting()
-    ])
+    ]).then(() => {
+      console.log('✅ SW установлен, начинаем фоновое кэширование...');
+      // Запускаем фоновое кэширование дополнительных ресурсов
+      backgroundCacheRemaining();
+    })
   );
 });
 
@@ -115,11 +116,10 @@ self.addEventListener('activate', event => {
     Promise.all([
       // Очистка старых кэшей
       caches.keys().then(cacheNames => {
+        const currentCaches = [STATIC_CACHE_NAME, DATA_CACHE_NAME, CACHE_NAME];
         return Promise.all(
           cacheNames.map(cacheName => {
-            if (cacheName !== STATIC_CACHE_NAME && 
-                cacheName !== DATA_CACHE_NAME && 
-                cacheName !== CACHE_NAME) {
+            if (!currentCaches.includes(cacheName)) {
               console.log('🗑️ Удаление старого кэша:', cacheName);
               return caches.delete(cacheName);
             }
@@ -131,6 +131,8 @@ self.addEventListener('activate', event => {
       self.clients.claim()
     ])
   );
+  
+  console.log('🎯 Service Worker активирован и готов к работе');
 });
 
 // ===== ОБРАБОТКА FETCH ЗАПРОСОВ =====
@@ -138,9 +140,54 @@ self.addEventListener('fetch', event => {
   const { request } = event;
   const url = new URL(request.url);
   
+  console.log('🔍 SW Fetch запрос:', url.pathname, 'destination:', request.destination);
+  
   // Игнорируем chrome-extension и не-HTTP запросы
   if (!url.protocol.startsWith('http')) {
+    console.log('⚠️ Игнорируем не-HTTP запрос:', url.protocol);
     return;
+  }
+  
+  // Игнорируем WebSocket запросы и DevTools
+  if (url.pathname.includes('/ws') || url.pathname.includes('__vscode_')) {
+    console.log('⚠️ Игнорируем WS/DevTools запрос:', url.pathname);
+    return;
+  }  // Перенаправляем неправильные запросы к ресурсам из страниц
+  if (url.pathname.startsWith('/website/pages/')) {
+    // Исправляем пути к ресурсам, которые запрашиваются из подстраниц
+    if (url.pathname.includes('/website/pages/manifest.json')) {
+      console.log('⚠️ Перенаправляем запрос к manifest:', url.pathname, '→ /website/manifest.json');
+      const manifestUrl = new URL('/website/manifest.json', url.origin);
+      const manifestRequest = new Request(manifestUrl, { 
+        method: request.method,
+        headers: request.headers,
+        mode: request.mode,
+        credentials: request.credentials,
+        cache: request.cache,
+        redirect: request.redirect
+      });
+      event.respondWith(handleStaticRequest(manifestRequest));
+      return;
+    }
+    
+    // Исправляем пути к изображениям, CSS, JS
+    if (url.pathname.includes('/website/pages/images/') || 
+        url.pathname.includes('/website/pages/css/') || 
+        url.pathname.includes('/website/pages/js/')) {
+      const correctPath = url.pathname.replace('/website/pages/', '/website/');
+      console.log('⚠️ Перенаправляем запрос к ресурсу:', url.pathname, '→', correctPath);
+      const correctUrl = new URL(correctPath, url.origin);
+      const correctRequest = new Request(correctUrl, {
+        method: request.method,
+        headers: request.headers,
+        mode: request.mode,
+        credentials: request.credentials,
+        cache: request.cache,
+        redirect: request.redirect
+      });
+      event.respondWith(handleStaticRequest(correctRequest));
+      return;
+    }
   }
   
   // Обработка запросов к API и данным
@@ -148,9 +195,12 @@ self.addEventListener('fetch', event => {
     event.respondWith(handleDataRequest(request));
     return;
   }
-  
   // Обработка HTML страниц
-  if (request.destination === 'document') {
+  if (request.destination === 'document' || 
+      (request.method === 'GET' && request.headers.get('accept')?.includes('text/html')) ||
+      url.pathname.endsWith('/') || 
+      url.pathname.endsWith('.html')) {
+    console.log('📄 Обрабатываем HTML документ:', url.pathname);
     event.respondWith(handleDocumentRequest(request));
     return;
   }
@@ -171,8 +221,10 @@ self.addEventListener('fetch', event => {
 
 // Обработка документов (HTML страниц)
 async function handleDocumentRequest(request) {
+  const url = new URL(request.url);
+  
+  // Сначала пробуем загрузить из сети
   try {
-    // Сначала пытаемся загрузить из сети
     const networkResponse = await fetch(request);
     
     if (networkResponse.ok) {
@@ -181,21 +233,53 @@ async function handleDocumentRequest(request) {
       cache.put(request, networkResponse.clone());
       return networkResponse;
     }
+      // Если получили ошибку 404/500, но сеть есть - возвращаем ошибку
+    if (networkResponse.status >= 400) {
+      return networkResponse;
+    }
+    
   } catch (error) {
-    console.log('🌐 Сеть недоступна, загрузка из кэша...');
+    console.log('🌐 Сеть недоступна для:', url.pathname);
+    
+    // Проверяем кэш
+    const cachedResponse = await caches.match(request);
+    if (cachedResponse) {
+      console.log('📦 Загружено из кэша:', url.pathname);
+      return cachedResponse;
+    }
+    
+    // Если это запрос к конкретной странице в /pages/, показываем офлайн
+    if (url.pathname.includes('/pages/')) {
+      console.log('📡 Показываем офлайн страницу для:', url.pathname);
+      const offlinePage = await caches.match('./pages/offline.html');
+      if (offlinePage) {
+        return offlinePage;
+      }
+      return new Response('Страница недоступна в офлайн режиме', {
+        status: 503,
+        statusText: 'Service Unavailable',
+        headers: { 'Content-Type': 'text/html; charset=utf-8' }
+      });
+    }
   }
   
-  // Если сеть недоступна, загружаем из кэша
+  // Для остальных случаев пробуем кэш
   const cachedResponse = await caches.match(request);
   if (cachedResponse) {
     return cachedResponse;
   }
-    // Если страницы нет в кэше, показываем офлайн страницу
-  return caches.match('./pages/offline.html') || 
-         new Response('Страница недоступна в офлайн режиме', {
-           status: 503,
-           statusText: 'Service Unavailable'
-         });
+  
+  // Последний fallback - пытаемся загрузить главную страницу
+  try {
+    const indexResponse = await caches.match('./index.html');
+    if (indexResponse) {
+      return indexResponse;
+    }
+  } catch (error) {
+    // ignore
+  }
+  
+  return new Response('Страница не найдена', { status: 404 });
 }
 
 // Обработка статических ресурсов
@@ -215,6 +299,22 @@ async function handleStaticRequest(request) {
     }
   } catch (error) {
     console.log('❌ Ошибка загрузки статического ресурса:', request.url);
+  }
+  
+  // Fallback для CSS файлов - возвращаем пустой CSS
+  if (request.destination === 'style' || request.url.endsWith('.css')) {
+    return new Response('/* CSS файл недоступен в офлайн режиме */', {
+      headers: { 'Content-Type': 'text/css' },
+      status: 200
+    });
+  }
+  
+  // Fallback для JS файлов - возвращаем пустой скрипт
+  if (request.destination === 'script' || request.url.endsWith('.js')) {
+    return new Response('console.log("JS файл недоступен в офлайн режиме");', {
+      headers: { 'Content-Type': 'application/javascript' },
+      status: 200
+    });
   }
   
   // Fallback для изображений
@@ -276,28 +376,34 @@ async function handleGenericRequest(request) {
   // Stale While Revalidate стратегия
   const cachedResponse = await caches.match(request);
   
-  // Асинхронно обновляем кэш
-  const fetchPromise = fetch(request).then(networkResponse => {
-    if (networkResponse.ok) {
-      const cache = caches.open(CACHE_NAME);
-      cache.then(c => c.put(request, networkResponse.clone()));
-    }
-    return networkResponse;
-  }).catch(error => {
-    console.log('❌ Ошибка сети:', error);
-    return null;
-  });
-  
-  // Возвращаем кэшированную версию, если есть
-  if (cachedResponse) {
-    return cachedResponse;
-  }
-  
-  // Если кэша нет, ждем сетевой запрос
   try {
-    return await fetchPromise;
+    // Попытка сетевого запроса
+    const networkResponse = await fetch(request);
+    
+    if (networkResponse.ok) {
+      // Асинхронно обновляем кэш
+      const cache = await caches.open(CACHE_NAME);
+      cache.put(request, networkResponse.clone());
+      return networkResponse;
+    }
+    
+    // Если сетевой запрос неуспешен, возвращаем кэш или fallback
+    if (cachedResponse) {
+      return cachedResponse;
+    }
+    
+    return new Response('Ресурс недоступен', { status: networkResponse.status });
+    
   } catch (error) {
-    return new Response('Ресурс недоступен', { status: 503 });
+    console.log('❌ Ошибка сети для:', request.url);
+    
+    // Возвращаем кэшированную версию, если есть
+    if (cachedResponse) {
+      return cachedResponse;
+    }
+    
+    // Если кэша нет, возвращаем ошибку
+    return new Response('Ресурс недоступен в офлайн режиме', { status: 503 });
   }
 }
 
@@ -392,6 +498,133 @@ async function performBackgroundSync() {
       console.error('Ошибка синхронизации страницы:', page, error);
     }
   }
+}
+
+// ===== ФОНОВОЕ КЭШИРОВАНИЕ =====
+async function backgroundCacheRemaining() {
+  console.log('🔄 Начинаем фоновое кэширование дополнительных ресурсов...');
+  
+  // Уведомляем клиентов о начале кэширования
+  const clients = await self.clients.matchAll();
+  clients.forEach(client => {
+    client.postMessage({ type: 'BACKGROUND_CACHE_START' });
+  });  // Дополнительные ресурсы для полного офлайн-режима
+  const additionalResources = [
+    // Остальные CSS файлы для всех страниц
+    './css/university-life.css',
+    './css/dormitory.css',
+    './css/dormitory-settlement.css', 
+    './css/academic-process.css',
+    './css/infrastructure.css',
+    './css/infrastructure-map.css',
+    './css/scholarships.css',
+    './css/standard-scholarship.css',
+    './css/enhanced-scholarship.css',
+    './css/other-benefits.css',
+    './css/moscow-card.css',
+    './css/military.css',
+    './css/deferment.css',
+    './css/vuc.css',
+    './css/military-office.css',
+    './css/self-government.css',
+    './css/leader-requirements.css',
+    './css/responsibilities.css',
+    './css/adaptation.css',
+    './css/enrollment.css',
+    './css/faq.css',
+    './css/header-search.css',
+    
+    // Остальные JS файлы
+    './js/timeline.js',
+    './js/data.js',
+    './js/important-dates.js',
+    './js/university-quiz.js',
+    './js/scholarship-calculator.js',
+    './js/dormitory-guide.js',
+    './js/infrastructure-map.js',
+      // Все основные HTML страницы (с правильными путями)
+    '/website/pages/applicant-path/',
+    '/website/pages/applicant-path/index.html',
+    '/website/pages/applicant-path/enrollment/',
+    '/website/pages/applicant-path/enrollment/index.html',
+    '/website/pages/applicant-path/adaptation/',
+    '/website/pages/applicant-path/adaptation/index.html',
+    '/website/pages/applicant-path/competitive-selection/',
+    '/website/pages/applicant-path/competitive-selection/index.html',
+    '/website/pages/applicant-path/dormitory-settlement/',
+    '/website/pages/applicant-path/dormitory-settlement/index.html',
+    '/website/pages/applicant-path/documents/',
+    '/website/pages/applicant-path/documents/index.html',
+    '/website/pages/university-life/',
+    '/website/pages/university-life/index.html',
+    '/website/pages/university-life/infrastructure/',
+    '/website/pages/university-life/infrastructure/index.html',
+    '/website/pages/university-life/dormitory/',
+    '/website/pages/university-life/dormitory/index.html',
+    '/website/pages/university-life/academic-process/',
+    '/website/pages/university-life/academic-process/index.html',
+    '/website/pages/scholarships/',
+    '/website/pages/scholarships/index.html',
+    '/website/pages/scholarships/standard/',
+    '/website/pages/scholarships/standard/index.html',
+    '/website/pages/scholarships/enhanced/',
+    '/website/pages/scholarships/enhanced/index.html',
+    '/website/pages/scholarships/other-benefits/',
+    '/website/pages/scholarships/other-benefits/index.html',
+    '/website/pages/scholarships/moscow-card/',
+    '/website/pages/scholarships/moscow-card/index.html',
+    '/website/pages/military/',
+    '/website/pages/military/index.html',
+    '/website/pages/military/deferment/',
+    '/website/pages/military/deferment/index.html',
+    '/website/pages/military/vuc/',
+    '/website/pages/military/vuc/index.html',
+    '/website/pages/military/military-office/',
+    '/website/pages/military/military-office/index.html',
+    '/website/pages/self-government/',
+    '/website/pages/self-government/index.html',
+    '/website/pages/self-government/leader-requirements/',
+    '/website/pages/self-government/leader-requirements/index.html',
+    '/website/pages/self-government/responsibilities/',
+    '/website/pages/self-government/responsibilities/index.html',
+    '/website/pages/support/faq/',
+    '/website/pages/support/faq/index.html'
+  ];
+  
+  const cache = await caches.open(STATIC_CACHE_NAME);
+  let cached = 0;
+  
+  // Кэшируем по одному файлу с интервалом
+  for (const resource of additionalResources) {
+    try {
+      const response = await fetch(resource);
+      if (response.ok) {
+        await cache.put(resource, response);
+        cached++;
+        console.log('📦 Фоново кэширован:', resource, `(${cached}/${additionalResources.length})`);
+        
+        // Отправляем прогресс клиентам
+        clients.forEach(client => {
+          client.postMessage({ 
+            type: 'CACHE_PROGRESS', 
+            payload: { cached, total: additionalResources.length, current: resource }
+          });
+        });
+      }
+    } catch (error) {
+      console.log('⚠️ Не удалось кэшировать:', resource);
+    }
+    
+    // Небольшая пауза между запросами
+    await new Promise(resolve => setTimeout(resolve, 200));
+  }
+  
+  // Уведомляем о завершении
+  clients.forEach(client => {
+    client.postMessage({ type: 'CACHE_COMPLETE' });
+  });
+  
+  console.log(`✅ Фоновое кэширование завершено: ${cached}/${additionalResources.length} файлов`);
 }
 
 // Логирование версии Service Worker

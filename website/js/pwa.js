@@ -8,7 +8,6 @@ const PWA = {  // Конфигурация
     enableNotifications: true,
     cacheStrategy: 'cache-first'
   },
-
   // Состояние PWA
   state: {
     isInstalled: false,
@@ -16,7 +15,10 @@ const PWA = {  // Конфигурация
     swRegistration: null,
     deferredPrompt: null,
     isInstallable: false,
-    updateAvailable: false
+    updateAvailable: false,
+    isIOS: false,
+    isAndroid: false,
+    isStandalone: false
   },
 
   // Элементы интерфейса
@@ -25,20 +27,89 @@ const PWA = {  // Конфигурация
     updateButton: null,
     offlineIndicator: null,
     installBanner: null
-  },
-
-  // ===== ИНИЦИАЛИЗАЦИЯ =====
-  init() {
+  },  // ===== ИНИЦИАЛИЗАЦИЯ =====
+  async init() {
     console.log('📱 Инициализация PWA модуля...');
     
+    this.detectPlatform();
     this.detectPWASupport();
     this.initializeElements();
-    this.registerServiceWorker();
+    this.handleSWMessages(); // Добавляем обработку сообщений от SW
+    await this.registerServiceWorker();
+    
+    // Принудительная активация SW если нужно
+    const swActivated = await forceActivateSW();
+    if (!swActivated) {
+      console.warn('⚠️ SW не был активирован, попробуйте перезагрузить страницу');
+    }
+    
     this.bindEvents();
     this.checkOnlineStatus();
     this.createInstallBanner();
+    this.scheduleInstallPrompt();
     
     console.log('✅ PWA модуль инициализирован');
+  },
+  // Определение платформы
+  detectPlatform() {
+    const userAgent = navigator.userAgent.toLowerCase();
+    
+    // Проверяем реальную iOS (не эмуляцию)
+    this.state.isIOS = /iphone|ipad|ipod/.test(userAgent) && 
+                       !userAgent.includes('edg/') && // Не Edge на Windows
+                       !userAgent.includes('chrome/'); // Не Chrome девтулсы
+    
+    this.state.isAndroid = /android/.test(userAgent) && 
+                          !userAgent.includes('edg/');
+    
+    this.state.isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
+                             window.navigator.standalone === true;
+    
+    console.log('🔍 Платформа:', {
+      iOS: this.state.isIOS,
+      Android: this.state.isAndroid,
+      Standalone: this.state.isStandalone,
+      UserAgent: userAgent
+    });
+  },
+
+  // Планирование показа баннера установки
+  scheduleInstallPrompt() {
+    if (this.state.isStandalone) return;
+
+    if (this.state.isIOS) {
+      // iOS: показываем через 3 секунды
+      setTimeout(() => this.showIOSInstallInstructions(), 3000);
+    } else {
+      // Android/Desktop: показываем через 5 секунд если нет deferredPrompt
+      setTimeout(() => {
+        if (!this.state.deferredPrompt) {
+          this.showInstallPrompt();
+        }
+      }, 5000);
+    }
+  },
+
+  // Инструкции для iOS
+  showIOSInstallInstructions() {
+    if (this.state.isStandalone) return;
+    
+    const banner = this.elements.installBanner;
+    if (banner) {
+      const title = banner.querySelector('.install-banner-title');
+      const description = banner.querySelector('.install-banner-description');
+      const installBtn = banner.querySelector('.install-btn-primary');
+
+      if (title) title.textContent = 'Добавить на экран «Домой»';
+      if (description) {
+        description.innerHTML = 'Нажмите <strong>⎙</strong> (Поделиться) внизу экрана, затем выберите <strong>«Добавить на экран «Домой»»</strong>';
+      }
+      if (installBtn) {
+        installBtn.textContent = 'Понятно';
+      }
+    }
+    
+    this.showInstallPrompt();
   },
 
   // Проверка поддержки PWA
@@ -127,8 +198,7 @@ const PWA = {  // Конфигурация
     
     document.body.appendChild(banner);
     this.elements.installBanner = banner;
-  },
-  // ===== РЕГИСТРАЦИЯ SERVICE WORKER =====
+  },  // ===== РЕГИСТРАЦИЯ SERVICE WORKER =====
   async registerServiceWorker() {
     if (!('serviceWorker' in navigator)) {
       console.warn('⚠️ Service Worker не поддерживается');
@@ -136,30 +206,55 @@ const PWA = {  // Конфигурация
     }
 
     try {
-      console.log('🔄 Регистрация Service Worker по пути:', this.config.swPath);
-      const registration = await navigator.serviceWorker.register(this.config.swPath);
-      this.state.swRegistration = registration;
-      
-      console.log('✅ Service Worker зарегистрирован:', registration);
-
-      // Проверка обновлений
-      registration.addEventListener('updatefound', () => {
-        this.handleSWUpdate(registration);
-      });
-
-      // Проверка активного Service Worker
-      if (registration.active) {
-        this.handleSWActivated();
+      // Сначала проверим существующую регистрацию
+      const existingRegistration = await navigator.serviceWorker.getRegistration();
+      if (existingRegistration) {
+        console.log('🔄 Используем существующую регистрацию SW');
+        this.state.swRegistration = existingRegistration;
+        this.setupSWHandlers(existingRegistration);
+        return;
       }
 
-      // Периодическая проверка обновлений
-      this.startUpdateCheck();
+      console.log('🔄 Регистрация нового Service Worker по пути:', this.config.swPath);
+      const registration = await navigator.serviceWorker.register(this.config.swPath, {
+        scope: './'
+      });
+      
+      this.state.swRegistration = registration;
+      console.log('✅ Service Worker зарегистрирован:', registration);
+      
+      this.setupSWHandlers(registration);
 
     } catch (error) {
       console.error('❌ Ошибка регистрации Service Worker:', error);
       console.error('Путь к SW файлу:', this.config.swPath);
       console.error('Текущий URL:', window.location.href);
     }
+  },
+
+  // Настройка обработчиков для SW
+  setupSWHandlers(registration) {
+    // Проверка обновлений
+    registration.addEventListener('updatefound', () => {
+      this.handleSWUpdate(registration);
+    });
+
+    // Проверка активного Service Worker
+    if (registration.active) {
+      this.handleSWActivated();
+    }
+
+    // Ждем активации если SW еще не активен
+    if (registration.installing) {
+      registration.installing.addEventListener('statechange', (e) => {
+        if (e.target.state === 'activated') {
+          this.handleSWActivated();
+        }
+      });
+    }
+
+    // Обработка сообщений от SW
+    this.handleSWMessages();
   },
 
   // Обработка обновления Service Worker
@@ -175,7 +270,6 @@ const PWA = {  // Конфигурация
       }
     });
   },
-
   // Обработка активации Service Worker
   handleSWActivated() {
     console.log('✅ Service Worker активирован');
@@ -184,13 +278,73 @@ const PWA = {  // Конфигурация
     this.checkCacheStatus();
   },
 
-  // Запуск периодической проверки обновлений
-  startUpdateCheck() {
-    setInterval(() => {
-      if (this.state.swRegistration) {
-        this.state.swRegistration.update();
-      }
-    }, this.config.checkInterval);
+  // Обработка сообщений от Service Worker
+  handleSWMessages() {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.addEventListener('message', (event) => {
+        const { type, payload } = event.data;
+        
+        switch (type) {
+          case 'CACHE_PROGRESS':
+            this.showCacheProgress(payload);
+            break;
+          case 'CACHE_COMPLETE':
+            this.showCacheComplete();
+            break;
+          case 'BACKGROUND_CACHE_START':
+            this.showBackgroundCacheStart();
+            break;
+        }
+      });
+    }
+  },
+
+  // Показать начало фонового кэширования
+  showBackgroundCacheStart() {
+    console.log('📦 Начинается фоновое кэширование для офлайн-режима...');
+    
+    // Создаем незаметное уведомление
+    const notification = document.createElement('div');
+    notification.id = 'cache-notification';
+    notification.style.cssText = `
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #4CAF50;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      z-index: 10000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+    `;
+    notification.innerHTML = '📦 Подготовка к офлайн-режиму...';
+    
+    document.body.appendChild(notification);
+    
+    // Анимация появления
+    setTimeout(() => {
+      notification.style.opacity = '1';
+      notification.style.transform = 'translateY(0)';
+    }, 100);
+    
+    // Скрываем через 3 секунды
+    setTimeout(() => {
+      notification.style.opacity = '0';
+      notification.style.transform = 'translateY(20px)';
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.parentNode.removeChild(notification);
+        }
+      }, 300);
+    }, 3000);
+  },
+  // Показать завершение кэширования (отключено)
+  showCacheComplete() {    console.log('✅ Офлайн-режим готов!');
+    // Уведомления отключены
   },
 
   // ===== УСТАНОВКА PWA =====
@@ -212,48 +366,41 @@ const PWA = {  // Конфигурация
       this.state.deferredPrompt = null;
       this.hideInstallPrompt();
       this.showNotification('Приложение успешно установлено!', 'success');
-    });
-
-    // Изменение статуса сети
+    });    // Изменение статуса сети
     window.addEventListener('online', () => {
       this.state.isOnline = true;
       this.updateOnlineStatus();
-      this.showNotification('Соединение восстановлено', 'info');
+      // this.showNotification('Соединение восстановлено', 'info');
     });
 
     window.addEventListener('offline', () => {
       this.state.isOnline = false;
       this.updateOnlineStatus();
-      this.showNotification('Переход в офлайн режим', 'warning');
+      // this.showNotification('Переход в офлайн режим', 'warning');
     });
 
     // Кнопки установки и обновления
     this.bindButtonEvents();
   },
-
   // Привязка событий кнопок
   bindButtonEvents() {
-    // Кнопка установки в баннере
-    const installBtn = document.getElementById('install-app-btn');
-    if (installBtn) {
-      installBtn.addEventListener('click', () => this.installApp());
-    }
-
-    // Кнопка закрытия баннера
-    const closeBtn = document.getElementById('close-install-banner');
-    if (closeBtn) {
-      closeBtn.addEventListener('click', () => this.hideInstallPrompt());
-    }
-
-    // Кнопка обновления
-    if (this.elements.updateButton) {
-      this.elements.updateButton.addEventListener('click', () => this.updateApp());
-    }
-
-    // Глобальная кнопка установки (если есть)
-    if (this.elements.installButton) {
-      this.elements.installButton.addEventListener('click', () => this.installApp());
-    }
+    // Используем делегирование событий для динамически созданных элементов
+    document.addEventListener('click', (e) => {
+      if (e.target.id === 'install-app-btn' || e.target.closest('#install-app-btn')) {
+        e.preventDefault();
+        this.installApp();
+      }
+      
+      if (e.target.id === 'close-install-banner' || e.target.closest('#close-install-banner')) {
+        e.preventDefault();
+        this.hideInstallPrompt();
+      }
+      
+      if (e.target.id === 'pwa-update-btn' || e.target.closest('#pwa-update-btn')) {
+        e.preventDefault();
+        this.updateApp();
+      }
+    });
   },
 
   // Показать промпт установки
@@ -289,10 +436,19 @@ const PWA = {  // Конфигурация
     }
   },
 
-  // Установка приложения
+  // Установка приложения  // Установка приложения
   async installApp() {
+    console.log('📱 Попытка установки PWA...');
+
+    if (this.state.isIOS) {
+      // Для iOS просто скрываем баннер, так как это инструкции
+      this.hideInstallPrompt();
+      return;
+    }
+
     if (!this.state.deferredPrompt) {
-      this.showNotification('Установка недоступна', 'error');
+      console.log('⚠️ deferredPrompt недоступен, показываем инструкции');
+      this.showManualInstallInstructions();
       return;
     }
 
@@ -316,8 +472,24 @@ const PWA = {  // Конфигурация
 
     } catch (error) {
       console.error('❌ Ошибка установки PWA:', error);
-      this.showNotification('Ошибка при установке', 'error');
+      this.showManualInstallInstructions();
     }
+  },
+
+  // Инструкции по ручной установке
+  showManualInstallInstructions() {
+    let message = 'Для установки приложения:\n\n';
+    
+    if (this.state.isAndroid) {
+      message += '1. Откройте меню браузера (⋮)\n';
+      message += '2. Выберите "Добавить на главный экран"';
+    } else {
+      message += '1. Откройте меню браузера\n';
+      message += '2. Найдите опцию "Установить приложение"';
+    }
+    
+    alert(message);
+    this.hideInstallPrompt();
   },
 
   // ===== ОБНОВЛЕНИЯ =====
@@ -359,10 +531,11 @@ const PWA = {  // Конфигурация
   },
 
   // ===== СТАТУС СЕТИ =====
-
   // Проверка онлайн статуса
   checkOnlineStatus() {
+    this.state.isOnline = navigator.onLine;
     this.updateOnlineStatus();
+    console.log('🌐 Статус сети обновлен:', this.state.isOnline ? 'Онлайн' : 'Офлайн');
   },
 
   // Обновление индикатора онлайн статуса
@@ -389,10 +562,10 @@ const PWA = {  // Конфигурация
     try {
       const cacheInfo = await this.getCacheInfo();
       console.log('📦 Информация о кэше:', cacheInfo);
-      
-      // Уведомляем о готовности к офлайн работе
+        // Уведомляем о готовности к офлайн работе (отключено)
       if (Object.keys(cacheInfo).length > 0) {
-        this.showNotification('Сайт готов к работе в офлайн режиме', 'success');
+        // this.showNotification('Сайт готов к работе в офлайн режиме', 'success');
+        console.log('✅ Сайт готов к работе в офлайн режиме');
       }
     } catch (error) {
       console.error('❌ Ошибка проверки кэша:', error);
@@ -561,8 +734,269 @@ const PWA = {  // Конфигурация
       support: this.detectPWASupport(),
       isStandalone: window.matchMedia('(display-mode: standalone)').matches
     };
-  }
+  },
+  // ===== ДИАГНОСТИКА =====
+  async diagnose() {
+    console.log('🔍 Диагностика PWA...');
+    
+    // Принудительно обновляем статус сети
+    this.checkOnlineStatus();
+    
+    // Проверяем активацию SW - НЕ пытаемся автоматически исправить
+    if (this.state.swRegistration && !this.state.swRegistration.active) {
+      console.log('⚠️ SW не активен, попробуйте forceActivateSW() для исправления');
+    }
+    
+    const info = {
+      serviceWorker: {
+        supported: 'serviceWorker' in navigator,
+        registered: !!this.state.swRegistration,
+        active: !!(this.state.swRegistration && this.state.swRegistration.active),
+        installing: !!(this.state.swRegistration && this.state.swRegistration.installing),
+        waiting: !!(this.state.swRegistration && this.state.swRegistration.waiting),
+        scope: this.state.swRegistration ? this.state.swRegistration.scope : null,
+        state: this.state.swRegistration ? this.state.swRegistration.active?.state : null,
+        updateViaCache: this.state.swRegistration ? this.state.swRegistration.updateViaCache : null
+      },
+      caches: await caches.keys(),
+      manifest: !!document.querySelector('link[rel="manifest"]'),
+      standalone: this.state.isStandalone,
+      platform: {
+        isIOS: this.state.isIOS,
+        isAndroid: this.state.isAndroid,
+        userAgent: navigator.userAgent.substring(0, 100) + '...'
+      },
+      network: this.state.isOnline,
+      installPrompt: {
+        hasPrompt: !!this.state.deferredPrompt,
+        bannerVisible: this.elements.installBanner && !this.elements.installBanner.classList.contains('hidden')
+      }
+    };
+    
+    console.log('🔍 Полная диагностика PWA:');
+    console.table(info.serviceWorker);
+    console.log('📦 Кэши:', info.caches);
+    console.log('📱 Платформа:', info.platform);
+    console.log('🌐 Сеть:', info.network ? 'Онлайн' : 'Офлайн');
+    console.log('⬇️ Установка:', info.installPrompt);
+    
+    // Дополнительные проверки
+    if (info.caches.length === 0) {
+      console.warn('⚠️ Нет кэшей - возможно SW не работает');
+    }
+    
+    if (info.serviceWorker.registered && !info.serviceWorker.active) {
+      console.warn('⚠️ SW зарегистрирован, но не активен');
+      if (info.serviceWorker.installing) {
+        console.log('⏳ SW устанавливается...');
+      }
+      if (info.serviceWorker.waiting) {
+        console.log('⏸️ SW ожидает активации');
+      }
+    }
+    
+    if (info.serviceWorker.active && info.caches.length > 3) {
+      console.warn('⚠️ Слишком много кэшей - возможно остались старые версии');
+    }
+    
+    return info;
+  },
 };
+
+// Функция очистки старых SW регистраций
+async function clearOldServiceWorkers() {
+  if ('serviceWorker' in navigator) {
+    const registrations = await navigator.serviceWorker.getRegistrations();
+    for (const registration of registrations) {
+      console.log('🗑️ Удаление старой регистрации SW:', registration.scope);
+      await registration.unregister();
+    }
+  }
+}
+
+// Принудительная активация SW
+async function forceActivateSW() {
+  try {
+    // Используем регистрацию из PWA модуля, если она есть
+    let registration = PWA.state.swRegistration;
+    
+    // Если нет в состоянии, получаем напрямую
+    if (!registration) {
+      registration = await navigator.serviceWorker.getRegistration();
+    }
+    
+    if (!registration) {
+      console.log('❌ SW не зарегистрирован, попытка повторной регистрации...');
+      try {
+        registration = await navigator.serviceWorker.register('./sw.js', { scope: './' });
+        PWA.state.swRegistration = registration;
+        console.log('✅ SW перерегистрирован');
+        
+        // Ждем активации нового SW
+        return new Promise((resolve) => {
+          const checkActivation = () => {
+            if (registration.active) {
+              console.log('✅ SW активирован после регистрации');
+              resolve(true);
+            } else if (registration.installing) {
+              registration.installing.addEventListener('statechange', () => {
+                if (registration.installing.state === 'activated') {
+                  console.log('✅ SW активирован после установки');
+                  resolve(true);
+                }
+              }, { once: true });
+            } else {
+              setTimeout(() => {
+                if (registration.active) {
+                  resolve(true);
+                } else {
+                  resolve(false);
+                }
+              }, 2000);
+            }
+          };
+          checkActivation();
+        });
+      } catch (error) {
+        console.error('❌ Ошибка перерегистрации SW:', error);
+        return false;
+      }
+    }
+
+    // Если есть ожидающий SW
+    if (registration.waiting) {
+      console.log('⚡ Принудительная активация ожидающего SW...');
+      registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+      return new Promise((resolve) => {
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          console.log('✅ SW активирован через SKIP_WAITING');
+          resolve(true);
+        }, { once: true });
+        
+        setTimeout(() => {
+          console.log('⏰ Таймаут активации SW');
+          resolve(false);
+        }, 5000);
+      });
+    }    // Если SW устанавливается
+    if (registration.installing) {
+      console.log('⏳ Ожидание установки SW...');
+      return new Promise((resolve) => {
+        const installingSW = registration.installing;
+        const handleStateChange = () => {
+          if (installingSW.state === 'activated') {
+            console.log('✅ SW установлен и активирован');
+            installingSW.removeEventListener('statechange', handleStateChange);
+            resolve(true);
+          } else if (installingSW.state === 'redundant') {
+            console.log('❌ SW стал избыточным');
+            installingSW.removeEventListener('statechange', handleStateChange);
+            resolve(false);
+          }
+        };
+        
+        installingSW.addEventListener('statechange', handleStateChange);
+        
+        setTimeout(() => {
+          installingSW.removeEventListener('statechange', handleStateChange);
+          console.log('⏰ Таймаут установки SW');
+          resolve(false);
+        }, 10000);
+      });
+    }
+
+    // Если SW активен
+    if (registration.active) {
+      console.log('✅ SW уже активен');
+      return true;
+    }
+
+    // Если SW зарегистрирован, но не активен - НЕ пытаемся обновить, а перерегистрируем
+    console.log('🔄 SW зарегистрирован, но не активен. Попытка перерегистрации...');
+    
+    try {
+      // Сначала отменяем регистрацию
+      await registration.unregister();
+      console.log('🗑️ Старая регистрация отменена');
+      
+      // Пауза для завершения операции
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Регистрируем заново
+      registration = await navigator.serviceWorker.register('./sw.js', { scope: './' });
+      PWA.state.swRegistration = registration;
+      console.log('📝 SW перерегистрирован');
+      
+      // Ждем активации
+      return new Promise((resolve) => {
+        const checkActivation = () => {
+          if (registration.active) {
+            console.log('✅ SW активирован после перерегистрации');
+            resolve(true);
+          } else if (registration.installing) {
+            registration.installing.addEventListener('statechange', () => {
+              if (registration.installing.state === 'activated') {
+                console.log('✅ SW активирован после установки');
+                resolve(true);
+              }
+            }, { once: true });
+          } else {
+            setTimeout(() => {
+              if (registration.active) {
+                console.log('✅ SW активирован с задержкой');
+                resolve(true);
+              } else {
+                console.log('❌ SW не удалось активировать');
+                resolve(false);
+              }
+            }, 3000);
+          }
+        };
+        
+        // Небольшая задержка перед проверкой
+        setTimeout(checkActivation, 500);
+      });
+      
+    } catch (error) {
+      console.error('❌ Ошибка перерегистрации:', error);
+      return false;
+    }
+  } catch (error) {
+    console.error('❌ Ошибка активации SW:', error);
+    return false;
+  }
+}
+
+// Функция полной очистки PWA
+async function resetPWA() {
+  console.log('🧹 Полная очистка PWA...');
+  
+  try {
+    // 1. Удаляем все Service Workers
+    if ('serviceWorker' in navigator) {
+      const registrations = await navigator.serviceWorker.getRegistrations();
+      for (const registration of registrations) {
+        console.log('🗑️ Удаление SW:', registration.scope);
+        await registration.unregister();
+      }
+    }
+    
+    // 2. Очищаем все кэши
+    const cacheNames = await caches.keys();
+    for (const cacheName of cacheNames) {
+      console.log('🗑️ Удаление кэша:', cacheName);
+      await caches.delete(cacheName);
+    }
+    
+    console.log('✅ PWA полностью очищено');
+    console.log('🔄 Перезагрузите страницу для повторной инициализации');
+    
+    return true;
+  } catch (error) {
+    console.error('❌ Ошибка очистки PWA:', error);
+    return false;
+  }
+}
 
 // Автоматическая инициализация при загрузке DOM
 if (document.readyState === 'loading') {
@@ -575,3 +1009,5 @@ if (document.readyState === 'loading') {
 
 // Экспорт для использования в других модулях
 window.PWA = PWA;
+window.resetPWA = resetPWA;
+window.forceActivateSW = forceActivateSW;
