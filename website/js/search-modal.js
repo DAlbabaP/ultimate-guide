@@ -286,8 +286,21 @@ const DropdownSearch = {
       category: "support",
       keywords: ["дополнительные вопросы", "расширенная информация", "подробности", "детали", "углублённые вопросы", "специфические ситуации", "особые случаи", "нестандартные вопросы"],
       tags: ["поддержка", "вопросы", "дополнительно", "детали", "подробности"]
+    }  ],
+
+  // Нормализация URL для корректных ссылок
+  normalizeUrl(url) {
+    // Если URL начинается с ./, заменяем на абсолютный путь
+    if (url.startsWith('./')) {
+      return '/website/' + url.substring(2);
     }
-  ],
+    // Если URL уже абсолютный, возвращаем как есть
+    if (url.startsWith('/')) {
+      return url;
+    }
+    // В остальных случаях добавляем префикс
+    return '/website/' + url;
+  },
 
   // Инициализация
   init() {
@@ -449,10 +462,9 @@ const DropdownSearch = {
           <h3>Ничего не найдено</h3>
           <p>Попробуйте изменить поисковый запрос.</p>
         </div>
-      `;
-    } else {
+      `;    } else {
       const html = results.map(result => `
-        <a href="${result.url}" class="search__result">
+        <a href="${this.normalizeUrl(result.url)}" class="search__result">
           <div class="search__result-title">${this.highlightText(result.title, query)}</div>
           <div class="search__result-description">${this.highlightText(result.description, query)}</div>
         </a>

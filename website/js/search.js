@@ -217,7 +217,6 @@ const Search = {
       }
     });
   },
-
   // Выбрать подсказку
   selectSuggestion(suggestionElement) {
     const url = suggestionElement.dataset.url;
@@ -228,7 +227,7 @@ const Search = {
     
     // Переходим на страницу
     if (url) {
-      window.location.href = url;
+      window.location.href = this.normalizeUrl(url);
     }
   },
 
@@ -311,8 +310,21 @@ const Search = {
     
     if (start > 0) snippet = '...' + snippet;
     if (end < content.length) snippet = snippet + '...';
-    
-    return snippet;
+      return snippet;
+  },
+
+  // Нормализация URL для корректных ссылок
+  normalizeUrl(url) {
+    // Если URL начинается с ./, заменяем на абсолютный путь
+    if (url.startsWith('./')) {
+      return '/website/' + url.substring(2);
+    }
+    // Если URL уже абсолютный, возвращаем как есть
+    if (url.startsWith('/')) {
+      return url;
+    }
+    // В остальных случаях добавляем префикс
+    return '/website/' + url;
   },
 
   // Отобразить результаты
@@ -333,7 +345,7 @@ const Search = {
       <div class="search__result">
         <div class="search__result-category">${result.category}</div>
         <h3 class="search__result-title">
-          <a href="${result.url}">${this.highlightText(result.title, query)}</a>
+          <a href="${this.normalizeUrl(result.url)}">${this.highlightText(result.title, query)}</a>
         </h3>
         <div class="search__result-snippet">
           ${this.highlightText(result.snippet, query)}
