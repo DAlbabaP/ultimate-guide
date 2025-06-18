@@ -1,32 +1,55 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- ================================ -->
+    <!-- БАЗОВЫЕ МЕТА-ТЕГИ               -->
+    <!-- ================================ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="manifest" href="../../../manifest.json">
     <title>ВУЦ (военная кафедра) РГАУ-МСХА 2025 | Военная подготовка | Справочник студента</title>
     <meta name="description" content="Военная кафедра (ВУЦ) в РГАУ-МСХА: условия поступления, программы подготовки, льготы, сборы и получение воинского звания офицера запаса.">
-    <meta name="keywords" content="ВУЦ РГАУ-МСХА, военная кафедра МСХА, офицер запаса, военная подготовка, сборы, воинское звание">    <!-- PWA мета-теги -->
+    <meta name="keywords" content="ВУЦ РГАУ-МСХА, военная кафедра МСХА, офицер запаса, военная подготовка, сборы, воинское звание">
+    <meta name="author" content="Студенты РГАУ-МСХА">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rgau-guide.ru/pages/military/vuc/">
+
+    <!-- ================================ -->
+    <!-- PWA И МОБИЛЬНЫЕ НАСТРОЙКИ        -->
+    <!-- ================================ -->
     <meta name="theme-color" content="#2F5E2F">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="ВУЦ РГАУ-МСХА">
+    <meta name="msapplication-TileColor" content="#2F5E2F">
+    <meta name="msapplication-tap-highlight" content="no">
     
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="../../../manifest.json">
+
+    <!-- ================================ -->
+    <!-- СОЦИАЛЬНЫЕ СЕТИ И SEO            -->
+    <!-- ================================ -->
     
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ргау-справочник.рф/pages/military/vuc/">
+    <!-- Open Graph метатеги -->
     <meta property="og:title" content="ВУЦ (военная кафедра) РГАУ-МСХА 2025">
     <meta property="og:description" content="Военная подготовка в МСХА: как поступить на ВУЦ, программы обучения и получение звания офицера запаса">
     <meta property="og:image" content="../../../images/og-vuc.jpg">
-    <meta property="og:site_name" content="Справочник студента РГАУ-МСХА">
+    <meta property="og:url" content="https://rgau-guide.ru/pages/military/vuc/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Справочник РГАУ-МСХА">
+    <meta property="og:locale" content="ru_RU">
     
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://ргау-справочник.рф/pages/military/vuc/">
-    <meta property="twitter:title" content="ВУЦ РГАУ-МСХА">
-    <meta property="twitter:description" content="Военная кафедра и подготовка офицеров запаса">
-    <meta property="twitter:image" content="../../../images/og-vuc.jpg">
+    <!-- Twitter Card метатеги -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@rgau_guide">
+    <meta name="twitter:title" content="ВУЦ РГАУ-МСХА">
+    <meta name="twitter:description" content="Военная кафедра и подготовка офицеров запаса">
+    <meta name="twitter:image" content="../../../images/og-vuc.jpg">
+
+    <!-- ================================ -->
+    <!-- СТИЛИ И ИКОНКИ                   -->
+    <!-- ================================ -->
     <link rel="stylesheet" href="../../../css/styles.css">
     <link rel="stylesheet" href="../../../css/header.css">
     <link rel="stylesheet" href="../../../css/footer.css">
@@ -38,24 +61,30 @@
 </head>
 <body>
     <div class="page-container">
-        <!-- Header -->
-        <header class="header" id="header"></header>
+        <!-- ================================ -->
+        <!-- HEADER                           -->
+        <!-- ================================ -->
+        <header class="header" id="mainHeader" role="banner">
+            <div id="header-placeholder"></div>
+        </header>
 
-
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Page Hero -->
-            <section class="page-hero vuc-hero">
+        <!-- ================================ -->
+        <!-- ГЛАВНЫЙ КОНТЕНТ                  -->
+        <!-- ================================ -->
+        <main class="main-content" role="main">
+            <!-- ========================== -->
+            <!-- HERO СЕКЦИЯ                -->
+            <!-- ========================== -->
+            <section class="page-hero vuc-hero" role="banner">
                 <div class="container">
                     <div class="page-header">
-                        <div class="breadcrumb">
+                        <nav class="breadcrumb" role="navigation" aria-label="Хлебные крошки">
                             <a href="../../../index.html">Главная</a>
                             <span class="breadcrumb-separator">→</span>
                             <a href="../index.html">Военная подготовка</a>
                             <span class="breadcrumb-separator">→</span>
                             <span class="breadcrumb-current">ВУЦ (военная кафедра)</span>
-                        </div>
+                        </nav>
                         <h1 class="page-title">ВУЦ (военная кафедра)</h1>
                         <p class="page-subtitle">
                             Военный учебный центр - альтернатива армейской службе для студентов
@@ -64,13 +93,15 @@
                 </div>
             </section>
 
-            <!-- Overview Section -->
-            <section class="content-section">
+            <!-- ========================== -->
+            <!-- ОБЗОР РАЗДЕЛА              -->
+            <!-- ========================== -->
+            <section class="content-section" role="region" aria-labelledby="overviewTitle">
                 <div class="container">
                     <div class="vuc-overview">
-                        <div class="overview-icon">🎖️</div>
+                        <div class="overview-icon" role="img" aria-label="Символ военной кафедры">🎖️</div>
                         <div class="overview-content">
-                            <h2>Военная подготовка в университете</h2>
+                            <h2 id="overviewTitle">Военная подготовка в университете</h2>
                             <p>
                                 Военная кафедра доступна всем студентам-юношам, обучающимся на первом и втором курсах 
                                 университета. Трехлетняя программа военной подготовки позволяет получить офицерское 
@@ -79,9 +110,9 @@
                         </div>
                     </div>
 
-                    <!-- Key Requirements -->
+                    <!-- Ключевые требования -->
                     <div class="requirements-info">
-                        <div class="info-icon">⚠️</div>
+                        <div class="info-icon" role="img" aria-label="Важное предупреждение">⚠️</div>
                         <div class="info-content">
                             <h3>Важные требования</h3>
                             <p>
@@ -92,19 +123,20 @@
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Selection Process -->
-            <section class="content-section process-section">
+            </section>            
+            <!-- ========================== -->
+            <!-- ПРОЦЕСС ОТБОРА             -->
+            <!-- ========================== -->
+            <section class="content-section process-section" role="region" aria-labelledby="processTitle">
                 <div class="container">
-                    <h2 class="section-title">📋 Процесс отбора</h2>
+                    <h2 id="processTitle" class="section-title">📋 Процесс отбора</h2>
                     <p class="section-subtitle">
                         Поступление на военную кафедру проходит в несколько этапов
                     </p>
 
-                    <div class="process-timeline">
-                        <div class="process-step">
-                            <div class="step-number">1</div>
+                    <div class="process-timeline" role="list">
+                        <div class="process-step" role="listitem">
+                            <div class="step-number" aria-label="Шаг 1">1</div>
                             <div class="step-content">
                                 <h3>Подача документов</h3>
                                 <p>Сбор и оформление необходимой документации для поступления</p>
@@ -120,8 +152,8 @@
                             </div>
                         </div>
 
-                        <div class="process-step">
-                            <div class="step-number">2</div>
+                        <div class="process-step" role="listitem">
+                            <div class="step-number" aria-label="Шаг 2">2</div>
                             <div class="step-content">
                                 <h3>Направление в военкомат</h3>
                                 <p>Получение направления для прохождения медкомиссии</p>
@@ -136,8 +168,8 @@
                             </div>
                         </div>
 
-                        <div class="process-step">
-                            <div class="step-number">3</div>
+                        <div class="process-step" role="listitem">
+                            <div class="step-number" aria-label="Шаг 3">3</div>
                             <div class="step-content">
                                 <h3>Медицинское обследование</h3>
                                 <p>Комплексная медкомиссия и профессиональная ориентация</p>
@@ -153,8 +185,8 @@
                             </div>
                         </div>
 
-                        <div class="process-step">
-                            <div class="step-number">4</div>
+                        <div class="process-step" role="listitem">
+                            <div class="step-number" aria-label="Шаг 4">4</div>
                             <div class="step-content">
                                 <h3>Представление результатов</h3>
                                 <p>Подача результатов медкомиссии в ВУЦ</p>
@@ -169,8 +201,8 @@
                             </div>
                         </div>
 
-                        <div class="process-step">
-                            <div class="step-number">5</div>
+                        <div class="process-step" role="listitem">
+                            <div class="step-number" aria-label="Шаг 5">5</div>
                             <div class="step-content">
                                 <h3>Физические нормативы</h3>
                                 <p>Сдача физических испытаний - заключительный этап</p>
@@ -187,20 +219,21 @@
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Physical Requirements -->
-            <section class="content-section physical-section">
+            </section>            
+            <!-- ========================== -->
+            <!-- ФИЗИЧЕСКИЕ НОРМАТИВЫ       -->
+            <!-- ========================== -->
+            <section class="content-section physical-section" role="region" aria-labelledby="physicalTitle">
                 <div class="container">
-                    <h2 class="section-title">🏃 Физические нормативы</h2>
+                    <h2 id="physicalTitle" class="section-title">🏃 Физические нормативы</h2>
                     <p class="section-subtitle">
                         Требования к физической подготовке кандидатов
                     </p>
 
-                    <div class="physical-tests">
-                        <div class="test-card pullups-card">
+                    <div class="physical-tests" role="list">
+                        <div class="test-card pullups-card" role="listitem">
                             <div class="test-header">
-                                <div class="test-icon">💪</div>
+                                <div class="test-icon" role="img" aria-label="Подтягивание">💪</div>
                                 <h3>Подтягивание на перекладине</h3>
                             </div>
                             <div class="test-content">
@@ -224,9 +257,9 @@
                             </div>
                         </div>
 
-                        <div class="test-card sprint-card">
+                        <div class="test-card sprint-card" role="listitem">
                             <div class="test-header">
-                                <div class="test-icon">⚡</div>
+                                <div class="test-icon" role="img" aria-label="Спринт">⚡</div>
                                 <h3>Бег 100 метров</h3>
                             </div>
                             <div class="test-content">
@@ -250,9 +283,9 @@
                             </div>
                         </div>
 
-                        <div class="test-card distance-card">
+                        <div class="test-card distance-card" role="listitem">
                             <div class="test-header">
-                                <div class="test-icon">🏃‍♂️</div>
+                                <div class="test-icon" role="img" aria-label="Длинная дистанция">🏃‍♂️</div>
                                 <h3>Бег 3 километра</h3>
                             </div>
                             <div class="test-content">
@@ -279,10 +312,12 @@
                 </div>
             </section>
 
-            <!-- Scoring System -->
-            <section class="content-section scoring-section">
+            <!-- ========================== -->
+            <!-- СИСТЕМА ОЦЕНИВАНИЯ         -->
+            <!-- ========================== -->
+            <section class="content-section scoring-section" role="region" aria-labelledby="scoringTitle">
                 <div class="container">
-                    <h2 class="section-title">📊 Система оценивания</h2>
+                    <h2 id="scoringTitle" class="section-title">📊 Система оценивания</h2>
                     <p class="section-subtitle">
                         Как формируется итоговая оценка кандидата
                     </p>
@@ -348,12 +383,14 @@
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Benefits Section -->
-            <section class="content-section benefits-section">
+            </section>            
+            
+            <!-- ========================== -->
+            <!-- ПРЕИМУЩЕСТВА ВУЦ           -->
+            <!-- ========================== -->
+            <section class="content-section benefits-section" role="region" aria-labelledby="benefitsTitle">
                 <div class="container">
-                    <h2 class="section-title">🎖️ Преимущества ВУЦ</h2>
+                    <h2 id="benefitsTitle" class="section-title">🎖️ Преимущества ВУЦ</h2>
                     
                     <div class="benefits-grid">
                         <div class="benefit-card">
@@ -393,12 +430,13 @@
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Preparation Tips -->
-            <section class="content-section tips-section">
+            </section>            
+            <!-- ========================== -->
+            <!-- СОВЕТЫ ПО ПОДГОТОВКЕ       -->
+            <!-- ========================== -->
+            <section class="content-section tips-section" role="region" aria-labelledby="tipsTitle">
                 <div class="container">
-                    <h2 class="section-title">💡 Советы по подготовке</h2>
+                    <h2 id="tipsTitle" class="section-title">💡 Советы по подготовке</h2>
                     
                     <div class="tips-grid">
                         <div class="tip-card">
@@ -426,15 +464,16 @@
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Important Notice -->
-            <section class="content-section notice-section">
+            </section>            
+            <!-- ========================== -->
+            <!-- ВАЖНОЕ УВЕДОМЛЕНИЕ         -->
+            <!-- ========================== -->
+            <section class="content-section notice-section" role="region" aria-labelledby="noticeTitle">
                 <div class="container">
                     <div class="important-notice">
-                        <div class="notice-icon">⚠️</div>
+                        <div class="notice-icon" role="img" aria-label="Важное предупреждение">⚠️</div>
                         <div class="notice-content">
-                            <h2>ВАЖНО ПОМНИТЬ</h2>
+                            <h2 id="noticeTitle">ВАЖНО ПОМНИТЬ</h2>
                             <p>
                                 <strong>Поступление на ВУЦ возможно только для студентов 1-2 курсов</strong> в связи с 
                                 трехлетней продолжительностью программы. Набор проводится ежегодно в период 
@@ -447,18 +486,32 @@
             </section>
         </main>
 
-        <!-- Footer -->
-        <footer class="footer" id="footer"></footer>
-    </div>    <!-- Scripts -->
+        <!-- ================================ -->
+        <!-- FOOTER                           -->
+        <!-- ================================ -->
+        <footer class="footer" id="mainFooter" role="contentinfo">
+            <div id="footer-placeholder"></div>
+        </footer>
+    </div>
+
+    <!-- ================================ -->
+    <!-- СКРИПТЫ                          -->
+    <!-- ================================ -->
+    
+    <!-- Основные утилиты -->
     <script src="../../../js/utils.js"></script>
     <script src="../../../js/search-modal.js"></script>
     <script src="../../../js/animations.js"></script>
     <script src="../../../js/timeline.js"></script>
     <script src="../../../js/pwa.js"></script>
     <script src="../../../js/main.js"></script>
+    
+    <!-- SEO утилиты -->
     <script src="../../../js/seo-utils.js"></script>
     
-    <!-- SEO structured data -->
+    <!-- ================================ -->
+    <!-- СТРУКТУРИРОВАННЫЕ ДАННЫЕ         -->
+    <!-- ================================ -->
     <script type="application/ld+json" id="structured-data"></script>
     <script>
         // Инициализация SEO для страницы ВУЦ

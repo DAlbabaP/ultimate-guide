@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- ================================ -->
+    <!-- БАЗОВЫЕ МЕТА-ТЕГИ               -->
+    <!-- ================================ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="../../../manifest.json">
     <title>Подача документов в РГАУ-МСХА 2025 | Июнь-Июль | Справочник абитуриента</title>
     <meta name="description" content="Полный перечень документов для поступления в РГАУ-МСХА 2025: сроки подачи, способы подачи заявления, выбор приоритетов специальностей и порядок действий.">
-    <meta name="keywords" content="документы РГАУ-МСХА, подача заявления МСХА, поступление документы, сроки подачи, приоритеты специальностей">    <!-- PWA мета-теги -->
+    <meta name="keywords" content="документы РГАУ-МСХА, подача заявления МСХА, поступление документы, сроки подачи, приоритеты специальностей">
+
+    <!-- ================================ -->
+    <!-- PWA И МОБИЛЬНЫЕ НАСТРОЙКИ        -->
+    <!-- ================================ -->
     <meta name="theme-color" content="#2F5E2F">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    
-    
+
+    <!-- ================================ -->
+    <!-- СОЦИАЛЬНЫЕ СЕТИ И SEO            -->
+    <!-- ================================ -->
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -27,8 +36,10 @@
     <meta property="twitter:title" content="Подача документов РГАУ-МСХА 2025">
     <meta property="twitter:description" content="Документы и сроки для поступления в МСХА">
     <meta property="twitter:image" content="../../../images/og-documents.jpg">
-    
-    <!-- CSS files -->
+
+    <!-- ================================ -->
+    <!-- СТИЛИ CSS                        -->
+    <!-- ================================ -->
     <link rel="stylesheet" href="../../../css/styles.css">
     <link rel="stylesheet" href="../../../css/header.css">
     <link rel="stylesheet" href="../../../css/footer.css">
@@ -40,21 +51,28 @@
     <link rel="stylesheet" href="../../../css/pwa.css">
 </head>
 <body>
-    <!-- Header -->
-        <header id="header"></header>
+    <!-- ================================ -->
+    <!-- ШАПКА САЙТА                      -->
+    <!-- ================================ -->
+    <header id="mainHeader" class="main-header"></header>
 
-    <!-- Main content -->
+    <!-- ================================ -->
+    <!-- ОСНОВНОЙ КОНТЕНТ                 -->
+    <!-- ================================ -->
     <main class="main-content">
-        <!-- Breadcrumb -->
+        
+        <!-- ================================ -->
+        <!-- ХЛЕБНЫЕ КРОШКИ                   -->
+        <!-- ================================ -->
         <section class="breadcrumb-section">
             <div class="container">
-                <nav class="breadcrumb">
+                <nav class="breadcrumb" aria-label="Хлебные крошки">
                     <ul class="breadcrumb__list">
                         <li class="breadcrumb__item">
-                            <a href="../../../" class="breadcrumb__link">Главная</a>
+                            <a href="../../../" class="breadcrumb__link" aria-label="Перейти на главную страницу">Главная</a>
                         </li>
                         <li class="breadcrumb__item">
-                            <a href="../" class="breadcrumb__link">Путь абитуриента</a>
+                            <a href="../" class="breadcrumb__link" aria-label="Перейти к разделу пути абитуриента">Путь абитуриента</a>
                         </li>
                         <li class="breadcrumb__item">
                             <span class="breadcrumb__current">Подача документов</span>
@@ -64,101 +82,127 @@
             </div>
         </section>
 
-        <!-- Page Header -->
-        <section class="page-hero">
+        <!-- ================================ -->
+        <!-- ГЕРОИЧЕСКАЯ СЕКЦИЯ               -->
+        <!-- ================================ -->
+        <section class="page-hero" role="banner">
             <div class="container">
-                <div class="page-header">
+                <header class="page-header">
                     <div class="page-date">📅 ИЮНЬ-ИЮЛЬ</div>
                     <h1 class="page-title">Подача документов</h1>
                     <p class="page-subtitle">
                         Все необходимые документы, сроки подачи и способы подачи заявления для поступления в РГАУ-МСХА
                     </p>
-                </div>
+                </header>
             </div>
-        </section>
-
-        <!-- Document Checklist -->
-        <section class="document-checklist">
+        </section>        
+        <!-- ================================ -->
+        <!-- ЧЕК-ЛИСТ ДОКУМЕНТОВ              -->
+        <!-- ================================ -->
+        <section class="document-checklist" aria-labelledby="checklistTitle">
             <div class="container">
-                <h2 class="section-title">Основной перечень документов</h2>
-                <p class="section-subtitle">
-                    Соберите все документы заранее, чтобы избежать спешки в последний момент
-                </p>
+                <header class="section-header">
+                    <h2 id="checklistTitle" class="section-title">Основной перечень документов</h2>
+                    <p class="section-subtitle">
+                        Соберите все документы заранее, чтобы избежать спешки в последний момент
+                    </p>
+                </header>
 
-                <div class="checklist-container">
-                    <div class="checklist-item" data-priority="critical">
+                <div class="checklist-container" role="list" aria-label="Список необходимых документов">
+                    
+                    <!-- Паспорт -->
+                    <article class="checklist-item" data-priority="critical" role="listitem">
                         <div class="checklist-checkbox">
-                            <input type="checkbox" id="passport" onchange="updateProgress()">
-                            <label for="passport"></label>
+                            <input type="checkbox" 
+                                   id="passport" 
+                                   onchange="updateProgress()" 
+                                   aria-describedby="passportDesc">
+                            <label for="passport" aria-label="Отметить паспорт как собранный"></label>
                         </div>
                         <div class="checklist-content">
                             <h3 class="checklist-title">Паспорт или удостоверение личности</h3>
-                            <p class="checklist-description">
+                            <p id="passportDesc" class="checklist-description">
                                 Документ, удостоверяющий личность и гражданство
                             </p>
                             <div class="checklist-note">
                                 <strong>Важно:</strong> Оригинал + копия всех заполненных страниц
                             </div>
                         </div>
-                        <div class="checklist-priority">Критично</div>
-                    </div>
+                        <div class="checklist-priority" aria-label="Приоритет: критично">Критично</div>
+                    </article>
 
-                    <div class="checklist-item" data-priority="critical">
+                    <!-- Аттестат -->
+                    <article class="checklist-item" data-priority="critical" role="listitem">
                         <div class="checklist-checkbox">
-                            <input type="checkbox" id="certificate" onchange="updateProgress()">
-                            <label for="certificate"></label>
+                            <input type="checkbox" 
+                                   id="certificate" 
+                                   onchange="updateProgress()" 
+                                   aria-describedby="certificateDesc">
+                            <label for="certificate" aria-label="Отметить аттестат как собранный"></label>
                         </div>
                         <div class="checklist-content">
                             <h3 class="checklist-title">Аттестат об окончании школы или диплом</h3>
-                            <p class="checklist-description">
+                            <p id="certificateDesc" class="checklist-description">
                                 Оригинал документа об образовании
                             </p>
                             <div class="checklist-note">
                                 <strong>Внимание:</strong> Без оригинала зачисление невозможно
                             </div>
                         </div>
-                        <div class="checklist-priority">Критично</div>
-                    </div>
+                        <div class="checklist-priority" aria-label="Приоритет: критично">Критично</div>
+                    </article>
 
-                    <div class="checklist-item" data-priority="high">
+                    <!-- СНИЛС -->
+                    <article class="checklist-item" data-priority="high" role="listitem">
                         <div class="checklist-checkbox">
-                            <input type="checkbox" id="snils" onchange="updateProgress()">
-                            <label for="snils"></label>
+                            <input type="checkbox" 
+                                   id="snils" 
+                                   onchange="updateProgress()" 
+                                   aria-describedby="snilsDesc">
+                            <label for="snils" aria-label="Отметить СНИЛС как собранный"></label>
                         </div>
                         <div class="checklist-content">
                             <h3 class="checklist-title">СНИЛС</h3>
-                            <p class="checklist-description">
+                            <p id="snilsDesc" class="checklist-description">
                                 Страховой номер индивидуального лицевого счёта
                             </p>
                         </div>
-                        <div class="checklist-priority">Важно</div>
-                    </div>
+                        <div class="checklist-priority" aria-label="Приоритет: важно">Важно</div>
+                    </article>
 
-                    <div class="checklist-item" data-priority="high">
+                    <!-- Заявление -->
+                    <article class="checklist-item" data-priority="high" role="listitem">
                         <div class="checklist-checkbox">
-                            <input type="checkbox" id="application" onchange="updateProgress()">
-                            <label for="application"></label>
+                            <input type="checkbox" 
+                                   id="application" 
+                                   onchange="updateProgress()" 
+                                   aria-describedby="applicationDesc">
+                            <label for="application" aria-label="Отметить заявление как заполненное"></label>
                         </div>
                         <div class="checklist-content">
                             <h3 class="checklist-title">Заявление о приёме на обучение</h3>
-                            <p class="checklist-description">
+                            <p id="applicationDesc" class="checklist-description">
                                 Заполняется в приёмной комиссии или через онлайн-форму
                             </p>
                             <div class="checklist-note">
                                 Можно заполнить на месте при подаче документов
                             </div>
                         </div>
-                        <div class="checklist-priority">Важно</div>
-                    </div>
+                        <div class="checklist-priority" aria-label="Приоритет: важно">Важно</div>
+                    </article>
 
-                    <div class="checklist-item" data-priority="medium">
+                    <!-- Фотографии -->
+                    <article class="checklist-item" data-priority="medium" role="listitem">
                         <div class="checklist-checkbox">
-                            <input type="checkbox" id="photos" onchange="updateProgress()">
-                            <label for="photos"></label>
+                            <input type="checkbox" 
+                                   id="photos" 
+                                   onchange="updateProgress()" 
+                                   aria-describedby="photosDesc">
+                            <label for="photos" aria-label="Отметить фотографии как подготовленные"></label>
                         </div>
                         <div class="checklist-content">
                             <h3 class="checklist-title">Фотографии 3×4 см</h3>
-                            <p class="checklist-description">
+                            <p id="photosDesc" class="checklist-description">
                                 3–7 фотографий для различных документов
                             </p>
                             <div class="checklist-breakdown">
@@ -169,194 +213,216 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="checklist-priority">Обычно</div>
-                    </div>
+                        <div class="checklist-priority" aria-label="Приоритет: обычно">Обычно</div>
+                    </article>
 
-                    <div class="checklist-item" data-priority="medium">
+                    <!-- Медицинская справка -->
+                    <article class="checklist-item" data-priority="medium" role="listitem">
                         <div class="checklist-checkbox">
-                            <input type="checkbox" id="medical" onchange="updateProgress()">
-                            <label for="medical"></label>
+                            <input type="checkbox" 
+                                   id="medical" 
+                                   onchange="updateProgress()" 
+                                   aria-describedby="medicalDesc">
+                            <label for="medical" aria-label="Отметить медицинскую справку как полученную"></label>
                         </div>
                         <div class="checklist-content">
                             <h3 class="checklist-title">Медицинская справка формы 086/у</h3>
-                            <p class="checklist-description">
+                            <p id="medicalDesc" class="checklist-description">
                                 Нужна не всем, но рекомендуется сделать
                             </p>
                             <div class="checklist-note">
                                 <strong>Особенно важно</strong> для тех, кто планирует заселяться в общежитие
                             </div>
                         </div>
-                        <div class="checklist-priority">Обычно</div>
-                    </div>
+                        <div class="checklist-priority" aria-label="Приоритет: обычно">Обычно</div>
+                    </article>
 
-                    <div class="checklist-item" data-priority="low">
+                    <!-- Согласие на обработку данных -->
+                    <article class="checklist-item" data-priority="low" role="listitem">
                         <div class="checklist-checkbox">
-                            <input type="checkbox" id="consent" onchange="updateProgress()">
-                            <label for="consent"></label>
+                            <input type="checkbox" 
+                                   id="consent" 
+                                   onchange="updateProgress()" 
+                                   aria-describedby="consentDesc">
+                            <label for="consent" aria-label="Отметить согласие как подписанное"></label>
                         </div>
                         <div class="checklist-content">
                             <h3 class="checklist-title">Согласие на обработку персональных данных</h3>
-                            <p class="checklist-description">
+                            <p id="consentDesc" class="checklist-description">
                                 Для абитуриентов младше 18 лет подписывается родителями
                             </p>
                         </div>
-                        <div class="checklist-priority">При необходимости</div>
-                    </div>
+                        <div class="checklist-priority" aria-label="Приоритет: при необходимости">При необходимости</div>
+                    </article>
 
-                    <div class="checklist-item" data-priority="low">
+                    <!-- Документы о льготах -->
+                    <article class="checklist-item" data-priority="low" role="listitem">
                         <div class="checklist-checkbox">
-                            <input type="checkbox" id="benefits" onchange="updateProgress()">
-                            <label for="benefits"></label>
+                            <input type="checkbox" 
+                                   id="benefits" 
+                                   onchange="updateProgress()" 
+                                   aria-describedby="benefitsDesc">
+                            <label for="benefits" aria-label="Отметить документы о льготах как подготовленные"></label>
                         </div>
                         <div class="checklist-content">
                             <h3 class="checklist-title">Документы, подтверждающие льготы</h3>
-                            <p class="checklist-description">
+                            <p id="benefitsDesc" class="checklist-description">
                                 Если вы имеете право на особые квоты или льготы
                             </p>
                             <div class="checklist-note">
                                 Необходимо предоставить подтверждающие документы
                             </div>
                         </div>
-                        <div class="checklist-priority">При наличии</div>
-                    </div>
+                        <div class="checklist-priority" aria-label="Приоритет: при наличии">При наличии</div>
+                    </article>
                 </div>
 
-                <!-- Progress indicator -->
-                <div class="progress-container">
+                <!-- Индикатор прогресса -->
+                <div class="progress-container" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-labelledby="progressLabel">
                     <div class="progress-bar">
                         <div class="progress-fill" id="progressFill"></div>
                     </div>
-                    <div class="progress-text">
+                    <div class="progress-text" id="progressLabel">
                         Готовность документов: <span id="progressText">0%</span>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Application Methods -->
-        <section class="application-methods">
+        </section>        
+        <!-- ================================ -->
+        <!-- СПОСОБЫ ПОДАЧИ ЗАЯВЛЕНИЯ         -->
+        <!-- ================================ -->
+        <section class="application-methods" aria-labelledby="applicationMethodsTitle">
             <div class="container">
-                <h2 class="section-title">Способы подачи заявления</h2>
+                <h2 id="applicationMethodsTitle" class="section-title">Способы подачи заявления</h2>
                 <p class="section-subtitle">
                     Выберите наиболее удобный для вас способ подачи документов
                 </p>
 
-                <div class="methods-grid">
-                    <div class="method-card recommended">
-                        <div class="method-badge">Рекомендуется</div>
-                        <div class="method-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
+                <div class="methods-grid" role="list" aria-label="Список способов подачи документов">
+                    <!-- Личная подача (рекомендуется) -->
+                    <article class="method-card recommended" role="listitem">
+                        <div class="method-badge" aria-label="Рекомендуемый способ">Рекомендуется</div>
+                        <div class="method-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-label="Иконка личной подачи">
                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                             </svg>
                         </div>
                         <h3 class="method-title">Лично в приёмной комиссии</h3>
                         <div class="method-description">
                             <p>Подача документов непосредственно в университете</p>
-                            <ul class="method-benefits">
-                                <li>Помощь в заполнении документов</li>
-                                <li>Моментальная проверка комплектности</li>
-                                <li>Возможность задать вопросы</li>
-                                <li>Получение расписки на руки</li>
+                            <ul class="method-benefits" role="list" aria-label="Преимущества личной подачи">
+                                <li role="listitem">Помощь в заполнении документов</li>
+                                <li role="listitem">Моментальная проверка комплектности</li>
+                                <li role="listitem">Возможность задать вопросы</li>
+                                <li role="listitem">Получение расписки на руки</li>
                             </ul>
                         </div>
                         <div class="method-details">
                             <p><strong>Адрес:</strong> ул. Тимирязевская, 49, корпус 1</p>
                             <p><strong>Время работы:</strong> пн-пт 9:00-17:00</p>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="method-card">
-                        <div class="method-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
+                    <!-- Подача через Госуслуги -->
+                    <article class="method-card" role="listitem">
+                        <div class="method-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-label="Иконка электронной подачи">
                                 <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                             </svg>
                         </div>
                         <h3 class="method-title">Через портал Госуслуги</h3>
                         <div class="method-description">
                             <p>Электронная подача документов через ЕПГУ</p>
-                            <ul class="method-benefits">
-                                <li>Удобно для иногородних</li>
-                                <li>Доступно 24/7</li>
-                                <li>Автоматическое уведомление</li>
-                                <li>Отслеживание статуса</li>
+                            <ul class="method-benefits" role="list" aria-label="Преимущества подачи через Госуслуги">
+                                <li role="listitem">Удобно для иногородних</li>
+                                <li role="listitem">Доступно 24/7</li>
+                                <li role="listitem">Автоматическое уведомление</li>
+                                <li role="listitem">Отслеживание статуса</li>
                             </ul>
                         </div>
-                        <div class="method-note">
+                        <div class="method-note" role="note" aria-label="Важное замечание">
                             <strong>Важно:</strong> Оригинал аттестата всё равно нужно будет принести лично
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="method-card">
-                        <div class="method-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
+                    <!-- Подача через сайт университета -->
+                    <article class="method-card" role="listitem">
+                        <div class="method-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-label="Иконка сайта университета">
                                 <path d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"/>
                             </svg>
                         </div>
                         <h3 class="method-title">Через сайт университета</h3>
                         <div class="method-description">
                             <p>Личный кабинет абитуриента на сайте РГАУ-МСХА</p>
-                            <ul class="method-benefits">
-                                <li>Полностью автоматизированный процесс</li>
-                                <li>Специализированная форма</li>
-                                <li>Техподдержка университета</li>
-                                <li>Интеграция с базой данных вуза</li>
+                            <ul class="method-benefits" role="list" aria-label="Преимущества подачи через сайт">
+                                <li role="listitem">Полностью автоматизированный процесс</li>
+                                <li role="listitem">Специализированная форма</li>
+                                <li role="listitem">Техподдержка университета</li>
+                                <li role="listitem">Интеграция с базой данных вуза</li>
                             </ul>
                         </div>
                         <div class="method-link">
-                            <a href="https://rgau-msha.ru" target="_blank" class="btn btn-secondary">
+                            <a href="https://rgau-msha.ru" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               class="btn btn-secondary"
+                               aria-label="Перейти на сайт РГАУ-МСХА (откроется в новой вкладке)">
                                 Перейти на сайт
                             </a>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
-        </section>
-
-        <!-- Priority Selection -->
-        <section class="priority-selection">
+        </section>        
+        <!-- ================================ -->
+        <!-- ВЫБОР ПРИОРИТЕТОВ СПЕЦИАЛЬНОСТЕЙ -->
+        <!-- ================================ -->
+        <section class="priority-selection" aria-labelledby="prioritySelectionTitle">
             <div class="container">
-                <h2 class="section-title">Выбор приоритетов специальностей</h2>
+                <h2 id="prioritySelectionTitle" class="section-title">Выбор приоритетов специальностей</h2>
                 <p class="section-subtitle">
                     Правильный выбор приоритетов — ключ к успешному поступлению
                 </p>
 
                 <div class="priority-explanation">
-                    <div class="priority-card">
+                    <!-- Объяснение системы приоритетов -->
+                    <article class="priority-card">
                         <div class="priority-header">
                             <h3>Как работает система приоритетов?</h3>
                         </div>
                         <div class="priority-content">
                             <p>Приоритеты — система, которая определяет предпочтительные для абитуриента направления и специализации.</p>
                             
-                            <div class="priority-example">
-                                <h4>Пример работы системы:</h4>
+                            <div class="priority-example" role="region" aria-labelledby="exampleTitle">
+                                <h4 id="exampleTitle">Пример работы системы:</h4>
                                 <div class="example-scenario">
                                     <div class="scenario-setup">
                                         <p><strong>Ситуация:</strong> Есть два направления:</p>
-                                        <ul>
-                                            <li>Первое направление — <strong>35 мест</strong> (ваш 1-й приоритет)</li>
-                                            <li>Второе направление — <strong>30 мест</strong> (ваш 2-й приоритет)</li>
+                                        <ul role="list" aria-label="Варианты направлений">
+                                            <li role="listitem">Первое направление — <strong>35 мест</strong> (ваш 1-й приоритет)</li>
+                                            <li role="listitem">Второе направление — <strong>30 мест</strong> (ваш 2-й приоритет)</li>
                                         </ul>
                                     </div>
                                     
-                                    <div class="scenario-process">
-                                        <div class="process-step">
-                                            <div class="step-number">1</div>
+                                    <div class="scenario-process" role="list" aria-label="Процесс рассмотрения заявок">
+                                        <div class="process-step" role="listitem">
+                                            <div class="step-number" aria-label="Шаг 1">1</div>
                                             <div class="step-content">
                                                 <p>Сначала рассматривают всех абитуриентов по <strong>первому приоритету</strong></p>
                                                 <p class="step-note">Даже если у кандидата больше баллов, но направление стоит вторым приоритетом, его заявку рассмотрят позже</p>
                                             </div>
                                         </div>
                                         
-                                        <div class="process-step">
-                                            <div class="step-number">2</div>
+                                        <div class="process-step" role="listitem">
+                                            <div class="step-number" aria-label="Шаг 2">2</div>
                                             <div class="step-content">
                                                 <p>Если вы не проходите по первому приоритету (например, заняли 36-е место при 35 местах)</p>
                                             </div>
                                         </div>
                                         
-                                        <div class="process-step">
-                                            <div class="step-number">3</div>
+                                        <div class="process-step" role="listitem">
+                                            <div class="step-number" aria-label="Шаг 3">3</div>
                                             <div class="step-content">
                                                 <p>Вашу кандидатуру рассмотрят по <strong>второму приоритету</strong></p>
                                                 <p class="step-note">Если там вы окажетесь на 29-м месте из 30, вас зачислят</p>
@@ -366,55 +432,58 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
+                    <!-- Советы по выбору приоритетов -->
                     <div class="priority-tips">
                         <h3>💡 Советы по выбору приоритетов</h3>
-                        <div class="tips-grid">
-                            <div class="tip-item">
-                                <div class="tip-icon">🎯</div>
+                        <div class="tips-grid" role="list" aria-label="Советы по выбору приоритетов">
+                            <article class="tip-item" role="listitem">
+                                <div class="tip-icon" aria-hidden="true">🎯</div>
                                 <div class="tip-content">
                                     <h4>Первый приоритет</h4>
                                     <p>Выбирайте направление, которое вам действительно интересно и где у вас высокие шансы пройти</p>
                                 </div>
-                            </div>
+                            </article>
                             
-                            <div class="tip-item">
-                                <div class="tip-icon">📊</div>
+                            <article class="tip-item" role="listitem">
+                                <div class="tip-icon" aria-hidden="true">📊</div>
                                 <div class="tip-content">
                                     <h4>Изучите статистику</h4>
                                     <p>Посмотрите проходные баллы прошлых лет, чтобы реально оценить свои шансы</p>
                                 </div>
-                            </div>
+                            </article>
                             
-                            <div class="tip-item">
-                                <div class="tip-icon">🔄</div>
+                            <article class="tip-item" role="listitem">
+                                <div class="tip-icon" aria-hidden="true">🔄</div>
                                 <div class="tip-content">
                                     <h4>Запасные варианты</h4>
                                     <p>Укажите несколько направлений с разным уровнем конкуренции</p>
                                 </div>
-                            </div>
+                            </article>
                             
-                            <div class="tip-item">
-                                <div class="tip-icon">⚡</div>
+                            <article class="tip-item" role="listitem">
+                                <div class="tip-icon" aria-hidden="true">⚡</div>
                                 <div class="tip-content">
                                     <h4>Действуйте быстро</h4>
                                     <p>Часто именно первый приоритет определяет ваше поступление</p>
                                 </div>
-                            </div>
+                            </article>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Timeline and Deadlines -->
-        <section class="deadlines-section">
+        </section>        
+        <!-- ================================ -->
+        <!-- ВАЖНЫЕ СРОКИ И ДЕДЛАЙНЫ         -->
+        <!-- ================================ -->
+        <section class="deadlines-section" aria-labelledby="deadlinesSectionTitle">
             <div class="container">
-                <h2 class="section-title">Важные сроки и дедлайны</h2>
+                <h2 id="deadlinesSectionTitle" class="section-title">Важные сроки и дедлайны</h2>
                 
-                <div class="deadlines-timeline">
-                    <div class="deadline-item urgent">
+                <div class="deadlines-timeline" role="list" aria-label="Список важных дат">
+                    <!-- Крайний срок для абитуриентов с вступительными испытаниями -->
+                    <article class="deadline-item urgent" role="listitem">
                         <div class="deadline-date">
                             <div class="date-day">20</div>
                             <div class="date-month">ИЮЛЯ</div>
@@ -424,13 +493,14 @@
                             <p class="deadline-description">
                                 Абитуриенты, сдающие вступительные испытания, должны подать документы до этой даты
                             </p>
-                            <div class="deadline-note">
+                            <div class="deadline-note" role="note" aria-label="Важная информация">
                                 <strong>Внимание:</strong> Испытания проходят с 21 июня по 25 июля
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="deadline-item critical">
+                    <!-- Окончание приёма документов по ЕГЭ -->
+                    <article class="deadline-item critical" role="listitem">
                         <div class="deadline-date">
                             <div class="date-day">25</div>
                             <div class="date-month">ИЮЛЯ</div>
@@ -440,13 +510,14 @@
                             <p class="deadline-description">
                                 Последний день для подачи документов абитуриентами, поступающими только по результатам ЕГЭ
                             </p>
-                            <div class="deadline-note">
+                            <div class="deadline-note" role="note" aria-label="Критическая информация">
                                 После этой даты подача документов прекращается
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="deadline-item important">
+                    <!-- Публикация конкурсных списков -->
+                    <article class="deadline-item important" role="listitem">
                         <div class="deadline-date">
                             <div class="date-day">27</div>
                             <div class="date-month">ИЮЛЯ</div>
@@ -456,37 +527,41 @@
                             <p class="deadline-description">
                                 Будут опубликованы конкурсные списки всех абитуриентов
                             </p>
-                            <div class="deadline-note">
+                            <div class="deadline-note" role="note" aria-label="Рекомендация">
                                 Следите за обновлениями на сайте университета
                             </div>
                         </div>
-                    </div>
+                    </article>
                 </div>
 
-                <div class="urgent-notice">
-                    <div class="notice-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
+                <!-- Критически важное уведомление -->
+                <div class="urgent-notice" role="alert" aria-labelledby="urgentNoticeTitle">
+                    <div class="notice-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-label="Иконка предупреждения">
                             <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
                         </svg>
                     </div>
                     <div class="notice-content">
-                        <h3>⚠️ Критически важно!</h3>
+                        <h3 id="urgentNoticeTitle">⚠️ Критически важно!</h3>
                         <p>До 20 июля нужно сдать документы абитуриентам, которые сдают вступительные испытания. В последний день этого периода также завершается приём документов у тех, кто поступает только по результатам ЕГЭ.</p>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Navigation to next step -->
-        <section class="next-step">
+        </section>        
+        <!-- ================================ -->
+        <!-- НАВИГАЦИЯ К СЛЕДУЮЩЕМУ ЭТАПУ     -->
+        <!-- ================================ -->
+        <section class="next-step" aria-labelledby="nextStepTitle">
             <div class="container">
                 <div class="next-step-card">
                     <div class="next-step-content">
-                        <h3>Следующий этап</h3>
+                        <h3 id="nextStepTitle">Следующий этап</h3>
                         <p>После подачи документов начинается этап конкурсного отбора</p>
                     </div>
                     <div class="next-step-action">
-                        <a href="../selection/" class="btn btn-primary">
+                        <a href="../competitive-selection/" 
+                           class="btn btn-primary"
+                           aria-label="Перейти к разделу о конкурсном отборе">
                             Конкурсный отбор →
                         </a>
                     </div>
@@ -495,8 +570,14 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer id="footer"></footer>    <!-- JavaScript files -->
+    <!-- ================================ -->
+    <!-- ПОДВАЛ САЙТА                     -->
+    <!-- ================================ -->
+    <footer id="mainFooter" class="main-footer"></footer>
+
+    <!-- ================================ -->
+    <!-- JAVASCRIPT ФАЙЛЫ                 -->
+    <!-- ================================ -->
     <script src="../../../js/utils.js"></script>
     <script src="../../../js/search-modal.js"></script>
     <script src="../../../js/navigation.js"></script>
@@ -504,10 +585,13 @@
     <script src="../../../js/timeline.js"></script>
     <script src="../../../js/pwa.js"></script>
     <script src="../../../js/main.js"></script>
+    <script src="../../../js/seo-utils.js"></script>
 
-    
+    <!-- ================================ -->
+    <!-- ВСТРОЕННЫЕ СКРИПТЫ               -->
+    <!-- ================================ -->
     <script>
-        // Document checklist functionality
+        // Функциональность чек-листа документов
         function updateProgress() {
             const checkboxes = document.querySelectorAll('.checklist-checkbox input[type="checkbox"]');
             const checked = document.querySelectorAll('.checklist-checkbox input[type="checkbox"]:checked');
@@ -515,29 +599,61 @@
             
             const progressFill = document.getElementById('progressFill');
             const progressText = document.getElementById('progressText');
+            const progressContainer = document.querySelector('.progress-container');
             
-            progressFill.style.width = progress + '%';
-            progressText.textContent = Math.round(progress) + '%';
-            
-            // Change color based on progress
-            if (progress === 100) {
-                progressFill.style.backgroundColor = 'var(--primary-green)';
-            } else if (progress >= 75) {
-                progressFill.style.backgroundColor = 'var(--accent-blue)';
-            } else if (progress >= 50) {
-                progressFill.style.backgroundColor = '#ff9800';
-            } else {
-                progressFill.style.backgroundColor = '#f44336';
-            }        }
-        
-    </script>
-    <script src="../../../js/seo-utils.js"></script>
-    
-    <!-- SEO structured data -->
-    <script type="application/ld+json" id="structured-data"></script>
-    <script>
+            if (progressFill && progressText && progressContainer) {
+                progressFill.style.width = progress + '%';
+                progressText.textContent = Math.round(progress) + '%';
+                progressContainer.setAttribute('aria-valuenow', Math.round(progress));
+                
+                // Изменение цвета в зависимости от прогресса
+                if (progress === 100) {
+                    progressFill.style.backgroundColor = 'var(--primary-green)';
+                } else if (progress >= 75) {
+                    progressFill.style.backgroundColor = 'var(--accent-blue)';
+                } else if (progress >= 50) {
+                    progressFill.style.backgroundColor = '#ff9800';
+                } else {
+                    progressFill.style.backgroundColor = '#f44336';
+                }
+            }
+        }
+
         // Инициализация SEO для страницы подачи документов
-        initializeSEO('documents', 'Подача документов в РГАУ-МСХА 2025');
+        if (typeof initializeSEO === 'function') {
+            initializeSEO('documents', 'Подача документов в РГАУ-МСХА 2025');
+        }
+    </script>
+
+    <!-- ================================ -->
+    <!-- СТРУКТУРИРОВАННЫЕ ДАННЫЕ         -->
+    <!-- ================================ -->
+    <script type="application/ld+json" id="structuredData">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Подача документов в РГАУ-МСХА 2025",
+        "description": "Пошаговое руководство по подаче документов для поступления в РГАУ-МСХА",
+        "url": "https://ргау-справочник.рф/pages/applicant-path/documents/",
+        "totalTime": "P1D",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Подготовка паспорта",
+                "text": "Подготовить оригинал и копии всех заполненных страниц паспорта"
+            },
+            {
+                "@type": "HowToStep", 
+                "name": "Подготовка аттестата",
+                "text": "Приготовить оригинал аттестата об окончании школы или диплома"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Подача документов",
+                "text": "Подать документы лично в приемной комиссии или через портал Госуслуги"
+            }
+        ]
+    }
     </script>
 </body>
 </html>

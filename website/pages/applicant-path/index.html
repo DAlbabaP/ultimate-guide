@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- ================================ -->
+    <!-- БАЗОВЫЕ МЕТА-ТЕГИ               -->
+    <!-- ================================ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="../../manifest.json">
     <title>Поступление в РГАУ-МСХА 2025 | Путь абитуриента | Справочник студента</title>
-    <meta name="description" content="Полный календарь поступления в РГАУ-МСХА 2025: подача документов (июнь-июль), конкурсный отбор, зачисление и заселение в общежитие. Пошаговый гайд абитуриента.">    <meta name="keywords" content="поступление РГАУ-МСХА, абитуриент МСХА, зачисление РГАУ, календарь поступления, документы МСХА">
-    
-    <!-- PWA мета-теги -->
+    <meta name="description" content="Полный календарь поступления в РГАУ-МСХА 2025: подача документов (июнь-июль), конкурсный отбор, зачисление и заселение в общежитие. Пошаговый гайд абитуриента.">
+    <meta name="keywords" content="поступление РГАУ-МСХА, абитуриент МСХА, зачисление РГАУ, календарь поступления, документы МСХА">
+
+    <!-- ================================ -->
+    <!-- PWA И МОБИЛЬНЫЕ НАСТРОЙКИ        -->
+    <!-- ================================ -->
     <meta name="theme-color" content="#2F5E2F">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <!-- ================================ -->
+    <!-- СОЦИАЛЬНЫЕ СЕТИ И SEO            -->
+    <!-- ================================ -->
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -26,31 +36,42 @@
     <meta property="twitter:title" content="Поступление в РГАУ-МСХА 2025">
     <meta property="twitter:description" content="Полный календарь поступления с важными датами и процедурами">
     <meta property="twitter:image" content="../../images/og-enrollment.jpg">
-      <!-- CSS files -->
+
+    <!-- ================================ -->
+    <!-- СТИЛИ CSS                        -->
+    <!-- ================================ -->
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../../css/header.css">
     <link rel="stylesheet" href="../../css/footer.css">
     <link rel="stylesheet" href="../../css/navigation.css">
     <link rel="stylesheet" href="../../css/cards.css">
-    <link rel="stylesheet" href="../../css/timeline.css">    <link rel="stylesheet" href="../../css/pages.css">
+    <link rel="stylesheet" href="../../css/timeline.css">
+    <link rel="stylesheet" href="../../css/pages.css">
     <link rel="stylesheet" href="../../css/responsive.css">
     <link rel="stylesheet" href="../../css/header-search.css">
     <link rel="stylesheet" href="../../css/pwa.css">
 </head>
 <body>
-    <!-- Header -->
-    <header id="header"></header>
+    <!-- ================================ -->
+    <!-- ШАПКА САЙТА                      -->
+    <!-- ================================ -->
+    <header id="mainHeader" class="main-header"></header>
 
-    <!-- Main content -->
+    <!-- ================================ -->
+    <!-- ОСНОВНОЙ КОНТЕНТ                 -->
+    <!-- ================================ -->
     <main class="main-content">
-        <!-- Hero Section -->
-        <section class="page-hero">
+        
+        <!-- ================================ -->
+        <!-- ГЕРОИЧЕСКАЯ СЕКЦИЯ               -->
+        <!-- ================================ -->
+        <section class="page-hero" role="banner">
             <div class="container">
-                <div class="breadcrumb">
-                    <a href="../../">Главная</a>
-                    <span class="breadcrumb-separator">→</span>
+                <nav class="breadcrumb" aria-label="Хлебные крошки">
+                    <a href="../../" aria-label="Перейти на главную страницу">Главная</a>
+                    <span class="breadcrumb-separator" aria-hidden="true">→</span>
                     <span class="breadcrumb-current">Путь абитуриента</span>
-                </div>
+                </nav>
                 
                 <h1 class="page-title">Путь абитуриента</h1>
                 <p class="page-subtitle">
@@ -59,13 +80,17 @@
             </div>
         </section>
 
-        <!-- Quick Navigation -->
-        <section class="quick-nav-section">
+        <!-- ================================ -->
+        <!-- БЫСТРАЯ НАВИГАЦИЯ                -->
+        <!-- ================================ -->
+        <section class="quick-nav-section" aria-labelledby="quickNavTitle">
             <div class="container">
-                <h2 class="section-title">Этапы поступления</h2>
-                <div class="quick-nav-grid">
-                    <a href="documents/" class="quick-nav-item">
-                        <div class="nav-icon">
+                <h2 id="quickNavTitle" class="section-title">Этапы поступления</h2>
+                <nav class="quick-nav-grid" role="navigation" aria-label="Навигация по этапам поступления">
+                    
+                    <!-- Подача документов -->
+                    <a href="documents/" class="quick-nav-item" aria-label="Перейти к разделу подачи документов">
+                        <div class="nav-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
                             </svg>
@@ -75,8 +100,11 @@
                             <p class="nav-description">Июнь - Июль</p>
                             <p class="nav-details">Сроки, документы, процедуры</p>
                         </div>
-                    </a>                    <a href="competitive-selection/" class="quick-nav-item">
-                        <div class="nav-icon">
+                    </a>
+
+                    <!-- Конкурсный отбор -->
+                    <a href="competitive-selection/" class="quick-nav-item" aria-label="Перейти к разделу конкурсного отбора">
+                        <div class="nav-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M9 11H7v8h2v-8zm4 4h-2v4h2v-4zm4-8h-2v12h2V7z"/>
                             </svg>
@@ -88,20 +116,23 @@
                         </div>
                     </a>
 
-                    <a href="enrollment/" class="quick-nav-item">
-                        <div class="nav-icon">
+                    <!-- Зачисление -->
+                    <a href="enrollment/" class="quick-nav-item" aria-label="Перейти к разделу зачисления">
+                        <div class="nav-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                             </svg>
-                        </div>                        <div class="nav-content">
+                        </div>
+                        <div class="nav-content">
                             <h3 class="nav-title">Зачисление</h3>
                             <p class="nav-description">Август</p>
                             <p class="nav-details">Документы, оплата, статус</p>
                         </div>
                     </a>
 
-                    <a href="dormitory-settlement/" class="quick-nav-item">
-                        <div class="nav-icon">
+                    <!-- Заселение -->
+                    <a href="dormitory-settlement/" class="quick-nav-item" aria-label="Перейти к разделу заселения в общежитие">
+                        <div class="nav-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm5-18v6h3V3h-3z"/>
                             </svg>
@@ -113,8 +144,9 @@
                         </div>
                     </a>
 
-                    <a href="adaptation/" class="quick-nav-item">
-                        <div class="nav-icon">
+                    <!-- Адаптация -->
+                    <a href="adaptation/" class="quick-nav-item" aria-label="Перейти к разделу адаптации">
+                        <div class="nav-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6L23 9l-11-6z"/>
                             </svg>
@@ -125,26 +157,31 @@
                             <p class="nav-details">Первые дни, знакомство</p>
                         </div>
                     </a>
-                </div>
+                </nav>
             </div>
-        </section>
-
-        <!-- Timeline Overview -->
-        <section class="overview-timeline">
+        </section>        
+        <!-- ================================ -->
+        <!-- ОБЗОР ВРЕМЕННОЙ ШКАЛЫ            -->
+        <!-- ================================ -->
+        <section class="overview-timeline" aria-labelledby="timelineOverviewTitle">
             <div class="container">
-                <h2 class="section-title">Хронология поступления</h2>
-                <p class="section-subtitle">
-                    Ключевые даты и события в процессе поступления
-                </p>
+                <header class="section-header">
+                    <h2 id="timelineOverviewTitle" class="section-title">Хронология поступления</h2>
+                    <p class="section-subtitle">
+                        Ключевые даты и события в процессе поступления
+                    </p>
+                </header>
                 
-                <div class="timeline-overview">
-                    <div class="timeline-step" data-step="1">
+                <div class="timeline-overview" role="list" aria-label="Этапы процесса поступления">
+                    
+                    <!-- Этап 1: Подготовка -->
+                    <article class="timeline-step" data-step="1" role="listitem">
                         <div class="step-marker">
-                            <span class="step-number">1</span>
+                            <span class="step-number" aria-label="Этап номер 1">1</span>
                         </div>
                         <div class="step-content">
                             <h3 class="step-title">Подготовка к поступлению</h3>
-                            <div class="step-date">Май - Июнь</div>
+                            <time class="step-date" datetime="2025-05">Май - Июнь</time>
                             <ul class="step-tasks">
                                 <li>Изучение требований к поступлению</li>
                                 <li>Подготовка документов</li>
@@ -152,15 +189,16 @@
                                 <li>Подача заявления через ЕПГУ</li>
                             </ul>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="timeline-step" data-step="2">
+                    <!-- Этап 2: Подача документов -->
+                    <article class="timeline-step" data-step="2" role="listitem">
                         <div class="step-marker">
-                            <span class="step-number">2</span>
+                            <span class="step-number" aria-label="Этап номер 2">2</span>
                         </div>
                         <div class="step-content">
                             <h3 class="step-title">Подача документов</h3>
-                            <div class="step-date">20 июня - 25 июля</div>
+                            <time class="step-date" datetime="2025-06-20/2025-07-25">20 июня - 25 июля</time>
                             <ul class="step-tasks">
                                 <li>Подача документов в приемную комиссию</li>
                                 <li>Проверка и регистрация документов</li>
@@ -168,15 +206,16 @@
                                 <li>Отслеживание статуса заявления</li>
                             </ul>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="timeline-step" data-step="3">
+                    <!-- Этап 3: Конкурсный отбор -->
+                    <article class="timeline-step" data-step="3" role="listitem">
                         <div class="step-marker">
-                            <span class="step-number">3</span>
+                            <span class="step-number" aria-label="Этап номер 3">3</span>
                         </div>
                         <div class="step-content">
                             <h3 class="step-title">Конкурсный отбор</h3>
-                            <div class="step-date">25-27 июля</div>
+                            <time class="step-date" datetime="2025-07-25/2025-07-27">25-27 июля</time>
                             <ul class="step-tasks">
                                 <li>Публикация конкурсных списков</li>
                                 <li>Подача согласия на зачисление</li>
@@ -184,15 +223,16 @@
                                 <li>Публикация приказов о зачислении</li>
                             </ul>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="timeline-step" data-step="4">
+                    <!-- Этап 4: Зачисление -->
+                    <article class="timeline-step" data-step="4" role="listitem">
                         <div class="step-marker">
-                            <span class="step-number">4</span>
+                            <span class="step-number" aria-label="Этап номер 4">4</span>
                         </div>
                         <div class="step-content">
                             <h3 class="step-title">Зачисление</h3>
-                            <div class="step-date">1-3 августа</div>
+                            <time class="step-date" datetime="2025-08-01/2025-08-03">1-3 августа</time>
                             <ul class="step-tasks">
                                 <li>Подача оригиналов документов</li>
                                 <li>Заключение договора об образовании</li>
@@ -200,15 +240,16 @@
                                 <li>Получение справки о зачислении</li>
                             </ul>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="timeline-step" data-step="5">
+                    <!-- Этап 5: Начало обучения -->
+                    <article class="timeline-step" data-step="5" role="listitem">
                         <div class="step-marker">
-                            <span class="step-number">5</span>
+                            <span class="step-number" aria-label="Этап номер 5">5</span>
                         </div>
                         <div class="step-content">
                             <h3 class="step-title">Начало обучения</h3>
-                            <div class="step-date">1 сентября</div>
+                            <time class="step-date" datetime="2025-09-01">1 сентября</time>
                             <ul class="step-tasks">
                                 <li>Получение студенческого билета</li>
                                 <li>Знакомство с группой и куратором</li>
@@ -216,19 +257,22 @@
                                 <li>Начало учебного процесса</li>
                             </ul>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
-        </section>
-
-        <!-- Important Information -->
-        <section class="important-info">
+        </section>        
+        <!-- ================================ -->
+        <!-- ВАЖНАЯ ИНФОРМАЦИЯ                -->
+        <!-- ================================ -->
+        <section class="important-info" aria-labelledby="importantInfoTitle">
             <div class="container">
-                <h2 class="section-title">Важная информация</h2>
+                <h2 id="importantInfoTitle" class="section-title">Важная информация</h2>
                 
                 <div class="info-grid">
-                    <div class="info-card urgent">
-                        <div class="info-icon">
+                    
+                    <!-- Критически важная информация -->
+                    <article class="info-card urgent">
+                        <div class="info-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
                             </svg>
@@ -242,10 +286,11 @@
                                 <li>Согласие на зачисление: до 26 июля до 18:00</li>
                             </ul>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="info-card tips">
-                        <div class="info-icon">
+                    <!-- Полезные советы -->
+                    <article class="info-card tips">
+                        <div class="info-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/>
                             </svg>
@@ -259,10 +304,11 @@
                                 <li>Сохраняйте все расписки и справки</li>
                             </ul>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="info-card contacts">
-                        <div class="info-icon">
+                    <!-- Контакты приемной комиссии -->
+                    <article class="info-card contacts">
+                        <div class="info-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                             </svg>
@@ -270,119 +316,165 @@
                         <h3 class="info-title">Контакты приемной комиссии</h3>
                         <div class="info-content">
                             <p><strong>Адрес:</strong> ул. Тимирязевская, 49, корпус 1</p>
-                            <p><strong>Телефон:</strong> +7 (499) 976-24-90</p>
-                            <p><strong>Email:</strong> pk@rgau-msha.ru</p>
+                            <p><strong>Телефон:</strong> <a href="tel:+74999762490">+7 (499) 976-24-90</a></p>
+                            <p><strong>Email:</strong> <a href="mailto:pk@rgau-msha.ru">pk@rgau-msha.ru</a></p>
                             <p><strong>Время работы:</strong> пн-пт 9:00-17:00</p>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- FAQ Section -->
-        <section class="faq-section">
+        <!-- ================================ -->
+        <!-- ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ         -->
+        <!-- ================================ -->
+        <section class="faq-section" aria-labelledby="faqTitle">
             <div class="container">
-                <h2 class="section-title">Частые вопросы</h2>
+                <h2 id="faqTitle" class="section-title">Частые вопросы</h2>
                 
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
+                <div class="faq-container" role="list">
+                    
+                    <!-- Вопрос 1 -->
+                    <article class="faq-item" role="listitem">
+                        <button class="faq-question" 
+                                onclick="toggleFaq(this)" 
+                                aria-expanded="false" 
+                                aria-controls="faqAnswer1"
+                                aria-describedby="faqAnswer1">
                             <span>Можно ли подать документы в несколько вузов одновременно?</span>
-                            <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                 <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/>
                             </svg>
                         </button>
-                        <div class="faq-answer">
+                        <div class="faq-answer" id="faqAnswer1">
                             <p>Да, согласно действующему законодательству, абитуриент может подать документы одновременно в 5 вузов на 3 направления в каждом. Однако зачислиться можно только в один вуз.</p>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
+                    <!-- Вопрос 2 -->
+                    <article class="faq-item" role="listitem">
+                        <button class="faq-question" 
+                                onclick="toggleFaq(this)" 
+                                aria-expanded="false" 
+                                aria-controls="faqAnswer2"
+                                aria-describedby="faqAnswer2">
                             <span>Что делать, если не прошел по баллам?</span>
-                            <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                 <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/>
                             </svg>
                         </button>
-                        <div class="faq-answer">
+                        <div class="faq-answer" id="faqAnswer2">
                             <p>Если вы не прошли на бюджетные места, рассмотрите возможность поступления на платную форму обучения. Также можно попробовать поступить на другие направления или рассмотреть заочную/очно-заочную формы обучения.</p>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
+                    <!-- Вопрос 3 -->
+                    <article class="faq-item" role="listitem">
+                        <button class="faq-question" 
+                                onclick="toggleFaq(this)" 
+                                aria-expanded="false" 
+                                aria-controls="faqAnswer3"
+                                aria-describedby="faqAnswer3">
                             <span>Нужно ли сдавать дополнительные экзамены?</span>
-                            <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                 <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/>
                             </svg>
                         </button>
-                        <div class="faq-answer">
+                        <div class="faq-answer" id="faqAnswer3">
                             <p>Для большинства направлений достаточно результатов ЕГЭ. Дополнительные испытания могут потребоваться только для некоторых творческих специальностей или при поступлении по особым правам.</p>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
+                    <!-- Вопрос 4 -->
+                    <article class="faq-item" role="listitem">
+                        <button class="faq-question" 
+                                onclick="toggleFaq(this)" 
+                                aria-expanded="false" 
+                                aria-controls="faqAnswer4"
+                                aria-describedby="faqAnswer4">
                             <span>Как узнать результаты поступления?</span>
-                            <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                 <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/>
                             </svg>
                         </button>
-                        <div class="faq-answer">
+                        <div class="faq-answer" id="faqAnswer4">
                             <p>Результаты публикуются на официальном сайте университета в разделе "Абитуриенту". Также вы можете отслеживать статус своего заявления в личном кабинете на ЕПГУ или обратиться в приемную комиссию.</p>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
-    </main>    <!-- Footer -->
-    <footer id="footer"></footer>
+    </main>    <!-- ================================ -->
+    <!-- ПОДВАЛ САЙТА                     -->
+    <!-- ================================ -->
+    <footer id="mainFooter" class="main-footer"></footer>
 
-    <!-- JavaScript files -->
+    <!-- ================================ -->
+    <!-- JAVASCRIPT ФАЙЛЫ                 -->
+    <!-- ================================ -->
     <script src="../../js/utils.js"></script>
+    <script src="../../js/search-modal.js"></script>
     <script src="../../js/navigation.js"></script>
     <script src="../../js/animations.js"></script>
     <script src="../../js/timeline.js"></script>
     <script src="../../js/pwa.js"></script>
     <script src="../../js/main.js"></script>
-    
+    <script src="../../js/seo-utils.js"></script>
+
+    <!-- ================================ -->
+    <!-- ВСТРОЕННЫЕ СКРИПТЫ               -->
+    <!-- ================================ -->
     <script>
-        // FAQ functionality
+        // FAQ функциональность
         function toggleFaq(button) {
             const faqItem = button.parentElement;
             const answer = faqItem.querySelector('.faq-answer');
             const icon = button.querySelector('.faq-icon');
             
-            // Close other open FAQs
+            // Закрыть другие открытые FAQ
             document.querySelectorAll('.faq-item').forEach(item => {
                 if (item !== faqItem && item.classList.contains('open')) {
                     item.classList.remove('open');
                     item.querySelector('.faq-answer').style.maxHeight = null;
+                    item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
                 }
             });
-              // Toggle current FAQ
+
+            // Переключить текущий FAQ
+            const isOpen = faqItem.classList.contains('open');
             faqItem.classList.toggle('open');
+            button.setAttribute('aria-expanded', !isOpen);
             
-            if (faqItem.classList.contains('open')) {
+            if (!isOpen) {
                 answer.style.maxHeight = answer.scrollHeight + 'px';
             } else {
                 answer.style.maxHeight = null;
-            }        }
-    </script>    <!-- Scripts -->
-    <script src="../../js/utils.js"></script>
-    <script src="../../js/search-modal.js"></script>
-    <script src="../../js/navigation.js"></script>
-    <script src="../../js/main.js"></script>
-    <script src="../../js/seo-utils.js"></script>
-    
-    <!-- SEO structured data -->
-    <script type="application/ld+json" id="structured-data"></script>
-    <script>
+            }
+        }
+
         // Инициализация SEO для страницы поступления
-        initializeSEO('applicant-path', 'Поступление в РГАУ-МСХА 2025');
+        if (typeof initializeSEO === 'function') {
+            initializeSEO('applicant-path', 'Поступление в РГАУ-МСХА 2025');
+        }
     </script>
 
-    <!-- Footer -->
-    <footer id="footer"></footer>
+    <!-- ================================ -->
+    <!-- СТРУКТУРИРОВАННЫЕ ДАННЫЕ         -->
+    <!-- ================================ -->
+    <script type="application/ld+json" id="structuredData">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "РГАУ-МСХА имени К.А. Тимирязева",
+        "description": "Поступление в РГАУ-МСХА 2025: календарь абитуриента, документы, сроки",
+        "url": "https://ргау-справочник.рф/pages/applicant-path/",
+        "educationalCredentialAwarded": "Высшее образование",
+        "admissionPolicy": {
+            "@type": "AdmissionPolicy",
+            "applicationDeadline": "2025-07-25",
+            "applicationStartDate": "2025-06-20"
+        }
+    }
+    </script>
 </body>
 </html>

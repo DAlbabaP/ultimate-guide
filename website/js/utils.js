@@ -380,12 +380,10 @@ const Utils = {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      
-      const html = await response.text();
+        const html = await response.text();
       element.innerHTML = html;
-      
-      // Если загружен header, инициализируем навигацию
-      if (elementId === 'header-placeholder' || elementId === 'header') {
+        // Если загружен header, инициализируем навигацию
+      if (elementId === 'mainHeader') {
         this.initNavigation();
       }
       
@@ -397,11 +395,8 @@ const Utils = {
   },  // Загрузка всех компонентов страницы
   async loadAllComponents(basePath = '') {
     const components = [
-      { id: 'header-placeholder', path: 'components/header.html' },
-      { id: 'header', path: 'components/header.html' },
-      { id: 'nav-placeholder', path: 'components/nav.html' },
-      { id: 'footer-placeholder', path: 'components/footer.html' },
-      { id: 'footer', path: 'components/footer.html' }
+      { id: 'mainHeader', path: 'components/header.html' },
+      { id: 'mainFooter', path: 'components/footer.html' }
     ];
 
     const promises = components.map(component => 

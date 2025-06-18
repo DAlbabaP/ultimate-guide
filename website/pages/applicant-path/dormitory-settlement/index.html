@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- ================================ -->
+    <!-- БАЗОВЫЕ МЕТА-ТЕГИ               -->
+    <!-- ================================ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="../../../manifest.json">
     <title>Заселение в общежитие РГАУ-МСХА 2025 | Конец августа | Справочник студента</title>
     <meta name="description" content="Процедура заселения в общежитие РГАУ-МСХА в конце августа: документы, сроки, список вещей, правила заселения и первые дни в общаге.">
-    <meta name="keywords" content="заселение общежитие РГАУ-МСХА, общага МСХА, документы заселение, список вещей общежитие">    <!-- PWA мета-теги -->
+    <meta name="keywords" content="заселение общежитие РГАУ-МСХА, общага МСХА, документы заселение, список вещей общежитие">
+
+    <!-- ================================ -->
+    <!-- PWA И МОБИЛЬНЫЕ НАСТРОЙКИ        -->
+    <!-- ================================ -->
     <meta name="theme-color" content="#2F5E2F">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    
-    
+
+    <!-- ================================ -->
+    <!-- СОЦИАЛЬНЫЕ СЕТИ И SEO            -->
+    <!-- ================================ -->
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -27,6 +36,10 @@
     <meta property="twitter:title" content="Заселение в общежитие МСХА">
     <meta property="twitter:description" content="Документы, сроки и список вещей для заселения">
     <meta property="twitter:image" content="../../../images/og-dormitory.jpg">
+
+    <!-- ================================ -->
+    <!-- СТИЛИ CSS                        -->
+    <!-- ================================ -->
     <link rel="stylesheet" href="../../../css/styles.css">
     <link rel="stylesheet" href="../../../css/header.css">
     <link rel="stylesheet" href="../../../css/footer.css">
@@ -40,379 +53,449 @@
     <link rel="stylesheet" href="../../../css/pwa.css">
 </head>
 <body>
-    <div class="page-container">
-        <!-- Header -->
-        <header id="header"></header>
+    <!-- ================================ -->
+    <!-- ШАПКА САЙТА                      -->
+    <!-- ================================ -->
+    <header id="mainHeader" class="main-header"></header>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Page Hero -->
-            <section class="page-hero settlement-hero">
-                <div class="container">
-                    <div class="page-header">
-                        <div class="breadcrumb">
-                            <a href="../../../index.html">Главная</a>
-                            <span class="breadcrumb-separator">→</span>
-                            <a href="../index.html">Путь абитуриента</a>
-                            <span class="breadcrumb-separator">→</span>
-                            <span class="breadcrumb-current">Заселение в общежитие</span>
-                        </div>
-                        <div class="page-date">📅 Конец августа</div>
-                        <h1 class="page-title">Заселение в общежитие</h1>
-                        <p class="page-subtitle">
-                            Завершающий этап: процедура заселения, необходимые документы и полезные советы от старшекурсников
-                        </p>
-                    </div>
-                </div>
-            </section>
+    <!-- ================================ -->
+    <!-- ОСНОВНОЙ КОНТЕНТ                 -->
+    <!-- ================================ -->
+    <main class="main-content">
+        
+        <!-- ================================ -->
+        <!-- ХЛЕБНЫЕ КРОШКИ                   -->
+        <!-- ================================ -->
+        <section class="breadcrumb-section">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Хлебные крошки">
+                    <ul class="breadcrumb__list">
+                        <li class="breadcrumb__item">
+                            <a href="../../../" class="breadcrumb__link" aria-label="Перейти на главную страницу">Главная</a>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <a href="../" class="breadcrumb__link" aria-label="Перейти к разделу пути абитуриента">Путь абитуриента</a>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <span class="breadcrumb__current">Заселение в общежитие</span>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
 
-            <!-- Settlement Dates Section -->
-            <section class="content-section dates-section">
-                <div class="container">
-                    <h2 class="section-title">📅 Даты заселения</h2>
-                    <p class="section-subtitle">
-                        Даты заселения абитуриентов очной формы обучения 2024/25 учебного года
+        <!-- ================================ -->
+        <!-- ГЕРОИЧЕСКАЯ СЕКЦИЯ               -->
+        <!-- ================================ -->
+        <section class="page-hero settlement-hero" role="banner">
+            <div class="container">
+                <header class="page-header">
+                    <div class="page-date">📅 Конец августа</div>
+                    <h1 class="page-title">Заселение в общежитие</h1>
+                    <p class="page-subtitle">
+                        Завершающий этап: процедура заселения, необходимые документы и полезные советы от старшекурсников
                     </p>
+                </header>
+            </div>
+        </section>        
+        <!-- ================================ -->
+        <!-- ДАТЫ ЗАСЕЛЕНИЯ                   -->
+        <!-- ================================ -->
+        <section class="content-section dates-section" aria-labelledby="datesTitle">
+            <div class="container">
+                <h2 id="datesTitle" class="section-title">📅 Даты заселения</h2>
+                <p class="section-subtitle">
+                    Даты заселения абитуриентов очной формы обучения 2024/25 учебного года
+                </p>
 
-                    <div class="settlement-timeline">
-                        <div class="settlement-date priority">
-                            <div class="date-badge">
-                                <div class="date-number">27</div>
-                                <div class="date-month">августа</div>
-                            </div>
-                            <div class="date-content">
-                                <h3>🌍 Иногородние обучающиеся</h3>
-                                <p>Первоочередное право на заселение имеют студенты из других городов и регионов</p>
-                                <div class="date-note">
-                                    <strong>Приоритет:</strong> Студенты, проживающие далее 60 км от университета
-                                </div>
+                <div class="settlement-timeline" role="list" aria-label="График заселения по категориям студентов">
+                    <!-- Иногородние студенты -->
+                    <article class="settlement-date priority" role="listitem">
+                        <div class="date-badge">
+                            <div class="date-number">27</div>
+                            <div class="date-month">августа</div>
+                        </div>
+                        <div class="date-content">
+                            <h3>🌍 Иногородние обучающиеся</h3>
+                            <p>Первоочередное право на заселение имеют студенты из других городов и регионов</p>
+                            <div class="date-note" role="note">
+                                <strong>Приоритет:</strong> Студенты, проживающие далее 60 км от университета
                             </div>
                         </div>
+                    </article>
 
-                        <div class="settlement-date">
-                            <div class="date-badge">
-                                <div class="date-number">30</div>
-                                <div class="date-month">августа</div>
+                    <!-- Москвичи и жители МО -->
+                    <article class="settlement-date" role="listitem">
+                        <div class="date-badge">
+                            <div class="date-number">30</div>
+                            <div class="date-month">августа</div>
+                        </div>
+                        <div class="date-content">
+                            <h3>🏙️ Москва и Московская область</h3>
+                            <p>Обучающиеся из Москвы и Московской области заселяются после иногородних</p>
+                            <div class="date-note" role="note">
+                                <strong>Условие:</strong> Места предоставляются при их наличии
                             </div>
-                            <div class="date-content">
-                                <h3>🏙️ Москва и Московская область</h3>
-                                <p>Обучающиеся из Москвы и Московской области заселяются после иногородних</p>
-                                <div class="date-note">
-                                    <strong>Условие:</strong> Места предоставляются при их наличии
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Важные уведомления -->
+                <div class="important-notices" role="list" aria-label="Важные условия заселения">
+                    <article class="notice-item distance" role="listitem">
+                        <div class="notice-icon" aria-hidden="true">⚠️</div>
+                        <div class="notice-content">
+                            <h3>Ограничение по расстоянию</h3>
+                            <p>Обучающимся, проживающим в населенных пунктах ближе 60 км от Университета, места предоставляются только после полного обеспечения местами приоритетных категорий.</p>
+                        </div>
+                    </article>
+
+                    <article class="notice-item deadline" role="listitem" role="alert">
+                        <div class="notice-icon" aria-hidden="true">⏰</div>
+                        <div class="notice-content">
+                            <h3>30-дневный срок</h3>
+                            <p>Абитуриент, не заселившийся в общежитие в течение 30 дней, признается не нуждающимся в общежитии и теряет право на предоставление места.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================ -->
+        <!-- НЕОБХОДИМЫЕ ДОКУМЕНТЫ            -->
+        <!-- ================================ -->
+        <section class="content-section documents-section" aria-labelledby="documentsTitle">
+            <div class="container">
+                <h2 id="documentsTitle" class="section-title">📋 Необходимые документы</h2>
+                <p class="section-subtitle">
+                    На заселении при себе необходимо иметь следующие документы
+                </p>
+
+                <div class="documents-checklist">
+                    <!-- Основные документы -->
+                    <div class="document-category" aria-labelledby="basicDocsTitle">
+                        <h3 id="basicDocsTitle">📄 Основные документы</h3>
+                        <div class="document-list" role="list" aria-label="Список основных документов">
+                            <article class="document-item" role="listitem">
+                                <div class="doc-icon" aria-hidden="true">🆔</div>
+                                <div class="doc-details">
+                                    <h4>Копия паспорта</h4>
+                                    <p>Страницы 2-3 + действующая регистрация по месту жительства</p>
+                                    <div class="doc-note" role="note">
+                                        <strong>Для иностранных граждан:</strong> нотариально заверенный перевод паспорта
+                                    </div>
                                 </div>
-                            </div>
+                            </article>
+
+                            <article class="document-item" role="listitem">
+                                <div class="doc-icon" aria-hidden="true">📷</div>
+                                <div class="doc-details">
+                                    <h4>2 матовые фотографии 3×4</h4>
+                                    <p>Качественные фотографии на белом фоне, без головного убора</p>
+                                </div>
+                            </article>
                         </div>
                     </div>
 
-                    <!-- Important Notices -->
-                    <div class="important-notices">
-                        <div class="notice-item distance">
-                            <div class="notice-icon">⚠️</div>
-                            <div class="notice-content">
-                                <h3>Ограничение по расстоянию</h3>
-                                <p>Обучающимся, проживающим в населенных пунктах ближе 60 км от Университета, места предоставляются только после полного обеспечения местами приоритетных категорий.</p>
-                            </div>
-                        </div>
+                    <!-- Медицинские документы -->
+                    <div class="document-category" aria-labelledby="medicalDocsTitle">
+                        <h3 id="medicalDocsTitle">🏥 Медицинские документы</h3>
+                        <div class="document-list" role="list" aria-label="Список медицинских документов">
+                            <!-- Справка 086-У -->
+                            <article class="document-item medical" role="listitem">
+                                <div class="doc-icon" aria-hidden="true">📋</div>
+                                <div class="doc-details">
+                                    <h4>Справка формы № 086-У</h4>
+                                    <p>Медицинская справка для поступающих в учебные заведения</p>
+                                    <div class="validity-period">
+                                        <span class="period-label">Срок действия:</span>
+                                        <span class="period-value">6 месяцев</span>
+                                    </div>
+                                </div>
+                            </article>
 
-                        <div class="notice-item deadline">
-                            <div class="notice-icon">⏰</div>
-                            <div class="notice-content">
-                                <h3>30-дневный срок</h3>
-                                <p>Абитуриент, не заселившийся в общежитие в течение 30 дней, признается не нуждающимся в общежитии и теряет право на предоставление места.</p>
-                            </div>
+                            <!-- Анализ крови -->
+                            <article class="document-item medical" role="listitem">
+                                <div class="doc-icon" aria-hidden="true">🩸</div>
+                                <div class="doc-details">
+                                    <h4>Анализ крови на сифилис</h4>
+                                    <p>Результат лабораторного исследования</p>
+                                    <div class="validity-period urgent" role="alert">
+                                        <span class="period-label">Срок действия:</span>
+                                        <span class="period-value">10 дней</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Флюорография -->
+                            <article class="document-item medical" role="listitem">
+                                <div class="doc-icon" aria-hidden="true">🫁</div>
+                                <div class="doc-details">
+                                    <h4>Флюорографическое обследование</h4>
+                                    <p>Результат рентгенологического исследования грудной клетки</p>
+                                    <div class="validity-period">
+                                        <span class="period-label">Срок действия:</span>
+                                        <span class="period-value">1 год</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Дерматолог -->
+                            <article class="document-item medical" role="listitem">
+                                <div class="doc-icon" aria-hidden="true">👨‍⚕️</div>
+                                <div class="doc-details">
+                                    <h4>Заключение дерматолога</h4>
+                                    <p>Об отсутствии контактно-бытовых кожных и венерических заболеваний</p>
+                                    <div class="validity-period">
+                                        <span class="period-label">Срок действия:</span>
+                                        <span class="period-value">30 дней</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Прививочный сертификат -->
+                            <article class="document-item medical" role="listitem">
+                                <div class="doc-icon" aria-hidden="true">💉</div>
+                                <div class="doc-details">
+                                    <h4>Прививочный сертификат</h4>
+                                    <p>Копия с датами вакцинации против:</p>
+                                    <ul class="vaccination-list" role="list" aria-label="Обязательные прививки">
+                                        <li role="listitem">Дифтерии, коклюша, столбняка (АКДС)</li>
+                                        <li role="listitem">Кори (ЖКВ)</li>
+                                        <li role="listitem">Краснухи, эпидемического паротита (ЖПВ)</li>
+                                        <li role="listitem">Гепатита В</li>
+                                        <li role="listitem">Туберкулёза (БЦЖ)</li>
+                                    </ul>
+                                </div>
+                            </article>
+
+                            <!-- Лицензия медучреждения -->
+                            <article class="document-item medical" role="listitem">
+                                <div class="doc-icon" aria-hidden="true">🏥</div>
+                                <div class="doc-details">
+                                    <h4>Лицензия медучреждения</h4>
+                                    <p>Копия лицензии на указанные виды деятельности</p>
+                                    <div class="doc-note" role="note">
+                                        <strong>Требуется:</strong> если обследование проходило в негосударственном учреждении
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Справки из диспансеров -->
+                            <article class="document-item medical" role="listitem">
+                                <div class="doc-icon" aria-hidden="true">🧠</div>
+                                <div class="doc-details">
+                                    <h4>Справки из диспансеров</h4>
+                                    <p>Из наркологического и психоневрологического диспансеров по месту жительства</p>
+                                    <div class="validity-period">
+                                        <span class="period-label">Срок действия:</span>
+                                        <span class="period-value">3 месяца</span>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
                     </div>
                 </div>
-            </section>
 
-            <!-- Required Documents Section -->
-            <section class="content-section documents-section">
-                <div class="container">
-                    <h2 class="section-title">📋 Необходимые документы</h2>
-                    <p class="section-subtitle">
-                        На заселении при себе необходимо иметь следующие документы
-                    </p>
-
-                    <div class="documents-checklist">
-                        <div class="document-category">
-                            <h3>📄 Основные документы</h3>
-                            <div class="document-list">
-                                <div class="document-item">
-                                    <div class="doc-icon">🆔</div>
-                                    <div class="doc-details">
-                                        <h4>Копия паспорта</h4>
-                                        <p>Страницы 2-3 + действующая регистрация по месту жительства</p>
-                                        <div class="doc-note">
-                                            <strong>Для иностранных граждан:</strong> нотариально заверенный перевод паспорта
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="document-item">
-                                    <div class="doc-icon">📷</div>
-                                    <div class="doc-details">
-                                        <h4>2 матовые фотографии 3×4</h4>
-                                        <p>Качественные фотографии на белом фоне, без головного убора</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="document-category">
-                            <h3>🏥 Медицинские документы</h3>
-                            <div class="document-list">
-                                <div class="document-item medical">
-                                    <div class="doc-icon">📋</div>
-                                    <div class="doc-details">
-                                        <h4>Справка формы № 086-У</h4>
-                                        <p>Медицинская справка для поступающих в учебные заведения</p>
-                                        <div class="validity-period">
-                                            <span class="period-label">Срок действия:</span>
-                                            <span class="period-value">6 месяцев</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="document-item medical">
-                                    <div class="doc-icon">🩸</div>
-                                    <div class="doc-details">
-                                        <h4>Анализ крови на сифилис</h4>
-                                        <p>Результат лабораторного исследования</p>
-                                        <div class="validity-period urgent">
-                                            <span class="period-label">Срок действия:</span>
-                                            <span class="period-value">10 дней</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="document-item medical">
-                                    <div class="doc-icon">🫁</div>
-                                    <div class="doc-details">
-                                        <h4>Флюорографическое обследование</h4>
-                                        <p>Результат рентгенологического исследования грудной клетки</p>
-                                        <div class="validity-period">
-                                            <span class="period-label">Срок действия:</span>
-                                            <span class="period-value">1 год</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="document-item medical">
-                                    <div class="doc-icon">👨‍⚕️</div>
-                                    <div class="doc-details">
-                                        <h4>Заключение дерматолога</h4>
-                                        <p>Об отсутствии контактно-бытовых кожных и венерических заболеваний</p>
-                                        <div class="validity-period">
-                                            <span class="period-label">Срок действия:</span>
-                                            <span class="period-value">30 дней</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="document-item medical">
-                                    <div class="doc-icon">💉</div>
-                                    <div class="doc-details">
-                                        <h4>Прививочный сертификат</h4>
-                                        <p>Копия с датами вакцинации против:</p>
-                                        <ul class="vaccination-list">
-                                            <li>Дифтерии, коклюша, столбняка (АКДС)</li>
-                                            <li>Кори (ЖКВ)</li>
-                                            <li>Краснухи, эпидемического паротита (ЖПВ)</li>
-                                            <li>Гепатита В</li>
-                                            <li>Туберкулёза (БЦЖ)</li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="document-item medical">
-                                    <div class="doc-icon">🏥</div>
-                                    <div class="doc-details">
-                                        <h4>Лицензия медучреждения</h4>
-                                        <p>Копия лицензии на указанные виды деятельности</p>
-                                        <div class="doc-note">
-                                            <strong>Требуется:</strong> если обследование проходило в негосударственном учреждении
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="document-item medical">
-                                    <div class="doc-icon">🧠</div>
-                                    <div class="doc-details">
-                                        <h4>Справки из диспансеров</h4>
-                                        <p>Из наркологического и психоневрологического диспансеров по месту жительства</p>
-                                        <div class="validity-period">
-                                            <span class="period-label">Срок действия:</span>
-                                            <span class="period-value">3 месяца</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Important Reminder -->
-                    <div class="senior-advice">
-                        <div class="advice-icon">💭</div>
-                        <div class="advice-content">
-                            <h3>Совет от старших курсов</h3>
-                            <p><strong>Документы на заселение и поступление перепроверяйте по 10 раз!</strong></p>
-                            <p>Лучше потратить время на проверку сейчас, чем столкнуться с проблемами при заселении.</p>
-                        </div>
+                <!-- Совет от старших курсов -->
+                <div class="senior-advice" role="region" aria-labelledby="seniorAdviceTitle">
+                    <div class="advice-icon" aria-hidden="true">💭</div>
+                    <div class="advice-content">
+                        <h3 id="seniorAdviceTitle">Совет от старших курсов</h3>
+                        <p><strong>Документы на заселение и поступление перепроверяйте по 10 раз!</strong></p>
+                        <p>Лучше потратить время на проверку сейчас, чем столкнуться с проблемами при заселении.</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Settlement Process Section -->
-            <section class="content-section process-section">
-                <div class="container">
-                    <h2 class="section-title">🏠 Процесс заселения</h2>
-                    <p class="section-subtitle">
-                        Как проходит заселение и что нужно знать о процедуре
-                    </p>
+        <!-- ================================ -->
+        <!-- ПРОЦЕСС ЗАСЕЛЕНИЯ                -->
+        <!-- ================================ -->
+        <section class="content-section process-section" aria-labelledby="processTitle">
+            <div class="container">
+                <h2 id="processTitle" class="section-title">🏠 Процесс заселения</h2>
+                <p class="section-subtitle">
+                    Как проходит заселение и что нужно знать о процедуре
+                </p>
 
-                    <div class="process-overview">
-                        <div class="process-step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h3>Ожидание в очереди</h3>
-                                <p>Спокойно ждите своей очереди - это может занять до 8 часов. Запаситесь терпением и возьмите с собой еду и воду.</p>
-                            </div>
+                <div class="process-overview" role="list" aria-label="Этапы процесса заселения">
+                    <article class="process-step" role="listitem">
+                        <div class="step-number" aria-label="Этап 1">1</div>
+                        <div class="step-content">
+                            <h3>Ожидание в очереди</h3>
+                            <p>Спокойно ждите своей очереди - это может занять до 8 часов. Запаситесь терпением и возьмите с собой еду и воду.</p>
                         </div>
+                    </article>
 
-                        <div class="process-step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h3>Предложение вариантов</h3>
-                                <p>Вам предложат варианты комнат в зависимости от наличия свободных мест.</p>
-                            </div>
+                    <article class="process-step" role="listitem">
+                        <div class="step-number" aria-label="Этап 2">2</div>
+                        <div class="step-content">
+                            <h3>Предложение вариантов</h3>
+                            <p>Вам предложат варианты комнат в зависимости от наличия свободных мест.</p>
                         </div>
+                    </article>
 
-                        <div class="process-step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h3>Осмотр комнат</h3>
-                                <p>Вы осмотрите предложенные варианты с сопровождающим и выберете подходящую комнату.</p>
-                            </div>
+                    <article class="process-step" role="listitem">
+                        <div class="step-number" aria-label="Этап 3">3</div>
+                        <div class="step-content">
+                            <h3>Осмотр комнат</h3>
+                            <p>Вы осмотрите предложенные варианты с сопровождающим и выберете подходящую комнату.</p>
                         </div>
+                    </article>
 
-                        <div class="process-step">
-                            <div class="step-number">4</div>
-                            <div class="step-content">
-                                <h3>Оформление документов</h3>
-                                <p>Подписание договора найма и получение ключей от комнаты.</p>
-                            </div>
+                    <article class="process-step" role="listitem">
+                        <div class="step-number" aria-label="Этап 4">4</div>
+                        <div class="step-content">
+                            <h3>Оформление документов</h3>
+                            <p>Подписание договора найма и получение ключей от комнаты.</p>
                         </div>
-                    </div>
+                    </article>
+                </div>
 
-                    <!-- Settlement Tips -->
-                    <div class="settlement-tips">
-                        <h3>💡 Полезные советы</h3>
-                        <div class="tips-grid">
-                            <div class="tip-card">
-                                <div class="tip-icon">⏰</div>
-                                <h4>Раннее заселение</h4>
-                                <p>Если есть уважительная причина, можно приехать раньше - но об этом нужно ЗАРАНЕЕ договориться</p>
-                            </div>
+                <!-- Полезные советы -->
+                <div class="settlement-tips" aria-labelledby="tipsTitle">
+                    <h3 id="tipsTitle">💡 Полезные советы</h3>
+                    <div class="tips-grid" role="list" aria-label="Советы по заселению">
+                        <article class="tip-card" role="listitem">
+                            <div class="tip-icon" aria-hidden="true">⏰</div>
+                            <h4>Раннее заселение</h4>
+                            <p>Если есть уважительная причина, можно приехать раньше - но об этом нужно ЗАРАНЕЕ договориться</p>
+                        </article>
 
-                            <div class="tip-card">
-                                <div class="tip-icon">👥</div>
-                                <h4>Заселение компанией</h4>
-                                <p>Можно заселиться всей компанией в один блок - просто скажите об этом. Так процесс пойдет быстрее</p>
-                            </div>
+                        <article class="tip-card" role="listitem">
+                            <div class="tip-icon" aria-hidden="true">👥</div>
+                            <h4>Заселение компанией</h4>
+                            <p>Можно заселиться всей компанией в один блок - просто скажите об этом. Так процесс пойдет быстрее</p>
+                        </article>
 
-                            <div class="tip-card">
-                                <div class="tip-icon">🏠</div>
-                                <h4>Размещение с другими</h4>
-                                <p>Когда целые блоки закончатся, будут селить в оставшиеся места - можно попасть к старшекурсникам (это нормально)</p>
-                            </div>
+                        <article class="tip-card" role="listitem">
+                            <div class="tip-icon" aria-hidden="true">🏠</div>
+                            <h4>Размещение с другими</h4>
+                            <p>Когда целые блоки закончатся, будут селить в оставшиеся места - можно попасть к старшекурсникам (это нормально)</p>
+                        </article>
 
-                            <div class="tip-card">
-                                <div class="tip-icon">🌍</div>
-                                <h4>Соседи-иностранцы</h4>
-                                <p>Иногда могут поселить к иностранным студентам (это сложнее, но редкость - обычно так не делают)</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Behavior Guidelines -->
-                    <div class="behavior-guidelines">
-                        <div class="guidelines-icon">🤝</div>
-                        <div class="guidelines-content">
-                            <h3>Правила поведения</h3>
-                            <p><strong>Ведите себя корректно и приводите с собой родителей</strong></p>
-                            <p>Уважительное отношение к персоналу и другим студентам поможет создать комфортную атмосферу для всех.</p>
-                        </div>
+                        <article class="tip-card" role="listitem">
+                            <div class="tip-icon" aria-hidden="true">🌍</div>
+                            <h4>Соседи-иностранцы</h4>
+                            <p>Иногда могут поселить к иностранным студентам (это сложнее, но редкость - обычно так не делают)</p>
+                        </article>
                     </div>
                 </div>
-            </section>
 
-            <!-- Final Preparation Section -->
-            <section class="content-section preparation-section">
-                <div class="container">
-                    <h2 class="section-title">🎒 Финальная подготовка</h2>
-                    <p class="section-subtitle">
-                        Последние приготовления перед началом студенческой жизни в общежитии
-                    </p>
-
-                    <div class="preparation-checklist">
-                        <h3>✅ Чек-лист готовности к заселению</h3>
-                        <div class="checklist-items">
-                            <label class="checklist-item">
-                                <input type="checkbox" class="checklist-checkbox">
-                                <span class="checkmark"></span>
-                                <span class="checklist-text">Все документы собраны и проверены</span>
-                            </label>
-                            <label class="checklist-item">
-                                <input type="checkbox" class="checklist-checkbox">
-                                <span class="checkmark"></span>
-                                <span class="checklist-text">Медицинские справки в пределах срока действия</span>
-                            </label>
-                            <label class="checklist-item">
-                                <input type="checkbox" class="checklist-checkbox">
-                                <span class="checkmark"></span>
-                                <span class="checklist-text">Фотографии подготовлены</span>
-                            </label>
-                            <label class="checklist-item">
-                                <input type="checkbox" class="checklist-checkbox">
-                                <span class="checkmark"></span>
-                                <span class="checklist-text">Знаю дату своего заселения</span>
-                            </label>
-                            <label class="checklist-item">
-                                <input type="checkbox" class="checklist-checkbox">
-                                <span class="checkmark"></span>
-                                <span class="checklist-text">Готов к длительному ожиданию</span>
-                            </label>
-                            <label class="checklist-item">
-                                <input type="checkbox" class="checklist-checkbox">
-                                <span class="checkmark"></span>
-                                <span class="checklist-text">Обсудил заселение с друзьями (при желании)</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Next Steps -->
-                    <div class="next-steps">
-                        <h3>🎯 Что дальше?</h3>
-                        <div class="next-step-cards">
-                            <div class="next-step-card">
-                                <h4>Адаптация в университете</h4>
-                                <p>После заселения начинается период адаптации к студенческой жизни и учебному процессу</p>
-                                <a href="../adaptation/" class="next-step-link">Адаптация →</a>
-                            </div>
-                            <div class="next-step-card">
-                                <h4>Жизнь в общежитии</h4>
-                                <p>Узнайте больше о правилах проживания, инфраструктуре и возможностях общежития</p>
-                                <a href="../../university-life/" class="next-step-link">Жизнь в университете →</a>
-                            </div>
-                        </div>
+                <!-- Правила поведения -->
+                <div class="behavior-guidelines" role="region" aria-labelledby="behaviorTitle">
+                    <div class="guidelines-icon" aria-hidden="true">🤝</div>
+                    <div class="guidelines-content">
+                        <h3 id="behaviorTitle">Правила поведения</h3>
+                        <p><strong>Ведите себя корректно и приводите с собой родителей</strong></p>
+                        <p>Уважительное отношение к персоналу и другим студентам поможет создать комфортную атмосферу для всех.</p>
                     </div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </section>
 
-        <!-- Footer -->
-        <footer class="footer" id="footer"></footer>
-    </div>    <!-- Scripts -->
+        <!-- ================================ -->
+        <!-- ФИНАЛЬНАЯ ПОДГОТОВКА             -->
+        <!-- ================================ -->
+        <section class="content-section preparation-section" aria-labelledby="preparationTitle">
+            <div class="container">
+                <h2 id="preparationTitle" class="section-title">🎒 Финальная подготовка</h2>
+                <p class="section-subtitle">
+                    Последние приготовления перед началом студенческой жизни в общежитии
+                </p>
+
+                <!-- Чек-лист готовности -->
+                <div class="preparation-checklist" aria-labelledby="checklistTitle">
+                    <h3 id="checklistTitle">✅ Чек-лист готовности к заселению</h3>
+                    <div class="checklist-items" role="list" aria-label="Список подготовительных действий">
+                        <label class="checklist-item" role="listitem">
+                            <input type="checkbox" 
+                                   class="checklist-checkbox" 
+                                   id="docsCollected"
+                                   aria-describedby="docsCollectedDesc">
+                            <span class="checkmark" aria-hidden="true"></span>
+                            <span id="docsCollectedDesc" class="checklist-text">Все документы собраны и проверены</span>
+                        </label>
+                        <label class="checklist-item" role="listitem">
+                            <input type="checkbox" 
+                                   class="checklist-checkbox" 
+                                   id="medicalValid"
+                                   aria-describedby="medicalValidDesc">
+                            <span class="checkmark" aria-hidden="true"></span>
+                            <span id="medicalValidDesc" class="checklist-text">Медицинские справки в пределах срока действия</span>
+                        </label>
+                        <label class="checklist-item" role="listitem">
+                            <input type="checkbox" 
+                                   class="checklist-checkbox" 
+                                   id="photosReady"
+                                   aria-describedby="photosReadyDesc">
+                            <span class="checkmark" aria-hidden="true"></span>
+                            <span id="photosReadyDesc" class="checklist-text">Фотографии подготовлены</span>
+                        </label>
+                        <label class="checklist-item" role="listitem">
+                            <input type="checkbox" 
+                                   class="checklist-checkbox" 
+                                   id="dateKnown"
+                                   aria-describedby="dateKnownDesc">
+                            <span class="checkmark" aria-hidden="true"></span>
+                            <span id="dateKnownDesc" class="checklist-text">Знаю дату своего заселения</span>
+                        </label>
+                        <label class="checklist-item" role="listitem">
+                            <input type="checkbox" 
+                                   class="checklist-checkbox" 
+                                   id="waitingReady"
+                                   aria-describedby="waitingReadyDesc">
+                            <span class="checkmark" aria-hidden="true"></span>
+                            <span id="waitingReadyDesc" class="checklist-text">Готов к длительному ожиданию</span>
+                        </label>
+                        <label class="checklist-item" role="listitem">
+                            <input type="checkbox" 
+                                   class="checklist-checkbox" 
+                                   id="friendsDiscussed"
+                                   aria-describedby="friendsDiscussedDesc">
+                            <span class="checkmark" aria-hidden="true"></span>
+                            <span id="friendsDiscussedDesc" class="checklist-text">Обсудил заселение с друзьями (при желании)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Следующие шаги -->
+                <div class="next-steps" aria-labelledby="nextStepsTitle">
+                    <h3 id="nextStepsTitle">🎯 Что дальше?</h3>
+                    <div class="next-step-cards" role="list" aria-label="Дальнейшие этапы">
+                        <article class="next-step-card" role="listitem">
+                            <h4>Адаптация в университете</h4>
+                            <p>После заселения начинается период адаптации к студенческой жизни и учебному процессу</p>
+                            <a href="../adaptation/" 
+                               class="next-step-link"
+                               aria-label="Перейти к разделу об адаптации в университете">
+                                Адаптация →
+                            </a>
+                        </article>
+                        <article class="next-step-card" role="listitem">
+                            <h4>Жизнь в общежитии</h4>
+                            <p>Узнайте больше о правилах проживания, инфраструктуре и возможностях общежития</p>
+                            <a href="../../university-life/" 
+                               class="next-step-link"
+                               aria-label="Перейти к разделу о жизни в университете">
+                                Жизнь в университете →
+                            </a>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================================ -->
+    <!-- ПОДВАЛ САЙТА                     -->
+    <!-- ================================ -->
+    <footer id="mainFooter" class="main-footer"></footer>
+
+    <!-- ================================ -->
+    <!-- JAVASCRIPT ФАЙЛЫ                 -->
+    <!-- ================================ -->
     <script src="../../../js/utils.js"></script>
     <script src="../../../js/search-modal.js"></script>
     <script src="../../../js/animations.js"></script>
@@ -421,12 +504,50 @@
     <script src="../../../js/main.js"></script>
     <script src="../../../js/seo-utils.js"></script>
     
-    <!-- SEO structured data -->
-    <script type="application/ld+json" id="structured-data"></script>
+    <!-- ================================ -->
+    <!-- ВСТРОЕННЫЕ СКРИПТЫ               -->
+    <!-- ================================ -->
     <script>
         // Инициализация SEO для страницы заселения в общежитие
-        initializeSEO('dormitory-settlement', 'Заселение в общежитие РГАУ-МСХА');
+        if (typeof initializeSEO === 'function') {
+            initializeSEO('dormitory-settlement', 'Заселение в общежитие РГАУ-МСХА');
+        }
     </script>
 
+    <!-- ================================ -->
+    <!-- СТРУКТУРИРОВАННЫЕ ДАННЫЕ         -->
+    <!-- ================================ -->
+    <script type="application/ld+json" id="structuredData">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Заселение в общежитие РГАУ-МСХА 2025",
+        "description": "Руководство по заселению в общежитие: документы, сроки и процедура",
+        "url": "https://ргау-справочник.рф/pages/applicant-path/dormitory-settlement/",
+        "totalTime": "P1D",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Подготовка документов",
+                "text": "Собрать все необходимые документы и медицинские справки в установленные сроки"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Прибытие на заселение",
+                "text": "Прибыть в назначенную дату с полным пакетом документов"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Ожидание в очереди",
+                "text": "Дождаться своей очереди для рассмотрения документов и выбора комнаты"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Оформление заселения",
+                "text": "Выбрать комнату, подписать договор найма и получить ключи"
+            }
+        ]
+    }
+    </script>
 </body>
 </html>

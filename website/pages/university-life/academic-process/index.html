@@ -1,34 +1,64 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- ================================ -->
+    <!-- БАЗОВЫЕ МЕТА-ТЕГИ               -->
+    <!-- ================================ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="manifest" href="../../../manifest.json">
     <title>Учебный процесс в РГАУ-МСХА 2025 | Сессии, пары, зачеты | Справочник студента</title>
     <meta name="description" content="Учебный процесс в РГАУ-МСХА: расписание занятий, сессии, зачеты, экзамены, практики, курсовые работы и академические требования к студентам.">
-    <meta name="keywords" content="учебный процесс РГАУ-МСХА, сессия МСХА, расписание занятий, зачеты экзамены, практика, курсовые работы">    <!-- PWA мета-теги -->
+    <meta name="keywords" content="учебный процесс РГАУ-МСХА, сессия МСХА, расписание занятий, зачеты экзамены, практика, курсовые работы">
+    <meta name="author" content="Студенты РГАУ-МСХА">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rgau-guide.ru/pages/university-life/academic-process/">
+
+    <!-- ================================ -->
+    <!-- PWA И МОБИЛЬНЫЕ НАСТРОЙКИ        -->
+    <!-- ================================ -->
     <meta name="theme-color" content="#2F5E2F">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="РГАУ Учеба">
+    <meta name="msapplication-TileColor" content="#2F5E2F">
+    <meta name="msapplication-tap-highlight" content="no">
     
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="../../../manifest.json">
+
+    <!-- ================================ -->
+    <!-- СОЦИАЛЬНЫЕ СЕТИ И SEO            -->
+    <!-- ================================ -->
     
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ргау-справочник.рф/pages/university-life/academic-process/">
+    <!-- Open Graph метатеги -->
     <meta property="og:title" content="Учебный процесс в РГАУ-МСХА 2025">
     <meta property="og:description" content="Полный гайд по учебному процессу: сессии, зачеты, практики и академические требования">
     <meta property="og:image" content="../../../images/og-academic-process.jpg">
-    <meta property="og:site_name" content="Справочник студента РГАУ-МСХА">
+    <meta property="og:url" content="https://rgau-guide.ru/pages/university-life/academic-process/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Справочник РГАУ-МСХА">
+    <meta property="og:locale" content="ru_RU">
     
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://ргау-справочник.рф/pages/university-life/academic-process/">
-    <meta property="twitter:title" content="Учебный процесс МСХА">
-    <meta property="twitter:description" content="Сессии, зачеты и академические требования">
-    <meta property="twitter:image" content="../../../images/og-academic-process.jpg">
+    <!-- Twitter Card метатеги -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@rgau_guide">
+    <meta name="twitter:title" content="Учебный процесс МСХА">
+    <meta name="twitter:description" content="Сессии, зачеты и академические требования">
+    <meta name="twitter:image" content="../../../images/og-academic-process.jpg">
+
+    <!-- ================================ -->
+    <!-- ИКОНКИ И ФАВИКОНЫ                -->
+    <!-- ================================ -->
+    <link rel="icon" type="image/png" href="../../../images/logo/192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../images/logo/192.png">
+
+    <!-- ================================ -->
+    <!-- СТИЛИ CSS                        -->
+    <!-- ================================ -->
     <link rel="stylesheet" href="../../../css/styles.css">
     <link rel="stylesheet" href="../../../css/header.css">
+    <link rel="stylesheet" href="../../../css/header-search.css">
     <link rel="stylesheet" href="../../../css/footer.css">
     <link rel="stylesheet" href="../../../css/navigation.css">
     <link rel="stylesheet" href="../../../css/cards.css">
@@ -36,412 +66,464 @@
     <link rel="stylesheet" href="../../../css/forms.css">
     <link rel="stylesheet" href="../../../css/pages.css">
     <link rel="stylesheet" href="../../../css/academic-process.css">
+    
+    <!-- Адаптивность и PWA -->
     <link rel="stylesheet" href="../../../css/responsive.css">
     <link rel="stylesheet" href="../../../css/pwa.css">
 </head>
 <body>
-    <div class="page-container">
-        <!-- Header -->
-        <header class="header" id="header"></header>
+    <!-- ================================ -->
+    <!-- ШАПКА САЙТА                      -->
+    <!-- ================================ -->
+    <header id="mainHeader" class="main-header"></header>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Page Hero -->
-            <section class="page-hero academic-hero">
-                <div class="container">
-                    <div class="page-header">
-                        <div class="breadcrumb">
-                            <a href="../../../index.html">Главная</a>
-                            <span class="breadcrumb-separator">→</span>
-                            <a href="../index.html">Жизнь в университете</a>
-                            <span class="breadcrumb-separator">→</span>
-                            <span class="breadcrumb-current">Учебный процесс</span>
-                        </div>
-                        <h1 class="page-title">Учебный процесс</h1>
-                        <p class="page-subtitle">
-                            Особенности обучения в РГАУ-МСХА: лекции, семинары, практика и экзамены
+    <!-- ================================ -->
+    <!-- ОСНОВНОЙ КОНТЕНТ                 -->
+    <!-- ================================ -->
+    <main class="main-content">
+        
+        <!-- ================================ -->
+        <!-- ГЕРОИЧЕСКАЯ СЕКЦИЯ СТРАНИЦЫ      -->
+        <!-- ================================ -->
+        <section class="page-hero academic-hero" role="banner">
+            <div class="container">
+                <div class="page-header">
+                    <nav class="breadcrumb" aria-label="Навигационная цепочка">
+                        <a href="../../../index.html" aria-label="Перейти на главную страницу">Главная</a>
+                        <span class="breadcrumb-separator" aria-hidden="true">→</span>
+                        <a href="../index.html" aria-label="Перейти к разделу жизни в университете">Жизнь в университете</a>
+                        <span class="breadcrumb-separator" aria-hidden="true">→</span>
+                        <span class="breadcrumb-current" aria-current="page">Учебный процесс</span>
+                    </nav>
+                    <h1 class="page-title">Учебный процесс</h1>
+                    <p class="page-subtitle">
+                        Особенности обучения в РГАУ-МСХА: лекции, семинары, практика и экзамены
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================ -->
+        <!-- ОБЗОР СИСТЕМЫ ОБРАЗОВАНИЯ        -->
+        <!-- ================================ -->
+        <section class="content-section" aria-labelledby="overviewTitle">
+            <div class="container">
+                <article class="academic-overview">
+                    <div class="overview-icon" aria-hidden="true">📚</div>
+                    <div class="overview-content">
+                        <h2 id="overviewTitle">Система высшего аграрного образования</h2>
+                        <p>
+                            РГАУ-МСХА имени К.А. Тимирязева — ведущий аграрный университет России с богатой историей 
+                            и современными методами обучения. Учебный процесс организован по семестровой системе 
+                            с активным использованием практических занятий и полевых работ.
                         </p>
                     </div>
-                </div>
-            </section>
+                </article>
 
-            <!-- Overview Section -->
-            <section class="content-section">
-                <div class="container">
-                    <div class="academic-overview">
-                        <div class="overview-icon">📚</div>
-                        <div class="overview-content">
-                            <h2>Система высшего аграрного образования</h2>
-                            <p>
-                                РГАУ-МСХА имени К.А. Тимирязева — ведущий аграрный университет России с богатой историей 
-                                и современными методами обучения. Учебный процесс организован по семестровой системе 
-                                с активным использованием практических занятий и полевых работ.
-                            </p>
+                <!-- Особенности обучения -->
+                <aside class="academic-features" role="complementary">
+                    <h3><span aria-hidden="true">🎯</span> Особенности обучения</h3>
+                    <div class="features-grid" role="list" aria-label="Особенности учебного процесса">
+                        <div class="feature-item" role="listitem">
+                            <div class="feature-icon" aria-hidden="true">🗓️</div>
+                            <h4>Семестровая система</h4>
+                            <p>2 семестра в году с экзаменационными сессиями</p>
+                        </div>
+                        <div class="feature-item" role="listitem">
+                            <div class="feature-icon" aria-hidden="true">🌱</div>
+                            <h4>Практическая направленность</h4>
+                            <p>Полевые работы, лабораторные и производственная практика</p>
+                        </div>
+                        <div class="feature-item" role="listitem">
+                            <div class="feature-icon" aria-hidden="true">🔬</div>
+                            <h4>Научная работа</h4>
+                            <p>Участие в исследованиях и научных проектах</p>
+                        </div>
+                        <div class="feature-item" role="listitem">
+                            <div class="feature-icon" aria-hidden="true">💻</div>
+                            <h4>Современные технологии</h4>
+                            <p>Цифровые платформы и онлайн-ресурсы</p>
                         </div>
                     </div>
-
-                    <!-- Academic Features -->
-                    <div class="academic-features">
-                        <h3>🎯 Особенности обучения</h3>
-                        <div class="features-grid">
-                            <div class="feature-item">
-                                <div class="feature-icon">🗓️</div>
-                                <h4>Семестровая система</h4>
-                                <p>2 семестра в году с экзаменационными сессиями</p>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">🌱</div>
-                                <h4>Практическая направленность</h4>
-                                <p>Полевые работы, лабораторные и производственная практика</p>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">🔬</div>
-                                <h4>Научная работа</h4>
-                                <p>Участие в исследованиях и научных проектах</p>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">💻</div>
-                                <h4>Современные технологии</h4>
-                                <p>Цифровые платформы и онлайн-ресурсы</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Academic Year Structure -->
-            <section class="content-section schedule-section">
-                <div class="container">
-                    <h2 class="section-title">📅 Структура учебного года</h2>
+                </aside>
+            </div>
+        </section>        
+        <!-- ================================ -->
+        <!-- СТРУКТУРА УЧЕБНОГО ГОДА          -->
+        <!-- ================================ -->
+        <section class="content-section schedule-section" aria-labelledby="scheduleTitle">
+            <div class="container">
+                <h2 id="scheduleTitle" class="section-title">
+                    <span aria-hidden="true">📅</span> Структура учебного года
+                </h2>
+                
+                <div class="academic-timeline" role="list" aria-label="Семестры учебного года">
                     
-                    <div class="academic-timeline">
-                        <div class="semester-block">
-                            <div class="semester-header">
-                                <div class="semester-icon">🍂</div>
-                                <h3>Осенний семестр</h3>
-                                <p class="semester-period">Сентябрь - Декабрь</p>
+                    <article class="semester-block" role="listitem">
+                        <header class="semester-header">
+                            <div class="semester-icon" aria-hidden="true">🍂</div>
+                            <h3>Осенний семестр</h3>
+                            <p class="semester-period">Сентябрь - Декабрь</p>
+                        </header>
+                        <div class="semester-content">
+                            <div class="period-item">
+                                <span class="period-dates">1 сентября - 25 декабря</span>
+                                <span class="period-type">Учебные занятия</span>
                             </div>
-                            <div class="semester-content">
-                                <div class="period-item">
-                                    <span class="period-dates">1 сентября - 25 декабря</span>
-                                    <span class="period-type">Учебные занятия</span>
-                                </div>
-                                <div class="period-item">
-                                    <span class="period-dates">26 декабря - 15 января</span>
-                                    <span class="period-type">Зимняя сессия + каникулы</span>
-                                </div>
+                            <div class="period-item">
+                                <span class="period-dates">26 декабря - 15 января</span>
+                                <span class="period-type">Зимняя сессия + каникулы</span>
                             </div>
                         </div>
+                    </article>
 
-                        <div class="semester-block">
-                            <div class="semester-header">
-                                <div class="semester-icon">🌸</div>
-                                <h3>Весенний семестр</h3>
-                                <p class="semester-period">Февраль - Июнь</p>
+                    <article class="semester-block" role="listitem">
+                        <header class="semester-header">
+                            <div class="semester-icon" aria-hidden="true">🌸</div>
+                            <h3>Весенний семестр</h3>
+                            <p class="semester-period">Февраль - Июнь</p>
+                        </header>
+                        <div class="semester-content">
+                            <div class="period-item">
+                                <span class="period-dates">16 февраля - 31 мая</span>
+                                <span class="period-type">Учебные занятия</span>
                             </div>
-                            <div class="semester-content">
-                                <div class="period-item">
-                                    <span class="period-dates">16 февраля - 31 мая</span>
-                                    <span class="period-type">Учебные занятия</span>
-                                </div>
-                                <div class="period-item">
-                                    <span class="period-dates">1 июня - 30 июня</span>
-                                    <span class="period-type">Летняя сессия</span>
-                                </div>
-                                <div class="period-item">
-                                    <span class="period-dates">1 июля - 31 августа</span>
-                                    <span class="period-type">Летние каникулы + практика</span>
-                                </div>
+                            <div class="period-item">
+                                <span class="period-dates">1 июня - 30 июня</span>
+                                <span class="period-type">Летняя сессия</span>
+                            </div>
+                            <div class="period-item">
+                                <span class="period-dates">1 июля - 31 августа</span>
+                                <span class="period-type">Летние каникулы + практика</span>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 </div>
-            </section>
-
-            <!-- Types of Classes -->
-            <section class="content-section classes-section">
-                <div class="container">
-                    <h2 class="section-title">📖 Виды учебных занятий</h2>
+            </div>
+        </section>        
+        <!-- ================================ -->
+        <!-- ВИДЫ УЧЕБНЫХ ЗАНЯТИЙ             -->
+        <!-- ================================ -->
+        <section class="content-section classes-section" aria-labelledby="classesTitle">
+            <div class="container">
+                <h2 id="classesTitle" class="section-title">
+                    <span aria-hidden="true">📖</span> Виды учебных занятий
+                </h2>
+                
+                <div class="classes-grid" role="list" aria-label="Типы учебных занятий">
                     
-                    <div class="classes-grid">
-                        <div class="class-card lecture-card">
-                            <div class="class-header">
-                                <div class="class-icon">🎤</div>
-                                <h3>Лекции</h3>
-                            </div>
-                            <div class="class-content">
-                                <p>Теоретические основы дисциплин в больших аудиториях</p>
-                                <div class="class-details">
-                                    <div class="detail-item">
-                                        <span class="detail-label">Длительность:</span>
-                                        <span class="detail-value">90 минут</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <span class="detail-label">Посещаемость:</span>
-                                        <span class="detail-value">Обязательная</span>
-                                    </div>
+                    <article class="class-card lecture-card" role="listitem">
+                        <header class="class-header">
+                            <div class="class-icon" aria-hidden="true">🎤</div>
+                            <h3>Лекции</h3>
+                        </header>
+                        <div class="class-content">
+                            <p>Теоретические основы дисциплин в больших аудиториях</p>
+                            <div class="class-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Длительность:</span>
+                                    <span class="detail-value">90 минут</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Посещаемость:</span>
+                                    <span class="detail-value">Обязательная</span>
                                 </div>
                             </div>
                         </div>
+                    </article>
 
-                        <div class="class-card seminar-card">
-                            <div class="class-header">
-                                <div class="class-icon">💬</div>
-                                <h3>Семинары</h3>
-                            </div>
-                            <div class="class-content">
-                                <p>Обсуждение тем, решение задач в небольших группах</p>
-                                <div class="class-details">
-                                    <div class="detail-item">
-                                        <span class="detail-label">Размер группы:</span>
-                                        <span class="detail-value">15-20 человек</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <span class="detail-label">Формат:</span>
-                                        <span class="detail-value">Интерактивный</span>
-                                    </div>
+                    <article class="class-card seminar-card" role="listitem">
+                        <header class="class-header">
+                            <div class="class-icon" aria-hidden="true">💬</div>
+                            <h3>Семинары</h3>
+                        </header>
+                        <div class="class-content">
+                            <p>Обсуждение тем, решение задач в небольших группах</p>
+                            <div class="class-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Размер группы:</span>
+                                    <span class="detail-value">15-20 человек</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Формат:</span>
+                                    <span class="detail-value">Интерактивный</span>
                                 </div>
                             </div>
                         </div>
+                    </article>
 
-                        <div class="class-card lab-card">
-                            <div class="class-header">
-                                <div class="class-icon">🔬</div>
-                                <h3>Лабораторные</h3>
-                            </div>
-                            <div class="class-content">
-                                <p>Практические исследования и эксперименты</p>
-                                <div class="class-details">
-                                    <div class="detail-item">
-                                        <span class="detail-label">Место:</span>
-                                        <span class="detail-value">Лаборатории</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <span class="detail-label">Результат:</span>
-                                        <span class="detail-value">Отчеты</span>
-                                    </div>
+                    <article class="class-card lab-card" role="listitem">
+                        <header class="class-header">
+                            <div class="class-icon" aria-hidden="true">🔬</div>
+                            <h3>Лабораторные</h3>
+                        </header>
+                        <div class="class-content">
+                            <p>Практические исследования и эксперименты</p>
+                            <div class="class-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Место:</span>
+                                    <span class="detail-value">Лаборатории</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Результат:</span>
+                                    <span class="detail-value">Отчеты</span>
                                 </div>
                             </div>
                         </div>
+                    </article>
 
-                        <div class="class-card practice-card">
-                            <div class="class-header">
-                                <div class="class-icon">🌾</div>
-                                <h3>Полевая практика</h3>
-                            </div>
-                            <div class="class-content">
-                                <p>Работа на учебно-опытных участках и в хозяйствах</p>
-                                <div class="class-details">
-                                    <div class="detail-item">
-                                        <span class="detail-label">Сезон:</span>
-                                        <span class="detail-value">Весна-лето</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <span class="detail-label">Длительность:</span>
-                                        <span class="detail-value">2-4 недели</span>
-                                    </div>
+                    <article class="class-card practice-card" role="listitem">
+                        <header class="class-header">
+                            <div class="class-icon" aria-hidden="true">🌾</div>
+                            <h3>Полевая практика</h3>
+                        </header>
+                        <div class="class-content">
+                            <p>Работа на учебно-опытных участках и в хозяйствах</p>
+                            <div class="class-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Сезон:</span>
+                                    <span class="detail-value">Весна-лето</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Длительность:</span>
+                                    <span class="detail-value">2-4 недели</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 </div>
-            </section>
-
-            <!-- Assessment System -->
-            <section class="content-section assessment-section">
-                <div class="container">
-                    <h2 class="section-title">📊 Система оценивания</h2>
+            </div>
+        </section>        
+        <!-- ================================ -->
+        <!-- СИСТЕМА ОЦЕНИВАНИЯ               -->
+        <!-- ================================ -->
+        <section class="content-section assessment-section" aria-labelledby="assessmentTitle">
+            <div class="container">
+                <h2 id="assessmentTitle" class="section-title">
+                    <span aria-hidden="true">📊</span> Система оценивания
+                </h2>
+                
+                <div class="assessment-info" role="region" aria-label="Информация о системе оценивания">
                     
-                    <div class="assessment-info">
-                        <div class="grading-system">
-                            <h3>🎯 Балльно-рейтинговая система</h3>
-                            <div class="grades-grid">
-                                <div class="grade-item excellent">
-                                    <div class="grade-value">5</div>
-                                    <div class="grade-label">Отлично</div>
-                                    <div class="grade-range">85-100 баллов</div>
-                                </div>
-                                <div class="grade-item good">
-                                    <div class="grade-value">4</div>
-                                    <div class="grade-label">Хорошо</div>
-                                    <div class="grade-range">70-84 балла</div>
-                                </div>
-                                <div class="grade-item satisfactory">
-                                    <div class="grade-value">3</div>
-                                    <div class="grade-label">Удовлетворительно</div>
-                                    <div class="grade-range">55-69 баллов</div>
-                                </div>
-                                <div class="grade-item unsatisfactory">
-                                    <div class="grade-value">2</div>
-                                    <div class="grade-label">Неудовлетворительно</div>
-                                    <div class="grade-range">0-54 балла</div>
-                                </div>
+                    <div class="grading-system">
+                        <h3 id="gradingSystemTitle">
+                            <span aria-hidden="true">🎯</span> Балльно-рейтинговая система
+                        </h3>
+                        <div class="grades-grid" role="list" aria-labelledby="gradingSystemTitle">
+                            
+                            <div class="grade-item excellent" role="listitem">
+                                <div class="grade-value" aria-label="Оценка 5">5</div>
+                                <div class="grade-label">Отлично</div>
+                                <div class="grade-range">85-100 баллов</div>
                             </div>
-                        </div>
-
-                        <div class="assessment-components">
-                            <h3>📝 Компоненты оценки</h3>
-                            <div class="components-list">
-                                <div class="component-item">
-                                    <div class="component-icon">✍️</div>
-                                    <div class="component-info">
-                                        <h4>Текущая успеваемость</h4>
-                                        <p>Посещаемость, активность на занятиях, выполнение заданий</p>
-                                        <span class="component-weight">40%</span>
-                                    </div>
-                                </div>
-                                <div class="component-item">
-                                    <div class="component-icon">📋</div>
-                                    <div class="component-info">
-                                        <h4>Рубежный контроль</h4>
-                                        <p>Контрольные работы, тестирование, курсовые проекты</p>
-                                        <span class="component-weight">30%</span>
-                                    </div>
-                                </div>
-                                <div class="component-item">
-                                    <div class="component-icon">🎓</div>
-                                    <div class="component-info">
-                                        <h4>Итоговый контроль</h4>
-                                        <p>Экзамены и зачеты в сессионный период</p>
-                                        <span class="component-weight">30%</span>
-                                    </div>
-                                </div>
+                            
+                            <div class="grade-item good" role="listitem">
+                                <div class="grade-value" aria-label="Оценка 4">4</div>
+                                <div class="grade-label">Хорошо</div>
+                                <div class="grade-range">70-84 балла</div>
+                            </div>
+                            
+                            <div class="grade-item satisfactory" role="listitem">
+                                <div class="grade-value" aria-label="Оценка 3">3</div>
+                                <div class="grade-label">Удовлетворительно</div>
+                                <div class="grade-range">55-69 баллов</div>
+                            </div>
+                            
+                            <div class="grade-item unsatisfactory" role="listitem">
+                                <div class="grade-value" aria-label="Оценка 2">2</div>
+                                <div class="grade-label">Неудовлетворительно</div>
+                                <div class="grade-range">0-54 балла</div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
 
-            <!-- Digital Learning -->
-            <section class="content-section digital-section">
-                <div class="container">
-                    <h2 class="section-title">💻 Цифровые ресурсы</h2>
+                    <div class="assessment-components">
+                        <h3 id="componentsTitle">
+                            <span aria-hidden="true">📝</span> Компоненты оценки
+                        </h3>
+                        <div class="components-list" role="list" aria-labelledby="componentsTitle">
+                            
+                            <article class="component-item" role="listitem">
+                                <div class="component-icon" aria-hidden="true">✍️</div>
+                                <div class="component-info">
+                                    <h4>Текущая успеваемость</h4>
+                                    <p>Посещаемость, активность на занятиях, выполнение заданий</p>
+                                    <span class="component-weight" aria-label="Вес компонента">40%</span>
+                                </div>
+                            </article>
+                            
+                            <article class="component-item" role="listitem">
+                                <div class="component-icon" aria-hidden="true">📋</div>
+                                <div class="component-info">
+                                    <h4>Рубежный контроль</h4>
+                                    <p>Контрольные работы, тестирование, курсовые проекты</p>
+                                    <span class="component-weight" aria-label="Вес компонента">30%</span>
+                                </div>
+                            </article>
+                            
+                            <article class="component-item" role="listitem">
+                                <div class="component-icon" aria-hidden="true">🎓</div>
+                                <div class="component-info">
+                                    <h4>Итоговый контроль</h4>
+                                    <p>Экзамены и зачеты в сессионный период</p>
+                                    <span class="component-weight" aria-label="Вес компонента">30%</span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>        
+        <!-- ================================ -->
+        <!-- ЦИФРОВЫЕ РЕСУРСЫ                -->
+        <!-- ================================ -->
+        <section class="content-section digital-section" aria-labelledby="digitalTitle">
+            <div class="container">
+                <h2 id="digitalTitle" class="section-title">
+                    <span aria-hidden="true">💻</span> Цифровые ресурсы
+                </h2>
+                
+                <div class="digital-platforms" role="list" aria-label="Цифровые образовательные платформы">
                     
-                    <div class="digital-platforms">
-                        <div class="platform-card">
-                            <div class="platform-icon">🌐</div>
-                            <div class="platform-info">
-                                <h3>Электронная информационно-образовательная среда</h3>
-                                <p>Доступ к учебным материалам, расписанию и оценкам онлайн</p>
-                                <div class="platform-features">
-                                    <span class="feature-tag">Личный кабинет</span>
-                                    <span class="feature-tag">Электронные курсы</span>
-                                    <span class="feature-tag">Онлайн-тестирование</span>
-                                </div>
+                    <article class="platform-card" role="listitem">
+                        <div class="platform-icon" aria-hidden="true">🌐</div>
+                        <div class="platform-info">
+                            <h3>Электронная информационно-образовательная среда</h3>
+                            <p>Доступ к учебным материалам, расписанию и оценкам онлайн</p>
+                            <div class="platform-features" role="list" aria-label="Возможности платформы">
+                                <span class="feature-tag" role="listitem">Личный кабинет</span>
+                                <span class="feature-tag" role="listitem">Электронные курсы</span>
+                                <span class="feature-tag" role="listitem">Онлайн-тестирование</span>
                             </div>
                         </div>
+                    </article>
 
-                        <div class="platform-card">
-                            <div class="platform-icon">📚</div>
-                            <div class="platform-info">
-                                <h3>Электронная библиотека</h3>
-                                <p>Доступ к научной литературе и базам данных</p>
-                                <div class="platform-features">
-                                    <span class="feature-tag">Научные журналы</span>
-                                    <span class="feature-tag">Учебники</span>
-                                    <span class="feature-tag">Диссертации</span>
-                                </div>
+                    <article class="platform-card" role="listitem">
+                        <div class="platform-icon" aria-hidden="true">📚</div>
+                        <div class="platform-info">
+                            <h3>Электронная библиотека</h3>
+                            <p>Доступ к научной литературе и базам данных</p>
+                            <div class="platform-features" role="list" aria-label="Возможности библиотеки">
+                                <span class="feature-tag" role="listitem">Научные журналы</span>
+                                <span class="feature-tag" role="listitem">Учебники</span>
+                                <span class="feature-tag" role="listitem">Диссертации</span>
                             </div>
                         </div>
+                    </article>
 
-                        <div class="platform-card">
-                            <div class="platform-icon">📱</div>
-                            <div class="platform-info">
-                                <h3>Мобильное приложение</h3>
-                                <p>Удобный доступ к информации с мобильных устройств</p>
-                                <div class="platform-features">
-                                    <span class="feature-tag">Расписание</span>
-                                    <span class="feature-tag">Уведомления</span>
-                                    <span class="feature-tag">Быстрый доступ</span>
-                                </div>
+                    <article class="platform-card" role="listitem">
+                        <div class="platform-icon" aria-hidden="true">📱</div>
+                        <div class="platform-info">
+                            <h3>Мобильное приложение</h3>
+                            <p>Удобный доступ к информации с мобильных устройств</p>
+                            <div class="platform-features" role="list" aria-label="Возможности приложения">
+                                <span class="feature-tag" role="listitem">Расписание</span>
+                                <span class="feature-tag" role="listitem">Уведомления</span>
+                                <span class="feature-tag" role="listitem">Быстрый доступ</span>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 </div>
-            </section>
-
-            <!-- Academic Support -->
-            <section class="content-section support-section">
-                <div class="container">
-                    <h2 class="section-title">🤝 Академическая поддержка</h2>
+            </div>
+        </section>        
+        <!-- ================================ -->
+        <!-- АКАДЕМИЧЕСКАЯ ПОДДЕРЖКА          -->
+        <!-- ================================ -->
+        <section class="content-section support-section" aria-labelledby="supportTitle">
+            <div class="container">
+                <h2 id="supportTitle" class="section-title">
+                    <span aria-hidden="true">🤝</span> Академическая поддержка
+                </h2>
+                
+                <div class="support-options" role="list" aria-label="Виды академической поддержки">
                     
-                    <div class="support-options">
-                        <div class="support-card">
-                            <div class="support-icon">👨‍🏫</div>
-                            <h3>Кураторы и наставники</h3>
-                            <p>Персональная поддержка в адаптации к учебному процессу</p>
-                        </div>
+                    <article class="support-card" role="listitem">
+                        <div class="support-icon" aria-hidden="true">👨‍🏫</div>
+                        <h3>Кураторы и наставники</h3>
+                        <p>Персональная поддержка в адаптации к учебному процессу</p>
+                    </article>
 
-                        <div class="support-card">
-                            <div class="support-icon">📖</div>
-                            <h3>Консультации преподавателей</h3>
-                            <p>Дополнительные занятия по сложным темам</p>
-                        </div>
+                    <article class="support-card" role="listitem">
+                        <div class="support-icon" aria-hidden="true">📖</div>
+                        <h3>Консультации преподавателей</h3>
+                        <p>Дополнительные занятия по сложным темам</p>
+                    </article>
 
-                        <div class="support-card">
-                            <div class="support-icon">👥</div>
-                            <h3>Студенческие группы</h3>
-                            <p>Взаимопомощь и совместная подготовка</p>
-                        </div>
+                    <article class="support-card" role="listitem">
+                        <div class="support-icon" aria-hidden="true">👥</div>
+                        <h3>Студенческие группы</h3>
+                        <p>Взаимопомощь и совместная подготовка</p>
+                    </article>
 
-                        <div class="support-card">
-                            <div class="support-icon">🏆</div>
-                            <h3>Дополнительное образование</h3>
-                            <p>Курсы повышения квалификации и языковые программы</p>
-                        </div>
-                    </div>
+                    <article class="support-card" role="listitem">
+                        <div class="support-icon" aria-hidden="true">🏆</div>
+                        <h3>Дополнительное образование</h3>
+                        <p>Курсы повышения квалификации и языковые программы</p>
+                    </article>
                 </div>
-            </section>
-
-            <!-- Tips Section -->
-            <section class="content-section tips-section">
-                <div class="container">
-                    <h2 class="section-title">💡 Советы для успешной учебы</h2>
+            </div>
+        </section>        
+        <!-- ================================ -->
+        <!-- СОВЕТЫ ДЛЯ УСПЕШНОЙ УЧЕБЫ        -->
+        <!-- ================================ -->
+        <section class="content-section tips-section" aria-labelledby="tipsTitle">
+            <div class="container">
+                <h2 id="tipsTitle" class="section-title">
+                    <span aria-hidden="true">💡</span> Советы для успешной учебы
+                </h2>
+                
+                <div class="tips-grid" role="list" aria-label="Полезные советы для студентов">
                     
-                    <div class="tips-grid">
-                        <div class="tip-card">
-                            <div class="tip-icon">⏰</div>
-                            <h3>Планирование времени</h3>
-                            <p>Составляйте расписание и придерживайтесь дедлайнов</p>
-                        </div>
+                    <article class="tip-card" role="listitem">
+                        <div class="tip-icon" aria-hidden="true">⏰</div>
+                        <h3>Планирование времени</h3>
+                        <p>Составляйте расписание и придерживайтесь дедлайнов</p>
+                    </article>
 
-                        <div class="tip-card">
-                            <div class="tip-icon">📝</div>
-                            <h3>Активное конспектирование</h3>
-                            <p>Ведите подробные записи лекций и семинаров</p>
-                        </div>
+                    <article class="tip-card" role="listitem">
+                        <div class="tip-icon" aria-hidden="true">📝</div>
+                        <h3>Активное конспектирование</h3>
+                        <p>Ведите подробные записи лекций и семинаров</p>
+                    </article>
 
-                        <div class="tip-card">
-                            <div class="tip-icon">🔄</div>
-                            <h3>Регулярное повторение</h3>
-                            <p>Повторяйте материал небольшими порциями каждый день</p>
-                        </div>
+                    <article class="tip-card" role="listitem">
+                        <div class="tip-icon" aria-hidden="true">🔄</div>
+                        <h3>Регулярное повторение</h3>
+                        <p>Повторяйте материал небольшими порциями каждый день</p>
+                    </article>
 
-                        <div class="tip-card">
-                            <div class="tip-icon">🤝</div>
-                            <h3>Работа в команде</h3>
-                            <p>Участвуйте в групповых проектах и обсуждениях</p>
-                        </div>
+                    <article class="tip-card" role="listitem">
+                        <div class="tip-icon" aria-hidden="true">🤝</div>
+                        <h3>Работа в команде</h3>
+                        <p>Участвуйте в групповых проектах и обсуждениях</p>
+                    </article>
 
-                        <div class="tip-card">
-                            <div class="tip-icon">❓</div>
-                            <h3>Не стесняйтесь спрашивать</h3>
-                            <p>Задавайте вопросы преподавателям и одногруппникам</p>
-                        </div>
+                    <article class="tip-card" role="listitem">
+                        <div class="tip-icon" aria-hidden="true">❓</div>
+                        <h3>Не стесняйтесь спрашивать</h3>
+                        <p>Задавайте вопросы преподавателям и одногруппникам</p>
+                    </article>
 
-                        <div class="tip-card">
-                            <div class="tip-icon">📚</div>
-                            <h3>Дополнительное чтение</h3>
-                            <p>Изучайте источники сверх обязательной программы</p>
-                        </div>
-                    </div>
+                    <article class="tip-card" role="listitem">
+                        <div class="tip-icon" aria-hidden="true">📚</div>
+                        <h3>Дополнительное чтение</h3>
+                        <p>Изучайте источники сверх обязательной программы</p>
+                    </article>
                 </div>
-            </section>
-        </main>
+            </div>
+        </section>        </main>
 
-        <!-- Footer -->
-        <footer class="footer" id="footer"></footer>
-    </div>    <!-- Scripts -->
+        <!-- ================================ -->
+        <!-- ПОДВАЛ САЙТА                     -->
+        <!-- ================================ -->
+        <footer id="mainFooter" class="main-footer"></footer>
+    </div>
+
+    <!-- ================================ -->
+    <!-- СКРИПТЫ                          -->
+    <!-- ================================ -->
+    
+    <!-- Основные скрипты -->
     <script src="../../../js/utils.js"></script>
     <script src="../../../js/search-modal.js"></script>
     <script src="../../../js/animations.js"></script>
@@ -449,8 +531,7 @@
     <script src="../../../js/pwa.js"></script>
     <script src="../../../js/main.js"></script>
     <script src="../../../js/seo-utils.js"></script>
-    
-    <!-- SEO structured data -->
+      <!-- Структурированные данные для SEO -->
     <script type="application/ld+json" id="structured-data"></script>
     <script>
         // Инициализация SEO для страницы учебного процесса

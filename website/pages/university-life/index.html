@@ -1,37 +1,67 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
+<head>    
+    <!-- ================================ -->
+    <!-- БАЗОВЫЕ МЕТА-ТЕГИ               -->
+    <!-- ================================ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="manifest" href="../../manifest.json">
-    <title>Жизнь в университете | Справочник абитуриента РГАУ-МСХА</title>
-    <meta name="description" content="Полная информация о студенческой жизни в РГАУ-МСХА: общежития, инфраструктура, учебный процесс. Все что нужно знать студенту Тимирязевки.">
-    <meta name="keywords" content="студенческая жизнь, РГАУ-МСХА, общежитие, инфраструктура, учебный процесс, Тимирязевка, студент">
+    <title>Жизнь в университете РГАУ-МСХА | Справочник студента 2025</title>
+    <meta name="description" content="Полная информация о студенческой жизни в РГАУ-МСХА: 11 общежитий, инфраструктура, учебный процесс. Все что нужно знать студенту Тимирязевки.">
+    <meta name="keywords" content="студенческая жизнь РГАУ-МСХА, общежитие Тимирязевка, инфраструктура МСХА, учебный процесс, студент РГАУ">
     <meta name="author" content="Студенты РГАУ-МСХА">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://rgau-guide.ru/pages/university-life/">    <!-- PWA мета-теги -->
+    <link rel="canonical" href="https://ргау-справочник.рф/pages/university-life/">
+
+    <!-- ================================ -->
+    <!-- PWA И МОБИЛЬНЫЕ НАСТРОЙКИ        -->
+    <!-- ================================ -->
     <meta name="theme-color" content="#2F5E2F">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Жизнь в МСХА">
+    <meta name="msapplication-TileColor" content="#2F5E2F">
+    <meta name="msapplication-tap-highlight" content="no">
     
-    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="../../manifest.json">
+
+    <!-- ================================ -->
+    <!-- FAVICON                          -->
+    <!-- ================================ -->
+    <link rel="icon" type="image/x-icon" href="../../images/logo/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/logo/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/logo/apple-touch-icon.png">
+
+    <!-- ================================ -->
+    <!-- СОЦИАЛЬНЫЕ СЕТИ И SEO            -->
+    <!-- ================================ -->
     
     <!-- Open Graph метатеги -->
-    <meta property="og:title" content="Жизнь в университете | Справочник РГАУ-МСХА">
+    <meta property="og:title" content="Жизнь в университете РГАУ-МСХА">
     <meta property="og:description" content="Полная информация о студенческой жизни в РГАУ-МСХА: общежития, инфраструктура, учебный процесс">
-    <meta property="og:image" content="https://rgau-guide.ru/images/university-life-og.jpg">
-    <meta property="og:url" content="https://rgau-guide.ru/pages/university-life/">
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="Справочник РГАУ-МСХА">
+    <meta property="og:image" content="../../images/og-university-life.jpg">
+    <meta property="og:url" content="https://ргау-справочник.рф/pages/university-life/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Справочник студента РГАУ-МСХА">
     <meta property="og:locale" content="ru_RU">
     
     <!-- Twitter Card метатеги -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Жизнь в университете | РГАУ-МСХА">
+    <meta name="twitter:site" content="@rgau_guide">
+    <meta name="twitter:title" content="Жизнь в университете РГАУ-МСХА">
     <meta name="twitter:description" content="Полная информация о студенческой жизни в РГАУ-МСХА">
-    <meta name="twitter:image" content="https://rgau-guide.ru/images/university-life-og.jpg">
+    <meta name="twitter:image" content="../../images/og-university-life.jpg">
+
+    <!-- ================================ -->
+    <!-- СТИЛИ CSS                        -->
+    <!-- ================================ -->
+    <link rel="stylesheet" href="../../css/critical.css" media="all">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/header-search.css">
     <link rel="stylesheet" href="../../css/footer.css">
     <link rel="stylesheet" href="../../css/navigation.css">
     <link rel="stylesheet" href="../../css/cards.css">
@@ -40,263 +70,425 @@
     <link rel="stylesheet" href="../../css/pages.css">
     <link rel="stylesheet" href="../../css/university-life.css">
     <link rel="stylesheet" href="../../css/responsive.css">
-    <link rel="stylesheet" href="../../css/pwa.css">
+    <link rel="preload" href="../../css/pwa.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Доступность -->
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+    
+    <!-- ================================ -->
+    <!-- ШРИФТЫ                           -->
+    <!-- ================================ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ================================ -->
+    <!-- СТРУКТУРИРОВАННЫЕ ДАННЫЕ         -->
+    <!-- ================================ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Жизнь в университете РГАУ-МСХА",
+        "description": "Полная информация о студенческой жизни в РГАУ-МСХА: общежития, инфраструктура, учебный процесс",
+        "image": "https://ргау-справочник.рф/images/og-university-life.jpg",
+        "author": {
+            "@type": "Organization",
+            "name": "Студенты РГАУ-МСХА"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "РГАУ-МСХА имени К.А. Тимирязева",
+            "url": "https://timacad.ru"
+        },
+        "datePublished": "2025-01-01",
+        "dateModified": "2025-06-18",
+        "url": "https://ргау-справочник.рф/pages/university-life/",
+        "inLanguage": "ru-RU"
+    }
+    </script>
 </head>
-<body>
-    <div class="page-container">
-        <!-- Header -->
-        <header id="header"></header>
+<body>    
+    <!-- ================================ -->
+    <!-- HEADER                           -->
+    <!-- ================================ -->
+    <header id="header" role="banner" aria-label="Навигация по сайту"></header>
 
+    <!-- ================================ -->
+    <!-- ОСНОВНОЙ КОНТЕНТ                 -->
+    <!-- ================================ -->
+    <main class="main-content" role="main" aria-labelledby="pageTitle">
+        
+        <!-- ================================ -->
+        <!-- HERO СЕКЦИЯ                      -->
+        <!-- ================================ -->
+        <section class="page-hero university-life-hero" role="banner" aria-labelledby="pageTitle">
+            <div class="container">
+                <article class="page-header">
+                    
+                    <!-- Хлебные крошки -->
+                    <nav class="breadcrumb" role="navigation" aria-label="Навигационные крошки">
+                        <a href="../../index.html" aria-label="Перейти на главную страницу">Главная</a>
+                        <span class="breadcrumb-separator" aria-hidden="true">→</span>
+                        <span class="breadcrumb-current" aria-current="page">Жизнь в университете</span>
+                    </nav>
+                    
+                    <h1 class="page-title" id="pageTitle">Жизнь в университете</h1>
+                    <p class="page-subtitle" role="doc-subtitle">
+                        Все о студенческой жизни в РГАУ-МСХА: проживание, инфраструктура и учебный процесс
+                    </p>
+                </article>
+            </div>
+        </section>        
+        <!-- ================================ -->
+        <!-- РАЗДЕЛ ОБЗОРА                    -->
+        <!-- ================================ -->
+        <section class="content-section" role="region" aria-labelledby="overviewTitle">
+            <div class="container">
+                <article class="section-intro">
+                    <h2 class="section-title" id="overviewTitle">🏛️ Добро пожаловать в университетскую жизнь!</h2>
+                    <p class="section-description">
+                        РГАУ-МСХА имени К.А. Тимирязева — это не просто место учебы, а целый мир возможностей. 
+                        Здесь вас ждет современная инфраструктура, комфортные общежития и насыщенная студенческая жизнь.
+                    </p>
+                </article>
 
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Page Hero -->
-            <section class="page-hero university-life-hero">
-                <div class="container">
-                    <div class="page-header">
-                        <div class="breadcrumb">
-                            <a href="../../index.html">Главная</a>
-                            <span class="breadcrumb-separator">→</span>
-                            <span class="breadcrumb-current">Жизнь в университете</span>
-                        </div>
-                        <h1 class="page-title">Жизнь в университете</h1>
-                        <p class="page-subtitle">
-                            Все о студенческой жизни в РГАУ-МСХА: проживание, инфраструктура и учебный процесс
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Overview Section -->
-            <section class="content-section">
-                <div class="container">
-                    <div class="section-intro">
-                        <h2 class="section-title">🏛️ Добро пожаловать в университетскую жизнь!</h2>
-                        <p class="section-description">
-                            РГАУ-МСХА имени К.А. Тимирязева — это не просто место учебы, а целый мир возможностей. 
-                            Здесь вас ждет современная инфраструктура, комфортные общежития и насыщенная студенческая жизнь.
-                        </p>
-                    </div>
-
-                    <!-- Quick Navigation Cards -->
-                    <div class="section-nav-grid">
-                        <a href="dormitory/" class="section-nav-card">
-                            <div class="nav-icon">🏠</div>
+                <!-- Навигационные карточки -->
+                <nav class="section-nav-grid" role="list" aria-label="Основные разделы университетской жизни">
+                    <article class="section-nav-card" role="listitem">
+                        <a href="dormitory/" class="nav-card-link" aria-labelledby="dormitoryTitle">
+                            <div class="nav-icon" aria-hidden="true">🏠</div>
                             <div class="nav-content">
-                                <h3 class="nav-title">Общежитие и проживание</h3>
+                                <h3 class="nav-title" id="dormitoryTitle">Общежитие и проживание</h3>
                                 <p class="nav-description">Информация о 11 общежитиях, условиях проживания и необходимых вещах</p>
-                                <div class="nav-features">
-                                    <span class="feature-tag">5 человек в блоке</span>
-                                    <span class="feature-tag">Душ и туалет в блоке</span>
-                                    <span class="feature-tag">Общая кухня</span>
+                                <div class="nav-features" role="list" aria-label="Особенности общежитий">
+                                    <span class="feature-tag" role="listitem">5 человек в блоке</span>
+                                    <span class="feature-tag" role="listitem">Душ и туалет в блоке</span>
+                                    <span class="feature-tag" role="listitem">Общая кухня</span>
                                 </div>
                             </div>
-                            <div class="nav-arrow">→</div>
+                            <span class="nav-arrow" aria-hidden="true">→</span>
                         </a>
+                    </article>
 
-                        <a href="infrastructure/" class="section-nav-card">
-                            <div class="nav-icon">🏢</div>
+                    <article class="section-nav-card" role="listitem">
+                        <a href="infrastructure/" class="nav-card-link" aria-labelledby="infrastructureTitle">
+                            <div class="nav-icon" aria-hidden="true">🏢</div>
                             <div class="nav-content">
-                                <h3 class="nav-title">Инфраструктура</h3>
+                                <h3 class="nav-title" id="infrastructureTitle">Инфраструктура</h3>
                                 <p class="nav-description">Торговые центры, магазины, спортзал, поликлиники и пункты выдачи</p>
-                                <div class="nav-features">
-                                    <span class="feature-tag">ТЦ "Байкал"</span>
-                                    <span class="feature-tag">Спортзал рядом</span>
-                                    <span class="feature-tag">Пункты выдачи</span>
+                                <div class="nav-features" role="list" aria-label="Элементы инфраструктуры">
+                                    <span class="feature-tag" role="listitem">ТЦ "Байкал"</span>
+                                    <span class="feature-tag" role="listitem">Спортзал рядом</span>
+                                    <span class="feature-tag" role="listitem">Пункты выдачи</span>
                                 </div>
                             </div>
-                            <div class="nav-arrow">→</div>
+                            <span class="nav-arrow" aria-hidden="true">→</span>
                         </a>
+                    </article>
 
-                        <a href="academic-process/" class="section-nav-card">
-                            <div class="nav-icon">📚</div>
+                    <article class="section-nav-card" role="listitem">
+                        <a href="academic-process/" class="nav-card-link" aria-labelledby="academicTitle">
+                            <div class="nav-icon" aria-hidden="true">📚</div>
                             <div class="nav-content">
-                                <h3 class="nav-title">Учебный процесс</h3>
+                                <h3 class="nav-title" id="academicTitle">Учебный процесс</h3>
                                 <p class="nav-description">Особенности обучения, расписание, экзамены и академическая жизнь</p>
-                                <div class="nav-features">
-                                    <span class="feature-tag">Лекции и семинары</span>
-                                    <span class="feature-tag">Курсовые работы</span>
-                                    <span class="feature-tag">Практика</span>
+                                <div class="nav-features" role="list" aria-label="Элементы учебного процесса">
+                                    <span class="feature-tag" role="listitem">Лекции и семинары</span>
+                                    <span class="feature-tag" role="listitem">Курсовые работы</span>
+                                    <span class="feature-tag" role="listitem">Практика</span>
                                 </div>
                             </div>
-                            <div class="nav-arrow">→</div>
+                            <span class="nav-arrow" aria-hidden="true">→</span>
                         </a>
-                    </div>
+                    </article>
+                </nav>
+            </div>
+        </section>        
+        <!-- ================================ -->
+        <!-- КЛЮЧЕВЫЕ ОСОБЕННОСТИ             -->
+        <!-- ================================ -->
+        <section class="content-section features-section" role="region" aria-labelledby="featuresTitle">
+            <div class="container">
+                <h2 class="section-title" id="featuresTitle">✨ Ключевые особенности университетской жизни</h2>
+                
+                <div class="features-grid" role="list" aria-label="Особенности университетской жизни">
+                    <article class="feature-card" role="listitem">
+                        <div class="feature-icon" aria-hidden="true">🏠</div>
+                        <h3 class="feature-title">11 общежитий</h3>
+                        <p class="feature-description">
+                            Современные общежития блочного типа с полностью укомплектованными комнатами, 
+                            душем и туалетом в каждом блоке
+                        </p>
+                    </article>
+
+                    <article class="feature-card" role="listitem">
+                        <div class="feature-icon" aria-hidden="true">🛒</div>
+                        <h3 class="feature-title">Удобная инфраструктура</h3>
+                        <p class="feature-description">
+                            ТЦ "Байкал" в 5 минутах от общежития с KFC, "Лентой", "Чижиком" 
+                            и пунктами выдачи интернет-магазинов
+                        </p>
+                    </article>
+
+                    <article class="feature-card" role="listitem">
+                        <div class="feature-icon" aria-hidden="true">💪</div>
+                        <h3 class="feature-title">Спорт и здоровье</h3>
+                        <p class="feature-description">
+                            Спортивный зал в 50 метрах от общежития, поликлиники для студентов 
+                            разных возрастов
+                        </p>
+                    </article>
+
+                    <article class="feature-card" role="listitem">
+                        <div class="feature-icon" aria-hidden="true">📦</div>
+                        <h3 class="feature-title">Доставка и почта</h3>
+                        <p class="feature-description">
+                            Пункты выдачи Ozon, Wildberries, CDEK поблизости. 
+                            Почтовое отделение для получения посылок
+                        </p>
+                    </article>
+
+                    <article class="feature-card" role="listitem">
+                        <div class="feature-icon" aria-hidden="true">🍳</div>
+                        <h3 class="feature-title">Возможности для готовки</h3>
+                        <p class="feature-description">
+                            Общие кухни с индукционными плитами и микроволновками. 
+                            Разрешены мультиварки в комнатах
+                        </p>
+                    </article>
+
+                    <article class="feature-card" role="listitem">
+                        <div class="feature-icon" aria-hidden="true">💡</div>
+                        <h3 class="feature-title">Комфортные условия</h3>
+                        <p class="feature-description">
+                            Разрешена техника до 1 кВт, масляные обогреватели. 
+                            Постельное белье выдается в котельной
+                        </p>
+                    </article>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Key Features Section -->
-            <section class="content-section features-section">
+            <!-- ================================ -->
+            <!-- ПОЛЕЗНЫЕ СОВЕТЫ                  -->
+            <!-- ================================ -->
+            <section class="content-section tips-section" role="region" aria-labelledby="tipsTitle">
                 <div class="container">
-                    <h2 class="section-title">✨ Ключевые особенности университетской жизни</h2>
+                    <h2 class="section-title" id="tipsTitle">💡 Полезные советы для студенческой жизни</h2>
                     
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <div class="feature-icon">🏠</div>
-                            <h3 class="feature-title">11 общежитий</h3>
-                            <p class="feature-description">
-                                Современные общежития блочного типа с полностью укомплектованными комнатами, 
-                                душем и туалетом в каждом блоке
-                            </p>
-                        </div>
-
-                        <div class="feature-card">
-                            <div class="feature-icon">🛒</div>
-                            <h3 class="feature-title">Удобная инфраструктура</h3>
-                            <p class="feature-description">
-                                ТЦ "Байкал" в 5 минутах от общежития с KFC, "Лентой", "Чижиком" 
-                                и пунктами выдачи интернет-магазинов
-                            </p>
-                        </div>
-
-                        <div class="feature-card">
-                            <div class="feature-icon">💪</div>
-                            <h3 class="feature-title">Спорт и здоровье</h3>
-                            <p class="feature-description">
-                                Спортивный зал в 50 метрах от общежития, поликлиники для студентов 
-                                разных возрастов
-                            </p>
-                        </div>
-
-                        <div class="feature-card">
-                            <div class="feature-icon">📦</div>
-                            <h3 class="feature-title">Доставка и почта</h3>
-                            <p class="feature-description">
-                                Пункты выдачи Ozon, Wildberries, CDEK поблизости. 
-                                Почтовое отделение для получения посылок
-                            </p>
-                        </div>
-
-                        <div class="feature-card">
-                            <div class="feature-icon">🍳</div>
-                            <h3 class="feature-title">Возможности для готовки</h3>
-                            <p class="feature-description">
-                                Общие кухни с индукционными плитами и микроволновками. 
-                                Разрешены мультиварки в комнатах
-                            </p>
-                        </div>
-
-                        <div class="feature-card">
-                            <div class="feature-icon">💡</div>
-                            <h3 class="feature-title">Комфортные условия</h3>
-                            <p class="feature-description">
-                                Разрешена техника до 1 кВт, масляные обогреватели. 
-                                Постельное белье выдается в котельной
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Quick Tips Section -->
-            <section class="content-section tips-section">
-                <div class="container">
-                    <h2 class="section-title">💡 Полезные советы для студенческой жизни</h2>
-                    
-                    <div class="tips-grid">
-                        <div class="tip-card">
-                            <div class="tip-icon">💰</div>
+                    <div class="tips-grid" role="list" aria-label="Советы для студентов">
+                        <article class="tip-card" role="listitem">
+                            <div class="tip-icon" aria-hidden="true">💰</div>
                             <h3 class="tip-title">Бюджет на продукты</h3>
                             <p class="tip-description">
                                 На продукты в месяц можно тратить около 8 тысяч рублей, 
                                 если не покупать во "ВкусВилле"
                             </p>
-                        </div>
+                        </article>
 
-                        <div class="tip-card">
-                            <div class="tip-icon">🍳</div>
+                        <article class="tip-card" role="listitem">
+                            <div class="tip-icon" aria-hidden="true">🍳</div>
                             <h3 class="tip-title">Посуда для индукционных плит</h3>
                             <p class="tip-description">
                                 Обязательно купите кастрюли и сковороды с дном, 
                                 подходящим для ИНДУКЦИОННЫХ плит
                             </p>
-                        </div>
+                        </article>
 
-                        <div class="tip-card">
-                            <div class="tip-icon">📦</div>
+                        <article class="tip-card" role="listitem">
+                            <div class="tip-icon" aria-hidden="true">📦</div>
                             <h3 class="tip-title">Доставка почты</h3>
                             <p class="tip-description">
                                 При заказе на почту в "Байкале" доставка может занять 
                                 дополнительные две недели
                             </p>
-                        </div>
+                        </article>
 
-                        <div class="tip-card">
-                            <div class="tip-icon">🏃‍♂️</div>
+                        <article class="tip-card" role="listitem">
+                            <div class="tip-icon" aria-hidden="true">🏃‍♂️</div>
                             <h3 class="tip-title">Спортзал</h3>
                             <p class="tip-description">
                                 Первый месяц — 2500 руб., последующие — 1750 руб. 
                                 Всего в 50 метрах от общежития
                             </p>
-                        </div>
+                        </article>
                     </div>
                 </div>
-            </section>
+            </section>        
+            <!-- ================================ -->
+        <!-- РАЗДЕЛ ДЕЙСТВИЙ                  -->
+        <!-- ================================ -->
+        <section class="content-section action-section" role="region" aria-labelledby="actionTitle">
+            <div class="container">
+                <article class="action-banner">
+                    <header class="action-content">
+                        <h2 id="actionTitle">🎯 Готовы узнать больше?</h2>
+                        <p>
+                            Выберите интересующий вас раздел для получения подробной информации 
+                            о жизни в университете
+                        </p>
+                    </header>
+                    <nav class="action-buttons" role="navigation" aria-label="Дополнительная навигация">
+                        <a href="dormitory/" class="btn btn-primary" aria-label="Перейти к разделу Общежитие">🏠 Общежитие</a>
+                        <a href="infrastructure/" class="btn btn-secondary" aria-label="Перейти к разделу Инфраструктура">🏢 Инфраструктура</a>
+                        <a href="academic-process/" class="btn btn-outline" aria-label="Перейти к разделу Учебный процесс">📚 Учебный процесс</a>
+                    </nav>
+                </article>
+            </div>
+        </section>
+    </main>
 
-            <!-- Action Section -->
-            <section class="content-section action-section">
-                <div class="container">
-                    <div class="action-banner">
-                        <div class="action-content">
-                            <h2>🎯 Готовы узнать больше?</h2>
-                            <p>
-                                Выберите интересующий вас раздел для получения подробной информации 
-                                о жизни в университете
-                            </p>
-                            <div class="action-buttons">
-                                <a href="dormitory/" class="btn btn-primary">🏠 Общежитие</a>
-                                <a href="infrastructure/" class="btn btn-secondary">🏢 Инфраструктура</a>
-                                <a href="academic-process/" class="btn btn-outline">📚 Учебный процесс</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer" id="footer"></footer>
-    </div>    <!-- Scripts -->
+    <!-- ================================ -->
+    <!-- FOOTER                           -->
+    <!-- ================================ -->
+    <footer id="footer" role="contentinfo" aria-label="Подвал сайта"></footer>    
+    <!-- ================================ -->
+    <!-- БАЗОВЫЕ СКРИПТЫ                 -->
+    <!-- ================================ -->
     <script src="../../js/utils.js"></script>
-    <script src="../../js/search-modal.js"></script>
     <script src="../../js/navigation.js"></script>
-    <script src="../../js/seo-utils.js"></script>
     <script src="../../js/pwa.js"></script>
     <script src="../../js/main.js"></script>
     
-    <!-- Структурированные данные JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Жизнь в университете РГАУ-МСХА",
-      "description": "Полная информация о студенческой жизни в РГАУ-МСХА: общежития, инфраструктура, учебный процесс",
-      "author": {
-        "@type": "Organization",
-        "name": "Студенты РГАУ-МСХА"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Справочник РГАУ-МСХА"
-      },
-      "datePublished": "2024-12-12",
-      "dateModified": "2024-12-15",
-      "image": "https://rgau-guide.ru/images/university-life-og.jpg",
-      "url": "https://rgau-guide.ru/pages/university-life/",
-      "inLanguage": "ru",
-      "about": {
-        "@type": "Thing",
-        "name": "Студенческая жизнь",
-        "description": "Информация об общежитиях, инфраструктуре и учебном процессе в университете"
-      },
-      "mentions": [
-        {
-          "@type": "Organization",
-          "name": "РГАУ-МСХА имени К.А. Тимирязева"
+    <!-- ================================ -->
+    <!-- ДОПОЛНИТЕЛЬНЫЕ СКРИПТЫ           -->
+    <!-- ================================ -->
+    <script src="../../js/search-modal.js"></script>
+    <script src="../../js/seo-utils.js"></script>
+
+    <!-- ================================ -->
+    <!-- ИНИЦИАЛИЗАЦИЯ СТРАНИЦЫ           -->
+    <!-- ================================ -->
+    <script>
+        // Инициализация при загрузке DOM
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Инициализация навигационных карточек
+            initializeNavigationCards();
+            
+            // PWA функциональность
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('../../sw.js')
+                    .then(registration => console.log('Service Worker зарегистрирован'))
+                    .catch(error => console.log('Ошибка регистрации Service Worker:', error));
+            }
+            
+            // Инициализация SEO
+            initializeSEO('university-life', 'Жизнь в университете РГАУ-МСХА');
+            
+            // Аналитика
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'page_view', {
+                    page_title: 'Жизнь в университете',
+                    page_location: window.location.href,
+                    content_group1: 'Университетская жизнь'
+                });
+            }
+            
+            // Lazy loading изображений
+            initializeLazyLoading();
+        });
+        
+        // Функция инициализации навигационных карточек
+        function initializeNavigationCards() {
+            const navCards = document.querySelectorAll('.section-nav-card');
+            
+            navCards.forEach((card, index) => {
+                const link = card.querySelector('.nav-card-link');
+                
+                if (link) {
+                    // Аналитика кликов
+                    link.addEventListener('click', function(e) {
+                        const cardTitle = this.querySelector('.nav-title').textContent;
+                        
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'navigation_card_click', {
+                                card_title: cardTitle,
+                                card_position: index + 1,
+                                destination_url: this.href
+                            });
+                        }
+                    });
+                    
+                    // Клавиатурная навигация
+                    link.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            this.click();
+                        }
+                    });
+                }
+                
+                // Hover эффекты
+                card.addEventListener('mouseenter', function() {
+                    this.classList.add('card-hover');
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.classList.remove('card-hover');
+                });
+                
+                // Focus для доступности
+                card.addEventListener('focus', function() {
+                    this.classList.add('card-focus');
+                });
+                
+                card.addEventListener('blur', function() {
+                    this.classList.remove('card-focus');
+                });
+            });
         }
-      ]
-    }
+        
+        // Lazy loading изображений
+        function initializeLazyLoading() {
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            if (img.dataset.src) {
+                                img.src = img.dataset.src;
+                                img.classList.remove('lazy');
+                                imageObserver.unobserve(img);
+                            }
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('img[data-src]').forEach(img => {
+                    imageObserver.observe(img);
+                });
+            } else {
+                // Fallback для старых браузеров
+                document.querySelectorAll('img[data-src]').forEach(img => {
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                });
+            }
+        }
     </script>
+
+    <!-- ================================ -->
+    <!-- СТРУКТУРИРОВАННЫЕ ДАННЫЕ SEO     -->
+    <!-- ================================ -->
+    <script type="application/ld+json" id="structured-data"></script>
+    <script>
+        // Инициализация SEO для университетской жизни
+        initializeSEO('university-life', 'Жизнь в университете РГАУ-МСХА');
+    </script>
+
 </body>
 </html>

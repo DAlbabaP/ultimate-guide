@@ -1,32 +1,55 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- ================================ -->
+    <!-- БАЗОВЫЕ МЕТА-ТЕГИ               -->
+    <!-- ================================ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="manifest" href="../../manifest.json">
     <title>Стипендии и льготы РГАУ-МСХА 2025 | Полный справочник студента</title>
     <meta name="description" content="Все виды стипендий в РГАУ-МСХА: стандартная, повышенная, социальная. Карта москвича, льготы и дополнительная поддержка студентов МСХА.">
-    <meta name="keywords" content="стипендия РГАУ-МСХА, карта москвича, льготы студентов МСХА, повышенная стипендия, социальная поддержка">    <!-- PWA мета-теги -->
+    <meta name="keywords" content="стипендия РГАУ-МСХА, карта москвича, льготы студентов МСХА, повышенная стипендия, социальная поддержка">
+    <meta name="author" content="Студенты РГАУ-МСХА">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rgau-guide.ru/pages/scholarships/">
+
+    <!-- ================================ -->
+    <!-- PWA И МОБИЛЬНЫЕ НАСТРОЙКИ        -->
+    <!-- ================================ -->
     <meta name="theme-color" content="#2F5E2F">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Стипендии РГАУ">
+    <meta name="msapplication-TileColor" content="#2F5E2F">
+    <meta name="msapplication-tap-highlight" content="no">
     
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="../../manifest.json">
+
+    <!-- ================================ -->
+    <!-- СОЦИАЛЬНЫЕ СЕТИ И SEO            -->
+    <!-- ================================ -->
     
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ргау-справочник.рф/pages/scholarships/">
+    <!-- Open Graph метатеги -->
     <meta property="og:title" content="Стипендии и льготы РГАУ-МСХА 2025">
     <meta property="og:description" content="Полный гайд по стипендиям МСХА: размеры, условия получения, карта москвича и дополнительные льготы">
     <meta property="og:image" content="../../images/og-scholarships.jpg">
-    <meta property="og:site_name" content="Справочник студента РГАУ-МСХА">
+    <meta property="og:url" content="https://rgau-guide.ru/pages/scholarships/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Справочник РГАУ-МСХА">
+    <meta property="og:locale" content="ru_RU">
     
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://ргау-справочник.рф/pages/scholarships/">
-    <meta property="twitter:title" content="Стипендии и льготы РГАУ-МСХА">
-    <meta property="twitter:description" content="Все о стипендиях и льготах для студентов МСХА">
-    <meta property="twitter:image" content="../../images/og-scholarships.jpg">
+    <!-- Twitter Card метатеги -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@rgau_guide">
+    <meta name="twitter:title" content="Стипендии и льготы РГАУ-МСХА">
+    <meta name="twitter:description" content="Все о стипендиях и льготах для студентов МСХА">
+    <meta name="twitter:image" content="../../images/og-scholarships.jpg">
+
+    <!-- ================================ -->
+    <!-- СТИЛИ И ИКОНКИ                   -->
+    <!-- ================================ -->
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../../css/header.css">
     <link rel="stylesheet" href="../../css/footer.css">
@@ -41,21 +64,26 @@
 </head>
 <body>
     <div class="page-container">
-        <!-- Header -->
-        <header class="header" id="header"></header>
+        <!-- ================================ -->
+        <!-- HEADER                           -->
+        <!-- ================================ -->
+        <header class="header" id="mainHeader" role="banner">
+            <div id="header-placeholder"></div>
+        </header>
 
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Page Hero -->
-            <section class="page-hero scholarships-hero">
+        <!-- ================================ -->
+        <!-- ГЛАВНЫЙ КОНТЕНТ                  -->
+        <!-- ================================ -->
+        <main class="main-content" role="main">
+            <!-- Hero секция -->
+            <section class="page-hero scholarships-hero" role="banner">
                 <div class="container">
                     <div class="page-header">
-                        <div class="breadcrumb">
+                        <nav class="breadcrumb" role="navigation" aria-label="Хлебные крошки">
                             <a href="../../index.html">Главная</a>
                             <span class="breadcrumb-separator">→</span>
                             <span class="breadcrumb-current">Стипендии и льготы</span>
-                        </div>
+                        </nav>
                         <h1 class="page-title">Стипендии и льготы</h1>
                         <p class="page-subtitle">
                             Полная информация о финансовой поддержке студентов: стипендии, льготы и дополнительные выплаты
@@ -64,13 +92,13 @@
                 </div>
             </section>
 
-            <!-- Overview Section -->
-            <section class="content-section">
+            <!-- Обзор раздела -->
+            <section class="content-section" role="region" aria-labelledby="overviewTitle">
                 <div class="container">
                     <div class="scholarships-overview">
-                        <div class="overview-icon">💰</div>
+                        <div class="overview-icon" role="img" aria-label="Символ денег">💰</div>
                         <div class="overview-content">
-                            <h2>Система материальной поддержки студентов</h2>
+                            <h2 id="overviewTitle">Система материальной поддержки студентов</h2>
                             <p>
                                 РГАУ-МСХА предоставляет разнообразные формы финансовой поддержки студентов: 
                                 от базовой академической стипендии до специальных выплат за активную деятельность. 
@@ -79,25 +107,25 @@
                         </div>
                     </div>
 
-                    <!-- Quick Stats -->
-                    <div class="quick-stats">
-                        <div class="stat-item">
-                            <div class="stat-icon">📚</div>
+                    <!-- Быстрая статистика -->
+                    <div class="quick-stats" role="list">
+                        <div class="stat-item" role="listitem">
+                            <div class="stat-icon" role="img" aria-label="Книги">📚</div>
                             <div class="stat-value">до 4 068 ₽</div>
                             <div class="stat-label">академическая стипендия</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-icon">⭐</div>
+                        <div class="stat-item" role="listitem">
+                            <div class="stat-icon" role="img" aria-label="Звезда">⭐</div>
                             <div class="stat-value">до 20 000 ₽</div>
                             <div class="stat-label">повышенная стипендия</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-icon">🎫</div>
+                        <div class="stat-item" role="listitem">
+                            <div class="stat-icon" role="img" aria-label="Билет">🎫</div>
                             <div class="stat-value">50%</div>
                             <div class="stat-label">скидка на транспорт</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-icon">🤝</div>
+                        <div class="stat-item" role="listitem">
+                            <div class="stat-icon" role="img" aria-label="Поддержка">🤝</div>
                             <div class="stat-value">до 3 965 ₽</div>
                             <div class="stat-label">социальная стипендия</div>
                         </div>
@@ -219,14 +247,14 @@
                             <div class="card-arrow">→</div>
                         </a>                    </div>
                 </div>
-            </section>
-
-            <!-- Scholarship Calculator -->
-            <section class="content-section calculator-section">
+            </section>            <!-- ================================ -->
+            <!-- КАЛЬКУЛЯТОР СТИПЕНДИИ           -->
+            <!-- ================================ -->
+            <section class="content-section calculator-section" aria-labelledby="calculatorTitle">
                 <div class="container">
                     <div class="scholarship-calculator">
                         <div class="calculator-header">
-                            <h3>🧮 Калькулятор стипендии</h3>
+                            <h3 id="calculatorTitle">🧮 Калькулятор стипендии</h3>
                             <p>Рассчитайте размер своей стипендии на основе успеваемости и активности</p>
                         </div>
 
@@ -317,12 +345,12 @@
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- How to Get Started -->
-            <section class="content-section getting-started-section">
+            </section>            <!-- ================================ -->
+            <!-- КАК НАЧАТЬ ПОЛУЧАТЬ МАКСИМУМ     -->
+            <!-- ================================ -->
+            <section class="content-section getting-started-section" aria-labelledby="gettingStartedTitle">
                 <div class="container">
-                    <h2 class="section-title">🚀 Как начать получать максимум?</h2>
+                    <h2 id="gettingStartedTitle" class="section-title">🚀 Как начать получать максимум?</h2>
                     
                     <div class="steps-timeline">
                         <div class="step-item">
@@ -362,12 +390,12 @@
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Important Tips -->
-            <section class="content-section tips-section">
+            </section>            <!-- ================================ -->
+            <!-- ВАЖНЫЕ СОВЕТЫ                   -->
+            <!-- ================================ -->
+            <section class="content-section tips-section" aria-labelledby="tipsTitle">
                 <div class="container">
-                    <h2 class="section-title">💡 Важные советы</h2>
+                    <h2 id="tipsTitle" class="section-title">💡 Важные советы</h2>
                     
                     <div class="tips-grid">
                         <div class="tip-card critical-tip">
@@ -407,12 +435,12 @@
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Financial Calculator -->
-            <section class="content-section calculator-section">
+            </section>            <!-- ================================ -->
+            <!-- ФИНАНСОВЫЙ КАЛЬКУЛЯТОР          -->
+            <!-- ================================ -->
+            <section class="content-section calculator-section" aria-labelledby="incomeTitle">
                 <div class="container">
-                    <h2 class="section-title">🧮 Возможные доходы студента</h2>
+                    <h2 id="incomeTitle" class="section-title">🧮 Возможные доходы студента</h2>
                     
                     <div class="calculator-grid">
                         <div class="scenario-card minimal-scenario">
@@ -478,14 +506,14 @@
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Call to Action -->
-            <section class="content-section cta-section">
+            </section>            <!-- ================================ -->
+            <!-- ПРИЗЫВ К ДЕЙСТВИЮ               -->
+            <!-- ================================ -->
+            <section class="content-section cta-section" aria-labelledby="ctaTitle">
                 <div class="container">
                     <div class="cta-banner">
                         <div class="cta-content">
-                            <h2>🎓 Готовы максимизировать свои доходы?</h2>
+                            <h2 id="ctaTitle">🎓 Готовы максимизировать свои доходы?</h2>
                             <p>
                                 Изучите каждый вид стипендий и льгот подробно, чтобы не упустить ни одной возможности 
                                 финансовой поддержки в университете
@@ -499,11 +527,15 @@
                     </div>
                 </div>
             </section>
-        </main>
+        </main>        <!-- ================================ -->
+        <!-- ПОДВАЛ САЙТА                    -->
+        <!-- ================================ -->
+        <footer class="footer" id="mainFooter" role="contentinfo"></footer>
+    </div>
 
-        <!-- Footer -->
-        <footer class="footer" id="footer"></footer>
-    </div>    <!-- Scripts -->
+    <!-- ================================ -->
+    <!-- СКРИПТЫ                         -->
+    <!-- ================================ -->
     <script src="../../js/utils.js"></script>
     <script src="../../js/search-modal.js"></script>
     <script src="../../js/animations.js"></script>
@@ -512,8 +544,9 @@
     <script src="../../js/pwa.js"></script>
     <script src="../../js/main.js"></script>
     <script src="../../js/seo-utils.js"></script>
-    
-    <!-- SEO structured data -->
+      <!-- ================================ -->
+    <!-- SEO И СТРУКТУРИРОВАННЫЕ ДАННЫЕ  -->
+    <!-- ================================ -->
     <script type="application/ld+json" id="structured-data"></script>
     <script>
         // Инициализация SEO для страницы стипендий

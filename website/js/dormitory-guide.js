@@ -167,11 +167,10 @@ const DormitoryGuide = {
   },
 
   // Поиск элементов в DOM
-  findElements() {
-    this.elements.filtersForm = document.getElementById('dormitory-filters');
-    this.elements.resultsContainer = document.getElementById('dormitory-results');
-    this.elements.noResults = document.getElementById('no-results');
-    this.elements.resultsCount = document.getElementById('results-count');
+  findElements() {    this.elements.filtersForm = document.getElementById('dormitoryFilters');
+    this.elements.resultsContainer = document.getElementById('dormitoryResults');
+    this.elements.noResults = document.getElementById('noResults');
+    this.elements.resultsCount = document.getElementById('resultsCount');
   },
 
   // Привязка событий
@@ -187,14 +186,14 @@ const DormitoryGuide = {
       });
 
       // Сброс фильтров
-      const resetBtn = document.getElementById('reset-filters');
+      const resetBtn = document.getElementById('resetFilters');
       if (resetBtn) {
         resetBtn.addEventListener('click', () => this.resetFilters());
       }
     }
 
     // Сортировка
-    const sortSelect = document.getElementById('sort-by');
+    const sortSelect = document.getElementById('sortBy');
     if (sortSelect) {
       sortSelect.addEventListener('change', () => this.applyFilters());
     }
@@ -258,7 +257,7 @@ const DormitoryGuide = {
 
   // Сортировка общежитий
   sortDormitories(dormitories) {
-    const sortBy = document.getElementById('sort-by')?.value || 'rating';
+    const sortBy = document.getElementById('sortBy')?.value || 'rating';
     
     return [...dormitories].sort((a, b) => {
       switch (sortBy) {
@@ -473,7 +472,7 @@ window.DormitoryGuide = DormitoryGuide;
 
 // Инициализация при загрузке DOM
 document.addEventListener('DOMContentLoaded', () => {
-  if (document.getElementById('dormitory-filters')) {
+  if (document.getElementById('dormitoryFilters')) {
     DormitoryGuide.init();
   }
 });

@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- ================================ -->
+    <!-- БАЗОВЫЕ МЕТА-ТЕГИ               -->
+    <!-- ================================ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Справочник абитуриента РГАУ-МСХА | Полный гайд для поступающих</title>
     <meta name="description" content="Исчерпывающий путеводитель для поступающих в РГАУ-МСХА имени К.А. Тимирязева. Все этапы от подачи документов до адаптации в университете. Общежития, стипендии, студенческие организации.">
-    <meta name="keywords" content="РГАУ-МСХА, абитуриент, поступление, университет, студент, Тимирязевка, сельхозакадемия, общежитие, стипендия, студенческие организации">    <meta name="author" content="Студенты РГАУ-МСХА">
+    <meta name="keywords" content="РГАУ-МСХА, абитуриент, поступление, университет, студент, Тимирязевка, сельхозакадемия, общежитие, стипендия, студенческие организации">
+    <meta name="author" content="Студенты РГАУ-МСХА">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://rgau-guide.ru/">
-      <!-- PWA мета-теги -->
+
+    <!-- ================================ -->
+    <!-- PWA И МОБИЛЬНЫЕ НАСТРОЙКИ        -->
+    <!-- ================================ -->
     <meta name="theme-color" content="#2F5E2F">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,6 +26,10 @@
     
     <!-- Web App Manifest -->
     <link rel="manifest" href="manifest.json">
+
+    <!-- ================================ -->
+    <!-- СОЦИАЛЬНЫЕ СЕТИ И SEO            -->
+    <!-- ================================ -->
     
     <!-- Open Graph метатеги -->
     <meta property="og:title" content="Справочник абитуриента РГАУ-МСХА | Полный гайд для поступающих">
@@ -35,29 +46,42 @@
     <meta name="twitter:title" content="Справочник абитуриента РГАУ-МСХА">
     <meta name="twitter:description" content="Полный гайд для поступающих в РГАУ-МСХА имени К.А. Тимирязева">
     <meta name="twitter:image" content="https://rgau-guide.ru/images/og-image.jpg">
-      <!-- Favicon -->
+
+    <!-- ================================ -->
+    <!-- ИКОНКИ И ФАВИКОНЫ                -->
+    <!-- ================================ -->
     <link rel="icon" type="image/png" href="images/logo/192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="images/logo/192.png">
-    
-    <!-- CSS files -->
+
+    <!-- ================================ -->
+    <!-- СТИЛИ CSS                        -->
+    <!-- ================================ -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/header-search.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/navigation.css">
-    <link rel="stylesheet" href="css/cards.css">    <link rel="stylesheet" href="css/timeline.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/timeline.css">
     <link rel="stylesheet" href="css/homepage.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/pwa.css">
 </head>
 <body>
-    <!-- Header -->
-    <header id="header"></header>
+    <!-- ================================ -->
+    <!-- ШАПКА САЙТА                      -->
+    <!-- ================================ -->
+    <header id="mainHeader" class="main-header"></header>
 
-    <!-- Main content -->
+    <!-- ================================ -->
+    <!-- ОСНОВНОЙ КОНТЕНТ                 -->
+    <!-- ================================ -->
     <main class="main-content">
-        <!-- Hero Section -->
-        <section class="hero-section">
+        
+        <!-- ================================ -->
+        <!-- ГЕРОИЧЕСКАЯ СЕКЦИЯ               -->
+        <!-- ================================ -->
+        <section class="hero-section" role="banner">
             <div class="hero-background">
                 <div class="hero-overlay"></div>
                 <div class="container">
@@ -70,10 +94,10 @@
                             Университета имени К.А. Тимирязева
                         </p>
                         <div class="hero-buttons">
-                            <a href="pages/applicant-path/" class="btn btn-primary">
+                            <a href="pages/applicant-path/" class="btn btn-primary" aria-label="Начать путь абитуриента - пошаговое руководство">
                                 Начать путь абитуриента
                             </a>
-                            <a href="#main-sections" class="btn btn-secondary">
+                            <a href="#mainSections" class="btn btn-secondary" aria-label="Перейти к обзору основных разделов">
                                 Обзор разделов
                             </a>
                         </div>
@@ -82,75 +106,88 @@
             </div>
         </section>
 
-        <!-- Quick Stats -->
-        <section class="stats-section">
+        <!-- ================================ -->
+        <!-- СТАТИСТИКА УНИВЕРСИТЕТА          -->
+        <!-- ================================ -->
+        <section class="stats-section" aria-labelledby="statsTitle">
             <div class="container">
+                <h2 id="statsTitle" class="sr-only">Статистика университета</h2>
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <div class="stat-number">160+</div>
+                        <div class="stat-number" aria-label="160 с лишним лет истории">160+</div>
                         <div class="stat-label">лет истории</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">15+</div>
+                        <div class="stat-number" aria-label="15 с лишним факультетов">15+</div>
                         <div class="stat-label">факультетов</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">50+</div>
+                        <div class="stat-number" aria-label="50 с лишним студенческих организаций">50+</div>
                         <div class="stat-label">студорганизаций</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">100%</div>
+                        <div class="stat-number" aria-label="100 процентов поддержки">100%</div>
                         <div class="stat-label">поддержки</div>
-                    </div>
-                </div>
-            </div>
-        </section>        <!-- Important Dates Widget -->
-        <section class="important-dates-section">
-            <div class="container">
-                <div class="important-dates-widget">
-                    <div class="widget-header">
-                        <h3 class="widget-title">
-                            <svg class="widget-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
-                            </svg>
-                            Важные даты
-                        </h3>
-                        <div class="widget-subtitle">Актуальные сроки и события</div>
-                    </div>
-                    <div class="dates-container" id="importantDatesContainer">
-                        <!-- Даты будут добавлены динамически -->
-                    </div>
-                    <div class="widget-footer">
-                        <button class="show-all-dates-btn" id="showAllDatesBtn">
-                            Показать все даты
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-                            </svg>
-                        </button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Main Navigation Cards -->
-        <section id="main-sections" class="sections-overview">
+        <!-- ================================ -->
+        <!-- ВИДЖЕТ ВАЖНЫХ ДАТ                -->
+        <!-- ================================ -->
+        <section class="important-dates-section" aria-labelledby="importantDatesTitle">
             <div class="container">
-                <h2 class="section-title">Основные разделы гайда</h2>
-                <p class="section-subtitle">
-                    Выберите интересующий вас раздел для подробного изучения
-                </p>
+                <article class="important-dates-widget">
+                    <header class="widget-header">
+                        <h3 id="importantDatesTitle" class="widget-title">
+                            <svg class="widget-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                            </svg>
+                            Важные даты
+                        </h3>
+                        <div class="widget-subtitle">Актуальные сроки и события</div>
+                    </header>
+                    
+                    <!-- Контейнер для динамически загружаемых дат -->
+                    <div class="dates-container" id="importantDatesContainer" role="list">
+                        <!-- NOTE: Даты будут добавлены динамически через JavaScript -->
+                    </div>
+                    
+                    <footer class="widget-footer">
+                        <button class="show-all-dates-btn" id="showAllDatesBtn" aria-expanded="false" aria-controls="importantDatesContainer">
+                            Показать все даты
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                            </svg>
+                        </button>
+                    </footer>
+                </article>
+            </div>
+        </section>        <!-- ================================ -->
+        <!-- ОСНОВНЫЕ РАЗДЕЛЫ НАВИГАЦИИ       -->
+        <!-- ================================ -->
+        <section id="mainSections" class="sections-overview" aria-labelledby="sectionsTitle">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="sectionsTitle" class="section-title">Основные разделы гайда</h2>
+                    <p class="section-subtitle">
+                        Выберите интересующий вас раздел для подробного изучения
+                    </p>
+                </header>
                 
-                <div class="cards-grid">
-                    <!-- Applicant Path Card -->
-                    <div class="main-card" data-category="path">
-                        <div class="card-header">
-                            <div class="card-icon">
+                <div class="cards-grid" role="navigation" aria-label="Основные разделы сайта">
+                    
+                    <!-- Карточка "Путь абитуриента" -->
+                    <article class="main-card" data-category="path">
+                        <header class="card-header">
+                            <div class="card-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                                 </svg>
                             </div>
                             <h3 class="card-title">Путь абитуриента</h3>
-                        </div>
+                        </header>
                         <div class="card-content">
                             <p class="card-description">
                                 Пошаговый путь от подачи документов до адаптации в университете. 
@@ -163,26 +200,26 @@
                                 <li>Заселение и адаптация</li>
                             </ul>
                         </div>
-                        <div class="card-footer">
-                            <a href="pages/applicant-path/" class="card-button">
+                        <footer class="card-footer">
+                            <a href="pages/applicant-path/" class="card-button" aria-label="Изучить путь абитуриента подробно">
                                 Изучить путь
-                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                     <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
                                 </svg>
                             </a>
-                        </div>
-                    </div>
+                        </footer>
+                    </article>
 
-                    <!-- University Life Card -->
-                    <div class="main-card" data-category="life">
-                        <div class="card-header">
-                            <div class="card-icon">
+                    <!-- Карточка "Жизнь в университете" -->
+                    <article class="main-card" data-category="life">
+                        <header class="card-header">
+                            <div class="card-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6L23 9l-11-6zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
                                 </svg>
                             </div>
                             <h3 class="card-title">Жизнь в университете</h3>
-                        </div>
+                        </header>
                         <div class="card-content">
                             <p class="card-description">
                                 Все о студенческой жизни: учебный процесс, инфраструктура, 
@@ -195,26 +232,26 @@
                                 <li>Студенческие сервисы</li>
                             </ul>
                         </div>
-                        <div class="card-footer">
-                            <a href="pages/university-life/" class="card-button">
+                        <footer class="card-footer">
+                            <a href="pages/university-life/" class="card-button" aria-label="Узнать больше о жизни в университете">
                                 Узнать больше
-                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                     <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
                                 </svg>
                             </a>
-                        </div>
-                    </div>
+                        </footer>
+                    </article>
 
-                    <!-- Scholarships Card -->
-                    <div class="main-card" data-category="money">
-                        <div class="card-header">
-                            <div class="card-icon">
+                    <!-- Карточка "Стипендии и льготы" -->
+                    <article class="main-card" data-category="money">
+                        <header class="card-header">
+                            <div class="card-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/>
                                 </svg>
                             </div>
                             <h3 class="card-title">Стипендии и льготы</h3>
-                        </div>
+                        </header>
                         <div class="card-content">
                             <p class="card-description">
                                 Подробная информация о всех видах стипендий, льготах 
@@ -227,26 +264,26 @@
                                 <li>Дополнительные льготы</li>
                             </ul>
                         </div>
-                        <div class="card-footer">
-                            <a href="pages/scholarships/" class="card-button">
+                        <footer class="card-footer">
+                            <a href="pages/scholarships/" class="card-button" aria-label="Изучить информацию о стипендиях и льготах">
                                 Изучить льготы
-                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                     <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
                                 </svg>
                             </a>
-                        </div>
-                    </div>
+                        </footer>
+                    </article>
 
-                    <!-- Organizations Card -->
-                    <div class="main-card" data-category="activities">
-                        <div class="card-header">
-                            <div class="card-icon">
+                    <!-- Карточка "Студенческие организации" -->
+                    <article class="main-card" data-category="activities">
+                        <header class="card-header">
+                            <div class="card-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A2.996 2.996 0 0 0 17.09 7c-.86 0-1.64.52-1.97 1.31L14 10.5v2.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V11l1.09-2.18L20 15v7h2zM12.5 11.5c.83 0 1.5-.67 1.5-1.5V8c0-1.11-.89-2-2-2H6C4.89 6 4 6.89 4 8v2c0 .83.67 1.5 1.5 1.5S7 10.83 7 10V8h5v2c0 .83.67 1.5 1.5 1.5z"/>
                                 </svg>
                             </div>
                             <h3 class="card-title">Студенческие организации</h3>
-                        </div>
+                        </header>
                         <div class="card-content">
                             <p class="card-description">
                                 Более 50 студенческих организаций по всем направлениям: 
@@ -259,26 +296,26 @@
                                 <li>Творчество и культура</li>
                             </ul>
                         </div>
-                        <div class="card-footer">
-                            <a href="pages/organizations/" class="card-button">
+                        <footer class="card-footer">
+                            <a href="pages/organizations/" class="card-button" aria-label="Найти свою команду среди студенческих организаций">
                                 Найти свою команду
-                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                     <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
                                 </svg>
                             </a>
-                        </div>
-                    </div>
+                        </footer>
+                    </article>
 
-                    <!-- Military Card -->
-                    <div class="main-card" data-category="military">
-                        <div class="card-header">
-                            <div class="card-icon">
+                    <!-- Карточка "Военная подготовка" -->
+                    <article class="main-card" data-category="military">
+                        <header class="card-header">
+                            <div class="card-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M17.27 6.73l-4.24 10.5-1.41-3.5-3.5-1.41 10.5-4.24 1.41-1.41L17.27 6.73zM12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                                 </svg>
                             </div>
                             <h3 class="card-title">Военная подготовка</h3>
-                        </div>
+                        </header>
                         <div class="card-content">
                             <p class="card-description">
                                 Информация о военной кафедре, отсрочке от армии 
@@ -291,26 +328,26 @@
                                 <li>Документооборот</li>
                             </ul>
                         </div>
-                        <div class="card-footer">
-                            <a href="pages/military/" class="card-button">
+                        <footer class="card-footer">
+                            <a href="pages/military/" class="card-button" aria-label="Узнать детали военной подготовки">
                                 Узнать детали
-                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                     <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
                                 </svg>
                             </a>
-                        </div>
-                    </div>
+                        </footer>
+                    </article>
 
-                    <!-- Self Government Card -->
-                    <div class="main-card" data-category="government">
-                        <div class="card-header">
-                            <div class="card-icon">
+                    <!-- Карточка "Студенческое самоуправление" -->
+                    <article class="main-card" data-category="government">
+                        <header class="card-header">
+                            <div class="card-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10z"/>
                                 </svg>
                             </div>
                             <h3 class="card-title">Студенческое самоуправление</h3>
-                        </div>
+                        </header>
                         <div class="card-content">
                             <p class="card-description">
                                 Роль старост, студенческие советы и возможности 
@@ -323,116 +360,129 @@
                                 <li>Права и обязанности</li>
                             </ul>
                         </div>
-                        <div class="card-footer">
-                            <a href="pages/self-government/" class="card-button">
+                        <footer class="card-footer">
+                            <a href="pages/self-government/" class="card-button" aria-label="Стать активным участником студенческого самоуправления">
                                 Стать активным
-                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                     <path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
                                 </svg>
                             </a>
-                        </div>
-                    </div>
+                        </footer>
+                    </article>
                 </div>
             </div>
-        </section>
-
-        <!-- Timeline Section -->
-        <section class="timeline-section">
+        </section>        <!-- ================================ -->
+        <!-- ВРЕМЕННАЯ ШКАЛА                 -->
+        <!-- ================================ -->
+        <section class="timeline-section" aria-labelledby="timelineTitle">
             <div class="container">
-                <h2 class="section-title">Хронология абитуриента</h2>
-                <p class="section-subtitle">
-                    Ключевые этапы вашего пути в университет
-                </p>
+                <header class="section-header">
+                    <h2 id="timelineTitle" class="section-title">Хронология абитуриента</h2>
+                    <p class="section-subtitle">
+                        Ключевые этапы вашего пути в университет
+                    </p>
+                </header>
                 
-                <div class="timeline-container" id="timeline">
-                    <div class="timeline-progress" id="timeline-progress"></div>
+                <div class="timeline-container" id="timeline" role="list" aria-label="Временная шкала этапов поступления">
+                    <div class="timeline-progress" id="timelineProgress" aria-hidden="true"></div>
                     
-                    <div class="timeline-item" data-month="june">
+                    <!-- Этап "Подача документов" -->
+                    <article class="timeline-item" data-month="june" role="listitem">
                         <div class="timeline-marker">
-                            <div class="timeline-icon">
+                            <div class="timeline-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
                                 </svg>
                             </div>
                         </div>
                         <div class="timeline-content">
-                            <div class="timeline-date">Июнь - Июль</div>
+                            <time class="timeline-date" datetime="2025-06">Июнь - Июль</time>
                             <h4 class="timeline-title">Подача документов</h4>
                             <p class="timeline-description">
                                 Подготовка и подача документов в приемную комиссию. 
                                 Важные сроки и требования.
                             </p>
-                            <a href="pages/applicant-path/documents/" class="timeline-link">Подробнее</a>
+                            <a href="pages/applicant-path/documents/" class="timeline-link" aria-label="Подробнее о подаче документов">Подробнее</a>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="timeline-item" data-month="july">
+                    <!-- Этап "Конкурсный отбор" -->
+                    <article class="timeline-item" data-month="july" role="listitem">
                         <div class="timeline-marker">
-                            <div class="timeline-icon">
+                            <div class="timeline-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M9 11H7v8h2v-8zm4 4h-2v4h2v-4zm4-8h-2v12h2V7z"/>
                                 </svg>
                             </div>
                         </div>
                         <div class="timeline-content">
-                            <div class="timeline-date">Конец июля</div>
+                            <time class="timeline-date" datetime="2025-07">Конец июля</time>
                             <h4 class="timeline-title">Конкурсный отбор</h4>
                             <p class="timeline-description">
                                 Процедура отбора абитуриентов. Как работает конкурс 
                                 и что влияет на поступление.
                             </p>
-                            <a href="pages/applicant-path/selection/" class="timeline-link">Подробнее</a>
+                            <a href="pages/applicant-path/selection/" class="timeline-link" aria-label="Подробнее о конкурсном отборе">Подробнее</a>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="timeline-item" data-month="august">
+                    <!-- Этап "Зачисление" -->
+                    <article class="timeline-item" data-month="august" role="listitem">
                         <div class="timeline-marker">
-                            <div class="timeline-icon">
+                            <div class="timeline-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                                 </svg>
                             </div>
                         </div>
                         <div class="timeline-content">
-                            <div class="timeline-date">Август</div>
+                            <time class="timeline-date" datetime="2025-08">Август</time>
                             <h4 class="timeline-title">Зачисление</h4>
                             <p class="timeline-description">
                                 Официальное зачисление в университет. Получение 
                                 студенческого билета и документов.
                             </p>
-                            <a href="pages/applicant-path/enrollment/" class="timeline-link">Подробнее</a>
+                            <a href="pages/applicant-path/enrollment/" class="timeline-link" aria-label="Подробнее о зачислении">Подробнее</a>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="timeline-item" data-month="september">
+                    <!-- Этап "Адаптация" -->
+                    <article class="timeline-item" data-month="september" role="listitem">
                         <div class="timeline-marker">
-                            <div class="timeline-icon">
+                            <div class="timeline-icon" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6L23 9l-11-6z"/>
                                 </svg>
                             </div>
                         </div>
                         <div class="timeline-content">
-                            <div class="timeline-date">Сентябрь</div>
+                            <time class="timeline-date" datetime="2025-09">Сентябрь</time>
                             <h4 class="timeline-title">Адаптация</h4>
                             <p class="timeline-description">
                                 Начало студенческой жизни. Знакомство с университетом, 
                                 однокурсниками и учебным процессом.
                             </p>
-                            <a href="pages/applicant-path/adaptation/" class="timeline-link">Подробнее</a>
+                            <a href="pages/applicant-path/adaptation/" class="timeline-link" aria-label="Подробнее об адаптации">Подробнее</a>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Quick Access Section -->
-        <section class="quick-access-section">
+        <!-- ================================ -->
+        <!-- БЫСТРЫЙ ДОСТУП                   -->
+        <!-- ================================ -->
+        <section class="quick-access-section" aria-labelledby="quickAccessTitle">
             <div class="container">
-                <h2 class="section-title">Быстрый доступ</h2>
-                <div class="quick-access-grid">
-                    <a href="pages/support/" class="quick-access-item">
-                        <div class="quick-icon">
+                <header class="section-header">
+                    <h2 id="quickAccessTitle" class="section-title">Быстрый доступ</h2>
+                </header>
+                
+                <div class="quick-access-grid" role="navigation" aria-label="Быстрый доступ к популярным разделам">
+                    
+                    <!-- FAQ и поддержка -->
+                    <a href="pages/support/" class="quick-access-item" aria-label="Перейти к часто задаваемым вопросам и поддержке">
+                        <div class="quick-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
                             </svg>
@@ -441,24 +491,33 @@
                         <div class="quick-description">Ответы на частые вопросы</div>
                     </a>
 
-                    <a href="#search" class="quick-access-item" onclick="toggleSearch()">
-                        <div class="quick-icon">
+                    <!-- Поиск по сайту -->
+                    <button class="quick-access-item" onclick="toggleSearch()" aria-label="Открыть поиск по сайту">
+                        <div class="quick-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
                             </svg>
                         </div>
                         <div class="quick-title">Поиск по сайту</div>
                         <div class="quick-description">Найти нужную информацию</div>
-                    </a>                    <a href="pages/support/contacts/" class="quick-access-item">
-                        <div class="quick-icon">
+                    </button>
+
+                    <!-- Контакты -->
+                    <a href="pages/support/contacts/" class="quick-access-item" aria-label="Перейти к контактной информации">
+                        <div class="quick-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                             </svg>
                         </div>
                         <div class="quick-title">Контакты</div>
                         <div class="quick-description">Связаться с авторами</div>
-                    </a>                    <button class="quick-access-item" id="startQuizBtn" style="background: linear-gradient(135deg, #4a9058 0%, #2d5e2f 100%); color: white; border: none;">
-                        <div class="quick-icon">
+                    </a>
+
+                    <!-- Тест совместимости -->
+                    <button class="quick-access-item university-quiz-btn" 
+                            id="startQuizBtn" 
+                            aria-label="Пройти тест на совместимость с университетом">
+                        <div class="quick-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
                             </svg>
@@ -467,8 +526,12 @@
                         <div class="quick-description">Пройти тест и узнать рекомендуемые факультеты</div>
                     </button>
 
-                    <button class="quick-access-item pwa-install-btn" id="pwa-install-main-btn" style="background: linear-gradient(135deg, #1E5AA8 0%, #2974D1 100%); color: white; border: none; display: none;">
-                        <div class="quick-icon">
+                    <!-- PWA установка -->
+                    <button class="quick-access-item pwa-install-btn" 
+                            id="pwaInstallMainBtn" 
+                            style="display: none;" 
+                            aria-label="Установить приложение на устройство">
+                        <div class="quick-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />
                             </svg>
@@ -479,75 +542,95 @@
                 </div>
             </div>
         </section>
-    </main>    <!-- Footer -->
-    <footer id="footer"></footer>    <!-- JavaScript files -->
+    </main>    <!-- ================================ -->
+    <!-- ПОДВАЛ САЙТА                     -->
+    <!-- ================================ -->
+    <footer id="mainFooter" class="main-footer"></footer>
+
+    <!-- ================================ -->
+    <!-- JAVASCRIPT ФАЙЛЫ                 -->
+    <!-- ================================ -->
+    
+    <!-- Базовые утилиты -->
     <script src="js/utils.js"></script>
     <script src="js/search-modal.js"></script>
-    <script src="js/navigation.js"></script>    <script src="js/animations.js"></script>
+    <script src="js/navigation.js"></script>
+    
+    <!-- Интерактивные компоненты -->
+    <script src="js/animations.js"></script>
     <script src="js/timeline.js"></script>
     <script src="js/important-dates.js"></script>
     <script src="js/university-quiz.js"></script>
+    
+    <!-- SEO и PWA -->
     <script src="js/seo-utils.js"></script>
     <script src="js/pwa.js"></script>
-    <script src="js/main.js"></script>
     
-    <!-- Структурированные данные JSON-LD -->
+    <!-- Основной скрипт -->
+    <script src="js/main.js"></script>
+
+    <!-- ================================ -->
+    <!-- СТРУКТУРИРОВАННЫЕ ДАННЫЕ         -->
+    <!-- ================================ -->
+    
+    <!-- Информация об университете -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "EducationalOrganization",
-      "name": "РГАУ-МСХА имени К.А. Тимирязева",
-      "alternateName": "Российский государственный аграрный университет - МСХА имени К.А. Тимирязева",
-      "url": "https://www.timacad.ru",
-      "logo": "https://rgau-guide.ru/images/logo/university-logo.png",
-      "image": "https://rgau-guide.ru/images/og-image.jpg",
-      "description": "Ведущий аграрный университет России, основанный в 1865 году",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Тимирязевская ул., 49",
-        "addressLocality": "Москва",
-        "postalCode": "127550",
-        "addressCountry": "RU"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+7-499-976-24-90",
-        "contactType": "customer service",
-        "areaServed": "RU",
-        "availableLanguage": "Russian"
-      },
-      "sameAs": [
-        "https://vk.com/timacad",
-        "https://t.me/timacad",
-        "https://youtube.com/timacad"
-      ]
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "РГАУ-МСХА имени К.А. Тимирязева",
+        "alternateName": "Российский государственный аграрный университет - МСХА имени К.А. Тимирязева",
+        "url": "https://www.timacad.ru",
+        "logo": "https://rgau-guide.ru/images/logo/university-logo.png",
+        "image": "https://rgau-guide.ru/images/og-image.jpg",
+        "description": "Ведущий аграрный университет России, основанный в 1865 году",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Тимирязевская ул., 49",
+            "addressLocality": "Москва",
+            "postalCode": "127550",
+            "addressCountry": "RU"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+7-499-976-24-90",
+            "contactType": "customer service",
+            "areaServed": "RU",
+            "availableLanguage": "Russian"
+        },
+        "sameAs": [
+            "https://vk.com/timacad",
+            "https://t.me/timacad",
+            "https://youtube.com/timacad"
+        ]
     }
     </script>
     
+    <!-- Информация о сайте -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Справочник абитуриента РГАУ-МСХА",
-      "url": "https://rgau-guide.ru",
-      "description": "Полный гайд для поступающих в РГАУ-МСХА имени К.А. Тимирязева",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Студенты РГАУ-МСХА"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://rgau-guide.ru/?search={search_term_string}"
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Справочник абитуриента РГАУ-МСХА",
+        "url": "https://rgau-guide.ru",
+        "description": "Полный гайд для поступающих в РГАУ-МСХА имени К.А. Тимирязева",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Студенты РГАУ-МСХА"
         },
-        "query-input": "required name=search_term_string"
-      },
-      "about": {
-        "@type": "Thing",
-        "name": "Поступление в университет",
-        "description": "Информация о поступлении, общежитиях, стипендиях и студенческой жизни в РГАУ-МСХА"
-      }
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://rgau-guide.ru/?search={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        },
+        "about": {
+            "@type": "Thing",
+            "name": "Поступление в университет",
+            "description": "Информация о поступлении, общежитиях, стипендиях и студенческой жизни в РГАУ-МСХА"
+        }
     }
     </script>
 </body>

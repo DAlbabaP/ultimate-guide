@@ -213,7 +213,7 @@ const InfrastructureMap = {  // База данных объектов инфр�
     this.elements.container = document.querySelector('.infrastructure-map-container');
     this.elements.mapContainer = document.querySelector('.map-display');
     this.elements.filters = document.querySelector('.filter-buttons');
-    this.elements.placesList = document.getElementById('places-list');
+    this.elements.placesList = document.getElementById('placesList');
   },
   // Создание фильтров
   createFilters() {
@@ -342,7 +342,7 @@ const InfrastructureMap = {  // База данных объектов инфр�
     `;
 
     // Инициализируем карту Leaflet
-    const mapElement = document.getElementById('leaflet-map');
+    const mapElement = document.getElementById('leafletMap');
     
     // Координаты РГАУ-МСХА
     const universityCoords = [55.8198, 37.5355];

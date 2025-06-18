@@ -1,32 +1,55 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- ================================ -->
+    <!-- БАЗОВЫЕ МЕТА-ТЕГИ               -->
+    <!-- ================================ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="manifest" href="../../../manifest.json">
     <title>Военкомат для студентов РГАУ-МСХА 2025 | Справочник студента</title>
     <meta name="description" content="Военкомат для студентов РГАУ-МСХА: постановка на учет, документы, адреса военкоматов, взаимодействие с призывной комиссией для общажников и иногородних.">
-    <meta name="keywords" content="военкомат РГАУ-МСХА, постановка на учет, призывная комиссия, документы военкомат, общажники, иногородние студенты">    <!-- PWA мета-теги -->
+    <meta name="keywords" content="военкомат РГАУ-МСХА, постановка на учет, призывная комиссия, документы военкомат, общажники, иногородние студенты">
+    <meta name="author" content="Студенты РГАУ-МСХА">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rgau-guide.ru/pages/military/military-office/">
+
+    <!-- ================================ -->
+    <!-- PWA И МОБИЛЬНЫЕ НАСТРОЙКИ        -->
+    <!-- ================================ -->
     <meta name="theme-color" content="#2F5E2F">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Военкомат для студентов">
+    <meta name="msapplication-TileColor" content="#2F5E2F">
+    <meta name="msapplication-tap-highlight" content="no">
     
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="../../../manifest.json">
+
+    <!-- ================================ -->
+    <!-- СОЦИАЛЬНЫЕ СЕТИ И SEO            -->
+    <!-- ================================ -->
     
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ргау-справочник.рф/pages/military/military-office/">
+    <!-- Open Graph метатеги -->
     <meta property="og:title" content="Военкомат для студентов РГАУ-МСХА 2025">
     <meta property="og:description" content="Постановка на учет в военкомате, документы и взаимодействие с призывной комиссией для студентов">
     <meta property="og:image" content="../../../images/og-military-office.jpg">
-    <meta property="og:site_name" content="Справочник студента РГАУ-МСХА">
+    <meta property="og:url" content="https://rgau-guide.ru/pages/military/military-office/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Справочник РГАУ-МСХА">
+    <meta property="og:locale" content="ru_RU">
     
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://ргау-справочник.рф/pages/military/military-office/">
-    <meta property="twitter:title" content="Военкомат для студентов МСХА">
-    <meta property="twitter:description" content="Постановка на учет и взаимодействие с военкоматом">
-    <meta property="twitter:image" content="../../../images/og-military-office.jpg">
+    <!-- Twitter Card метатеги -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@rgau_guide">
+    <meta name="twitter:title" content="Военкомат для студентов МСХА">
+    <meta name="twitter:description" content="Постановка на учет и взаимодействие с военкоматом">
+    <meta name="twitter:image" content="../../../images/og-military-office.jpg">
+
+    <!-- ================================ -->
+    <!-- СТИЛИ И ИКОНКИ                   -->
+    <!-- ================================ -->
     <link rel="stylesheet" href="../../../css/styles.css">
     <link rel="stylesheet" href="../../../css/header.css">
     <link rel="stylesheet" href="../../../css/footer.css">
@@ -34,32 +57,45 @@
     <link rel="stylesheet" href="../../../css/pages.css">
     <link rel="stylesheet" href="../../../css/military-office.css">
     <link rel="stylesheet" href="../../../css/pwa.css">
+    
+    <!-- Веб-шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>    <!-- Header -->
-    <header id="header"></header>
+<body>
+    <!-- ================================ -->
+    <!-- HEADER                           -->
+    <!-- ================================ -->
+    <header id="mainHeader" role="banner">
+        <div id="header-placeholder"></div>
+    </header>
 
-    <!-- Hero секция -->
-    <section class="military-office-hero">
+    <!-- ================================ -->
+    <!-- HERO СЕКЦИЯ                      -->
+    <!-- ================================ -->
+    <section class="military-office-hero" role="banner">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-icon">🏢</div>
+                <div class="hero-icon" role="img" aria-label="Здание военкомата">🏢</div>
                 <h1>Военкомат для общажников</h1>
                 <p class="hero-subtitle">Полная инструкция по прикреплению к Тимирязевскому военкомату для студентов из других городов</p>
                 <div class="hero-warning">
-                    <div class="warning-icon">⚠️</div>
+                    <div class="warning-icon" role="img" aria-label="Важное предупреждение">⚠️</div>
                     <p>Обязательно для студентов из других городов, планирующих поступление на военную кафедру</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Основная информация -->
-    <section class="main-content">
+    <!-- ================================ -->
+    <!-- ОСНОВНОЕ СОДЕРЖИМОЕ              -->
+    <!-- ================================ -->
+    <section class="main-content" role="main">
         <div class="container">
-            <!-- Зачем нужно прикрепляться -->
+            <!-- ========================== -->
+            <!-- ЗАЧЕМ ПРИКРЕПЛЯТЬСЯ        -->
+            <!-- ========================== -->
             <div class="section-card why-section">
                 <div class="section-header">
                     <h2>🤔 Зачем прикрепляться к Тимирязевскому военкомату?</h2>
@@ -67,15 +103,14 @@
                 <div class="section-content">
                     <p class="intro-text">Если вы приехали жить в общежитие из других городов, находящихся далеко от Москвы, вам следует прикрепиться к Тимирязевскому военкомату.</p>
                     
-                    <div class="reasons-grid">
-                        <div class="reason-card priority">
-                            <div class="reason-icon">🎯</div>
+                    <div class="reasons-grid" role="list">
+                        <div class="reason-card priority" role="listitem">
+                            <div class="reason-icon" role="img" aria-label="Приоритет">🎯</div>
                             <h3>Поступление на ВУЦ</h3>
                             <p>При поступлении на военную кафедру вам могут отказать из-за того, что ваш военкомат находится далеко от Москвы</p>
-                        </div>
-                        
-                        <div class="reason-card legal">
-                            <div class="reason-icon">⚖️</div>
+                        </div>                        
+                        <div class="reason-card legal" role="listitem">
+                            <div class="reason-icon" role="img" aria-label="Юридические вопросы">⚖️</div>
                             <h3>Избежание штрафов</h3>
                             <p>Существует риск получить административные штрафы за несоблюдение требований военного учета</p>
                         </div>
@@ -83,34 +118,36 @@
                 </div>
             </div>
 
-            <!-- Штрафы и наказания -->
+            <!-- ========================== -->
+            <!-- ВОЗМОЖНЫЕ ШТРАФЫ           -->
+            <!-- ========================== -->
             <div class="section-card penalties-section">
                 <div class="section-header">
                     <h2>💰 Возможные штрафы</h2>
                 </div>
                 <div class="section-content">
-                    <div class="penalties-table">
-                        <div class="table-header">
-                            <div class="header-cell action">Нарушение</div>
-                            <div class="header-cell penalty">Штраф</div>
+                    <div class="penalties-table" role="table">
+                        <div class="table-header" role="row">
+                            <div class="header-cell action" role="columnheader">Нарушение</div>
+                            <div class="header-cell penalty" role="columnheader">Штраф</div>
                         </div>
                         
-                        <div class="table-row">
-                            <div class="cell action">
+                        <div class="table-row" role="row">
+                            <div class="cell action" role="cell">
                                 <h4>Несообщение об изменениях</h4>
                                 <p>Семейного положения, образования, места работы/учёбы, должности, переезда на новое место пребывания</p>
                             </div>
-                            <div class="cell penalty">
+                            <div class="cell penalty" role="cell">
                                 <span class="penalty-amount">1 000 - 5 000₽</span>
                             </div>
                         </div>
                         
-                        <div class="table-row">
-                            <div class="cell action">
+                        <div class="table-row" role="row">
+                            <div class="cell action" role="cell">
                                 <h4>Несообщение о выезде</h4>
                                 <p>О выезде в период проведения призыва на срок более 3-х месяцев с места жительства или пребывания</p>
                             </div>
-                            <div class="cell penalty">
+                            <div class="cell penalty" role="cell">
                                 <span class="penalty-amount high">10 000 - 20 000₽</span>
                             </div>
                         </div>
@@ -118,47 +155,49 @@
                 </div>
             </div>
 
-            <!-- Пошаговая инструкция -->
+            <!-- ========================== -->
+            <!-- ПОШАГОВАЯ ИНСТРУКЦИЯ       -->
+            <!-- ========================== -->
             <div class="section-card instruction-section">
                 <div class="section-header">
                     <h2>📋 Пошаговая инструкция</h2>
                 </div>
                 <div class="section-content">
-                    <div class="instruction-timeline">
-                        <div class="timeline-step">
-                            <div class="step-number">1</div>
+                    <div class="instruction-timeline" role="list">
+                        <div class="timeline-step" role="listitem">
+                            <div class="step-number" aria-label="Шаг 1">1</div>
                             <div class="step-content">
                                 <h3>Выписка из приказа</h3>
                                 <p>Придите в директорат и закажите выписку из приказа о зачислении с предоставлением общежития с гербовой печатью</p>
                                 <div class="step-details">
                                     <div class="detail-item time">
-                                        <span class="detail-icon">⏰</span>
+                                        <span class="detail-icon" role="img" aria-label="Время">⏰</span>
                                         <span>Срок изготовления: больше недели</span>
                                     </div>
                                     <div class="detail-item location">
-                                        <span class="detail-icon">📍</span>
+                                        <span class="detail-icon" role="img" aria-label="Место">📍</span>
                                         <span>Место: Директорат университета</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="timeline-step">
-                            <div class="step-number">2</div>
+                        <div class="timeline-step" role="listitem">
+                            <div class="step-number" aria-label="Шаг 2">2</div>
                             <div class="step-content">
                                 <h3>Приложение №4 (отсрочка)</h3>
                                 <p>Идите в 26 корпус, 3 этаж, кабинет 307. Заполните документ для оформления приложения №4, которое даёт отсрочку по учёбе</p>
                                 <div class="step-details">
                                     <div class="detail-item location">
-                                        <span class="detail-icon">📍</span>
+                                        <span class="detail-icon" role="img" aria-label="Место">📍</span>
                                         <span>26 корпус, 3 этаж, кабинет 307</span>
                                     </div>
                                     <div class="detail-item time">
-                                        <span class="detail-icon">⏰</span>
+                                        <span class="detail-icon" role="img" aria-label="Время">⏰</span>
                                         <span>Оформление: неделя или больше</span>
                                     </div>
                                     <div class="detail-item note">
-                                        <span class="detail-icon">📝</span>
+                                        <span class="detail-icon" role="img" aria-label="Заметка">📝</span>
                                         <span>Жёлтый листок справа от двери</span>
                                     </div>
                                 </div>
@@ -407,10 +446,9 @@
                         block: 'start'
                     });
                 }
-            });
-        });
+            });        });
 
-        // Animation on scroll
+        // Анимация при прокрутке
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -429,7 +467,7 @@
             observer.observe(el);
         });
 
-        // Highlight active timeline step on scroll
+        // Подсветка активного шага при прокрутке
         const timelineSteps = document.querySelectorAll('.timeline-step');
         const highlightActiveStep = () => {
             const scrollPos = window.scrollY + window.innerHeight / 2;
@@ -446,23 +484,40 @@
             });
         };
 
-        window.addEventListener('scroll', highlightActiveStep);        highlightActiveStep(); // Initial call
+        window.addEventListener('scroll', highlightActiveStep);
+        highlightActiveStep(); // Изначальный вызов
     </script>
 
-    <!-- Footer -->
-    <footer id="footer"></footer>    <!-- JavaScript files -->
+    <!-- ================================ -->
+    <!-- FOOTER                           -->
+    <!-- ================================ -->
+    <footer id="mainFooter" role="contentinfo">
+        <div id="footer-placeholder"></div>
+    </footer>
+
+    <!-- ================================ -->
+    <!-- СКРИПТЫ                          -->
+    <!-- ================================ -->
+    
+    <!-- Основные утилиты -->
     <script src="../../../js/utils.js"></script>
     <script src="../../../js/search-modal.js"></script>
     <script src="../../../js/navigation.js"></script>
     <script src="../../../js/pwa.js"></script>
     <script src="../../../js/main.js"></script>
+    
+    <!-- SEO утилиты -->
     <script src="../../../js/seo-utils.js"></script>
     
-    <!-- SEO structured data -->
+    <!-- ================================ -->
+    <!-- СТРУКТУРИРОВАННЫЕ ДАННЫЕ         -->
+    <!-- ================================ -->
     <script type="application/ld+json" id="structured-data"></script>
     <script>
         // Инициализация SEO для страницы военкомата
         initializeSEO('military-office', 'Военкомат для студентов РГАУ-МСХА');
     </script>
+</body>
+</html>
 </body>
 </html>

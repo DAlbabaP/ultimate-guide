@@ -1,32 +1,55 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <!-- ================================ -->
+    <!-- БАЗОВЫЕ МЕТА-ТЕГИ               -->
+    <!-- ================================ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="manifest" href="../../../manifest.json">
     <title>Отсрочка от армии для студентов РГАУ-МСХА 2025 | Справочник студента</title>
     <meta name="description" content="Отсрочка от армии в РГАУ-МСХА: условия получения, документы, сроки действия, возможные проблемы и как сохранить отсрочку на весь период обучения.">
-    <meta name="keywords" content="отсрочка от армии РГАУ-МСХА, призыв студентов, военкомат МСХА, документы отсрочка, условия получения">    <!-- PWA мета-теги -->
+    <meta name="keywords" content="отсрочка от армии РГАУ-МСХА, призыв студентов, военкомат МСХА, документы отсрочка, условия получения">
+    <meta name="author" content="Студенты РГАУ-МСХА">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rgau-guide.ru/pages/military/deferment/">
+
+    <!-- ================================ -->
+    <!-- PWA И МОБИЛЬНЫЕ НАСТРОЙКИ        -->
+    <!-- ================================ -->
     <meta name="theme-color" content="#2F5E2F">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Отсрочка от армии">
+    <meta name="msapplication-TileColor" content="#2F5E2F">
+    <meta name="msapplication-tap-highlight" content="no">
     
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="../../../manifest.json">
+
+    <!-- ================================ -->
+    <!-- СОЦИАЛЬНЫЕ СЕТИ И SEO            -->
+    <!-- ================================ -->
     
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ргау-справочник.рф/pages/military/deferment/">
+    <!-- Open Graph метатеги -->
     <meta property="og:title" content="Отсрочка от армии для студентов РГАУ-МСХА 2025">
     <meta property="og:description" content="Условия получения отсрочки от армии, документы и как сохранить её на весь период обучения">
     <meta property="og:image" content="../../../images/og-deferment.jpg">
-    <meta property="og:site_name" content="Справочник студента РГАУ-МСХА">
+    <meta property="og:url" content="https://rgau-guide.ru/pages/military/deferment/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Справочник РГАУ-МСХА">
+    <meta property="og:locale" content="ru_RU">
     
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://ргау-справочник.рф/pages/military/deferment/">
-    <meta property="twitter:title" content="Отсрочка от армии МСХА">
-    <meta property="twitter:description" content="Как получить и сохранить отсрочку от армии">
-    <meta property="twitter:image" content="../../../images/og-deferment.jpg">
+    <!-- Twitter Card метатеги -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@rgau_guide">
+    <meta name="twitter:title" content="Отсрочка от армии МСХА">
+    <meta name="twitter:description" content="Как получить и сохранить отсрочку от армии">
+    <meta name="twitter:image" content="../../../images/og-deferment.jpg">
+
+    <!-- ================================ -->
+    <!-- СТИЛИ И ИКОНКИ                   -->
+    <!-- ================================ -->
     <link rel="stylesheet" href="../../../css/styles.css">
     <link rel="stylesheet" href="../../../css/header.css">
     <link rel="stylesheet" href="../../../css/footer.css">
@@ -34,30 +57,39 @@
     <link rel="stylesheet" href="../../../css/pages.css">
     <link rel="stylesheet" href="../../../css/deferment.css">
     <link rel="stylesheet" href="../../../css/pwa.css">
+    
+    <!-- Веб-шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>    <!-- Header -->
-    <header id="header"></header>
+<body>
+    <!-- ================================ -->
+    <!-- HEADER                           -->
+    <!-- ================================ -->
+    <header id="mainHeader" role="banner">
+        <div id="header-placeholder"></div>
+    </header>
 
-    <!-- Hero секция -->
-    <section class="deferment-hero">
+    <!-- ================================ -->
+    <!-- HERO СЕКЦИЯ                      -->
+    <!-- ================================ -->
+    <section class="deferment-hero" role="banner">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-icon">🛡️</div>
+                <div class="hero-icon" role="img" aria-label="Символ защиты">🛡️</div>
                 <h1>Отсрочка от армии</h1>
                 <p class="hero-subtitle">Полная инструкция по оформлению отсрочки от призыва на военную службу для студентов</p>
-                <div class="hero-stats">
-                    <div class="stat-item">
+                <div class="hero-stats" role="list">
+                    <div class="stat-item" role="listitem">
                         <span class="stat-number">10-14</span>
                         <span class="stat-label">дней оформление</span>
                     </div>
-                    <div class="stat-item">
+                    <div class="stat-item" role="listitem">
                         <span class="stat-number">27</span>
                         <span class="stat-label">учебный корпус</span>
                     </div>
-                    <div class="stat-item">
+                    <div class="stat-item" role="listitem">
                         <span class="stat-number">102</span>
                         <span class="stat-label">кабинет</span>
                     </div>
@@ -66,11 +98,15 @@
         </div>
     </section>
 
-    <!-- Основная информация -->
-    <section class="main-content">
+    <!-- ================================ -->
+    <!-- ОСНОВНОЕ СОДЕРЖИМОЕ              -->
+    <!-- ================================ -->
+    <section class="main-content" role="main">
         <div class="container">
             <div class="content-grid">
-                <!-- Что такое отсрочка -->
+                <!-- ========================== -->
+                <!-- ЧТО ТАКОЕ ОТСРОЧКА         -->
+                <!-- ========================== -->
                 <div class="info-card primary">
                     <div class="card-header">
                         <h2>📋 Что такое отсрочка от армии</h2>
@@ -79,7 +115,7 @@
                         <p>Отсрочка от армии - это официальное документальное подтверждение права студента не проходить военную службу в период обучения в высшем учебном заведении.</p>
                         
                         <div class="highlight-box warning">
-                            <div class="highlight-icon">⚠️</div>
+                            <div class="highlight-icon" role="img" aria-label="Важное предупреждение">⚠️</div>
                             <div class="highlight-content">
                                 <h3>Важное уточнение о сроках</h3>
                                 <p><strong>Отсрочка действует НЕ календарный год, а учебный период:</strong></p>
@@ -89,7 +125,9 @@
                     </div>
                 </div>
 
-                <!-- Пошаговая инструкция -->
+                <!-- ========================== -->
+                <!-- ПОШАГОВАЯ ИНСТРУКЦИЯ       -->
+                <!-- ========================== -->
                 <div class="info-card">
                     <div class="card-header">
                         <h2>📝 Пошаговая инструкция</h2>
@@ -97,7 +135,7 @@
                     <div class="card-content">
                         <div class="step-timeline">
                             <div class="step-item">
-                                <div class="step-number">1</div>
+                                <div class="step-number" aria-label="Шаг 1">1</div>
                                 <div class="step-content">
                                     <h3>Подготовка документов</h3>
                                     <p>Соберите необходимые документы для подачи заявления</p>
@@ -402,14 +440,74 @@
             observer.observe(el);        });
     </script>
 
-    <!-- Footer -->
-    <footer id="footer"></footer>    <!-- JavaScript files -->
+    <!-- ================================ -->
+    <!-- FOOTER                           -->
+    <!-- ================================ -->
+    <footer id="mainFooter" role="contentinfo">
+        <div id="footer-placeholder"></div>
+    </footer>
+
+    <!-- ================================ -->
+    <!-- СКРИПТЫ                          -->
+    <!-- ================================ -->
+    
+    <!-- Основные утилиты -->
     <script src="../../../js/utils.js"></script>
     <script src="../../../js/navigation.js"></script>
-    <script src="../../../js/main.js"></script>
+    <script src="../../../js/main.js"></script>   
+    <script src="../../../js/search-modal.js"></script>
+    <script src="../../../js/animations.js"></script>
+    <script src="../../../js/timeline.js"></script>
+
+    <!-- FAQ функциональность -->
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                const toggle = question.querySelector('.faq-toggle');
+                
+                if (faqItem.classList.contains('active')) {
+                    faqItem.classList.remove('active');
+                    toggle.textContent = '+';
+                    toggle.setAttribute('aria-expanded', 'false');
+                } else {
+                    // Close all other FAQ items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                        const itemToggle = item.querySelector('.faq-toggle');
+                        itemToggle.textContent = '+';
+                        itemToggle.setAttribute('aria-expanded', 'false');
+                    });
+                    
+                    faqItem.classList.add('active');
+                    toggle.textContent = '−';
+                    toggle.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // Плавная прокрутка для навигации
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'                    });
+                }
+            });
+        });
+    </script>
+    
+    <!-- SEO утилиты -->
     <script src="../../../js/seo-utils.js"></script>
     
-    <!-- SEO structured data -->
+    <!-- ================================ -->
+    <!-- СТРУКТУРИРОВАННЫЕ ДАННЫЕ         -->
+    <!-- ================================ -->
     <script type="application/ld+json" id="structured-data"></script>
     <script>
         // Инициализация SEO для страницы отсрочки от армии
