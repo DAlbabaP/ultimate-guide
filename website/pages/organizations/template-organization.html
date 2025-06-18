@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- ================================ -->
+    <!-- БАЗОВЫЕ МЕТА-ТЕГИ               -->
+    <!-- ================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[НАЗВАНИЕ ОРГАНИЗАЦИИ] | Студенческие организации РГАУ-МСХА</title>
+    <meta name="description" content="[ОПИСАНИЕ ОРГАНИЗАЦИИ] - студенческая организация РГАУ-МСХА имени К.А. Тимирязева">
+    <meta name="keywords" content="РГАУ-МСХА, студенческие организации, [КЛЮЧЕВЫЕ СЛОВА], университет, студент">
+    <meta name="author" content="Студенты РГАУ-МСХА">
+    <meta name="robots" content="index, follow">
+
+    <!-- ================================ -->
+    <!-- PWA И МОБИЛЬНЫЕ НАСТРОЙКИ        -->
+    <!-- ================================ -->
+    <meta name="theme-color" content="#2F5E2F">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="РГАУ Гайд">
+    <meta name="msapplication-TileColor" content="#2F5E2F">
+    <meta name="msapplication-tap-highlight" content="no">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="../../manifest.json">
+
+    <!-- ================================ -->
+    <!-- СОЦИАЛЬНЫЕ СЕТИ И SEO            -->
+    <!-- ================================ -->
+    
+    <!-- Open Graph метатеги -->
+    <meta property="og:title" content="[НАЗВАНИЕ ОРГАНИЗАЦИИ] | Студенческие организации РГАУ-МСХА">
+    <meta property="og:description" content="[ОПИСАНИЕ ОРГАНИЗАЦИИ] - студенческая организация РГАУ-МСХА имени К.А. Тимирязева">
+    <meta property="og:image" content="[ССЫЛКА НА БАННЕР ОРГАНИЗАЦИИ]">
+    <meta property="og:url" content="[URL СТРАНИЦЫ]">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Справочник РГАУ-МСХА">
+    <meta property="og:locale" content="ru_RU">
+    
+    <!-- Twitter Card метатеги -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@rgau_guide">
+    <meta name="twitter:title" content="[НАЗВАНИЕ ОРГАНИЗАЦИИ] | РГАУ-МСХА">
+    <meta name="twitter:description" content="[ОПИСАНИЕ ОРГАНИЗАЦИИ]">
+    <meta name="twitter:image" content="[ССЫЛКА НА БАННЕР ОРГАНИЗАЦИИ]">
+
+    <!-- ================================ -->
+    <!-- ИКОНКИ И ФАВИКОНЫ                -->
+    <!-- ================================ -->
+    <link rel="icon" type="image/png" href="../../images/logo/192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/logo/192.png">
+
+    <!-- ================================ -->
+    <!-- СТИЛИ CSS                        -->
+    <!-- ================================ -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/header-search.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="../../css/navigation.css">
+    <link rel="stylesheet" href="../../css/cards.css">
+    <link rel="stylesheet" href="../../css/organizations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/pwa.css">
+
+    <!-- ================================ -->
+    <!-- МИКРОРАЗМЕТКА JSON-LD            -->
+    <!-- ================================ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "[НАЗВАНИЕ ОРГАНИЗАЦИИ]",
+      "description": "[ОПИСАНИЕ ОРГАНИЗАЦИИ]",
+      "url": "[URL СТРАНИЦЫ]",
+      "logo": "[ССЫЛКА НА ЛОГОТИП]",
+      "parentOrganization": {
+        "@type": "EducationalOrganization",
+        "name": "РГАУ-МСХА имени К.А. Тимирязева",
+        "url": "https://timacad.ru"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Социальные сети",
+        "url": "[ССЫЛКА НА КОНТАКТЫ]"
+      }
+    }
+    </script>
+</head>
+<body class="organization-page">
+    <!-- ================================ -->
+    <!-- ШАПКА САЙТА                      -->
+    <!-- ================================ -->
+    <header id="mainHeader" class="main-header"></header>
+
+    <!-- ================================ -->
+    <!-- ОСНОВНОЙ КОНТЕНТ                 -->
+    <!-- ================================ -->
+    <main class="main-content">
+        
+        <!-- ================================ -->
+        <!-- ГЕРОИЧЕСКАЯ СЕКЦИЯ ОРГАНИЗАЦИИ   -->
+        <!-- ================================ -->
+        <section class="organization-hero fade-in">
+            <div class="container">
+                <div class="organization-hero__content">
+                    <div class="organization-hero__logo">
+                        <img src="[ПУТЬ К ЛОГОТИПУ]" alt="[НАЗВАНИЕ ОРГАНИЗАЦИИ] - логотип">
+                    </div>
+                    <div class="organization-hero__info">
+                        <h1>[НАЗВАНИЕ ОРГАНИЗАЦИИ]</h1>
+                        <p>[КРАТКОЕ ОПИСАНИЕ ОРГАНИЗАЦИИ]</p>
+                        <div class="organization-hero__actions">
+                            <a href="#join" class="btn btn-primary">Присоединиться</a>
+                            <a href="#contacts" class="btn btn-secondary">Связаться с нами</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================ -->
+        <!-- ОСНОВНОЙ КОНТЕНТ ОРГАНИЗАЦИИ     -->
+        <!-- ================================ -->
+        <section class="organization-content">
+            <div class="container">
+                <div class="organization-grid">
+                    <!-- Левая колонка - основная информация -->
+                    <div class="organization-main">
+                        
+                        <!-- Обращение председателя/лидера -->
+                        <div class="content-block leader-message fade-in">
+                            <h2>Обращение руководителя</h2>
+                            <div class="leader-info">
+                                <div class="leader-photo">
+                                    <img src="[ПУТЬ К ФОТО ЛИДЕРА]" alt="[ИМЯ ЛИДЕРА]">
+                                </div>
+                                <div class="leader-details">
+                                    <h3>[ИМЯ ЛИДЕРА]</h3>
+                                    <div class="position">[ДОЛЖНОСТЬ ЛИДЕРА]</div>
+                                </div>
+                            </div>
+                            <blockquote class="leader-quote">
+                                "[ЦИТАТА ИЛИ ОБРАЩЕНИЕ ЛИДЕРА ОРГАНИЗАЦИИ]"
+                            </blockquote>
+                        </div>
+
+                        <!-- О нашей миссии -->
+                        <div class="content-block fade-in">
+                            <h2>Наша миссия</h2>
+                            <p>[ОПИСАНИЕ МИССИИ ОРГАНИЗАЦИИ]</p>
+                        </div>
+
+                        <!-- Что мы предлагаем -->
+                        <div class="content-block fade-in">
+                            <h2>Что мы предлагаем</h2>
+                            <div class="offers-grid">
+                                <div class="offer-card">
+                                    <div class="offer-icon">[ИКОНКА]</div>
+                                    <h4>[НАЗВАНИЕ ПРЕДЛОЖЕНИЯ]</h4>
+                                    <p>[ОПИСАНИЕ]</p>
+                                </div>
+                                <!-- Дублировать для каждого предложения -->
+                            </div>
+                        </div>
+
+                        <!-- Наши мероприятия -->
+                        <div class="content-block fade-in">
+                            <h2>Наши мероприятия</h2>
+                            <div class="events-list">
+                                <div class="event-item">
+                                    <h4>[НАЗВАНИЕ МЕРОПРИЯТИЯ]</h4>
+                                    <p>[ОПИСАНИЕ МЕРОПРИЯТИЯ]</p>
+                                </div>
+                                <!-- Дублировать для каждого мероприятия -->
+                            </div>
+                        </div>
+
+                        <!-- Галерея фотографий -->
+                        <div class="content-block fade-in">
+                            <h2>Наша деятельность в фотографиях</h2>
+                            <div class="photo-gallery">
+                                <img src="[ПУТЬ К ФОТО 1]" alt="[ОПИСАНИЕ ФОТО 1]">
+                                <img src="[ПУТЬ К ФОТО 2]" alt="[ОПИСАНИЕ ФОТО 2]">
+                                <img src="[ПУТЬ К ФОТО 3]" alt="[ОПИСАНИЕ ФОТО 3]">
+                                <!-- Добавить больше фотографий по необходимости -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Правая колонка - боковая информация -->
+                    <div class="organization-sidebar">
+                        
+                        <!-- Требования к участникам -->
+                        <div class="content-block fade-in">
+                            <h3>Требования к участникам</h3>
+                            <ul class="requirements-list">
+                                <li>[ТРЕБОВАНИЕ 1]</li>
+                                <li>[ТРЕБОВАНИЕ 2]</li>
+                                <li>[ТРЕБОВАНИЕ 3]</li>
+                                <!-- Добавить больше требований -->
+                            </ul>
+                        </div>
+
+                        <!-- Как присоединиться -->
+                        <div class="content-block fade-in" id="join">
+                            <h3>Как присоединиться</h3>
+                            <p>[ИНФОРМАЦИЯ О ТОМ, КАК СТАТЬ УЧАСТНИКОМ]</p>
+                        </div>
+
+                        <!-- Контактная информация -->
+                        <div class="content-block contact-info fade-in" id="contacts">
+                            <h3>Наши контакты</h3>
+                            <div class="contact-links">
+                                <a href="[ССЫЛКА НА ВК]" class="contact-link" target="_blank" rel="noopener">
+                                    <i>📱</i>
+                                    <span>ВКонтакте</span>
+                                </a>
+                                <a href="[ССЫЛКА НА ТЕЛЕГРАМ]" class="contact-link" target="_blank" rel="noopener">
+                                    <i>✈️</i>
+                                    <span>Telegram</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================================ -->
+    <!-- ПОДВАЛ САЙТА                     -->
+    <!-- ================================ -->
+    <footer id="mainFooter" class="main-footer"></footer>
+
+    <!-- ================================ -->
+    <!-- СКРИПТЫ                          -->
+    <!-- ================================ -->    <script src="../../js/utils.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/search.js"></script>
+    <script src="../../js/animations.js"></script>
+    <script src="../../js/organizations.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/pwa.js"></script>
+      <script>
+        // Инициализация приложения
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('🔧 Отладка загрузки компонентов...');
+            
+            // Сначала загружаем компоненты вручную
+            try {
+                // Загружаем хедер
+                const headerResponse = await fetch('../../components/header.html');
+                if (headerResponse.ok) {
+                    const headerHtml = await headerResponse.text();
+                    document.getElementById('mainHeader').innerHTML = headerHtml;
+                    console.log('✅ Хедер загружен');
+                } else {
+                    console.error('❌ Ошибка загрузки хедера:', headerResponse.status);
+                }
+                
+                // Загружаем футер
+                const footerResponse = await fetch('../../components/footer.html');
+                if (footerResponse.ok) {
+                    const footerHtml = await footerResponse.text();
+                    document.getElementById('mainFooter').innerHTML = footerHtml;
+                    console.log('✅ Футер загружен');
+                } else {
+                    console.error('❌ Ошибка загрузки футера:', footerResponse.status);
+                }
+                
+                // Инициализируем приложение после загрузки компонентов
+                if (typeof App !== 'undefined') {
+                    App.init();
+                }
+                
+            } catch (error) {
+                console.error('❌ Ошибка загрузки компонентов:', error);
+            }
+            
+            // Добавляем анимации при загрузке страницы
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

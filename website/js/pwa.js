@@ -206,22 +206,25 @@ const PWA = {  // Конфигурация
     }
 
     try {
-      // Сначала проверим существующую регистрацию
+      // Проверяем существующую регистрацию
       const existingRegistration = await navigator.serviceWorker.getRegistration();
-      if (existingRegistration) {
-        console.log('🔄 Используем существующую регистрацию SW');
-        this.state.swRegistration = existingRegistration;
-        this.setupSWHandlers(existingRegistration);
-        return;
-      }
-
-      console.log('🔄 Регистрация нового Service Worker по пути:', this.config.swPath);
+      
+      console.log('🔄 Регистрация Service Worker по пути:', this.config.swPath);
       const registration = await navigator.serviceWorker.register(this.config.swPath, {
-        scope: './'
+        scope: './',
+        // Принудительное обновление при каждой загрузке в режиме разработки
+        updateViaCache: 'none'
       });
       
       this.state.swRegistration = registration;
       console.log('✅ Service Worker зарегистрирован:', registration);
+      
+      // Принудительно проверяем обновления
+      registration.update().then(() => {
+        console.log('🔄 Проверка обновлений Service Worker завершена');
+      }).catch(error => {
+        console.log('⚠️ Ошибка при проверке обновлений SW:', error);
+      });
       
       this.setupSWHandlers(registration);
 

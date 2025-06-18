@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- ================================ -->
+    <!-- БАЗОВЫЕ МЕТА-ТЕГИ               -->
+    <!-- ================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Студенческие организации | Справочник абитуриента РГАУ-МСХА</title>
+    <meta name="description" content="Студенческие организации РГАУ-МСХА имени К.А. Тимирязева. IT, наука, спорт, творчество, социальные проекты. Найди свое место в студенческой жизни университета.">
+    <meta name="keywords" content="РГАУ-МСХА, студенческие организации, клубы, кружки, университет, студент, внеучебная деятельность">
+    <meta name="author" content="Студенты РГАУ-МСХА">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rgau-guide.ru/pages/organizations/">
+
+    <!-- ================================ -->
+    <!-- PWA И МОБИЛЬНЫЕ НАСТРОЙКИ        -->
+    <!-- ================================ -->
+    <meta name="theme-color" content="#2F5E2F">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="РГАУ Гайд">
+    <meta name="msapplication-TileColor" content="#2F5E2F">
+    <meta name="msapplication-tap-highlight" content="no">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="../../manifest.json">
+
+    <!-- ================================ -->
+    <!-- СОЦИАЛЬНЫЕ СЕТИ И SEO            -->
+    <!-- ================================ -->
+    
+    <!-- Open Graph метатеги -->
+    <meta property="og:title" content="Студенческие организации | Справочник абитуриента РГАУ-МСХА">
+    <meta property="og:description" content="Студенческие организации РГАУ-МСХА имени К.А. Тимирязева. IT, наука, спорт, творчество, социальные проекты.">
+    <meta property="og:image" content="https://rgau-guide.ru/images/organizations-og.jpg">
+    <meta property="og:url" content="https://rgau-guide.ru/pages/organizations/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Справочник РГАУ-МСХА">
+    <meta property="og:locale" content="ru_RU">
+    
+    <!-- Twitter Card метатеги -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@rgau_guide">
+    <meta name="twitter:title" content="Студенческие организации | РГАУ-МСХА">
+    <meta name="twitter:description" content="Найди свое место в студенческой жизни университета">
+    <meta name="twitter:image" content="https://rgau-guide.ru/images/organizations-og.jpg">
+
+    <!-- ================================ -->
+    <!-- ИКОНКИ И ФАВИКОНЫ                -->
+    <!-- ================================ -->
+    <link rel="icon" type="image/png" href="../../images/logo/192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/logo/192.png">
+
+    <!-- ================================ -->
+    <!-- СТИЛИ CSS                        -->
+    <!-- ================================ -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/header-search.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="../../css/navigation.css">
+    <link rel="stylesheet" href="../../css/cards.css">
+    <link rel="stylesheet" href="../../css/organizations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="../../css/pwa.css">
+</head>
+<body>
+    <!-- ================================ -->
+    <!-- ШАПКА САЙТА                      -->
+    <!-- ================================ -->
+    <header id="mainHeader" class="main-header"></header>
+
+    <!-- ================================ -->
+    <!-- ОСНОВНОЙ КОНТЕНТ                 -->
+    <!-- ================================ -->
+    <main class="main-content">
+        
+        <!-- ================================ -->
+        <!-- ГЕРОИЧЕСКАЯ СЕКЦИЯ               -->
+        <!-- ================================ -->
+        <section class="hero-section" role="banner">
+            <div class="hero-background">
+                <div class="hero-overlay"></div>
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            Студенческие <span class="university-name">организации</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Найди свое место в активной студенческой жизни университета<br>
+                            Более 50 организаций в 6 направлениях деятельности
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#organizations" class="btn btn-primary" aria-label="Перейти к списку организаций">
+                                Просмотреть организации
+                            </a>
+                            <a href="#featured" class="btn btn-secondary" aria-label="Посмотреть рекомендуемые организации">
+                                Рекомендуемые
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================ -->
+        <!-- СТАТИСТИКА                       -->
+        <!-- ================================ -->
+        <section class="stats-section" aria-labelledby="statsTitle">
+            <div class="container">
+                <h2 id="statsTitle" class="sr-only">Статистика организаций</h2>
+                <div id="organizationsStats"></div>
+            </div>
+        </section>
+
+        <!-- ================================ -->
+        <!-- РЕКОМЕНДУЕМЫЕ ОРГАНИЗАЦИИ        -->
+        <!-- ================================ -->
+        <section class="featured-section" id="featured" aria-labelledby="featuredTitle">
+            <div class="container">
+                <h2 id="featuredTitle" class="section-title">Рекомендуемые организации</h2>
+                <p class="section-subtitle">Самые активные и популярные студенческие объединения университета</p>
+                
+                <div class="cards-grid" id="featuredOrganizations">
+                    <!-- Карточки рекомендуемых организаций будут загружены через JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================ -->
+        <!-- ВСЕ ОРГАНИЗАЦИИ                  -->
+        <!-- ================================ -->
+        <section class="organizations-section" id="organizations" aria-labelledby="organizationsTitle">
+            <div class="container">
+                <h2 id="organizationsTitle" class="section-title">Все студенческие организации</h2>
+                <p class="section-subtitle">Выбери направление, которое тебе интересно</p>
+                
+                <!-- Поиск по организациям -->
+                <div class="search-section">
+                    <div class="search-container">
+                        <input 
+                            type="text" 
+                            id="organizationSearch" 
+                            class="search-input" 
+                            placeholder="Поиск по названию или описанию..."
+                            aria-label="Поиск организаций"
+                        >
+                        <button class="search-button" aria-label="Начать поиск">
+                            🔍
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Фильтр по категориям -->
+                <div id="categoryFilter" class="filter-section">
+                    <!-- Фильтры будут загружены через JavaScript -->
+                </div>
+
+                <!-- Список организаций -->
+                <div class="cards-grid" id="organizationsList">
+                    <!-- Карточки организаций будут загружены через JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================================ -->
+    <!-- ПОДВАЛ САЙТА                     -->
+    <!-- ================================ -->
+    <footer id="mainFooter" class="main-footer"></footer>
+
+    <!-- ================================ -->
+    <!-- СКРИПТЫ                          -->
+    <!-- ================================ -->
+    <script src="../../js/utils.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/search.js"></script>
+    <script src="../../js/animations.js"></script>
+    <script src="../../js/organizations.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/pwa.js"></script>
+      <script>
+        // Инициализация приложения
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('🔧 Отладка загрузки компонентов...');
+            
+            // Сначала загружаем компоненты вручную
+            try {
+                // Загружаем хедер
+                const headerResponse = await fetch('../../components/header.html');
+                if (headerResponse.ok) {
+                    const headerHtml = await headerResponse.text();
+                    document.getElementById('mainHeader').innerHTML = headerHtml;
+                    console.log('✅ Хедер загружен');
+                } else {
+                    console.error('❌ Ошибка загрузки хедера:', headerResponse.status);
+                }
+                
+                // Загружаем футер
+                const footerResponse = await fetch('../../components/footer.html');
+                if (footerResponse.ok) {
+                    const footerHtml = await footerResponse.text();
+                    document.getElementById('mainFooter').innerHTML = footerHtml;
+                    console.log('✅ Футер загружен');
+                } else {
+                    console.error('❌ Ошибка загрузки футера:', footerResponse.status);
+                }
+                
+                // Инициализируем приложение после загрузки компонентов
+                if (typeof App !== 'undefined') {
+                    App.init();
+                }
+                
+                // Инициализация страницы организаций после загрузки данных
+                if (typeof OrganizationsManager !== 'undefined') {
+                    await OrganizationsManager.init();
+                    OrganizationsManager.initOrganizationsPage();
+                    
+                    // Загружаем рекомендуемые организации
+                    const featuredOrgs = OrganizationsManager.getFeaturedOrganizations();
+                    OrganizationsManager.createOrganizationsList(featuredOrgs, 'featuredOrganizations');
+                }
+                
+            } catch (error) {
+                console.error('❌ Ошибка загрузки компонентов:', error);
+            }
+        });
+    </script>
+
+    <!-- ================================ -->
+    <!-- МИКРОРАЗМЕТКА JSON-LD            -->
+    <!-- ================================ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Студенческие организации РГАУ-МСХА",
+      "description": "Каталог студенческих организаций РГАУ-МСХА имени К.А. Тимирязева по различным направлениям деятельности",
+      "url": "https://rgau-guide.ru/pages/organizations/",
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Студенческие организации",
+        "description": "Список активных студенческих организаций университета"
+      },
+      "publisher": {
+        "@type": "EducationalOrganization",
+        "name": "РГАУ-МСХА имени К.А. Тимирязева",
+        "url": "https://timacad.ru"
+      }
+    }
+    </script>
+</body>
+</html>

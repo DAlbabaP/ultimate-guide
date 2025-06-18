@@ -1,8 +1,10 @@
 // ===== SERVICE WORKER ДЛЯ PWA ФУНКЦИОНАЛЬНОСТИ =====
 
-const CACHE_NAME = 'rgau-guide-v1.0';
-const STATIC_CACHE_NAME = 'rgau-guide-static-v1.0';
-const DATA_CACHE_NAME = 'rgau-guide-data-v1.0';
+// Обновляем версии кешей при каждом изменении
+const CACHE_VERSION = '1.2.2';
+const CACHE_NAME = `rgau-guide-v${CACHE_VERSION}`;
+const STATIC_CACHE_NAME = `rgau-guide-static-v${CACHE_VERSION}`;
+const DATA_CACHE_NAME = `rgau-guide-data-v${CACHE_VERSION}`;
 
 // Файлы для кэширования при установке (критически важные для всех страниц)
 const STATIC_FILES = [
@@ -284,9 +286,34 @@ async function handleDocumentRequest(request) {
 
 // Обработка статических ресурсов
 async function handleStaticRequest(request) {
-  // Cache First стратегия для статических файлов
+  const url = new URL(request.url);
+  
+  // Для критически важных файлов (JS, CSS компонентов) используем Network First
+  const isCriticalFile = url.pathname.includes('/components/') || 
+                         url.pathname.includes('/js/navigation.js') ||
+                         url.pathname.includes('/js/main.js') ||
+                         url.pathname.includes('/js/utils.js') ||
+                         url.pathname.includes('/css/navigation.css') ||
+                         url.pathname.includes('/css/header.css');
+  
+  if (isCriticalFile) {
+    try {
+      // Network First для критических файлов
+      const networkResponse = await fetch(request);
+      if (networkResponse.ok) {
+        const cache = await caches.open(STATIC_CACHE_NAME);
+        cache.put(request, networkResponse.clone());
+        console.log('🔄 Критический файл обновлен из сети:', url.pathname);
+        return networkResponse;
+      }
+    } catch (error) {
+      console.log('🌐 Сеть недоступна для критического файла, используем кеш:', url.pathname);
+    }
+  }
+  
+  // Cache First стратегия для остальных статических файлов
   const cachedResponse = await caches.match(request);
-  if (cachedResponse) {
+  if (cachedResponse && !isCriticalFile) {
     return cachedResponse;
   }
   
@@ -299,6 +326,12 @@ async function handleStaticRequest(request) {
     }
   } catch (error) {
     console.log('❌ Ошибка загрузки статического ресурса:', request.url);
+  }
+  
+  // Если есть кешированная версия критического файла, используем её
+  if (isCriticalFile && cachedResponse) {
+    console.log('📦 Используем кешированную версию критического файла:', url.pathname);
+    return cachedResponse;
   }
   
   // Fallback для CSS файлов - возвращаем пустой CSS
