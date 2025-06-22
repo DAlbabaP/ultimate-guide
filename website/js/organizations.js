@@ -98,10 +98,9 @@ const OrganizationsManager = {
         </div>
         <div class="card__content">
           <p class="card__text">${Utils.truncateText(organization.description, 150)}</p>
-        </div>
-        <div class="card__footer">
+        </div>        <div class="card__footer">
           <div class="organization-card__actions">
-            <a href="organizations/${organization.id}.html" class="btn btn-primary btn-sm">Подробнее</a>
+            <a href="${organization.id}.html" class="btn btn-primary btn-sm">Подробнее</a>
             ${organization.contacts.vk ? `<a href="${organization.contacts.vk}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">ВК</a>` : ''}
             ${organization.contacts.telegram ? `<a href="${organization.contacts.telegram}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">TG</a>` : ''}
           </div>

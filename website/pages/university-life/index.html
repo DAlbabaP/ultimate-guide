@@ -372,9 +372,24 @@
     <!-- ================================ -->
     <!-- ИНИЦИАЛИЗАЦИЯ СТРАНИЦЫ           -->
     <!-- ================================ -->
-    <script>
-        // Инициализация при загрузке DOM
+    <script>        // Инициализация при загрузке DOM
         document.addEventListener('DOMContentLoaded', function() {
+            
+            // Загрузка хедера
+            fetch('../../components/header.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('header').innerHTML = html;
+                })
+                .catch(error => console.error('Ошибка загрузки хедера:', error));
+
+            // Загрузка футера
+            fetch('../../components/footer.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('footer').innerHTML = html;
+                })
+                .catch(error => console.error('Ошибка загрузки футера:', error));
             
             // Инициализация навигационных карточек
             initializeNavigationCards();

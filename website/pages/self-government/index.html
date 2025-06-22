@@ -485,8 +485,28 @@
         }
     }
     </script>
-    
-    <script>
+      <script>
+        // ===============================
+        // ЗАГРУЗКА КОМПОНЕНТОВ
+        // ===============================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Загрузка хедера
+            fetch('../../components/header.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('header').innerHTML = html;
+                })
+                .catch(error => console.error('Ошибка загрузки хедера:', error));
+
+            // Загрузка футера
+            fetch('../../components/footer.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('footer').innerHTML = html;
+                })
+                .catch(error => console.error('Ошибка загрузки футера:', error));
+        });
+
         // ===============================
         // ИНИЦИАЛИЗАЦИЯ SEO
         // ===============================
