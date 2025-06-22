@@ -62,27 +62,7 @@
     <!-- ОСНОВНОЙ КОНТЕНТ                 -->
     <!-- ================================ -->
     <main class="main-content">
-        
-        <!-- ================================ -->
-        <!-- ХЛЕБНЫЕ КРОШКИ                   -->
-        <!-- ================================ -->
-        <section class="breadcrumb-section">
-            <div class="container">
-                <nav class="breadcrumb" aria-label="Хлебные крошки">
-                    <ul class="breadcrumb__list">
-                        <li class="breadcrumb__item">
-                            <a href="../../../" class="breadcrumb__link" aria-label="Перейти на главную страницу">Главная</a>
-                        </li>
-                        <li class="breadcrumb__item">
-                            <a href="../" class="breadcrumb__link" aria-label="Перейти к разделу пути абитуриента">Путь абитуриента</a>
-                        </li>
-                        <li class="breadcrumb__item">
-                            <span class="breadcrumb__current">Заселение в общежитие</span>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </section>
+
 
         <!-- ================================ -->
         <!-- ГЕРОИЧЕСКАЯ СЕКЦИЯ               -->
@@ -267,6 +247,17 @@
                                         <li role="listitem">Туберкулёза (БЦЖ)</li>
                                     </ul>
                                 </div>
+                            </article>                            <!-- Справки из диспансеров -->
+                            <article class="document-item medical" role="listitem">
+                                <div class="doc-icon" aria-hidden="true">🧠</div>
+                                <div class="doc-details">
+                                    <h4>Справки из диспансеров</h4>
+                                    <p>Из наркологического и психоневрологического диспансеров по месту жительства</p>
+                                    <div class="validity-period">
+                                        <span class="period-label">Срок действия:</span>
+                                        <span class="period-value">3 месяца</span>
+                                    </div>
+                                </div>
                             </article>
 
                             <!-- Лицензия медучреждения -->
@@ -277,19 +268,6 @@
                                     <p>Копия лицензии на указанные виды деятельности</p>
                                     <div class="doc-note" role="note">
                                         <strong>Требуется:</strong> если обследование проходило в негосударственном учреждении
-                                    </div>
-                                </div>
-                            </article>
-
-                            <!-- Справки из диспансеров -->
-                            <article class="document-item medical" role="listitem">
-                                <div class="doc-icon" aria-hidden="true">🧠</div>
-                                <div class="doc-details">
-                                    <h4>Справки из диспансеров</h4>
-                                    <p>Из наркологического и психоневрологического диспансеров по месту жительства</p>
-                                    <div class="validity-period">
-                                        <span class="period-label">Срок действия:</span>
-                                        <span class="period-value">3 месяца</span>
                                     </div>
                                 </div>
                             </article>
@@ -414,7 +392,6 @@
                                    class="checklist-checkbox" 
                                    id="docsCollected"
                                    aria-describedby="docsCollectedDesc">
-                            <span class="checkmark" aria-hidden="true"></span>
                             <span id="docsCollectedDesc" class="checklist-text">Все документы собраны и проверены</span>
                         </label>
                         <label class="checklist-item" role="listitem">
@@ -422,7 +399,6 @@
                                    class="checklist-checkbox" 
                                    id="medicalValid"
                                    aria-describedby="medicalValidDesc">
-                            <span class="checkmark" aria-hidden="true"></span>
                             <span id="medicalValidDesc" class="checklist-text">Медицинские справки в пределах срока действия</span>
                         </label>
                         <label class="checklist-item" role="listitem">
@@ -430,7 +406,6 @@
                                    class="checklist-checkbox" 
                                    id="photosReady"
                                    aria-describedby="photosReadyDesc">
-                            <span class="checkmark" aria-hidden="true"></span>
                             <span id="photosReadyDesc" class="checklist-text">Фотографии подготовлены</span>
                         </label>
                         <label class="checklist-item" role="listitem">
@@ -438,7 +413,6 @@
                                    class="checklist-checkbox" 
                                    id="dateKnown"
                                    aria-describedby="dateKnownDesc">
-                            <span class="checkmark" aria-hidden="true"></span>
                             <span id="dateKnownDesc" class="checklist-text">Знаю дату своего заселения</span>
                         </label>
                         <label class="checklist-item" role="listitem">
@@ -446,7 +420,6 @@
                                    class="checklist-checkbox" 
                                    id="waitingReady"
                                    aria-describedby="waitingReadyDesc">
-                            <span class="checkmark" aria-hidden="true"></span>
                             <span id="waitingReadyDesc" class="checklist-text">Готов к длительному ожиданию</span>
                         </label>
                         <label class="checklist-item" role="listitem">
@@ -454,7 +427,6 @@
                                    class="checklist-checkbox" 
                                    id="friendsDiscussed"
                                    aria-describedby="friendsDiscussedDesc">
-                            <span class="checkmark" aria-hidden="true"></span>
                             <span id="friendsDiscussedDesc" class="checklist-text">Обсудил заселение с друзьями (при желании)</span>
                         </label>
                     </div>

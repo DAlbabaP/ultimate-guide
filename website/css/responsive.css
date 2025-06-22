@@ -394,3 +394,386 @@
     border-width: 0.5px;
   }
 }
+
+/* ===== АДАПТИВНЫЕ СТИЛИ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ ===== */
+
+/* Планшеты и мобильные устройства */
+@media (max-width: 991px) {
+  /* Hero Section */
+  .hero-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  /* Stats Section */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+  
+  .stat-number {
+    font-size: var(--font-size-4xl);
+  }
+  
+  /* Cards Grid */
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+  
+  /* Timeline */
+  .timeline-content {
+    width: calc(100% - 100px);
+    margin-left: 100px !important;
+    margin-right: 0 !important;
+  }
+  
+  .timeline-item:nth-child(even) .timeline-content {
+    margin-left: 100px !important;
+    margin-right: 0 !important;
+  }
+    .timeline-content::before {
+    left: -24px !important;
+    border-right-color: var(--background-primary) !important;
+    border-left-color: transparent !important;
+  }
+  
+  /* Quick Access */
+  .quick-access-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  
+  .quick-access-grid .quick-access-item:last-child {
+    grid-column: 1;
+    max-width: none;
+  }
+}
+
+/* Мобильные устройства */
+@media (max-width: 767px) {
+  /* Container */
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  /* Hero Section */
+  .hero-content {
+    padding: var(--spacing-lg);
+  }
+  
+  .hero-title {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(0.95rem, 3vw, 1.125rem);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  /* Stats Section */
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .stat-item {
+    padding: var(--spacing-lg);
+  }
+  
+  .stat-number {
+    font-size: var(--font-size-3xl);
+  }
+  
+  /* Section Headers */
+  .section-title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .section-subtitle {
+    font-size: var(--font-size-lg);
+  }
+  
+  /* Cards Grid */
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .card-header {
+    padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-sm);
+  }
+  
+  .card-content {
+    padding: 0 var(--spacing-lg) var(--spacing-md);
+  }
+  
+  .card-footer {
+    padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
+  }
+  
+  .card-title {
+    font-size: var(--font-size-xl);
+  }
+    /* Timeline Mobile */
+  .timeline-marker {
+    left: 30px;
+    transform: none;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 0 0 6px var(--background-primary), var(--shadow-md);
+  }
+  
+  .timeline-progress {
+    left: 30px;
+    transform: none;
+  }
+  
+  .timeline-content {
+    width: calc(100% - 80px);
+    margin-left: 80px !important;
+    margin-right: 0 !important;
+  }
+  
+  .timeline-content::before {
+    left: -24px !important;
+    border-right-color: var(--background-primary) !important;
+    border-left-color: transparent !important;
+  }
+    /* Quick Access Mobile */
+  .quick-access-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    max-width: 400px;
+  }
+  
+  .quick-access-grid .quick-access-item:last-child {
+    grid-column: 1;
+    max-width: none;
+  }
+  
+  .quick-access-item {
+    padding: var(--spacing-lg);
+  }
+  
+  .quick-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .quick-title {
+    font-size: var(--font-size-lg);
+  }
+  
+  /* Important Dates Mobile */
+  .important-dates-widget {
+    margin: 0 var(--spacing-sm);
+    border-radius: var(--border-radius-xl);
+  }
+  
+  .widget-header {
+    padding: var(--spacing-lg);
+  }
+    .widget-title {
+    font-size: var(--font-size-xl);
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    color: white;
+  }
+  
+  .dates-container {
+    padding: var(--spacing-lg);
+  }
+  
+  .date-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacing-md);
+    gap: var(--spacing-sm);
+  }
+  
+  .date-countdown {
+    text-align: left;
+    min-width: auto;
+    padding-left: 0;
+    align-self: flex-end;
+  }
+  
+  .countdown-value {
+    font-size: var(--font-size-lg);
+  }
+}
+
+/* Маленькие мобильные устройства */
+@media (max-width: 575px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  /* Hero */
+  .hero-content {
+    padding: var(--spacing-md);
+  }
+  
+  .hero-title {
+    font-size: clamp(1.5rem, 8vw, 2rem);
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(0.875rem, 4vw, 1rem);
+  }
+  
+  /* Stats */
+  .stat-item {
+    padding: var(--spacing-md);
+  }
+  
+  .stat-number {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .stat-label {
+    font-size: var(--font-size-sm);
+  }
+  
+  /* Sections */
+  .section-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .section-subtitle {
+    font-size: var(--font-size-base);
+  }
+  
+  /* Cards */
+  .card-header {
+    padding: var(--spacing-md);
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .card-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .card-content {
+    padding: 0 var(--spacing-md) var(--spacing-sm);
+  }
+  
+  .card-footer {
+    padding: var(--spacing-sm) var(--spacing-md) var(--spacing-md);
+  }
+    /* Timeline */
+  .timeline-marker {
+    width: 50px;
+    height: 50px;
+    left: 25px;
+    box-shadow: 0 0 0 4px var(--background-primary), var(--shadow-sm);
+  }
+  
+  .timeline-progress {
+    left: 25px;
+  }
+  
+  .timeline-content {
+    width: calc(100% - 70px);
+    margin-left: 70px !important;
+    padding: var(--spacing-md);
+  }
+  
+  .timeline-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .timeline-title {
+    font-size: var(--font-size-lg);
+  }
+  
+  /* Important Dates */
+  .important-dates-widget {
+    margin: 0 var(--spacing-xs);
+  }
+  
+  .widget-header {
+    padding: var(--spacing-md);
+  }
+  
+  .dates-container {
+    padding: var(--spacing-md);
+  }
+  
+  .date-item {
+    padding: var(--spacing-sm);
+  }
+  
+  .date-title {
+    font-size: var(--font-size-base);
+  }
+  
+  .countdown-value {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* Анимации для мобильных устройств - упрощенные */
+@media (prefers-reduced-motion: reduce) {
+  .hero-background {
+    animation: none;
+  }
+  
+  .stat-item,
+  .main-card,
+  .timeline-item,
+  .quick-access-item,
+  .date-item {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .hero-content {
+    animation: none;
+  }
+}
+
+/* Высокие экраны */
+@media (min-height: 800px) {
+  .hero-section {
+    min-height: 90vh;
+  }
+}
+
+/* Очень широкие экраны */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+  
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1200px;
+  }
+}

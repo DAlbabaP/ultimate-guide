@@ -20,6 +20,7 @@ const Navigation = {
   init() {
     this.findElements();
     this.bindEvents();
+    this.initDropdownHover();
     this.updateBreadcrumbs();
     console.log('🧭 Навигация инициализирована');
   },
@@ -415,11 +416,67 @@ const Navigation = {
     button.addEventListener('click', () => {
       window.scrollTo({
         top: 0,
-        behavior: 'smooth'
-      });
+        behavior: 'smooth'      });
     });
 
     document.body.appendChild(button);
+  },
+
+  // Улучшенное управление dropdown с задержками
+  initDropdownHover() {
+    const navItems = document.querySelectorAll('.nav__item');
+    
+    navItems.forEach(item => {
+      const dropdown = item.querySelector('.nav__dropdown');
+      if (!dropdown) return;
+      
+      let showTimeout, hideTimeout;
+      
+      // Показать dropdown при наведении
+      const showDropdown = () => {
+        clearTimeout(hideTimeout);
+        showTimeout = setTimeout(() => {
+          dropdown.style.opacity = '1';
+          dropdown.style.visibility = 'visible';
+          dropdown.style.transform = 'translateX(-50%) translateY(0) scale(1)';
+          dropdown.style.pointerEvents = 'auto';
+        }, 50); // Очень быстрый показ
+      };
+      
+      // Скрыть dropdown с большой задержкой
+      const hideDropdown = () => {
+        clearTimeout(showTimeout);
+        hideTimeout = setTimeout(() => {
+          dropdown.style.opacity = '0';
+          dropdown.style.visibility = 'hidden';
+          dropdown.style.transform = 'translateX(-50%) translateY(-10px) scale(0.95)';
+          dropdown.style.pointerEvents = 'none';
+        }, 1000); // Увеличиваем до 1 секунды!
+      };
+      
+      // Отменить скрытие при наведении на dropdown
+      const cancelHide = () => {
+        clearTimeout(hideTimeout);
+        clearTimeout(showTimeout);
+      };
+      
+      // Навигационный элемент
+      item.addEventListener('mouseenter', showDropdown);
+      item.addEventListener('mouseleave', hideDropdown);
+      
+      // Dropdown меню
+      dropdown.addEventListener('mouseenter', cancelHide);
+      dropdown.addEventListener('mouseleave', hideDropdown);
+      
+      // Также отменяем скрытие при клике на dropdown
+      dropdown.addEventListener('click', cancelHide);
+      
+      // Добавляем обработку для всех ссылок внутри dropdown
+      const dropdownLinks = dropdown.querySelectorAll('.nav__dropdown-link');
+      dropdownLinks.forEach(link => {
+        link.addEventListener('mouseenter', cancelHide);
+      });
+    });
   }
 };
 

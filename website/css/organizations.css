@@ -180,7 +180,9 @@
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: var(--shadow-medium);
+  box-shadow: 0 2px 8px 0 rgba(47,94,47,0.10);
+  background: #fff;
+  transition: width 0.2s, height 0.2s;
 }
 
 .leader-details h3 {
@@ -650,55 +652,316 @@
   border: 0;
 }
 
-/* Адаптивность для героической секции */
-@media (max-width: 768px) {
-  .hero-section {
-    min-height: 70vh;
-  }
-  
-  .hero-title {
-    font-size: 2.5rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.1rem;
-  }
-  
-  .hero-buttons {
-    flex-direction: column;
+/* ================================ */
+/* Локальные улучшения для страницы парламентских клубов */
+/* ================================ */
+
+.organization-page .organization-hero {
+    box-shadow: 0 6px 32px 0 rgba(47,94,47,0.18);
+    border-radius: 0 0 32px 32px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+}
+.organization-page .organization-hero__content {
+    padding: 48px 0 32px 0;
+    display: flex;
     align-items: center;
+    gap: 40px;
+}
+.organization-page .organization-hero__logo img {
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 24px 0 rgba(47,94,47,0.10);
+    padding: 12px;
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+.organization-page .organization-hero__info h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 12px rgba(30,74,30,0.25);
+}
+.organization-page .organization-hero__info p {
+    color: #e0f5e0;
+    font-size: 1.15rem;
+    margin-bottom: 20px;
+}
+.organization-page .organization-hero__actions .btn {
+    margin-right: 12px;
+    margin-bottom: 8px;
+    min-width: 150px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 24px;
+    box-shadow: 0 2px 8px 0 rgba(47,94,47,0.10);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.organization-page .organization-hero__actions .btn-primary {
+    background: #2F5E2F;
+    color: #fff;
+    border: none;
+}
+.organization-page .organization-hero__actions .btn-primary:hover {
+    background: #3e7a3e;
+    color: #fff;
+    box-shadow: 0 4px 16px 0 rgba(47,94,47,0.18);
+}
+.organization-page .organization-hero__actions .btn-secondary {
+    background: #fff;
+    color: #2F5E2F;
+    border: 1.5px solid #2F5E2F;
+}
+.organization-page .organization-hero__actions .btn-secondary:hover {
+    background: #e0f5e0;
+    color: #2F5E2F;
+}
+
+/* Основной контент и сетка */
+.organization-page .organization-content .organization-grid {
+    display: flex;
+    gap: 40px;
+}
+.organization-page .organization-main {
+    flex: 2 1 0;
+    min-width: 0;
+}
+.organization-page .organization-sidebar {
+    flex: 1 1 320px;
+    background: #f7faf7;
+    border-radius: 24px;
+    box-shadow: 0 2px 16px 0 rgba(47,94,47,0.08);
+    padding: 32px 24px;
+    margin-top: 8px;
+    margin-bottom: 24px;
+    min-width: 260px;
+    max-width: 370px;
+}
+
+/* Карточки предложений */
+.organization-page .offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 24px;
+    margin-top: 16px;
+}
+.organization-page .offer-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px 0 rgba(47,94,47,0.10);
+    padding: 28px 18px 22px 18px;
+    text-align: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+    border: 1.5px solid #e0f5e0;
+}
+.organization-page .offer-card:hover {
+    box-shadow: 0 6px 24px 0 rgba(47,94,47,0.18);
+    transform: translateY(-4px) scale(1.03);
+    border-color: #b6e2b6;
+}
+.organization-page .offer-icon {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    display: block;
+}
+.organization-page .offer-card h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #2F5E2F;
+}
+.organization-page .offer-card p {
+    color: #4a6a4a;
+    font-size: 0.98rem;
+}
+
+/* Список мероприятий */
+.organization-page .events-list {
+    margin-top: 18px;
+    display: grid;
+    gap: 18px;
+}
+.organization-page .event-item {
+    background: #f7faf7;
+    border-radius: 14px;
+    box-shadow: 0 1px 8px 0 rgba(47,94,47,0.07);
+    padding: 18px 18px 14px 18px;
+    border-left: 4px solid #2F5E2F;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+.organization-page .event-item:hover {
+    box-shadow: 0 4px 16px 0 rgba(47,94,47,0.13);
+    border-color: #3e7a3e;
+}
+.organization-page .event-item h4 {
+    color: #2F5E2F;
+    font-size: 1.08rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.organization-page .event-item p {
+    color: #4a6a4a;
+    font-size: 0.97rem;
+}
+
+/* Галерея фотографий */
+.organization-page .photo-gallery {
+    display: flex;
+    gap: 18px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+.organization-page .photo-gallery img {
+    border-radius: 16px;
+    box-shadow: 0 2px 12px 0 rgba(47,94,47,0.13);
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+}
+.organization-page .photo-gallery img:hover {
+    box-shadow: 0 6px 24px 0 rgba(47,94,47,0.22);
+    transform: scale(1.04) rotate(-1deg);
+}
+
+/* Sidebar: требования, контакты, как присоединиться */
+.organization-page .organization-sidebar .content-block {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 1px 8px 0 rgba(47,94,47,0.07);
+    padding: 18px 16px 14px 16px;
+    margin-bottom: 18px;
+    border-left: 3px solid #b6e2b6;
+}
+.organization-page .organization-sidebar .content-block:last-child {
+    margin-bottom: 0;
+}
+.organization-page .organization-sidebar h3 {
+    color: #2F5E2F;
+    font-size: 1.08rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.organization-page .requirements-list li {
+    margin-bottom: 6px;
+    color: #4a6a4a;
+    font-size: 0.97rem;
+}
+.organization-page .contact-links .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #e0f5e0;
+    border-radius: 8px;
+    padding: 8px 14px;
+    margin-bottom: 8px;
+    color: #2F5E2F;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+.organization-page .contact-links .contact-link:hover {
+    background: #b6e2b6;
+    color: #1e4a1e;
+}
+.organization-page .contact-links .contact-link i {
+    font-size: 1.2rem;
+}
+
+/* Обращение председателя */
+.organization-page .leader-message {
+    background: linear-gradient(90deg, #e0f5e0 0%, #f7faf7 100%);
+    border-radius: 18px;
+    box-shadow: 0 2px 12px 0 rgba(47,94,47,0.10);
+    padding: 32px 24px 24px 24px;
+    margin-bottom: 28px;
+    border-left: 4px solid #2F5E2F;
+}
+.organization-page .leader-info {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 12px;
+}
+.organization-page .leader-photo img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 8px 0 rgba(47,94,47,0.10);
+    background: #fff;
+    transition: width 0.2s, height 0.2s;
+}
+@media (max-width: 700px) {
+  .organization-page .leader-photo img {
+    width: 90px;
+    height: 90px;
   }
-  
-  .hero-buttons .btn {
-    min-width: 250px;
+}
+.organization-page .leader-details h3 {
+    margin: 0 0 2px 0;
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: #2F5E2F;
+}
+.organization-page .leader-details .position {
+    font-size: 0.97rem;
+    color: #4a6a4a;
+}
+.organization-page .leader-quote {
+    font-style: italic;
+    color: #2F5E2F;
+    background: #fff;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 10px;
+    box-shadow: 0 1px 6px 0 rgba(47,94,47,0.07);
+    border-left: 3px solid #b6e2b6;
+}
+
+/* Адаптивность */
+@media (max-width: 1100px) {
+  .organization-page .organization-content .organization-grid {
+    flex-direction: column;
+    gap: 0;
   }
-  
-  .stats-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: var(--spacing-md);
+  .organization-page .organization-sidebar {
+    max-width: 100%;
+    margin-top: 32px;
+    margin-bottom: 0;
   }
-  
-  .stat-number {
-    font-size: 2.5rem;
+}
+@media (max-width: 700px) {
+  .organization-page .organization-hero__content {
+    flex-direction: column;
+    gap: 18px;
+    padding: 32px 0 18px 0;
+    text-align: center;
+  }
+  .organization-page .organization-hero__logo img {
+    width: 90px;
+    height: 90px;
+  }
+  .organization-page .organization-hero__info h1 {
+    font-size: 1.4rem;
+  }
+  .organization-page .organization-hero__info p {
+    font-size: 1rem;
+  }
+  .organization-page .offers-grid {
+    grid-template-columns: 1fr;
+  }
+  .organization-page .photo-gallery img {
+    width: 100%;
+    height: 120px;
+  }
+  .organization-page .organization-sidebar {
+    padding: 18px 8px;
   }
 }
 
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 2rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-  
-  .hero-content {
-    padding: var(--spacing-md);
-  }
-  
-  .hero-buttons .btn {
-    padding: var(--spacing-sm) var(--spacing-lg);
-    font-size: 1rem;
-    min-width: 200px;
-  }
-}
+/* Конец локальных улучшений для страницы парламентских клубов */

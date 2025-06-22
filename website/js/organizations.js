@@ -79,38 +79,17 @@ const OrganizationsManager = {
       return null;
     }
     return this.data.categories.find(cat => cat.id === id);
-  },  // Создание карточки организации
+  },
+
+  // Создание карточки организации
   createOrganizationCard(organization) {
     const category = this.getCategory(organization.category);
-    
-    // Определяем правильный путь к изображениям в зависимости от текущей страницы
-    const currentPath = window.location.pathname;
-    let imagePath = organization.logo;
-    
-    if (currentPath.includes('/pages/organizations/')) {
-      imagePath = '../../' + organization.logo;
-    } else if (currentPath.includes('/pages/')) {
-      imagePath = '../' + organization.logo;
-    }
-    
-    // Обрезка текста (fallback если Utils не доступен)
-    const truncateText = (text, maxLength) => {
-      if (!text) return '';
-      if (text.length <= maxLength) return text;
-      return text.substring(0, maxLength - 3) + '...';
-    };
-    
-    const description = typeof Utils !== 'undefined' && Utils.truncateText 
-      ? Utils.truncateText(organization.description, 150)
-      : truncateText(organization.description, 150);
-    
-    console.log('🖼️ Создаем карточку для:', organization.name, 'с логотипом:', imagePath);
     
     return `
       <div class="card organization-card" data-org-id="${organization.id}">
         <div class="card__header">
           <div class="organization-card__logo">
-            <img src="${imagePath}" alt="${organization.name}" loading="lazy" onerror="console.error('Ошибка загрузки изображения:', this.src)">
+            <img src="${organization.logo}" alt="${organization.name}" loading="lazy">
           </div>
           <div class="organization-card__info">
             <h3 class="card__title">${organization.name}</h3>
@@ -118,11 +97,11 @@ const OrganizationsManager = {
           </div>
         </div>
         <div class="card__content">
-          <p class="card__text">${description}</p>
+          <p class="card__text">${Utils.truncateText(organization.description, 150)}</p>
         </div>
         <div class="card__footer">
           <div class="organization-card__actions">
-            <a href="${organization.id}.html" class="btn btn-primary btn-sm">Подробнее</a>
+            <a href="organizations/${organization.id}.html" class="btn btn-primary btn-sm">Подробнее</a>
             ${organization.contacts.vk ? `<a href="${organization.contacts.vk}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">ВК</a>` : ''}
             ${organization.contacts.telegram ? `<a href="${organization.contacts.telegram}" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">TG</a>` : ''}
           </div>
