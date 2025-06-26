@@ -2,11 +2,13 @@
 
 /* CSS Variables для согласованности с общей темой */
 :root {
-    --military-primary: var(--color-primary);      /* #2F5E2F */
-    --military-secondary: var(--color-secondary);  /* #1E5AA8 */
-    --military-white: var(--color-white);          /* #FFFFFF */
-    --military-light: var(--color-light);          /* #F5F5F5 */
-    --military-text: var(--color-text-dark);       /* #333333 */
+    /* Основные цвета */
+    --military-primary: #2F5E2F;
+    --military-secondary: #1E5AA8;
+    --military-accent: #6B8E23;
+    --military-white: #FFFFFF;
+    --military-light: #F8FFFE;
+    --military-text: #333333;
     
     /* Специальные цвета для военной тематики */
     --military-khaki: #6B8E23;
@@ -15,24 +17,47 @@
     --military-bronze: #CD7F32;
     --military-silver: #C0C0C0;
     --military-gold: #FFD700;
+    --military-camo: #8FBC8F;
+    --military-dark: #2E4D32;
     
-    /* Градиенты */
-    --military-gradient-1: linear-gradient(135deg, var(--military-khaki), var(--military-olive));
-    --military-gradient-2: linear-gradient(135deg, var(--military-steel), var(--military-secondary));
-    --military-gradient-3: linear-gradient(135deg, var(--military-bronze), var(--military-gold));
+    /* Современные градиенты */
+    --military-gradient-hero: linear-gradient(135deg, var(--military-khaki) 0%, var(--military-olive) 50%, var(--military-steel) 100%);
+    --military-gradient-primary: linear-gradient(135deg, var(--military-primary), var(--military-secondary));
+    --military-gradient-accent: linear-gradient(135deg, var(--military-khaki), var(--military-olive));
+    --military-gradient-steel: linear-gradient(135deg, var(--military-steel), var(--military-secondary));
+    --military-gradient-gold: linear-gradient(135deg, var(--military-bronze), var(--military-gold));
     
-    /* Анимации */
-    --military-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --military-shadow: 0 4px 15px rgba(107, 142, 35, 0.1);
-    --military-shadow-hover: 0 8px 30px rgba(107, 142, 35, 0.15);
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 4rem;
+    
+    /* Typography */
+    --font-size-h1: 3.5rem;
+    --font-size-h2: 2.5rem;
+    --font-size-h3: 1.8rem;
+    --font-size-body: 1.1rem;
+    
+    /* Shadows */
+    --military-shadow-light: 0 4px 15px rgba(107, 142, 35, 0.08);
+    --military-shadow: 0 8px 25px rgba(107, 142, 35, 0.12);
+    --military-shadow-medium: 0 12px 35px rgba(107, 142, 35, 0.15);
+    --military-shadow-hover: 0 15px 45px rgba(107, 142, 35, 0.2);
+    
+    /* Transitions */
+    --military-transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --military-transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* Page Hero Section */
+/* Hero Section - Героическая секция */
 .military-hero {
-    background: var(--military-gradient-1);
+    background: var(--military-gradient-hero);
     position: relative;
     overflow: hidden;
-    padding: 4rem 0;
+    padding: var(--spacing-xxl) 0;
     min-height: 400px;
     display: flex;
     align-items: center;
@@ -45,75 +70,201 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 70%, rgba(70, 130, 180, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 30%, rgba(205, 127, 50, 0.1) 0%, transparent 50%);
-    animation: militaryFloat 6s ease-in-out infinite;
+    background: 
+        radial-gradient(circle at 25% 75%, rgba(70, 130, 180, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 75% 25%, rgba(205, 127, 50, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(107, 142, 35, 0.1) 0%, transparent 50%);
+    animation: floatBackground 8s ease-in-out infinite;
+}
+
+.military-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="camo" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="70" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23camo)"/></svg>');
+    opacity: 0.3;
+}
+
+.military-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.military-hero .page-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .military-hero .page-title {
     color: var(--military-white);
-    font-size: 3.5rem;
+    font-size: var(--font-size-h1);
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-md);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    animation: militaryTitleGlow 3s ease-in-out infinite alternate;
+    animation: titleGlow 3s ease-in-out infinite alternate;
+    line-height: 1.2;
 }
 
 .military-hero .page-subtitle {
     color: rgba(255, 255, 255, 0.9);
-    font-size: 1.3rem;
-    margin-bottom: 0;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.6;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s ease-out 0.6s both;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Эмодзи стили - убираем спецэффекты */
+.military-hero .overview-icon,
+.military-overview .overview-icon,
+.nav-icon,
+.info-icon,
+.step-marker {
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", emoji !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    text-decoration: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -webkit-font-smoothing: auto !important;
+    -moz-osx-font-smoothing: auto !important;
+}
+
+/* Общие стили для секций контента */
+.content-section {
+    padding: var(--spacing-xxl) 0;
+    position: relative;
+}
+
+.content-section:nth-child(even) {
+    background: linear-gradient(135deg, #f8fffe 0%, #f0f9ff 100%);
+}
+
+.content-section:nth-child(odd) {
+    background: var(--military-white);
+}
+
+/* Заголовки секций */
+.section-title {
+    font-size: var(--font-size-h2);
+    font-weight: 700;
+    color: var(--military-primary);
+    margin: 0 0 var(--spacing-md) 0;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--military-gradient-hero);
+    border-radius: 2px;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: var(--military-text);
+    margin: var(--spacing-lg) auto 0;
+    max-width: 600px;
+    line-height: 1.6;
+    font-weight: 400;
+    opacity: 0.8;
+    text-align: center;
 }
 
 /* Анимации */
-@keyframes militaryFloat {
+@keyframes floatBackground {
     0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(0.5deg); }
+    33% { transform: translateY(-12px) rotate(1deg); }
+    66% { transform: translateY(6px) rotate(-0.5deg); }
 }
 
-@keyframes militaryTitleGlow {
-    0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(107, 142, 35, 0.3); }
-    100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(107, 142, 35, 0.5); }
+@keyframes titleGlow {
+    0%, 100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
+    50% { text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3), 0 0 20px rgba(107, 142, 35, 0.4); }
 }
 
-@keyframes militaryPulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.05); opacity: 0.9; }
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInFromLeft {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInFromRight {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.3); }
+    50% { opacity: 1; transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
 }
 
 @keyframes militaryMarch {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-8px); }
-    60% { transform: translateY(-4px); }
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-8px); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(-4px); }
 }
 
-@keyframes militaryShine {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+@keyframes tacticalGlow {
+    0%, 100% { box-shadow: 0 0 10px rgba(107, 142, 35, 0.3); }
+    50% { box-shadow: 0 0 25px rgba(107, 142, 35, 0.6); }
 }
 
-@keyframes militarySalute {
-    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
-    25% { transform: scale(1.1) rotate(5deg); opacity: 0.9; }
-    50% { transform: scale(1.15) rotate(0deg); opacity: 0.8; }
-    75% { transform: scale(1.1) rotate(-5deg); opacity: 0.9; }
+@keyframes rotateIcon {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-5deg) scale(1.1); }
+    75% { transform: rotate(5deg) scale(1.1); }
 }
 
 /* Military Overview */
 .military-overview {
     background: var(--military-white);
-    border-radius: 20px;
-    padding: 3rem;
+    border-radius: 24px;
+    padding: var(--spacing-xl);
     box-shadow: var(--military-shadow);
-    margin-bottom: 3rem;
+    margin-bottom: var(--spacing-xl);
     border: 2px solid transparent;
     position: relative;
     overflow: hidden;
     transition: var(--military-transition);
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: var(--spacing-lg);
+    animation: slideInFromLeft 0.8s ease-out;
 }
 
 .military-overview::before {
@@ -123,14 +274,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--military-gradient-1);
+    background: var(--military-gradient-accent);
     opacity: 0.03;
-    border-radius: 18px;
+    border-radius: 22px;
     transition: var(--military-transition);
 }
 
 .military-overview:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
     box-shadow: var(--military-shadow-hover);
 }
 
@@ -140,70 +291,291 @@
 
 .military-overview .overview-icon {
     font-size: 4rem;
-    animation: militarySalute 4s ease-in-out infinite;
-    filter: drop-shadow(2px 2px 4px rgba(107, 142, 35, 0.3));
+    flex-shrink: 0;
+    animation: rotateIcon 5s ease-in-out infinite;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(2px 2px 4px rgba(107, 142, 35, 0.3)) !important;
+}
+
+.military-overview:hover .overview-icon {
+    transform: scale(1.1) rotate(15deg);
+}
+
+.military-overview .overview-content {
+    position: relative;
+    z-index: 2;
 }
 
 .military-overview .overview-content h2 {
+    margin: 0 0 var(--spacing-md) 0;
     color: var(--military-primary);
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
+    font-size: var(--font-size-h3);
+    font-weight: 700;
+    position: relative;
+}
+
+.military-overview .overview-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background: var(--military-gradient-accent);
+    border-radius: 2px;
 }
 
 .military-overview .overview-content p {
+    margin: var(--spacing-lg) 0 0 0;
     color: var(--military-text);
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin: 0;
+    line-height: 1.7;
+    font-size: var(--font-size-body);
+    font-weight: 400;
+}
+
+/* Quick Navigation Grid */
+.quick-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+    justify-content: center;
 }
 
 /* Quick Navigation Items */
 .quick-nav-item {
-    border: 2px solid transparent;
-    transition: var(--military-transition);
+    background: var(--military-white);
+    padding: var(--spacing-xl);
+    border-radius: 20px;
+    border: 1px solid var(--military-light);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(0);
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+    animation: fadeInUp 0.8s ease-out calc(0.2s * var(--item-index, 0)) both;
 }
 
 .quick-nav-item::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    transition: var(--military-transition);
-}
-
-.vuc-item::before { background: var(--military-gradient-3); }
-.deferment-item::before { background: var(--military-gradient-2); }
-.office-item::before { background: var(--military-gradient-1); }
-
-.quick-nav-item:hover::before {
-    height: 6px;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(47, 94, 47, 0.05) 0%, rgba(107, 142, 35, 0.08) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .quick-nav-item:hover {
-    border-color: var(--military-khaki);
-    transform: translateY(-5px);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(47, 94, 47, 0.2);
+    border-color: var(--military-primary);
+    text-decoration: none;
+    color: inherit;
 }
 
-.quick-nav-item .nav-icon {
-    background: var(--military-gradient-1);
-    animation: militaryMarch 3s ease-in-out infinite;
+.quick-nav-item:hover::before {
+    opacity: 1;
 }
 
-.vuc-item:hover .nav-icon {
-    background: var(--military-gradient-3);
+.nav-icon {
+    font-size: 3.5rem;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--military-light), rgba(47, 94, 47, 0.1));
+    border: 2px solid var(--military-light);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    /* Убираем градиент для эмодзи, чтобы они отображались нормально */
 }
 
-.deferment-item:hover .nav-icon {
-    background: var(--military-gradient-2);
+.quick-nav-item:hover .nav-icon {
+    transform: scale(1.1) rotateY(10deg);
+    background: linear-gradient(135deg, rgba(47, 94, 47, 0.15) 0%, rgba(107, 142, 35, 0.2) 100%);
+    border-color: var(--military-primary);
 }
 
-.office-item:hover .nav-icon {
-    background: var(--military-gradient-1);
+.nav-content {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.nav-title {
+    color: var(--military-primary);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.3;
+}
+
+.nav-description {
+    color: var(--military-khaki);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-details {
+    color: var(--military-text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.8;
+}
+
+.quick-nav-item:hover .nav-details {
+    opacity: 1;
+}
+
+/* Important Info Section */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+    position: relative;
+    z-index: 2;
+}
+
+.info-card {
+    background: var(--military-white);
+    padding: var(--spacing-xxl);
+    border-radius: 24px;
+    border: 1px solid var(--military-light);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0);
+    animation: fadeInUp 0.8s ease-out calc(0.3s + 0.2s * var(--card-index, 0)) both;
+}
+
+.info-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(47, 94, 47, 0.02) 0%, rgba(107, 142, 35, 0.04) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 50px rgba(47, 94, 47, 0.15);
+    border-color: var(--military-primary);
+}
+
+.info-card:hover::before {
+    opacity: 1;
+}
+
+.info-card.urgent {
+    background: linear-gradient(135deg, #fff5f5, #ffe8e8);
+    border-color: #fed7d7;
+}
+
+.info-card.tips {
+    background: linear-gradient(135deg, #f0fff4, #e8f8e8);
+    border-color: #c6f6d5;
+}
+
+.info-card.contacts {
+    background: linear-gradient(135deg, #ebf8ff, #e8f0ff);
+    border-color: #bee3f8;
+}
+
+.info-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-lg);
+    filter: drop-shadow(0 4px 12px rgba(47, 94, 47, 0.3));
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+    display: block;
+    text-align: center;
+    /* Убираем градиент для эмодзи, чтобы они отображались нормально */
+}
+
+.info-card:hover .info-icon {
+    transform: scale(1.1) rotateY(10deg);
+}
+
+.info-title {
+    margin: 0 0 var(--spacing-md) 0;
+    color: var(--military-primary);
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.3;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.info-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: var(--military-gradient-accent);
+    border-radius: 1px;
+}
+
+.info-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-content li {
+    padding: var(--spacing-xs) 0;
+    color: var(--military-text);
+    position: relative;
+    padding-left: 1.5rem;
+    transition: var(--military-transition);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.info-content li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--military-khaki);
+    font-size: 0.8rem;
+    transition: var(--military-transition);
+}
+
+.info-content li:hover {
+    color: var(--military-primary);
+    transform: translateX(3px);
+}
+
+.info-content li:hover::before {
+    animation: pulse 0.5s ease-in-out;
 }
 
 /* Timeline Section */
@@ -387,15 +759,25 @@
 
 /* FAQ Section */
 .faq-section {
-    background: var(--military-white);
+    background: linear-gradient(135deg, #f8fffe 0%, #f0f9ff 100%);
     padding: 4rem 0;
 }
 
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .faq-item {
+    background: var(--military-white);
+    border-radius: 16px;
+    margin-bottom: var(--spacing-md);
+    box-shadow: var(--military-shadow);
     border: 2px solid transparent;
     transition: var(--military-transition);
     position: relative;
     overflow: hidden;
+    animation: fadeInUp 0.6s ease-out calc(0.2s + 0.1s * var(--item-index, 0)) both;
 }
 
 .faq-item::before {
@@ -408,33 +790,68 @@
     background: var(--military-gradient-1);
     transition: var(--military-transition);
     opacity: 0;
+    transform: scaleX(0);
+    transform-origin: left;
 }
 
 .faq-item:hover {
     border-color: var(--military-khaki);
+    transform: translateY(-2px);
+    box-shadow: var(--military-shadow-hover);
 }
 
 .faq-item:hover::before {
     opacity: 1;
+    transform: scaleX(1);
+}
+
+.faq-item.open {
+    border-color: var(--military-primary);
+    box-shadow: 0 8px 30px rgba(107, 142, 35, 0.15);
 }
 
 .faq-item.open::before {
     opacity: 1;
     height: 4px;
+    transform: scaleX(1);
+    background: var(--military-gradient-accent);
 }
 
 .faq-question {
+    width: 100%;
+    padding: var(--spacing-lg);
+    border: none;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--military-primary);
     transition: var(--military-transition);
     position: relative;
+    outline: none;
+    line-height: 1.4;
 }
 
 .faq-question:hover {
     background: linear-gradient(135deg, var(--military-light), #f8fff8);
+    color: var(--military-primary);
+}
+
+.faq-question:focus {
+    outline: 2px solid var(--military-khaki);
+    outline-offset: 2px;
 }
 
 .faq-icon {
-    transition: var(--military-transition);
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, color 0.3s ease;
     color: var(--military-khaki);
+    margin-left: var(--spacing-sm);
+    flex-shrink: 0;
 }
 
 .faq-item.open .faq-icon {
@@ -443,16 +860,88 @@
 }
 
 .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
     background: linear-gradient(135deg, #f8fff8, #f0f8f0);
+    border-top: 1px solid var(--military-light);
+}
+
+.faq-item.open .faq-answer {
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
 }
 
 .faq-answer p {
     color: var(--military-text);
+    line-height: 1.6;
+    margin: 0;
+    padding-top: var(--spacing-md);
     position: relative;
+    font-size: 1rem;
+}
+
+.faq-answer p::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: var(--military-gradient-accent);
+    border-radius: 1px;
+}
+
+.faq-answer strong {
+    color: var(--military-primary);
+    font-weight: 600;
+}
+
+/* Accessibility & Focus States */
+.quick-nav-item:focus,
+.info-card:focus,
+.step-content:focus,
+.faq-question:focus {
+    outline: 3px solid var(--military-khaki);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .military-hero {
+        background: none !important;
+        color: black !important;
+    }
+    
+    .quick-nav-item,
+    .info-card,
+    .step-content {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    .faq-answer {
+        max-height: none !important;
+        overflow: visible !important;
+    }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .military-hero {
+        padding: 3rem 0;
+        min-height: 350px;
+    }
+    
     .military-hero .page-title {
         font-size: 2.5rem;
     }
@@ -467,12 +956,22 @@
         gap: 1.5rem;
     }
     
+    .overview-icon {
+        font-size: 4rem;
+    }
+    
+    .quick-nav-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
     .timeline-overview::before {
-        left: 30px;
+        left: 25px;
     }
     
     .timeline-step {
         align-items: flex-start;
+        gap: 1.5rem;
     }
     
     .step-marker {
@@ -481,8 +980,22 @@
         font-size: 1.2rem;
     }
     
+    .step-content {
+        padding: 1.5rem;
+    }
+    
     .info-grid {
         grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .faq-question {
+        padding: var(--spacing-md);
+        font-size: 1rem;
+    }
+    
+    .faq-answer p {
+        font-size: 0.95rem;
     }
 }
 
@@ -494,6 +1007,12 @@
     
     .military-hero .page-title {
         font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .military-hero .page-subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
     }
     
     .military-overview,
@@ -509,5 +1028,87 @@
     .nav-icon {
         width: 50px;
         height: 50px;
+        font-size: 2rem;
+    }
+    
+    .nav-title {
+        font-size: 1.2rem;
+    }
+    
+    .nav-description {
+        font-size: 0.9rem;
+    }
+    
+    .nav-details {
+        font-size: 0.85rem;
+    }
+    
+    .overview-icon {
+        font-size: 3rem;
+    }
+    
+    .timeline-step {
+        gap: 1rem;
+    }
+    
+    .step-marker {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .step-content {
+        padding: 1rem;
+    }
+    
+    .step-title {
+        font-size: 1.2rem;
+    }
+    
+    .info-card {
+        padding: 1.5rem;
+    }
+    
+    .info-title {
+        font-size: 1.2rem;
+    }
+    
+    .faq-question {
+        padding: 1rem;
+        font-size: 0.95rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .faq-icon {
+        align-self: flex-end;
+        margin-left: 0;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    :root {
+        --military-primary: #000000;
+        --military-secondary: #ffffff;
+        --military-text: #000000;
+        --military-white: #ffffff;
+        --military-light: #f0f0f0;
+        --military-khaki: #000000;
+        --military-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+        --military-shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.9);
+    }
+    
+    .military-hero {
+        background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+        color: #000000;
+    }
+    
+    .quick-nav-item,
+    .info-card,
+    .step-content,
+    .faq-item {
+        border: 2px solid #000000;
     }
 }

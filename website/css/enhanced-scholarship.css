@@ -1,35 +1,148 @@
-/* Enhanced Scholarship Styles - Повышенная стипендия */
+/* ===== СПЕЦИФИЧНЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ ПОВЫШЕННОЙ СТИПЕНДИИ ===== */
 
-/* CSS Variables для согласованности с общей темой */
+/* Исправление отображения эмодзи - убираем спецэффекты */
+.overview-icon,
+.info-icon,
+.points-icon,
+.level-icon,
+.tip-icon,
+.warning-icon {
+  /* Отменяем background-clip и другие эффекты для эмодзи */
+  background: none !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  -webkit-text-fill-color: initial !important;
+  color: initial !important;
+}
+
+/* CSS Variables для повышенной стипендии */
 :root {
-    --enhanced-primary: var(--color-primary);      /* #2F5E2F */
-    --enhanced-secondary: var(--color-secondary);  /* #1E5AA8 */
-    --enhanced-white: var(--color-white);          /* #FFFFFF */
-    --enhanced-light: var(--color-light);          /* #F5F5F5 */
-    --enhanced-text: var(--color-text-dark);       /* #333333 */
-    
-    /* Специальные цвета для повышенной стипендии */
+    /* Основные цвета повышенной стипендии */
+    --enhanced-primary: #2F5E2F;
+    --enhanced-secondary: #1E5AA8;
+    --enhanced-accent: #f39c12;
     --enhanced-gold: #FFD700;
     --enhanced-platinum: #E5E4E2;
     --enhanced-silver: #C0C0C0;
     --enhanced-bronze: #CD7F32;
-    --enhanced-gradient-1: linear-gradient(135deg, var(--enhanced-primary), var(--enhanced-secondary));
-    --enhanced-gradient-2: linear-gradient(135deg, var(--enhanced-gold), #FFA500);
-    --enhanced-gradient-3: linear-gradient(135deg, var(--enhanced-platinum), #B8B8B8);
+    
+    /* Современные градиенты */
+    --enhanced-gradient-hero: linear-gradient(135deg, #2F5E2F 0%, #1E5AA8 50%, #f39c12 100%);
+    --enhanced-gradient-gold: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    --enhanced-gradient-platinum: linear-gradient(135deg, #E5E4E2 0%, #B8B8B8 100%);
+    --enhanced-gradient-silver: linear-gradient(135deg, #C0C0C0 0%, #A8A8A8 100%);
+    --enhanced-gradient-cultural: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+    --enhanced-gradient-sports: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+    --enhanced-gradient-research: linear-gradient(135deg, #A8E6CF 0%, #88D8A3 100%);
+    --enhanced-gradient-events: linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%);
+    
+    /* Тени и эффекты */
+    --enhanced-shadow-light: 0 4px 20px rgba(47, 94, 47, 0.1);
+    --enhanced-shadow-medium: 0 8px 30px rgba(47, 94, 47, 0.15);
+    --enhanced-shadow-heavy: 0 15px 50px rgba(47, 94, 47, 0.2);
     
     /* Анимации */
-    --enhanced-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --enhanced-shadow: 0 4px 15px rgba(47, 94, 47, 0.1);
-    --enhanced-shadow-hover: 0 8px 30px rgba(47, 94, 47, 0.15);
+    --enhanced-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --enhanced-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* Page Hero Section */
+/* Ключевые анимации */
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(1deg); }
+    66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+@keyframes trophyGlow {
+    0%, 100% {
+        opacity: 0.1;
+        transform: rotate(-15deg) scale(1);
+        filter: brightness(1);
+    }
+    50% {
+        opacity: 0.2;
+        transform: rotate(-10deg) scale(1.05);
+        filter: brightness(1.2);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Hero Section - Современный дизайн */
 .enhanced-hero {
-    background: var(--enhanced-gradient-1);
+    background: var(--enhanced-gradient-hero);
     position: relative;
     overflow: hidden;
-    padding: 4rem 0;
-    min-height: 400px;
+    min-height: 500px;
     display: flex;
     align-items: center;
 }
@@ -41,13 +154,50 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 30%, rgba(30, 90, 168, 0.1) 0%, transparent 50%);
-    animation: enhancedFloat 6s ease-in-out infinite;
+    background: url('data:image/svg+xml,<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="%23ffffff" fill-opacity="0.1" cx="60" cy="60" r="4"/><circle fill="%23ffffff" fill-opacity="0.06" cx="30" cy="90" r="2.5"/><circle fill="%23ffffff" fill-opacity="0.08" cx="90" cy="30" r="3"/></g></svg>') repeat;
+    animation: float 35s linear infinite;
+}
+
+.enhanced-hero::after {
+    content: '🏆';
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    font-size: 12rem;
+    opacity: 0.1;
+    transform: rotate(-15deg);
+    animation: trophyGlow 4s ease-in-out infinite;
+}
+
+.enhanced-hero .page-header {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    animation: slideInUp 0.8s ease-out;
 }
 
 .enhanced-hero .page-title {
-    color: var(--enhanced-white);
+    color: #ffffff;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0 0 var(--spacing-lg) 0;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeInScale 1s ease-out 0.3s both;
+}
+
+.enhanced-hero .page-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.6;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s ease-out 0.6s both;    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.enhanced-hero .page-title {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
@@ -69,13 +219,53 @@
 }
 
 @keyframes enhancedTitleGlow {
-    0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.3); }
-    100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 215, 0, 0.5); }
+    0%, 100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
+    50% { text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 215, 0, 0.4); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+@keyframes slideInFromRight {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.3); }
+    50% { opacity: 1; transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes enhancedSparkle {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-5deg) scale(1.1); }
+    75% { transform: rotate(5deg) scale(1.1); }
+}
+
+@keyframes enhancedBounce {
+    0%, 20%, 53%, 80%, 100% { transform: translate3d(0, 0, 0); }
+    40%, 43% { transform: translate3d(0, -8px, 0); }
+    70% { transform: translate3d(0, -4px, 0); }
+    90% { transform: translate3d(0, -2px, 0); }
+}
+
+@keyframes enhancedShine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
 }
 
 @keyframes enhancedPulse {
     0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.05); opacity: 0.9; }
+    50% { transform: scale(1.1); opacity: 0.8; }
 }
 
 @keyframes enhancedBounce {
@@ -96,80 +286,103 @@
     100% { background-position: 200% 0; }
 }
 
-/* Scholarship Overview */
+/* Overview Section - Улучшенный обзор */
 .scholarship-overview {
-    background: var(--enhanced-white);
-    border-radius: 20px;
-    padding: 3rem;
-    box-shadow: var(--enhanced-shadow);
-    margin-bottom: 3rem;
-    border: 2px solid transparent;
-    background-clip: padding-box;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xxl);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 255, 254, 0.95) 100%);
+    backdrop-filter: blur(15px);
+    padding: var(--spacing-xxl);
+    border-radius: 24px;
+    margin: var(--spacing-xl) 0;
+    border: 2px solid rgba(47, 94, 47, 0.1);
+    box-shadow: var(--enhanced-shadow-light);
     position: relative;
     overflow: hidden;
     transition: var(--enhanced-transition);
+    animation: slideInFromLeft 0.8s ease-out;
 }
 
 .scholarship-overview::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--enhanced-gradient-2);
-    opacity: 0.03;
-    border-radius: 18px;
-    transition: var(--enhanced-transition);
+    top: -100px;
+    right: -100px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at center, rgba(47, 94, 47, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulse 4s ease-in-out infinite;
 }
 
 .scholarship-overview:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--enhanced-shadow-hover);
-}
-
-.scholarship-overview:hover::before {
-    opacity: 0.08;
-}
-
-.scholarship-overview {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+    transform: translateY(-8px);
+    box-shadow: var(--enhanced-shadow-medium);
+    border-color: rgba(47, 94, 47, 0.3);
 }
 
 .scholarship-overview .overview-icon {
-    font-size: 4rem;
-    animation: enhancedSparkle 4s ease-in-out infinite;
-    filter: drop-shadow(2px 2px 4px rgba(255, 215, 0, 0.3));
+    font-size: 5rem;
+    flex-shrink: 0;
+    filter: drop-shadow(0 4px 15px rgba(47, 94, 47, 0.3));
+    animation: bounceIn 1s ease-out 0.5s both;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.scholarship-overview:hover .overview-icon {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.scholarship-overview .overview-content {
+    position: relative;
+    z-index: 2;
 }
 
 .scholarship-overview .overview-content h2 {
+    margin: 0 0 var(--spacing-lg) 0;
     color: var(--enhanced-primary);
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
+    font-size: var(--font-size-h2);
+    font-weight: 700;
+    position: relative;
+}
+
+.scholarship-overview .overview-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 120px;
+    height: 4px;
+    background: var(--enhanced-gradient-hero);
+    border-radius: 2px;
 }
 
 .scholarship-overview .overview-content p {
-    color: var(--enhanced-text);
+    margin: var(--spacing-lg) 0 0 0;
+    color: var(--text-color);
+    line-height: 1.7;
     font-size: 1.1rem;
-    line-height: 1.6;
-    margin: 0;
+    font-weight: 400;
 }
 
-/* Enhanced Info */
+/* Enhanced Info - Ключевая информация */
 .enhanced-info {
-    background: var(--enhanced-gradient-2);
-    border-radius: 20px;
-    padding: 2.5rem;
     display: flex;
     align-items: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
+    gap: var(--spacing-xxl);
+    background: var(--enhanced-gradient-gold);
+    backdrop-filter: blur(15px);
+    padding: var(--spacing-xxl);
+    border-radius: 24px;
+    margin: var(--spacing-xl) 0;
+    box-shadow: var(--enhanced-shadow-light);
     position: relative;
     overflow: hidden;
     transition: var(--enhanced-transition);
+    animation: slideInFromRight 0.8s ease-out;
 }
 
 .enhanced-info::before {
@@ -179,53 +392,142 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transform: rotate(45deg);
-    animation: enhancedShine 3s linear infinite;
+    animation: shimmer 3s linear infinite;
 }
 
 .enhanced-info:hover {
-    transform: translateY(-3px) scale(1.02);
+    transform: translateY(-8px);
+    box-shadow: var(--enhanced-shadow-medium);
 }
 
 .enhanced-info .info-icon {
-    font-size: 3.5rem;
-    animation: enhancedBounce 2s ease-in-out infinite;
+    font-size: 4rem;
+    flex-shrink: 0;
+    filter: drop-shadow(0 4px 15px rgba(255, 215, 0, 0.3));
+    animation: bounceIn 1s ease-out 0.5s both;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.enhanced-info:hover .info-icon {
+    transform: scale(1.1) rotate(10deg);
 }
 
 .enhanced-info .info-content {
+    position: relative;
+    z-index: 2;
     flex: 1;
 }
 
 .enhanced-info .info-content h3 {
-    color: var(--enhanced-white);
+    margin: 0 0 var(--spacing-md) 0;
+    color: #ffffff;
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .enhanced-info .info-content p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1rem;
-    line-height: 1.5;
     margin: 0;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .enhanced-info .info-amount {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--enhanced-white);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    animation: enhancedPulse 2s ease-in-out infinite;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
 }
 
-/* Points System */
-.points-section {
+/* Эмодзи стили - убираем спецэффекты */
+.enhanced-hero .overview-icon,
+.enhanced-info .info-icon,
+.scholarship-overview .overview-icon,
+.points-header .points-icon,
+.tip-icon,
+.level-icon,
+.warning-icon,
+.step-number {
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", emoji !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    text-decoration: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -webkit-font-smoothing: auto !important;
+    -moz-osx-font-smoothing: auto !important;
+}
+
+/* Переопределяем только для иконок с нужными эффектами */
+.enhanced-info .info-icon {
+    filter: drop-shadow(0 4px 15px rgba(255, 215, 0, 0.3)) !important;
+}
+
+.scholarship-overview .overview-icon {
+    filter: drop-shadow(2px 2px 4px rgba(255, 215, 0, 0.3)) !important;
+}
+
+/* Заголовки секций */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xxl);
+    position: relative;
+}
+
+.section-title {
+    font-size: var(--font-size-h2);
+    font-weight: 700;
+    color: var(--enhanced-primary);
+    margin: 0 0 var(--spacing-md) 0;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--enhanced-gradient-hero);
+    border-radius: 2px;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin: var(--spacing-lg) auto 0;
+    max-width: 600px;
+    line-height: 1.6;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+/* Общие стили для секций контента */
+.content-section {
+    padding: var(--spacing-xxl) 0;
+    position: relative;
+}
+
+.content-section:nth-child(even) {
     background: linear-gradient(135deg, #f8fffe 0%, #f0f9ff 100%);
-    padding: 4rem 0;
-    margin: 3rem 0;
+}
+
+.content-section:nth-child(odd) {
+    background: var(--enhanced-white);
 }
 
 .points-system {
@@ -429,11 +731,6 @@
 }
 
 /* Payment Levels */
-.levels-section {
-    background: linear-gradient(135deg, #f8fffe 0%, #f0f9ff 100%);
-    padding: 4rem 0;
-}
-
 .levels-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -527,11 +824,6 @@
 }
 
 /* Tips Section */
-.tips-section {
-    padding: 4rem 0;
-    background: var(--enhanced-white);
-}
-
 .tips-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -603,12 +895,6 @@
 }
 
 /* Important Section */
-.important-section {
-    background: linear-gradient(135deg, #FFF8E1 0%, #F3E5AB 100%);
-    padding: 3rem 0;
-    margin: 3rem 0;
-}
-
 .important-warning {
     background: var(--enhanced-white);
     border-radius: 20px;
@@ -730,8 +1016,77 @@
     .level-amount {
         font-size: 1.8rem;
     }
-    
-    .enhanced-info .info-amount {
+      .enhanced-info .info-amount {
         font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+/* Дополнительные улучшения */
+.points-card:hover .points-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.level-card:hover .level-icon {
+    transform: scale(1.3) rotate(-10deg);
+}
+
+.tip-card:hover .tip-icon {
+    transform: scale(1.2) rotate(15deg);
+}
+
+/* Плавные переходы для всех интерактивных элементов */
+.points-card,
+.level-card,
+.tip-card,
+.step-content,
+.scholarship-overview,
+.enhanced-info,
+.important-warning {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Улучшенная интерактивность */
+.points-card:active,
+.level-card:active,
+.tip-card:active {
+    transform: translateY(-3px) scale(0.98);
+}
+
+/* Accessibility improvements */
+.points-card:focus,
+.level-card:focus,
+.tip-card:focus,
+.step-content:focus {
+    outline: 3px solid var(--enhanced-primary);
+    outline-offset: 2px;
+    box-shadow: var(--enhanced-shadow-hover);
+}
+
+/* Улучшенная читаемость */
+.points-list li,
+.level-criteria span,
+.tip-card p,
+.step-content p,
+.important-warning p {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Финальные штрихи */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }

@@ -1,7 +1,7 @@
 // ===== SERVICE WORKER ДЛЯ PWA ФУНКЦИОНАЛЬНОСТИ =====
 
 // Обновляем версии кешей при каждом изменении
-const CACHE_VERSION = '1.6.0'; // Увеличиваем версию при каждом изменении кэша
+const CACHE_VERSION = '1.7.0'; // Увеличиваем версию при каждом изменении кэша
 const CACHE_NAME = `rgau-guide-v${CACHE_VERSION}`;
 const STATIC_CACHE_NAME = `rgau-guide-static-v${CACHE_VERSION}`;
 const DATA_CACHE_NAME = `rgau-guide-data-v${CACHE_VERSION}`;

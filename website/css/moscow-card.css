@@ -1,38 +1,39 @@
-/* Moscow Card Styles - Карта москвича */
+/* ===== СПЕЦИФИЧНЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ КАРТЫ МОСКВИЧА ===== */
 
-/* CSS Variables для согласованности с общей темой */
+/* CSS Variables для карты москвича */
 :root {
-    --moscow-primary: var(--color-primary);        /* #2F5E2F */
-    --moscow-secondary: var(--color-secondary);    /* #1E5AA8 */
-    --moscow-white: var(--color-white);            /* #FFFFFF */
-    --moscow-light: var(--color-light);            /* #F5F5F5 */
-    --moscow-text: var(--color-text-dark);         /* #333333 */
-    
-    /* Специальные цвета для карты москвича */
+    /* Основные цвета карты москвича */
     --moscow-red: #DC143C;
     --moscow-blue: #4169E1;
     --moscow-metro: #0077BE;
     --moscow-transport: #FF6347;
     --moscow-discount: #32CD32;
+    --moscow-yellow: #FFD700;
+    --moscow-purple: #9370DB;
     
-    /* Градиенты */
-    --moscow-gradient-1: linear-gradient(135deg, var(--moscow-red), var(--moscow-blue));
-    --moscow-gradient-2: linear-gradient(135deg, var(--moscow-metro), var(--moscow-secondary));
-    --moscow-gradient-3: linear-gradient(135deg, var(--moscow-primary), var(--moscow-discount));
+    /* Современные градиенты */
+    --moscow-gradient-hero: linear-gradient(135deg, #DC143C 0%, #4169E1 50%, #9370DB 100%);
+    --moscow-gradient-metro: linear-gradient(135deg, #0077BE 0%, #4169E1 100%);
+    --moscow-gradient-transport: linear-gradient(135deg, #FF6347 0%, #FFD700 100%);
+    --moscow-gradient-discount: linear-gradient(135deg, #32CD32 0%, #00FA9A 100%);
+    --moscow-gradient-benefits: linear-gradient(135deg, #9370DB 0%, #FF1493 100%);
+    
+    /* Тени и эффекты */
+    --moscow-shadow-light: 0 4px 20px rgba(220, 20, 60, 0.1);
+    --moscow-shadow-medium: 0 8px 30px rgba(220, 20, 60, 0.15);
+    --moscow-shadow-heavy: 0 15px 50px rgba(220, 20, 60, 0.2);
     
     /* Анимации */
-    --moscow-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --moscow-shadow: 0 4px 15px rgba(220, 20, 60, 0.1);
-    --moscow-shadow-hover: 0 8px 30px rgba(220, 20, 60, 0.15);
+    --moscow-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --moscow-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* Page Hero Section */
+/* Hero Section - Современный дизайн */
 .moscow-hero {
-    background: var(--moscow-gradient-1);
+    background: var(--moscow-gradient-hero);
     position: relative;
     overflow: hidden;
-    padding: 4rem 0;
-    min-height: 400px;
+    min-height: 500px;
     display: flex;
     align-items: center;
 }
@@ -44,142 +45,268 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 70%, rgba(65, 105, 225, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 30%, rgba(220, 20, 60, 0.1) 0%, transparent 50%);
-    animation: moscowFloat 6s ease-in-out infinite;
+    background: url('data:image/svg+xml,<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="%23ffffff" fill-opacity="0.1" cx="60" cy="60" r="4"/><circle fill="%23ffffff" fill-opacity="0.06" cx="30" cy="90" r="2.5"/><circle fill="%23ffffff" fill-opacity="0.08" cx="90" cy="30" r="3"/></g></svg>') repeat;
+    animation: float 35s linear infinite;
+}
+
+.moscow-hero::after {
+    content: '🎫';
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    font-size: 12rem;
+    opacity: 0.1;
+    transform: rotate(-15deg);
+    animation: cardGlow 4s ease-in-out infinite;
+}
+
+.moscow-hero .page-header {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    animation: slideInUp 0.8s ease-out;
 }
 
 .moscow-hero .page-title {
-    color: var(--moscow-white);
+    color: #ffffff;
     font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    animation: moscowTitleGlow 3s ease-in-out infinite alternate;
+    margin: 0 0 var(--spacing-lg) 0;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeInScale 1s ease-out 0.3s both;
 }
 
 .moscow-hero .page-subtitle {
     color: rgba(255, 255, 255, 0.9);
-    font-size: 1.3rem;
-    margin-bottom: 0;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.6;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s ease-out 0.6s both;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Анимации */
-@keyframes moscowFloat {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(1deg); }
+/* Ключевые анимации */
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(1deg); }
+    66% { transform: translateY(5px) rotate(-1deg); }
 }
 
-@keyframes moscowTitleGlow {
-    0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(220, 20, 60, 0.3); }
-    100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(220, 20, 60, 0.5); }
+@keyframes cardGlow {
+    0%, 100% {
+        opacity: 0.1;
+        transform: rotate(-15deg) scale(1);
+        filter: brightness(1);
+    }
+    50% {
+        opacity: 0.2;
+        transform: rotate(-10deg) scale(1.05);
+        filter: brightness(1.2);
+    }
 }
 
-@keyframes moscowPulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.05); opacity: 0.9; }
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-@keyframes moscowBounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-@keyframes moscowSparkle {
-    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
-    25% { transform: scale(1.1) rotate(90deg); opacity: 0.8; }
-    50% { transform: scale(1.2) rotate(180deg); opacity: 0.6; }
-    75% { transform: scale(1.1) rotate(270deg); opacity: 0.8; }
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-@keyframes moscowShine {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+@keyframes pulse {
+    0%, 100% { 
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
 }
 
-@keyframes moscowSlide {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-/* Card Overview */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Card Overview - Улучшенный обзор */
 .card-overview {
-    background: var(--moscow-white);
-    border-radius: 20px;
-    padding: 3rem;
-    box-shadow: var(--moscow-shadow);
-    margin-bottom: 3rem;
-    border: 2px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xxl);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 255, 254, 0.95) 100%);
+    backdrop-filter: blur(15px);
+    padding: var(--spacing-xxl);
+    border-radius: 24px;
+    margin: var(--spacing-xl) 0;
+    border: 2px solid rgba(220, 20, 60, 0.1);
+    box-shadow: var(--moscow-shadow-light);
     position: relative;
     overflow: hidden;
     transition: var(--moscow-transition);
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+    animation: slideInFromLeft 0.8s ease-out;
 }
 
 .card-overview::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--moscow-gradient-1);
-    opacity: 0.03;
-    border-radius: 18px;
-    transition: var(--moscow-transition);
+    top: -100px;
+    right: -100px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at center, rgba(220, 20, 60, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulse 4s ease-in-out infinite;
 }
 
 .card-overview:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--moscow-shadow-hover);
-}
-
-.card-overview:hover::before {
-    opacity: 0.08;
+    transform: translateY(-8px);
+    box-shadow: var(--moscow-shadow-medium);
+    border-color: rgba(220, 20, 60, 0.3);
 }
 
 .card-overview .overview-icon {
-    font-size: 4rem;
-    animation: moscowSparkle 4s ease-in-out infinite;
-    filter: drop-shadow(2px 2px 4px rgba(220, 20, 60, 0.3));
+    font-size: 5rem;
+    flex-shrink: 0;
+    filter: drop-shadow(0 4px 15px rgba(220, 20, 60, 0.3));
+    animation: bounceIn 1s ease-out 0.5s both;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.card-overview:hover .overview-icon {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.card-overview .overview-content {
+    position: relative;
+    z-index: 2;
 }
 
 .card-overview .overview-content h2 {
-    color: var(--moscow-primary);
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
+    margin: 0 0 var(--spacing-lg) 0;
+    color: var(--moscow-red);
+    font-size: var(--font-size-h2);
+    font-weight: 700;
+    position: relative;
+}
+
+.card-overview .overview-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 120px;
+    height: 4px;
+    background: var(--moscow-gradient-hero);
+    border-radius: 2px;
 }
 
 .card-overview .overview-content p {
-    color: var(--moscow-text);
+    margin: var(--spacing-lg) 0 0 0;
+    color: var(--text-color);
+    line-height: 1.7;
     font-size: 1.1rem;
-    line-height: 1.6;
-    margin: 0;
+    font-weight: 400;
 }
 
-/* Benefits Grid */
+/* Benefits Grid - Современные карточки преимуществ */
 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
 }
 
 .benefit-card {
-    background: var(--moscow-white);
-    border-radius: 20px;
-    padding: 2.5rem;
-    text-align: center;
-    box-shadow: var(--moscow-shadow);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--moscow-shadow-light);
     transition: var(--moscow-transition);
     position: relative;
-    overflow: hidden;
+    backdrop-filter: blur(10px);
     border: 2px solid transparent;
+    animation: fadeInUp 0.6s ease-out;
+    text-align: center;
+    padding: var(--spacing-xxl);
+}
+
+.benefit-card::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    opacity: 0;
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: var(--moscow-shadow-medium);
+}
+
+.benefit-card:hover::after {
+    opacity: 1;
+    top: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
 }
 
 .benefit-card::before {
@@ -188,154 +315,297 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    transition: var(--moscow-transition);
-}
-
-.transport-card::before { background: var(--moscow-gradient-2); }
-.suburban-card::before { background: linear-gradient(135deg, var(--moscow-transport), #FF8C00); }
-.discounts-card::before { background: var(--moscow-gradient-3); }
-
-.benefit-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--moscow-shadow-hover);
-    border-color: var(--moscow-red);
-}
-
-.benefit-card:hover::before {
     height: 6px;
+    transition: all 0.3s ease;
+    border-radius: 24px 24px 0 0;
+}
+
+.transport-card {
+    border-color: rgba(0, 119, 190, 0.3);
+}
+
+.transport-card::before {
+    background: var(--moscow-gradient-metro);
+}
+
+.transport-card::after {
+    background: radial-gradient(circle at center, rgba(0, 119, 190, 0.08) 0%, transparent 70%);
+}
+
+.suburban-card {
+    border-color: rgba(255, 99, 71, 0.3);
+}
+
+.suburban-card::before {
+    background: var(--moscow-gradient-transport);
+}
+
+.suburban-card::after {
+    background: radial-gradient(circle at center, rgba(255, 99, 71, 0.08) 0%, transparent 70%);
+}
+
+.discounts-card {
+    border-color: rgba(50, 205, 50, 0.3);
+}
+
+.discounts-card::before {
+    background: var(--moscow-gradient-discount);
+}
+
+.discounts-card::after {
+    background: radial-gradient(circle at center, rgba(50, 205, 50, 0.08) 0%, transparent 70%);
 }
 
 .benefit-card .benefit-icon {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    animation: moscowBounce 3s ease-in-out infinite;
+    font-size: 4rem;
+    margin-bottom: var(--spacing-xl);
+    animation: bounceIn 1s ease-out;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.benefit-card:hover .benefit-icon {
+    transform: scale(1.2) rotate(10deg);
 }
 
 .benefit-card h3 {
-    color: var(--moscow-primary);
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
+    margin: 0 0 var(--spacing-lg) 0;
+    color: var(--moscow-red);
+    font-size: 1.4rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+}
+
+.benefit-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--moscow-gradient-hero);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.benefit-card:hover h3::after {
+    width: 120px;
 }
 
 .benefit-card p {
-    color: var(--moscow-text);
-    margin-bottom: 1.5rem;
-    line-height: 1.5;
+    margin: 0 0 var(--spacing-xl) 0;
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 .benefit-badge {
-    background: var(--moscow-gradient-1);
-    color: var(--moscow-white);
-    padding: 0.5rem 1.5rem;
+    background: var(--moscow-gradient-hero);
+    color: #ffffff;
+    padding: var(--spacing-md) var(--spacing-lg);
     border-radius: 20px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1rem;
     box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
-    animation: moscowPulse 2s ease-in-out infinite;
+    animation: pulse 2s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
+    display: inline-block;
 }
 
-/* Transport Section */
+/* Transport Section - Транспортные льготы */
 .transport-section {
-    background: linear-gradient(135deg, #f8fffe 0%, #f0f9ff 100%);
-    padding: 4rem 0;
-    margin: 3rem 0;
+    background: linear-gradient(135deg, rgba(240, 248, 255, 0.8) 0%, rgba(248, 255, 254, 0.8) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.transport-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="%23DC143C" fill-opacity="0.03" cx="50" cy="50" r="2.5"/><circle fill="%234169E1" fill-opacity="0.02" cx="25" cy="75" r="1.5"/><circle fill="%230077BE" fill-opacity="0.03" cx="75" cy="25" r="2"/></g></svg>') repeat;
+    animation: float 40s linear infinite;
 }
 
 .transport-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+    position: relative;
+    z-index: 1;
 }
 
 .transport-item {
-    background: var(--moscow-white);
-    border-radius: 20px;
-    padding: 2.5rem;
-    box-shadow: var(--moscow-shadow);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+    border-radius: 24px;
+    padding: var(--spacing-xxl);
+    box-shadow: var(--moscow-shadow-light);
     transition: var(--moscow-transition);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
     border: 3px solid transparent;
+    animation: fadeInUp 0.6s ease-out;
 }
 
 .metro-item {
-    background: linear-gradient(135deg, var(--moscow-white), #F0F8FF);
     border-color: var(--moscow-metro);
 }
 
+.metro-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--moscow-gradient-metro);
+    border-radius: 24px 24px 0 0;
+}
+
 .surface-item {
-    background: linear-gradient(135deg, var(--moscow-white), #FFF8DC);
     border-color: var(--moscow-transport);
 }
 
+.surface-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--moscow-gradient-transport);
+    border-radius: 24px 24px 0 0;
+}
+
 .suburban-item {
-    background: linear-gradient(135deg, var(--moscow-white), #F0FFF0);
     border-color: var(--moscow-discount);
+}
+
+.suburban-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--moscow-gradient-discount);
+    border-radius: 24px 24px 0 0;
 }
 
 .transport-item:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: var(--moscow-shadow-hover);
+    box-shadow: var(--moscow-shadow-medium);
 }
 
-.transport-item::before {
+.transport-item::after {
     content: '';
     position: absolute;
     top: -50%;
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transform: rotate(45deg);
-    animation: moscowShine 4s linear infinite;
+    animation: shimmer 3s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.transport-item:hover::after {
+    opacity: 1;
 }
 
 .transport-header {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+    z-index: 2;
 }
 
 .transport-header .transport-icon {
-    font-size: 2.5rem;
-    animation: moscowSparkle 5s ease-in-out infinite;
+    font-size: 3rem;
+    animation: bounceIn 1s ease-out;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+
+.transport-item:hover .transport-icon {
+    transform: scale(1.2) rotate(10deg);
 }
 
 .transport-header h3 {
-    color: var(--moscow-primary);
-    font-size: 1.4rem;
-    font-weight: 600;
     margin: 0;
+    color: var(--moscow-red);
+    font-size: 1.5rem;
+    font-weight: 700;
+    position: relative;
+}
+
+.transport-header h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background: var(--moscow-gradient-hero);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.transport-item:hover .transport-header h3::after {
+    width: 140px;
+}
+
+.transport-content {
+    position: relative;
+    z-index: 2;
 }
 
 .transport-price {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
 }
 
 .old-price {
     text-decoration: line-through;
     color: #999;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 .new-price {
     color: var(--moscow-red);
-    font-size: 1.5rem;
-    font-weight: 700;
-    animation: moscowPulse 2s ease-in-out infinite;
+    font-size: 1.8rem;
+    font-weight: 900;
+    background: var(--moscow-gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: pulse 2s ease-in-out infinite;
 }
 
 .transport-content p {
-    color: var(--moscow-text);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
+    margin: 0 0 var(--spacing-lg) 0;
+    color: var(--text-color);
+    line-height: 1.7;
+    font-size: 1.05rem;
+    font-weight: 400;
 }
 
 .transport-features {
@@ -345,11 +615,12 @@
 }
 
 .transport-features li {
-    padding: 0.5rem 0;
-    color: var(--moscow-text);
+    padding: var(--spacing-sm) 0;
+    color: var(--text-color);
     position: relative;
-    padding-left: 1.5rem;
-    transition: var(--moscow-transition);
+    padding-left: var(--spacing-xl);
+    transition: all 0.3s ease;
+    font-weight: 500;
 }
 
 .transport-features li::before {
@@ -358,40 +629,70 @@
     left: 0;
     color: var(--moscow-discount);
     font-weight: bold;
-    transition: var(--moscow-transition);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
 }
 
 .transport-features li:hover {
-    color: var(--moscow-primary);
+    color: var(--moscow-red);
     transform: translateX(5px);
 }
 
 .transport-features li:hover::before {
-    animation: moscowSparkle 0.5s ease-in-out;
+    transform: scale(1.3);
+    color: var(--moscow-red);
 }
 
-/* Benefits Categories */
+/* Benefits Categories - Категории льгот */
 .benefits-section {
-    padding: 4rem 0;
-    background: var(--moscow-white);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(248, 255, 254, 0.8) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.benefits-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="%239370DB" fill-opacity="0.04" cx="40" cy="40" r="2.5"/><circle fill="%23FF1493" fill-opacity="0.03" cx="60" cy="20" r="1.5"/></g></svg>') repeat;
+    animation: float 45s linear infinite;
 }
 
 .benefits-categories {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+    position: relative;
+    z-index: 1;
 }
 
 .category-card {
-    background: var(--moscow-light);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
     border-radius: 20px;
-    padding: 2rem;
-    box-shadow: var(--moscow-shadow);
+    padding: var(--spacing-xxl);
+    border: 2px solid transparent;
     transition: var(--moscow-transition);
     position: relative;
     overflow: hidden;
-    border: 2px solid transparent;
+    box-shadow: var(--moscow-shadow-light);
+    animation: fadeInUp 0.6s ease-out;
+    backdrop-filter: blur(10px);
+}
+
+.category-card::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    opacity: 0;
 }
 
 .category-card::before {
@@ -400,72 +701,111 @@
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    opacity: 0;
-    transition: var(--moscow-transition);
-    border-radius: 18px;
-}
-
-.food-category::before { background: linear-gradient(135deg, #FF6347, #FFB347); }
-.shopping-category::before { background: linear-gradient(135deg, #9370DB, #BA55D3); }
-.entertainment-category::before { background: linear-gradient(135deg, #FF1493, #FF69B4); }
-.services-category::before { background: linear-gradient(135deg, #00CED1, #48D1CC); }
-
-.category-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--moscow-red);
-    color: var(--moscow-white);
+    height: 6px;
+    background: var(--moscow-gradient-benefits);
+    transform: scaleX(0);
+    transition: transform 0.4s var(--moscow-bounce);
+    transform-origin: center;
+    border-radius: 20px 20px 0 0;
 }
 
 .category-card:hover::before {
+    transform: scaleX(1);
+}
+
+.category-card:hover::after {
     opacity: 1;
+    top: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
 }
 
-.category-card:hover .category-header,
-.category-card:hover .category-content,
-.category-card:hover .benefits-list,
-.category-card:hover .discount-range {
-    position: relative;
-    z-index: 2;
+.category-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: var(--moscow-shadow-medium);
+    border-color: rgba(220, 20, 60, 0.2);
 }
 
-.category-card:hover h3,
-.category-card:hover .benefits-list li {
-    color: var(--moscow-white);
+.food-category::after {
+    background: radial-gradient(circle at center, rgba(255, 99, 71, 0.08) 0%, transparent 70%);
+}
+
+.shopping-category::after {
+    background: radial-gradient(circle at center, rgba(147, 112, 219, 0.08) 0%, transparent 70%);
+}
+
+.entertainment-category::after {
+    background: radial-gradient(circle at center, rgba(255, 20, 147, 0.08) 0%, transparent 70%);
+}
+
+.services-category::after {
+    background: radial-gradient(circle at center, rgba(0, 206, 209, 0.08) 0%, transparent 70%);
 }
 
 .category-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+    z-index: 2;
 }
 
 .category-header .category-icon {
-    font-size: 2.5rem;
-    animation: moscowBounce 4s ease-in-out infinite;
+    font-size: 3rem;
+    animation: bounceIn 1s ease-out;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover .category-icon {
+    transform: scale(1.2) rotate(15deg);
 }
 
 .category-header h3 {
-    color: var(--moscow-primary);
-    font-size: 1.3rem;
-    font-weight: 600;
     margin: 0;
-    transition: var(--moscow-transition);
+    color: var(--moscow-red);
+    font-size: 1.3rem;
+    font-weight: 700;
+    position: relative;
+}
+
+.category-header h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--moscow-gradient-hero);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.category-card:hover .category-header h3::after {
+    width: 120px;
+}
+
+.category-content {
+    position: relative;
+    z-index: 2;
 }
 
 .benefits-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 1.5rem 0;
+    margin: 0 0 var(--spacing-xl) 0;
 }
 
 .benefits-list li {
-    padding: 0.5rem 0;
-    color: var(--moscow-text);
+    padding: var(--spacing-sm) 0;
+    color: var(--text-color);
     position: relative;
-    padding-left: 1.5rem;
-    transition: var(--moscow-transition);
+    padding-left: var(--spacing-lg);
+    transition: all 0.3s ease;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 .benefits-list li::before {
@@ -474,29 +814,53 @@
     left: 0;
     color: var(--moscow-red);
     font-weight: bold;
-    transition: var(--moscow-transition);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.benefits-list li:hover {
+    color: var(--moscow-red);
+    transform: translateX(5px);
+}
+
+.benefits-list li:hover::before {
+    transform: scale(1.5);
 }
 
 .discount-range {
-    background: var(--moscow-gradient-1);
-    color: var(--moscow-white);
-    padding: 0.5rem 1rem;
-    border-radius: 15px;
-    font-weight: 600;
+    background: var(--moscow-gradient-hero);
+    color: #ffffff;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: 20px;
+    font-weight: 700;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(220, 20, 60, 0.2);
+    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+    font-size: 1.1rem;
+    animation: pulse 2s ease-in-out infinite;
 }
 
-/* Application Timeline */
+/* Application Timeline - Как получить карту */
 .application-section {
-    background: linear-gradient(135deg, #FFF0F5 0%, #F8F8FF 100%);
-    padding: 4rem 0;
-    margin: 3rem 0;
+    background: linear-gradient(135deg, rgba(255, 240, 245, 0.8) 0%, rgba(248, 248, 255, 0.8) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.application-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="%23DC143C" fill-opacity="0.04" cx="30" cy="30" r="2"/><circle fill="%234169E1" fill-opacity="0.03" cx="15" cy="45" r="1.5"/></g></svg>') repeat;
+    animation: float 50s linear infinite;
 }
 
 .application-timeline {
     position: relative;
-    margin-top: 3rem;
+    margin: var(--spacing-xl) 0;
+    z-index: 1;
 }
 
 .application-timeline::before {
@@ -506,125 +870,201 @@
     top: 0;
     bottom: 0;
     width: 4px;
-    background: var(--moscow-gradient-1);
+    background: var(--moscow-gradient-hero);
     transform: translateX(-50%);
     border-radius: 2px;
+    box-shadow: 0 0 15px rgba(220, 20, 60, 0.3);
 }
 
 .application-step {
     display: flex;
     align-items: center;
-    margin-bottom: 3rem;
+    margin-bottom: var(--spacing-xxl);
     position: relative;
+    animation: fadeInUp 0.6s ease-out;
 }
 
 .application-step:nth-child(odd) {
     flex-direction: row;
+    animation-delay: 0.1s;
 }
 
 .application-step:nth-child(even) {
     flex-direction: row-reverse;
+    animation-delay: 0.2s;
 }
 
 .step-number {
-    width: 60px;
-    height: 60px;
-    background: var(--moscow-gradient-1);
+    width: 80px;
+    height: 80px;
+    background: var(--moscow-gradient-hero);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--moscow-white);
-    font-size: 1.5rem;
-    font-weight: bold;
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 800;
     position: relative;
     z-index: 2;
-    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
-    animation: moscowPulse 3s ease-in-out infinite;
+    box-shadow: 
+        0 8px 25px rgba(220, 20, 60, 0.3),
+        0 0 0 6px rgba(255, 255, 255, 1),
+        0 0 0 10px rgba(220, 20, 60, 0.1);
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.application-step:hover .step-number {
+    transform: scale(1.15) rotate(10deg);
+    box-shadow: 
+        0 12px 35px rgba(220, 20, 60, 0.4),
+        0 0 0 6px rgba(255, 255, 255, 1),
+        0 0 0 12px rgba(220, 20, 60, 0.15);
 }
 
 .step-content {
     flex: 1;
     max-width: 45%;
-    background: var(--moscow-white);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: var(--moscow-shadow);
-    margin: 0 2rem;
-    transition: var(--moscow-transition);
-    border: 2px solid transparent;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 255, 254, 0.95) 100%);
+    padding: var(--spacing-xxl);
+    border-radius: 20px;
+    border: 2px solid rgba(220, 20, 60, 0.1);
+    margin: 0 var(--spacing-xl);
+    box-shadow: var(--moscow-shadow-light);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
-.step-content:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--moscow-shadow-hover);
-    border-color: var(--moscow-red);
+.step-content::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at center, rgba(220, 20, 60, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.application-step:hover .step-content {
+    transform: translateX(10px) translateY(-5px);
+    box-shadow: var(--moscow-shadow-medium);
+    border-color: rgba(220, 20, 60, 0.2);
+}
+
+.application-step:hover .step-content::before {
+    top: -30px;
+    right: -30px;
+    width: 160px;
+    height: 160px;
 }
 
 .step-content h3 {
-    color: var(--moscow-primary);
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
+    margin: 0 0 var(--spacing-lg) 0;
+    color: var(--moscow-red);
+    font-size: 1.4rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+}
+
+.step-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--moscow-gradient-hero);
+    border-radius: 2px;
 }
 
 .step-content p {
-    color: var(--moscow-text);
-    margin-bottom: 1rem;
-    line-height: 1.5;
+    margin: 0 0 var(--spacing-lg) 0;
+    color: var(--text-color);
+    line-height: 1.7;
+    font-size: 1.05rem;
+    position: relative;
+    z-index: 2;
 }
 
 .step-action {
-    margin-top: 1rem;
+    margin-top: var(--spacing-lg);
+    position: relative;
+    z-index: 2;
 }
 
 .action-button {
-    background: var(--moscow-gradient-1);
-    color: var(--moscow-white);
-    padding: 0.8rem 1.5rem;
-    border-radius: 10px;
+    background: var(--moscow-gradient-hero);
+    color: #ffffff;
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: 12px;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     display: inline-block;
-    transition: var(--moscow-transition);
-    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.2);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+    font-size: 1rem;
 }
 
 .action-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(220, 20, 60, 0.3);
-    color: var(--moscow-white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(220, 20, 60, 0.4);
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .step-timing {
-    background: var(--moscow-light);
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    font-size: 0.9rem;
-    color: var(--moscow-primary);
-    font-weight: 500;
+    background: linear-gradient(135deg, rgba(220, 20, 60, 0.1) 0%, rgba(65, 105, 225, 0.1) 100%);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: 20px;
+    font-size: var(--font-size-small);
+    color: var(--moscow-red);
+    font-weight: 700;
     display: inline-block;
+    border: 2px solid rgba(220, 20, 60, 0.2);
+    position: relative;
+    z-index: 2;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* Important Section */
+/* Important Section - Важная информация */
 .important-section {
-    background: linear-gradient(135deg, #FFF8E1 0%, #F3E5AB 100%);
-    padding: 3rem 0;
-    margin: 3rem 0;
+    background: linear-gradient(135deg, rgba(255, 248, 225, 0.8) 0%, rgba(243, 229, 171, 0.8) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.important-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="%23FFD700" fill-opacity="0.04" cx="40" cy="40" r="2.5"/><circle fill="%23DC143C" fill-opacity="0.03" cx="60" cy="20" r="1.5"/></g></svg>') repeat;
+    animation: float 35s linear infinite;
 }
 
 .important-warning {
-    background: var(--moscow-white);
-    border-radius: 20px;
-    padding: 3rem;
-    box-shadow: var(--moscow-shadow);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+    border-radius: 24px;
+    padding: var(--spacing-xxl);
+    box-shadow: var(--moscow-shadow-light);
     border-left: 6px solid var(--moscow-red);
     display: flex;
     align-items: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
+    animation: slideInUp 0.8s ease-out;
 }
 
 .important-warning::before {
@@ -635,46 +1075,60 @@
     right: 0;
     bottom: 0;
     background: linear-gradient(45deg, transparent, rgba(220, 20, 60, 0.03), transparent);
-    animation: moscowShine 5s linear infinite;
+    animation: shimmer 5s linear infinite;
 }
 
 .important-warning .warning-icon {
-    font-size: 3rem;
+    font-size: 4rem;
     color: var(--moscow-red);
-    animation: moscowPulse 2s ease-in-out infinite;
+    animation: pulse 2s ease-in-out infinite;
+    filter: drop-shadow(0 4px 15px rgba(220, 20, 60, 0.3));
+    position: relative;
+    z-index: 2;
+}
+
+.important-warning .warning-content {
+    position: relative;
+    z-index: 2;
 }
 
 .important-warning .warning-content h2 {
     color: var(--moscow-red);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
+    font-size: 1.6rem;
+    margin: 0 0 var(--spacing-lg) 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .important-warning .warning-content p {
-    color: var(--moscow-text);
-    line-height: 1.6;
+    color: var(--text-color);
+    line-height: 1.7;
     margin: 0;
     font-size: 1.1rem;
+    font-weight: 400;
 }
 
-/* Tips Grid */
+/* Tips Grid - Советы */
 .tips-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
 }
 
 .tip-card {
-    background: var(--moscow-white);
-    border-radius: 15px;
-    padding: 2rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+    border-radius: 20px;
+    padding: var(--spacing-xxl);
     text-align: center;
     transition: var(--moscow-transition);
     border: 2px solid transparent;
-    box-shadow: var(--moscow-shadow);
+    box-shadow: var(--moscow-shadow-light);
     position: relative;
     overflow: hidden;
+    animation: fadeInUp 0.6s ease-out;
+    backdrop-filter: blur(10px);
 }
 
 .tip-card::before {
@@ -683,131 +1137,149 @@
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    background: var(--moscow-gradient-1);
-    opacity: 0;
-    transition: var(--moscow-transition);
-    border-radius: 13px;
+    height: 6px;
+    background: var(--moscow-gradient-hero);
+    transform: scaleX(0);
+    transition: transform 0.4s var(--moscow-bounce);
+    transform-origin: center;
+    border-radius: 20px 20px 0 0;
 }
 
-.tip-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--moscow-red);
-    color: var(--moscow-white);
+.tip-card::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at center, rgba(220, 20, 60, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    opacity: 0;
 }
 
 .tip-card:hover::before {
-    opacity: 1;
+    transform: scaleX(1);
 }
 
-.tip-card:hover .tip-icon,
-.tip-card:hover h3,
-.tip-card:hover p {
-    position: relative;
-    z-index: 2;
-    color: var(--moscow-white);
+.tip-card:hover::after {
+    opacity: 1;
+    top: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
+}
+
+.tip-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: var(--moscow-shadow-medium);
+    border-color: rgba(220, 20, 60, 0.2);
 }
 
 .tip-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    animation: moscowBounce 4s ease-in-out infinite;
+    font-size: 3rem;
+    margin-bottom: var(--spacing-xl);
+    display: block;
+    animation: bounceIn 1s ease-out;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.tip-card:hover .tip-icon {
+    transform: scale(1.2) rotate(15deg);
 }
 
 .tip-card h3 {
-    color: var(--moscow-primary);
+    margin: 0 0 var(--spacing-lg) 0;
+    color: var(--moscow-red);
     font-size: 1.2rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-    transition: var(--moscow-transition);
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+}
+
+.tip-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--moscow-gradient-hero);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.tip-card:hover h3::after {
+    width: 100px;
 }
 
 .tip-card p {
-    color: var(--moscow-text);
-    line-height: 1.5;
     margin: 0;
-    transition: var(--moscow-transition);
-}
-
-/* FAQ Section */
-.faq-section {
-    background: var(--moscow-white);
-    padding: 4rem 0;
-}
-
-.faq-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.faq-item {
-    background: var(--moscow-light);
-    border-radius: 15px;
-    padding: 2rem;
-    transition: var(--moscow-transition);
-    border: 2px solid transparent;
+    color: var(--text-color);
+    line-height: 1.7;
+    font-size: 1rem;
+    font-weight: 400;
     position: relative;
-    overflow: hidden;
+    z-index: 2;
 }
 
-.faq-item::before {
+/* Section Headers - Заголовки секций */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+    z-index: 1;
+}
+
+.section-title {
+    color: var(--moscow-red);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 var(--spacing-lg) 0;
+    position: relative;
+}
+
+.section-title::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
     height: 4px;
-    background: var(--moscow-gradient-1);
-    transition: var(--moscow-transition);
+    background: var(--moscow-gradient-hero);
+    border-radius: 2px;
 }
 
-.faq-item:hover {
-    transform: translateY(-3px);
-    border-color: var(--moscow-red);
-    box-shadow: var(--moscow-shadow);
-}
-
-.faq-item:hover::before {
-    height: 6px;
-}
-
-.faq-item h3 {
-    color: var(--moscow-primary);
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.faq-item p {
-    color: var(--moscow-text);
-    line-height: 1.5;
+.section-subtitle {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: 400;
     margin: 0;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Responsive Design */
+/* Анимация для скрытых элементов */
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design - дополнительные правила */
 @media (max-width: 768px) {
-    .moscow-hero .page-title {
-        font-size: 2.5rem;
-    }
-    
-    .moscow-hero .page-subtitle {
-        font-size: 1.1rem;
-    }
-    
-    .card-overview {
-        flex-direction: column;
-        text-align: center;
-        gap: 1.5rem;
-    }
-    
-    .benefits-grid,
-    .transport-grid,
-    .benefits-categories {
-        grid-template-columns: 1fr;
-    }
-    
     .application-timeline::before {
         left: 30px;
     }
@@ -818,10 +1290,11 @@
     }
     
     .step-number {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-        margin-right: 1.5rem;
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        margin-right: var(--spacing-lg);
+        flex-shrink: 0;
     }
     
     .step-content {
@@ -832,36 +1305,212 @@
     .important-warning {
         flex-direction: column;
         text-align: center;
+        gap: var(--spacing-lg);
+    }
+    
+    .section-title {
+        font-size: 2rem;
     }
 }
 
 @media (max-width: 480px) {
-    .moscow-hero {
-        padding: 2rem 0;
-        min-height: 300px;
-    }
-    
-    .moscow-hero .page-title {
-        font-size: 2rem;
-    }
-    
-    .card-overview,
-    .benefit-card,
-    .transport-item,
-    .category-card,
+    .step-content,
     .important-warning,
-    .tip-card,
-    .faq-item {
-        padding: 1.5rem;
+    .tip-card {
+        padding: var(--spacing-lg);
     }
     
-    .transport-price {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: flex-start;
+    .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
     }
     
-    .new-price {
-        font-size: 1.3rem;
+    .section-title {
+        font-size: 1.8rem;
     }
+    
+    .section-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+/* FAQ Section - В стиле standard-scholarship */
+.faq-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #fff0f5 100%);
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: linear-gradient(135deg, #ffffff 0%, #fdfdfd 100%);
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    border: 1px solid rgba(220, 20, 60, 0.1);
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(220, 20, 60, 0.12);
+    border-color: var(--moscow-red);
+}
+
+.faq-item.active {
+    border-color: var(--moscow-red);
+    box-shadow: 0 8px 30px rgba(220, 20, 60, 0.15);
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.75rem;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.faq-question::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 1.75rem;
+    right: 1.75rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(220, 20, 60, 0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.faq-item.active .faq-question::before {
+    opacity: 1;
+}
+
+.faq-question:hover {
+    color: var(--moscow-red);
+}
+
+.question-text {
+    flex: 1;
+}
+
+.faq-icon {
+    width: 24px;
+    height: 24px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--moscow-red) !important;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Отменяем background-clip и другие эффекты для эмодзи */
+    background: none !important;
+    background-clip: border-box !important;
+    -webkit-background-clip: border-box !important;
+    -webkit-text-fill-color: initial !important;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+    color: var(--moscow-blue) !important;
+}
+
+.faq-answer {
+    padding: 0 1.75rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.answer-content {
+    padding-bottom: 1.75rem;
+}
+
+.answer-content p {
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Удаляем старые стили для faq-grid */
+.faq-grid {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .step-content,
+    .important-warning,
+    .tip-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .faq-question, .faq-answer {
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+    
+    .faq-question::before {
+        left: var(--spacing-lg);
+        right: var(--spacing-lg);
+    }
+}
+
+/* Исправление отображения эмодзи - убираем спецэффекты */
+.overview-icon,
+.category-icon,
+.transport-icon,
+.benefit-icon,
+.warning-icon,
+.tip-icon,
+.faq-icon {
+  /* Отменяем background-clip и другие эффекты для эмодзи */
+  background: none !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  -webkit-text-fill-color: initial !important;
+  color: initial !important;
+}
+
+/* Дополнительные исправления для эмодзи в мобильной версии */
+@media (max-width: 768px) {
+  .overview-icon,
+  .category-icon,
+  .transport-icon,
+  .benefit-icon,
+  .warning-icon,
+  .tip-icon,
+  .faq-icon {
+    /* Дополнительное исправление для мобильных устройств */
+    text-shadow: none !important;
+    filter: none !important;
+  }
 }

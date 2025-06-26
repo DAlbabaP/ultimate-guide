@@ -285,72 +285,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Calculation Examples -->
-            <section class="content-section calculation-section">
-                <div class="container">
-                    <h2 class="section-title">🧮 Примеры расчета</h2>
-                    
-                    <div class="calculation-examples">
-                        <div class="calc-example">
-                            <h3>📝 Пример 1: Отличник</h3>
-                            <div class="calc-details">
-                                <div class="calc-row">
-                                    <span class="calc-label">Оценки:</span>
-                                    <span class="calc-value">8 пятерок</span>
-                                </div>
-                                <div class="calc-row">
-                                    <span class="calc-label">Средний балл:</span>
-                                    <span class="calc-value">5.0</span>
-                                </div>
-                                <div class="calc-row result-row">
-                                    <span class="calc-label">Стипендия:</span>
-                                    <span class="calc-value">4 068 ₽</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="calc-example">
-                            <h3>📝 Пример 2: Хорошист</h3>
-                            <div class="calc-details">
-                                <div class="calc-row">
-                                    <span class="calc-label">Оценки:</span>
-                                    <span class="calc-value">5 пятерок + 3 четверки</span>
-                                </div>
-                                <div class="calc-row">
-                                    <span class="calc-label">Средний балл:</span>
-                                    <span class="calc-value">(5×5 + 4×3) ÷ 8 = 4.625</span>
-                                </div>
-                                <div class="calc-row result-row">
-                                    <span class="calc-label">Стипендия:</span>
-                                    <span class="calc-value">3 391 ₽</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="calc-example">
-                            <h3>📝 Пример 3: С тройкой</h3>
-                            <div class="calc-details">
-                                <div class="calc-row">
-                                    <span class="calc-label">Оценки:</span>
-                                    <span class="calc-value">7 пятерок + 1 тройка</span>
-                                </div>
-                                <div class="calc-row">
-                                    <span class="calc-label">Средний балл:</span>
-                                    <span class="calc-value">(5×7 + 3×1) ÷ 8 = 4.75</span>
-                                </div>
-                                <div class="calc-row result-row error-row">
-                                    <span class="calc-label">Стипендия:</span>
-                                    <span class="calc-value">0 ₽ (есть тройка!)</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Tips Section -->
+            </section>            <!-- Tips Section -->
             <section class="content-section tips-section">
                 <div class="container">
                     <h2 class="section-title">💡 Советы для получения максимальной стипендии</h2>
@@ -393,60 +328,102 @@
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- FAQ Section -->
-            <section class="content-section faq-section">
+            </section>            <!-- ================================ -->
+            <!-- ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ         -->
+            <!-- ================================ -->
+            <section class="faq-section" aria-labelledby="faqTitle">
                 <div class="container">
-                    <h2 class="section-title">❓ Часто задаваемые вопросы</h2>
+                    <h2 id="faqTitle" class="section-title">Частые вопросы</h2>
                     
-                    <div class="faq-list">
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <span class="faq-icon">Q</span>
+                    <div class="faq-container" role="list">
+                        
+                        <!-- Вопрос 1 -->
+                        <article class="faq-item" role="listitem">
+                            <button class="faq-question" 
+                                    onclick="toggleFaq(this)" 
+                                    aria-expanded="false" 
+                                    aria-controls="faqAnswer1"
+                                    aria-describedby="faqAnswer1">
                                 <span>Можно ли получать стипендию при наличии задолженностей?</span>
+                                <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/>
+                                </svg>
+                            </button>
+                            <div class="faq-answer" id="faqAnswer1">
+                                <p>Нет, наличие любых академических задолженностей лишает права на стипендию. Все экзамены и зачеты должны быть сданы без троек.</p>
                             </div>
-                            <div class="faq-answer">
-                                <span class="faq-icon">A</span>
-                                <span>Нет, наличие любых академических задолженностей лишает права на стипендию</span>
-                            </div>
-                        </div>
+                        </article>
 
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <span class="faq-icon">Q</span>
+                        <!-- Вопрос 2 -->
+                        <article class="faq-item" role="listitem">
+                            <button class="faq-question" 
+                                    onclick="toggleFaq(this)" 
+                                    aria-expanded="false" 
+                                    aria-controls="faqAnswer2"
+                                    aria-describedby="faqAnswer2">
                                 <span>Учитываются ли зачеты без оценки при расчете стипендии?</span>
+                                <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/>
+                                </svg>
+                            </button>
+                            <div class="faq-answer" id="faqAnswer2">
+                                <p>Нет, учитываются только дифференцированные зачеты (с оценкой), экзамены и курсовые работы. Простые зачеты без оценки не влияют на средний балл.</p>
                             </div>
-                            <div class="faq-answer">
-                                <span class="faq-icon">A</span>
-                                <span>Нет, учитываются только дифференцированные зачеты (с оценкой), экзамены и курсовые</span>
-                            </div>
-                        </div>
+                        </article>
 
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <span class="faq-icon">Q</span>
+                        <!-- Вопрос 3 -->
+                        <article class="faq-item" role="listitem">
+                            <button class="faq-question" 
+                                    onclick="toggleFaq(this)" 
+                                    aria-expanded="false" 
+                                    aria-controls="faqAnswer3"
+                                    aria-describedby="faqAnswer3">
                                 <span>Когда приходит стипендия на карту?</span>
+                                <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/>
+                                </svg>
+                            </button>
+                            <div class="faq-answer" id="faqAnswer3">
+                                <p>Стипендия перечисляется на карту Россельхозбанка с 25 по 30 число каждого месяца. Точная дата может зависеть от банковских операций.</p>
                             </div>
-                            <div class="faq-answer">
-                                <span class="faq-icon">A</span>
-                                <span>Стипендия перечисляется на карту Россельхозбанка с 25 по 30 число каждого месяца</span>
-                            </div>
-                        </div>
+                        </article>
 
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <span class="faq-icon">Q</span>
+                        <!-- Вопрос 4 -->
+                        <article class="faq-item" role="listitem">
+                            <button class="faq-question" 
+                                    onclick="toggleFaq(this)" 
+                                    aria-expanded="false" 
+                                    aria-controls="faqAnswer4"
+                                    aria-describedby="faqAnswer4">
                                 <span>Можно ли восстановить стипендию после тройки?</span>
+                                <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/>
+                                </svg>
+                            </button>
+                            <div class="faq-answer" id="faqAnswer4">
+                                <p>Да, если в следующую сессию вы сдадите все экзамены без троек, стипендия возобновится. Важно исправить тройку на более высокую оценку.</p>
                             </div>
-                            <div class="faq-answer">
-                                <span class="faq-icon">A</span>
-                                <span>Да, если в следующую сессию вы сдадите все экзамены без троек, стипендия возобновится</span>
+                        </article>
+
+                        <!-- Вопрос 5 -->
+                        <article class="faq-item" role="listitem">
+                            <button class="faq-question" 
+                                    onclick="toggleFaq(this)" 
+                                    aria-expanded="false" 
+                                    aria-controls="faqAnswer5"
+                                    aria-describedby="faqAnswer5">
+                                <span>Влияют ли переписанные экзамены на размер стипендии?</span>
+                                <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/>
+                                </svg>
+                            </button>
+                            <div class="faq-answer" id="faqAnswer5">
+                                <p>При расчете стипендии учитывается последняя полученная оценка. Если вы пересдали экзамен с тройки на четверку, будет учитываться четверка.</p>
                             </div>
-                        </div>
+                        </article>
                     </div>
                 </div>
-            </section>        </main>
+            </section></main>
 
         <!-- ================================ -->
         <!-- ПОДВАЛ САЙТА                     -->
@@ -509,21 +486,43 @@
             "name": "Стандартная стипендия",
             "description": "Академическая стипендия для студентов РГАУ-МСХА по результатам успеваемости"
         }
-    }
-    </script>
+    }    </script>
     
-    <!-- NOTE: Инициализация SEO утилит -->
+    <!-- NOTE: Инициализация SEO утилит и FAQ функция -->
     <script>
         // Инициализация SEO для страницы стандартной стипендии
         if (typeof initializeSEO === 'function') {
             initializeSEO('standard-scholarship', 'Стандартная стипендия РГАУ-МСХА');
         }
-    </script>
-</body>
-</html>
-    <script>
-        // Инициализация SEO для страницы стандартной стипендии
-        initializeSEO('standard-scholarship', 'Стандартная стипендия РГАУ-МСХА');
+
+        // Функция для переключения FAQ
+        function toggleFaq(button) {
+            const faqItem = button.closest('.faq-item');
+            const faqAnswer = faqItem.querySelector('.faq-answer');
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            
+            // Закрываем все остальные FAQ
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('open');
+                    const otherButton = item.querySelector('.faq-question');
+                    const otherAnswer = item.querySelector('.faq-answer');
+                    otherButton.setAttribute('aria-expanded', 'false');
+                    otherAnswer.style.maxHeight = '0';
+                }
+            });
+            
+            // Переключаем текущий FAQ
+            if (isExpanded) {
+                faqItem.classList.remove('open');
+                button.setAttribute('aria-expanded', 'false');
+                faqAnswer.style.maxHeight = '0';
+            } else {
+                faqItem.classList.add('open');
+                button.setAttribute('aria-expanded', 'true');
+                faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
+            }
+        }
     </script>
 </body>
 </html>
