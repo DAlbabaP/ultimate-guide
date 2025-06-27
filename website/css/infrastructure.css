@@ -5,7 +5,7 @@
   background: linear-gradient(135deg, #2F5E2F 0%, #4A7C4A 50%, #667eea 100%);
   position: relative;
   overflow: hidden;
-  min-height: 400px;
+  min-height: 70vh;
   display: flex;
   align-items: center;
 }

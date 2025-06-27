@@ -93,7 +93,7 @@
     <!-- ================================ -->
     <!-- HEADER                           -->
     <!-- ================================ -->
-    <header id="header" role="banner" aria-label="Навигация по сайту"></header>
+    <div id="header" role="banner" aria-label="Навигация по сайту"></div>
 
     <!-- ================================ -->
     <!-- ОСНОВНОЙ КОНТЕНТ                 -->
@@ -107,7 +107,6 @@
             <section class="page-hero leader-requirements-hero" role="banner" aria-labelledby="pageTitle">
                 <div class="container">
                     <header class="page-header">
-                        <div class="hero-icon" aria-hidden="true">👑</div>
                         <h1 class="page-title" id="pageTitle">Кто такой староста</h1>
                         <p class="page-subtitle">
                             Требования к кандидатам, рекомендации и особенности позиции старосты группы в РГАУ-МСХА
@@ -146,29 +145,31 @@
                                         <div class="member-bonus no-bonus">Без доп. баллов</div>
                                     </article>
                                     
-                                    <article class="team-member coordinator" role="group" aria-labelledby="scienceMember">
-                                        <div class="member-icon" aria-hidden="true">🔬</div>
-                                        <h4 id="scienceMember">Координатор по науке</h4>
-                                        <div class="member-bonus" aria-label="10 баллов к стипендии">+10 баллов</div>
-                                    </article>
-                                    
-                                    <article class="team-member coordinator" role="group" aria-labelledby="sportsMember">
-                                        <div class="member-icon" aria-hidden="true">🏃</div>
-                                        <h4 id="sportsMember">Координатор по спорту</h4>
-                                        <div class="member-bonus" aria-label="10 баллов к стипендии">+10 баллов</div>
-                                    </article>
-                                    
-                                    <article class="team-member coordinator" role="group" aria-labelledby="cultureMember">
-                                        <div class="member-icon" aria-hidden="true">🎭</div>
-                                        <h4 id="cultureMember">Координатор по культуре</h4>
-                                        <div class="member-bonus" aria-label="10 баллов к стипендии">+10 баллов</div>
-                                    </article>
-                                    
-                                    <article class="team-member coordinator" role="group" aria-labelledby="benefitsMember">
-                                        <div class="member-icon" aria-hidden="true">💰</div>
-                                        <h4 id="benefitsMember">Координатор по льготам</h4>
-                                        <div class="member-bonus" aria-label="10 баллов к стипендии">+10 баллов</div>
-                                    </article>
+                                    <div class="coordinators-grid">
+                                        <article class="team-member coordinator" role="group" aria-labelledby="scienceMember">
+                                            <div class="member-icon" aria-hidden="true">🔬</div>
+                                            <h4 id="scienceMember">Координатор по науке</h4>
+                                            <div class="member-bonus" aria-label="10 баллов к стипендии">+10 баллов</div>
+                                        </article>
+                                        
+                                        <article class="team-member coordinator" role="group" aria-labelledby="sportsMember">
+                                            <div class="member-icon" aria-hidden="true">🏃</div>
+                                            <h4 id="sportsMember">Координатор по спорту</h4>
+                                            <div class="member-bonus" aria-label="10 баллов к стипендии">+10 баллов</div>
+                                        </article>
+                                        
+                                        <article class="team-member coordinator" role="group" aria-labelledby="cultureMember">
+                                            <div class="member-icon" aria-hidden="true">🎭</div>
+                                            <h4 id="cultureMember">Координатор по культуре</h4>
+                                            <div class="member-bonus" aria-label="10 баллов к стипендии">+10 баллов</div>
+                                        </article>
+                                        
+                                        <article class="team-member coordinator" role="group" aria-labelledby="benefitsMember">
+                                            <div class="member-icon" aria-hidden="true">💰</div>
+                                            <h4 id="benefitsMember">Координатор по льготам</h4>
+                                            <div class="member-bonus" aria-label="10 баллов к стипендии">+10 баллов</div>
+                                        </article>
+                                    </div>
                                 </div>
                             </section>
                         </div>
@@ -322,44 +323,38 @@
                             <form class="checklist-items" role="group" aria-labelledby="assessmentTitle" aria-describedby="assessmentInstructions">
                                 <p id="assessmentInstructions" class="sr-only">Отметьте пункты, которые вам подходят, для получения рекомендации</p>
                                 
-                                <label class="checklist-item" role="checkbox" tabindex="0">
+                                <label class="checklist-item">
                                     <input type="checkbox" class="assessment-checkbox" aria-describedby="item1Desc">
-                                    <span class="checkmark" aria-hidden="true"></span>
                                     <span class="checklist-text" id="item1Desc">Я проживаю в общежитии или готов тратить дополнительное время на группу</span>
                                 </label>
                                 
-                                <label class="checklist-item" role="checkbox" tabindex="0">
+                                <label class="checklist-item">
                                     <input type="checkbox" class="assessment-checkbox" aria-describedby="item2Desc">
-                                    <span class="checkmark" aria-hidden="true"></span>
                                     <span class="checklist-text" id="item2Desc">Я готов брать на себя ответственность за решения и их последствия</span>
                                 </label>
                                 
-                                <label class="checklist-item" role="checkbox" tabindex="0">
+                                <label class="checklist-item">
                                     <input type="checkbox" class="assessment-checkbox" aria-describedby="item3Desc">
-                                    <span class="checkmark" aria-hidden="true"></span>
                                     <span class="checklist-text" id="item3Desc">Мне легко общаться с разными людьми и находить общий язык</span>
                                 </label>
                                 
-                                <label class="checklist-item" role="checkbox" tabindex="0">
+                                <label class="checklist-item">
                                     <input type="checkbox" class="assessment-checkbox" aria-describedby="item4Desc">
-                                    <span class="checkmark" aria-hidden="true"></span>
                                     <span class="checklist-text" id="item4Desc">Я умею вести переговоры и отстаивать позицию группы</span>
                                 </label>
                                 
-                                <label class="checklist-item" role="checkbox" tabindex="0">
+                                <label class="checklist-item">
                                     <input type="checkbox" class="assessment-checkbox" aria-describedby="item5Desc">
-                                    <span class="checkmark" aria-hidden="true"></span>
                                     <span class="checklist-text" id="item5Desc">У меня есть время для регулярной работы с документами и общения</span>
                                 </label>
                                 
-                                <label class="checklist-item" role="checkbox" tabindex="0">
+                                <label class="checklist-item">
                                     <input type="checkbox" class="assessment-checkbox" aria-describedby="item6Desc">
-                                    <span class="checkmark" aria-hidden="true"></span>
                                     <span class="checklist-text" id="item6Desc">Я готов быть связующим звеном между студентами и преподавателями</span>
                                 </label>
                             </form>
                             
-                            <div class="assessment-result" id="assessmentResult" role="status" aria-live="polite" aria-labelledby="resultTitle">
+                            <div class="assessment-result" id="assessmentResult" role="status" aria-live="polite" aria-labelledby="resultTitle" style="display: none;">
                                 <div class="result-content">
                                     <h4 id="resultTitle">Результат самооценки</h4>
                                     <p>Отметьте пункты выше, чтобы получить рекомендацию</p>
@@ -371,51 +366,12 @@
             </section>            
             <!-- ================================ -->
             <!-- СЛЕДУЮЩИЕ ШАГИ                  -->
-            <!-- ================================ -->
-            <section class="content-section next-steps-section" role="region" aria-labelledby="nextStepsTitle">
-                <div class="container">
-                    <h2 class="section-title" id="nextStepsTitle">🚀 Следующие шаги</h2>
-                    
-                    <div class="next-steps-grid" role="group" aria-labelledby="nextStepsTitle">
-                        
-                        <article class="next-step-card" role="group" aria-labelledby="learnDutiesStep">
-                            <div class="step-icon" aria-hidden="true">📚</div>
-                            <div class="step-content">
-                                <h3 id="learnDutiesStep">Изучите обязанности</h3>
-                                <p>Подробно ознакомьтесь с тем, что конкретно делают старосты в повседневной работе</p>
-                                <a href="../responsibilities/index.html" class="step-link" 
-                                   role="button" aria-label="Перейти к обязанностям старосты">
-                                   Узнать обязанности →
-                                </a>
-                            </div>
-                        </article>
-                        
-                        <article class="next-step-card" role="group" aria-labelledby="discussStep">
-                            <div class="step-icon" aria-hidden="true">👥</div>
-                            <div class="step-content">
-                                <h3 id="discussStep">Обсудите с группой</h3>
-                                <p>Поговорите с одногруппниками о ваших планах и готовности взять на себя эту роль</p>
-                                <div class="step-note">Поддержка группы очень важна</div>
-                            </div>
-                        </article>
-                        
-                        <article class="next-step-card" role="group" aria-labelledby="prepareStep">
-                            <div class="step-icon" aria-hidden="true">🎯</div>
-                            <div class="step-content">
-                                <h3 id="prepareStep">Подготовьтесь к выборам</h3>
-                                <p>Если вы решили баллотироваться, подготовьте план работы и представьте его группе</p>
-                                <div class="step-note">Чёткий план — залог успеха</div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </section>
         </main>
         
         <!-- ================================ -->
         <!-- FOOTER                           -->
         <!-- ================================ -->
-        <footer class="footer" id="footer" role="contentinfo" aria-label="Информация о сайте"></footer>
+        <div id="footer" role="contentinfo" aria-label="Информация о сайте"></div>
     </div>    
     <!-- ================================ -->
     <!-- ИНТЕРАКТИВНОСТЬ                  -->
@@ -425,6 +381,22 @@
         // ЗАГРУЗКА КОМПОНЕНТОВ
         // ===============================
         document.addEventListener('DOMContentLoaded', function() {
+            // Загрузка хедера
+            fetch('../../../components/header.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('header').innerHTML = html;
+                })
+                .catch(error => console.error('Ошибка загрузки хедера:', error));
+
+            // Загрузка футера
+            fetch('../../../components/footer.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('footer').innerHTML = html;
+                })
+                .catch(error => console.error('Ошибка загрузки футера:', error));
+                
             // Инициализация самооценки
             initializeAssessment();
         });
@@ -434,49 +406,14 @@
         // ===============================
         function initializeAssessment() {
             const checkboxes = document.querySelectorAll('.assessment-checkbox');
-            const resultDiv = document.getElementById('assessmentResult');
             
-            // Добавляем обработчики событий
+            // Добавляем обработчики событий для интерактивности
             checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', updateAssessmentResult);
+                checkbox.addEventListener('change', function() {
+                    // Простая интерактивность без результата
+                    this.closest('.checklist-item').classList.toggle('checked', this.checked);
+                });
             });
-            
-            // Функция обновления результата
-            function updateAssessmentResult() {
-                const checkedCount = document.querySelectorAll('.assessment-checkbox:checked').length;
-                const totalCount = checkboxes.length;
-                const percentage = Math.round((checkedCount / totalCount) * 100);
-                
-                let resultClass = '';
-                let resultText = '';
-                let recommendation = '';
-                
-                if (percentage >= 80) {
-                    resultClass = 'excellent';
-                    resultText = `Отличный результат: ${checkedCount}/${totalCount}`;
-                    recommendation = 'Вы отлично подходите для роли старосты! Можете смело баллотироваться.';
-                } else if (percentage >= 60) {
-                    resultClass = 'good';
-                    resultText = `Хороший результат: ${checkedCount}/${totalCount}`;
-                    recommendation = 'У вас есть потенциал для роли старосты. Подумайте над развитием недостающих навыков.';
-                } else if (percentage >= 40) {
-                    resultClass = 'fair';
-                    resultText = `Средний результат: ${checkedCount}/${totalCount}`;
-                    recommendation = 'Стоит подготовиться лучше перед тем, как брать на себя роль старосты.';
-                } else {
-                    resultClass = 'poor';
-                    resultText = `Низкий результат: ${checkedCount}/${totalCount}`;
-                    recommendation = 'Рекомендуем сначала развить необходимые навыки и качества.';
-                }
-                
-                resultDiv.className = `assessment-result ${resultClass}`;
-                resultDiv.innerHTML = `
-                    <div class="result-content">
-                        <h4>${resultText}</h4>
-                        <p>${recommendation}</p>
-                    </div>
-                `;
-            }
         }
     </script>
 

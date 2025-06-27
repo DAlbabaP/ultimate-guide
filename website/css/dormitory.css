@@ -5,7 +5,7 @@
   background: linear-gradient(135deg, #2F5E2F 0%, #4A7C4A 50%, #6B8E6B 100%);
   position: relative;
   overflow: hidden;
-  min-height: 400px;
+  min-height: 70vh;
   display: flex;
   align-items: center;
 }
@@ -383,6 +383,11 @@
 
 .category-card:hover::before {
   transform: scaleX(1);
+}
+
+/* Карточка "Дополнительно" растягивается на 2 колонки */
+.category-card:last-child {
+  grid-column: span 2;
 }
 
 .category-card:hover .category-icon {
@@ -1146,7 +1151,7 @@
 
 .tips-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: var(--spacing-xl);
   margin: var(--spacing-xl) 0;
   position: relative;
@@ -2442,4 +2447,209 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .dormitory-filters::-webkit-scrollbar-thumb:hover,
 .dormitory-results::-webkit-scrollbar-thumb:hover {
   background: var(--accent-blue);
+}
+
+/* Адаптивность - Улучшенная мобильная версия */
+@media (max-width: 768px) {
+  .dormitory-hero {
+    min-height: 300px;
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .dormitory-hero .page-title {
+    font-size: 2.2rem;
+  }
+  
+  .dormitory-hero .page-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .dormitory-overview {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--spacing-xl);
+  }
+  
+  .overview-icon {
+    font-size: 3.5rem;
+  }
+  
+  .structure-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .items-categories {
+    grid-template-columns: 1fr;
+  }
+  
+  .rules-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .cooking-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .violation-step {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-md);
+  }
+  
+  .violations-timeline::before {
+    display: none;
+  }
+  
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .important-note,
+  .sanitary-warning {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-md);
+  }
+  
+  .interactive-guide {
+    padding: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+    border-radius: 16px;
+  }
+
+  .dormitory-filters {
+    padding: var(--spacing-lg);
+  }
+
+  .filters-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+
+  .filters-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .amenities-checkboxes {
+    grid-template-columns: 1fr;
+  }
+
+  .results-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+
+  .card-header {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-md);
+  }
+
+  .card-info {
+    order: 2;
+  }
+
+  .card-price {
+    order: 1;
+    text-align: center;
+  }
+
+  .card-image {
+    order: 3;
+    align-self: center;
+  }
+  
+  .pros-cons {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .dormitory-details {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .dormitory-hero {
+    min-height: 250px;
+  }
+  
+  .dormitory-hero .page-title {
+    font-size: 1.8rem;
+  }
+  
+  .dormitory-hero .page-subtitle {
+    font-size: 1rem;
+  }
+  
+  .dormitory-overview {
+    padding: var(--spacing-lg);
+  }
+  
+  .category-card,
+  .structure-item,
+  .cooking-item {
+    padding: var(--spacing-lg);
+  }
+  
+  .rules-card {
+    padding: var(--spacing-lg);
+  }
+  
+  .violation-content {
+    padding: var(--spacing-lg);
+  }
+
+  .interactive-guide {
+    padding: var(--spacing-md);
+  }
+
+  .dormitory-filters {
+    padding: var(--spacing-md);
+  }
+  
+  .card-header,
+  .card-body {
+    padding: var(--spacing-lg);
+  }
+
+  .price-amount {
+    font-size: 1.5rem;
+  }
+
+  .dormitory-details {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .image-placeholder {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+  
+  .important-note,
+  .sanitary-warning {
+    padding: var(--spacing-lg);
+  }
+  
+  .note-icon,
+  .warning-icon {
+    font-size: 2.5rem;
+  }
+  
+  .tip-icon {
+    font-size: 2.5rem;
+  }
+  
+  .structure-icon,
+  .category-icon,
+  .cooking-icon {
+    font-size: 2.5rem;
+  }
 }

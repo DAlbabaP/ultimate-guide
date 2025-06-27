@@ -58,7 +58,7 @@
     position: relative;
     overflow: hidden;
     padding: var(--spacing-xxl) 0;
-    min-height: 400px;
+    min-height: 70vh;
     display: flex;
     align-items: center;
 }
@@ -230,25 +230,24 @@
 }
 
 .section-title {
-    font-size: var(--font-size-h2);
-    font-weight: 700;
-    color: var(--benefits-primary);
-    margin: 0 0 var(--spacing-md) 0;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 1rem;
     position: relative;
-    display: inline-block;
 }
 
 .section-title::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
+    width: 60px;
     height: 4px;
-    background: var(--benefits-gradient-hero);
+    background: linear-gradient(90deg, var(--primary-green), var(--secondary-blue));
     border-radius: 2px;
-    animation: fadeInUp 1s ease-out 0.3s both;
 }
 
 .section-subtitle {
@@ -589,7 +588,7 @@
 
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: var(--spacing-lg);
     margin-top: var(--spacing-xl);
 }
@@ -826,22 +825,51 @@
 .process-step {
     display: flex;
     align-items: center;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-xxl);
     position: relative;
+    width: 100%;
 }
 
+/* Нечетные шаги - контент слева */
 .process-step:nth-child(odd) {
-    flex-direction: row;
+    justify-content: flex-start;
 }
 
+.process-step:nth-child(odd) .step-content {
+    margin-right: calc(50% + 50px);
+    text-align: right;
+    order: 1;
+}
+
+.process-step:nth-child(odd) .step-number {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    order: 2;
+}
+
+/* Четные шаги - контент справа */
 .process-step:nth-child(even) {
-    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.process-step:nth-child(even) .step-content {
+    margin-left: calc(50% + 50px);
+    text-align: left;
+    order: 2;
+}
+
+.process-step:nth-child(even) .step-number {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    order: 1;
 }
 
 .step-number {
     width: 60px;
     height: 60px;
-    background: var(--benefits-gradient-accent);
+    background: var(--benefits-gradient-primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -852,7 +880,6 @@
     position: relative;
     z-index: 2;
     box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
-    animation: pulse 3s ease-in-out infinite;
 }
 
 .step-content {

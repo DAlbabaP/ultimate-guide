@@ -75,13 +75,13 @@
 }
 
 .timeline__item:nth-child(odd) .timeline__content {
-  margin-left: auto;
-  text-align: right;
+  margin-right: auto;
+  text-align: left;
 }
 
 .timeline__item:nth-child(even) .timeline__content {
-  margin-right: auto;
-  text-align: left;
+  margin-left: auto;
+  text-align: right;
 }
 
 /* Стрелки */
@@ -95,13 +95,13 @@
 }
 
 .timeline__item:nth-child(odd) .timeline__content::before {
-  left: -20px;
-  border-right-color: var(--primary-white);
+  right: -20px;
+  border-left-color: var(--primary-white);
 }
 
 .timeline__item:nth-child(even) .timeline__content::before {
-  right: -20px;
-  border-left-color: var(--primary-white);
+  left: -20px;
+  border-right-color: var(--primary-white);
 }
 
 .timeline__date {

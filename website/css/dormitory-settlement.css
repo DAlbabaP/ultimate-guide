@@ -1,8 +1,11 @@
 /* ===== УЛУЧШЕННЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ ЗАСЕЛЕНИЯ ===== */ /* Hero Section - Улучшенный дизайн */
 .settlement-hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #2f5e2f 100%);
+  background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 30%, #45B7D1 70%, #FFEAA7 100%);
   position: relative;
   overflow: hidden;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
 }
 .settlement-hero::before {
   content: "";
@@ -11,22 +14,380 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(
-      circle at 20% 20%,
-      rgba(255, 255, 255, 0.1) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 80% 80%,
-      rgba(255, 255, 255, 0.08) 0%,
-      transparent 50%
-    );
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.09) 0%, transparent 50%),
+    url('data:image/svg+xml,<svg viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'><rect x=\'10\' y=\'10\' width=\'20\' height=\'25\' fill=\'rgba(255,255,255,0.08)\' rx=\'2\'/><rect x=\'60\' y=\'15\' width=\'15\' height=\'20\' fill=\'rgba(255,255,255,0.06)\' rx=\'1\'/><circle cx=\'40\' cy=\'70\' r=\'3\' fill=\'rgba(255,255,255,0.05)\'/></svg>');
   pointer-events: none;
+  animation: documentFloat 25s linear infinite;
+  z-index: 1;
+}
+@keyframes documentFloat {
+  0% { transform: translateX(0) translateY(0) rotate(0deg); }
+  25% { transform: translateX(-15px) translateY(-8px) rotate(1deg); }
+  50% { transform: translateX(15px) translateY(-15px) rotate(-1deg); }
+  75% { transform: translateX(-8px) translateY(-20px) rotate(0.5deg); }
+  100% { transform: translateX(0) translateY(0) rotate(0deg); }
 }
 .settlement-hero .container {
   position: relative;
-  z-index: 1;
-} /* Страница с улучшенной типографикой */
+  z-index: 2;
+}
+.settlement-hero .page-date {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(15px);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  border-radius: var(--border-radius-full);
+  color: var(--primary-white);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-xl);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  animation: dateReveal 1s ease-out 0.2s both;
+}
+@keyframes dateReveal {
+  0% { opacity: 0; transform: translateY(-20px) scale(0.8); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.settlement-hero .page-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: var(--font-weight-black);
+  margin-bottom: var(--spacing-lg);
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.02em;
+  animation: titleReveal 1s ease-out 0.4s both;
+}
+@keyframes titleReveal {
+  0% { opacity: 0; transform: translateY(40px); }
+}
+.settlement-hero .page-subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  line-height: var(--line-height-relaxed);
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.95;
+  animation: subtitleReveal 1s ease-out 0.6s both;
+}
+@keyframes subtitleReveal {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== БЛОК "ЧТО ДАЛЬШЕ" В СТИЛЕ DOCUMENTS ===== */
+.next-steps {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #e6fffa 0%, #ffffff 50%, #f0fff4 100%);
+  position: relative;
+}
+.next-step-card {
+  background: linear-gradient(135deg, #ffffff 0%, #fdfdfd 100%);
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(47, 94, 47, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex: 1 1 380px;
+  max-width: 700px;
+  min-width: 320px;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.next-step-link {
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--primary-green) 0%, #4A9058 100%);
+  color: var(--primary-white);
+  text-decoration: none;
+  border-radius: 16px;
+  font-weight: var(--font-weight-semibold);
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(47, 94, 47, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 1100px) {
+}
+@media (max-width: 900px) {
+}
+/* Страница с улучшенной типографикой */ /* Settlement Timeline - Улучшенный дизайн */
+.settlement-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  margin: var(--spacing-xl) 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@keyframes shimmer {
+} /* Important Notices - Улучшенные уведомления */
+.important-notices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--spacing-xl);
+  margin: var(--spacing-xxl) 0;
+} /* Documents Section - Современные документы */
+.documents-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxl);
+  margin: var(--spacing-xxl) 0;
+} /* Специальные стили для медицинских документов - компактная сетка */
+.document-category:has(.medical) .document-list {
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: var(
+    --spacing-md
+  ); /* Центрирование последнего ряда если элементов не хватает для полного ряда */
+  justify-content: center;
+} /* Validity Period - Индикатор сроков действия */
+.validity-period {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background: linear-gradient(
+    135deg,
+    var(--success-background) 0%,
+    #e8f5e8 100%
+  );
+  color: var(--success-color);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  border: 1px solid var(--success-border);
+}
+@keyframes pulse-urgent {
+} /* Vaccination List - Список прививок */
+.vaccination-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-md) 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+} /* Document Notes - Заметки к документам */
+.doc-note {
+  background: rgba(52, 152, 219, 0.1);
+  color: var(--accent-blue);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-lg);
+  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-md);
+  border-left: 3px solid var(--accent-blue);
+} /* Senior Advice - Совет старшекурсников */
+.senior-advice {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, #2980b9 100%);
+  color: var(--primary-white);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-2xl);
+  margin: var(--spacing-xxl) 0;
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  overflow: hidden;
+} /* Process Overview - Улучшенная временная шкала */
+.process-overview {
+  margin: var(--spacing-xxl) 0;
+  position: relative;
+} /* Убираем полоску таймлайна */
+.process-step:not(:last-child)::after {
+  display: none;
+} /* Settlement Tips - Улучшенные карточки советов */
+.settlement-tips {
+  margin: var(--spacing-xxl) 0;
+} /* Behavior Guidelines - Улучшенный дизайн */
+.behavior-guidelines {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  background: linear-gradient(
+    135deg,
+    var(--success-background) 0%,
+    #f0fff4 100%
+  );
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-2xl);
+  border-left: 6px solid var(--success-color);
+  margin: var(--spacing-xxl) 0;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+} /* Preparation Section - Финальная подготовка */
+.preparation-checklist {
+  background: linear-gradient(135deg, var(--background-light) 0%, #f8f9ff 100%);
+  border-radius: var(--border-radius-3xl);
+  padding: var(--spacing-xxl);
+  margin: var(--spacing-xxl) 0;
+  border: 1px solid rgba(52, 152, 219, 0.1);
+  box-shadow: 0 20px 40px -12px rgba(52, 152, 219, 0.1);
+  position: relative;
+  overflow: hidden;
+} /* Современная стилизация чекбоксов */
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  background: var(--primary-white);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-xl);
+  border: 2px solid transparent;
+  transition: var(--transition-medium);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+} /* Анимация появления галочки */
+.checklist-checkbox:checked::after {
+  animation: checkmark 0.2s ease-in-out;
+}
+@keyframes checkmark {
+} /* ===== БЛОК "ЧТО ДАЛЬШЕ?" - СОВРЕМЕННЫЙ ДИЗАЙН ===== */
+.next-steps {
+  background: linear-gradient(135deg, #e6fffa 0%, #ffffff 50%, #f0fff4 100%);
+  border-radius: var(--border-radius-3xl);
+  padding: var(--spacing-xxxl) var(--spacing-xl);
+  margin: var(--spacing-xxxl) 0;
+  border: 1px solid rgba(52, 152, 219, 0.1);
+  box-shadow: 0 20px 40px -12px rgba(52, 152, 219, 0.1);
+  position: relative;
+  overflow: hidden;
+  margin-top: 4rem;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+.next-steps::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(255, 107, 107, 0.05) 0%, transparent 60%),
+    radial-gradient(circle at 70% 70%, rgba(76, 205, 196, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+.next-steps h3 {
+  color: var(--primary-green);
+  font-size: 1.8rem;
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 2rem 0;
+  line-height: 1.3;
+  text-align: center;
+}
+.next-step-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: stretch;
+}
+.next-step-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(47, 94, 47, 0.02) 0%, rgba(52, 152, 219, 0.02) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 20px;
+}
+.next-step-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(47, 94, 47, 0.15);
+  border-color: var(--primary-green);
+}
+.next-step-card:hover::before {
+  opacity: 1;
+}
+.next-step-card h4 {
+  color: var(--primary-green);
+  font-size: 1.8rem;
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+}
+.next-step-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1.1rem;
+}
+.next-step-link {
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--primary-green) 0%, #4A9058 100%);
+  color: var(--primary-white);
+  text-decoration: none;
+  border-radius: 16px;
+  font-weight: var(--font-weight-semibold);
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(47, 94, 47, 0.3);
+  position: relative;
+  overflow: hidden;
+  min-width: 9em;
+  text-align: center;
+}
+.next-step-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+.next-step-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(47, 94, 47, 0.4);
+  background: linear-gradient(135deg, #4A9058 0%, var(--secondary-blue) 100%);
+}
+.next-step-link:hover::before {
+  left: 100%;
+}
+.next-step-link::after, .next-step-link::before {
+  display: none !important;
+}
+@media (max-width: 1100px) {
+  .next-step-cards {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .next-step-card {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+@media (max-width: 900px) {
+  .next-step-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .next-step-card {
+    max-width: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+}
+/* Страница с улучшенной типографикой */
 .page-header {
   text-align: center;
   padding: var(--spacing-xxl) 0;
@@ -330,7 +691,7 @@
   gap: var(--spacing-lg);
 } /* Специальные стили для медицинских документов - компактная сетка */
 .document-category:has(.medical) .document-list {
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   gap: var(
     --spacing-md
   ); /* Центрирование последнего ряда если элементов не хватает для полного ряда */
@@ -901,286 +1262,4 @@
     opacity: 1;
     transform: rotate(45deg) scale(1);
   }
-} /* ===== БЛОК "ЧТО ДАЛЬШЕ?" - СОВРЕМЕННЫЙ ДИЗАЙН ===== */
-.next-steps {
-  background: linear-gradient(135deg, #f8fafc 0%, #e8f2ff 100%);
-  border-radius: var(--border-radius-3xl);
-  padding: var(--spacing-xxxl) var(--spacing-xl);
-  margin: var(--spacing-xxxl) 0;
-  border: 1px solid rgba(52, 152, 219, 0.1);
-  box-shadow: 0 20px 40px -12px rgba(52, 152, 219, 0.1);
-  position: relative;
-  overflow: hidden;
-}
-.next-steps::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(
-    90deg,
-    var(--primary-green) 0%,
-    var(--accent-blue) 50%,
-    var(--primary-green) 100%
-  );
-  border-radius: var(--border-radius-3xl) var(--border-radius-3xl) 0 0;
-}
-.next-steps h3 {
-  color: var(--primary-green);
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-black);
-  text-align: center;
-  margin: 0 0 var(--spacing-xl) 0;
-  position: relative;
-}
-.next-step-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--spacing-xxl);
-  margin-top: var(--spacing-xl);
-  margin-left: auto;
-  margin-right: auto;
-}
-.next-step-card {
-  background: var(--primary-white);
-  border-radius: var(--border-radius-2xl);
-  padding: var(--spacing-xl);
-  border: 1px solid rgba(52, 152, 219, 0.1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: var(--transition-medium);
-  position: relative;
-  text-align: center;
-  z-index: 1;
-}
-.next-step-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 40px rgba(52, 152, 219, 0.15);
-  border-color: var(--accent-blue);
-  z-index: 2;
-}
-.next-step-card h4 {
-  color: var(--primary-green);
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
-  margin: 0 0 var(--spacing-md) 0;
-  position: relative;
-}
-.next-step-card p {
-  color: var(--text-secondary);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-relaxed);
-  margin: 0 0 var(--spacing-lg) 0;
-}
-.next-step-link {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-  color: var(--primary-white);
-  text-decoration: none;
-  font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-base);
-  padding: var(--spacing-md) var(--spacing-xl);
-  border-radius: var(--border-radius-full);
-  background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-blue) 100%);
-  border: none;
-  transition: var(--transition-medium);
-  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-}
-.next-step-link:hover {
-  color: var(--primary-white);
-  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--primary-green) 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
-}
-.next-step-link::after {
-  content: "→";
-  transition: var(--transition-medium);
-}
-.next-step-link:hover::after {
-  transform: translateX(4px);
-} /* Адаптивность для мобильных устройств */
-@media (max-width: 768px) {
-  .checklist-checkbox {
-    width: 18px;
-    height: 18px;
-    margin-right: 10px;
-  }
-  .checklist-checkbox:checked::after {
-    left: 5px;
-    top: 1px;
-    width: 5px;
-    height: 9px;
-  }
-  .checklist-text {
-    font-size: 15px;
-  }
-  .checklist-item {
-    padding: 10px 8px;
-    margin-bottom: 10px;
-  }  .next-steps {
-    padding: var(--spacing-xl) var(--spacing-lg);
-    margin: var(--spacing-xl) 0;
-  }
-  .next-step-cards {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
-    max-width: none;
-  }
-  .next-step-card {
-    padding: var(--spacing-lg);
-    margin-bottom: var(--spacing-md);
-  }
-  .next-steps h3 {
-    font-size: var(--font-size-2xl);
-  }
-}
-@media (max-width: 1024px) {
-  .page-title {
-    font-size: var(--font-size-4xl);
-  }
-  .page-subtitle {
-    font-size: var(--font-size-lg);
-  }
-  .settlement-timeline {
-    max-width: 100%;
-  }
-  .important-notices {
-    grid-template-columns: 1fr;
-  }
-  .tips-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-}
-@media (max-width: 768px) {
-  .page-header {
-    padding: var(--spacing-xl) 0;
-  }
-  .page-title {
-    font-size: var(--font-size-3xl);
-  }
-  .page-subtitle {
-    font-size: var(--font-size-base);
-  }
-  .settlement-date {
-    flex-direction: column;
-    text-align: center;
-    padding: var(--spacing-lg);
-  }
-  .date-badge {
-    align-self: center;
-    min-width: 80px;
-  }
-  .date-number {
-    font-size: 1.8rem;
-  }
-  .important-notices {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
-  }
-  .notice-item {
-    flex-direction: column;
-    text-align: center;
-    padding: var(--spacing-lg);
-  }
-  .document-item {
-    flex-direction: column;
-    text-align: center;
-    padding: var(--spacing-lg);
-  }
-  .doc-icon {
-    width: 60px;
-    height: 60px;
-    font-size: 2.2rem;
-  }
-  .process-step {
-    flex-direction: column;
-    text-align: center;
-    gap: var(--spacing-lg);
-  }
-  .process-step:not(:last-child)::after {
-    display: none;
-  }
-  .step-number {
-    width: 70px;
-    height: 70px;
-    font-size: var(--font-size-xl);
-    align-self: center;
-  }
-  .tips-grid {
-    grid-template-columns: 1fr;
-  }
-  .senior-advice,
-  .behavior-guidelines {
-    flex-direction: column;
-    text-align: center;
-    padding: var(--spacing-lg);
-  }
-  .checklist-items {
-    grid-template-columns: 1fr;
-  }
-  .checklist-item {
-    flex-direction: row;
-    text-align: left;
-    padding: var(--spacing-md);
-  }
-}
-@media (max-width: 480px) {
-  .page-title {
-    font-size: var(--font-size-2xl);
-  }
-  .settlement-date {
-    padding: var(--spacing-md);
-  }
-  .date-content h3 {
-    font-size: var(--font-size-lg);
-  }
-  .document-category h3 {
-    font-size: var(--font-size-xl);
-  }
-  .document-item {
-    padding: var(--spacing-md);
-  }
-  .step-content {
-    padding: var(--spacing-md);
-  }
-  .preparation-checklist {
-    padding: var(--spacing-lg);
-  }
-  .next-step-card h4 {
-    font-size: var(--font-size-lg);
-  }
-  .next-step-link {
-    width: 100%;
-    justify-content: center;
-  }
-} /* Компактные медицинские документы */
-.document-item.medical {
-  padding: var(--spacing-lg);
-}
-.document-item.medical .doc-icon {
-  width: 50px;
-  height: 50px;
-  font-size: 2rem;
-}
-.document-item.medical .doc-details h4 {
-  font-size: var(--font-size-lg);
-  margin-bottom: var(--spacing-xs);
-}
-.document-item.medical .doc-details p {
-  font-size: var(--font-size-sm);
-  margin-bottom: var(--spacing-sm);
-}
-.document-item.medical .validity-period {
-  font-size: var(--font-size-xs);
-  padding: var(--spacing-xs) var(--spacing-sm);
-} /* Убираем градиент с заголовков для правильного отображения смайликов */
-.settlement-hero ~ * h2.section-title {
-  position: relative;
-  color: var(--primary-green);
-  background: none;
-  -webkit-background-clip: unset;
-  background-clip: unset;
-  -webkit-text-fill-color: unset;
 }

@@ -50,6 +50,7 @@
     <!-- ================================ -->
     <!-- СТИЛИ И ИКОНКИ                   -->
     <!-- ================================ -->
+    <link rel="stylesheet" href="../../css/pages.css">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../../css/header.css">
     <link rel="stylesheet" href="../../css/footer.css">
@@ -57,7 +58,6 @@
     <link rel="stylesheet" href="../../css/cards.css">
     <link rel="stylesheet" href="../../css/timeline.css">
     <link rel="stylesheet" href="../../css/forms.css">
-    <link rel="stylesheet" href="../../css/pages.css">
     <link rel="stylesheet" href="../../css/scholarships.css">
     <link rel="stylesheet" href="../../css/responsive.css">
     <link rel="stylesheet" href="../../css/pwa.css">
@@ -100,146 +100,73 @@
                             </p>
                         </div>
                     </div>
-
-                    <!-- Быстрая статистика -->
-                    <div class="quick-stats" role="list">
-                        <div class="stat-item" role="listitem">
-                            <div class="stat-icon" role="img" aria-label="Книги">📚</div>
-                            <div class="stat-value">до 4 068 ₽</div>
-                            <div class="stat-label">академическая стипендия</div>
-                        </div>
-                        <div class="stat-item" role="listitem">
-                            <div class="stat-icon" role="img" aria-label="Звезда">⭐</div>
-                            <div class="stat-value">до 20 000 ₽</div>
-                            <div class="stat-label">повышенная стипендия</div>
-                        </div>
-                        <div class="stat-item" role="listitem">
-                            <div class="stat-icon" role="img" aria-label="Билет">🎫</div>
-                            <div class="stat-value">50%</div>
-                            <div class="stat-label">скидка на транспорт</div>
-                        </div>
-                        <div class="stat-item" role="listitem">
-                            <div class="stat-icon" role="img" aria-label="Поддержка">🤝</div>
-                            <div class="stat-value">до 3 965 ₽</div>
-                            <div class="stat-label">социальная стипендия</div>
-                        </div>
-                    </div>
                 </div>
             </section>
 
-            <!-- Main Categories -->
-            <section class="content-section categories-section">
+            <!-- ================================ -->
+            <!-- БЫСТРАЯ НАВИГАЦИЯ                -->
+            <!-- ================================ -->
+            <section class="quick-nav-section" aria-labelledby="quickNavTitle">
                 <div class="container">
-                    <h2 class="section-title">📋 Виды стипендий и льгот</h2>
-                    
-                    <div class="categories-grid">
-                        <a href="standard/" class="category-card academic-card">
-                            <div class="card-header">
-                                <div class="card-icon">📚</div>
-                                <h3>Стандартная стипендия</h3>
-                            </div>
-                            <div class="card-content">
-                                <p class="card-description">
-                                    Базовая академическая стипендия для студентов-бюджетников в зависимости от успеваемости
-                                </p>
-                                <div class="card-highlights">
-                                    <div class="highlight-item">
-                                        <span class="highlight-label">Первый курс:</span>
-                                        <span class="highlight-value">1 982 ₽</span>
-                                    </div>
-                                    <div class="highlight-item">
-                                        <span class="highlight-label">За отличную учебу:</span>
-                                        <span class="highlight-value">до 4 068 ₽</span>
-                                    </div>
-                                </div>
-                                <div class="card-warning">
-                                    ⚠️ Одна тройка = потеря стипендии
+                    <h2 id="quickNavTitle" class="section-title">Виды стипендий и льгот</h2>
+                    <nav class="section-nav-grid" role="navigation" aria-label="Навигация по видам стипендий">
+                        
+                        <!-- Стандартная стипендия -->
+                        <a href="standard/" class="section-nav-card" aria-label="Перейти к разделу стандартной стипендии">
+                            <div class="nav-icon" aria-hidden="true">📚</div>
+                            <div class="nav-content">
+                                <h3 class="nav-title">Стандартная стипендия</h3>
+                                <p class="nav-description">Базовая академическая стипендия для студентов-бюджетников</p>
+                                <div class="nav-features" role="list" aria-label="Размеры стипендии">
+                                    <span class="feature-tag" role="listitem">1 982 ₽</span>
+                                    <span class="feature-tag" role="listitem">до 4 068 ₽</span>
+                                    <span class="feature-tag" role="listitem">Успеваемость</span>
                                 </div>
                             </div>
-                            <div class="card-arrow">→</div>
                         </a>
 
-                        <a href="enhanced/" class="category-card enhanced-card">
-                            <div class="card-header">
-                                <div class="card-icon">⭐</div>
-                                <h3>Повышенная стипендия</h3>
-                            </div>
-                            <div class="card-content">
-                                <p class="card-description">
-                                    Балльная система поощрения за активное участие в университетской жизни
-                                </p>
-                                <div class="card-highlights">
-                                    <div class="highlight-item">
-                                        <span class="highlight-label">Максимум:</span>
-                                        <span class="highlight-value">20 000 ₽</span>
-                                    </div>
-                                    <div class="highlight-item">
-                                        <span class="highlight-label">Система:</span>
-                                        <span class="highlight-value">Балльно-рейтинговая</span>
-                                    </div>
-                                </div>
-                                <div class="card-features">
-                                    <span class="feature-tag">Спорт</span>
-                                    <span class="feature-tag">Наука</span>
-                                    <span class="feature-tag">Общественная работа</span>
+                        <!-- Повышенная стипендия -->
+                        <a href="enhanced/" class="section-nav-card" aria-label="Перейти к разделу повышенной стипендии">
+                            <div class="nav-icon" aria-hidden="true">⭐</div>
+                            <div class="nav-content">
+                                <h3 class="nav-title">Повышенная стипендия</h3>
+                                <p class="nav-description">Балльная система поощрения за активное участие в жизни вуза</p>
+                                <div class="nav-features" role="list" aria-label="Особенности повышенной стипендии">
+                                    <span class="feature-tag" role="listitem">до 20 000 ₽</span>
+                                    <span class="feature-tag" role="listitem">Баллы</span>
+                                    <span class="feature-tag" role="listitem">Активность</span>
                                 </div>
                             </div>
-                            <div class="card-arrow">→</div>
                         </a>
 
-                        <a href="moscow-card/" class="category-card benefits-card">
-                            <div class="card-header">
-                                <div class="card-icon">🎫</div>
-                                <h3>Карта москвича</h3>
-                            </div>
-                            <div class="card-content">
-                                <p class="card-description">
-                                    Социальная карта для льготного проезда и скидок в Москве
-                                </p>
-                                <div class="card-highlights">
-                                    <div class="highlight-item">
-                                        <span class="highlight-label">Транспорт:</span>
-                                        <span class="highlight-value">Льготный проезд</span>
-                                    </div>
-                                    <div class="highlight-item">
-                                        <span class="highlight-label">Электрички:</span>
-                                        <span class="highlight-value">-50%</span>
-                                    </div>
-                                </div>
-                                <div class="card-availability">
-                                    📅 Доступна с 15 сентября
+                        <!-- Прочие льготы -->
+                        <a href="other-benefits/" class="section-nav-card" aria-label="Перейти к разделу прочих льгот">
+                            <div class="nav-icon" aria-hidden="true">🤝</div>
+                            <div class="nav-content">
+                                <h3 class="nav-title">Прочие льготы</h3>
+                                <p class="nav-description">Социальная поддержка для особых категорий студентов</p>
+                                <div class="nav-features" role="list" aria-label="Виды социальной поддержки">
+                                    <span class="feature-tag" role="listitem">Социальная</span>
+                                    <span class="feature-tag" role="listitem">до 3 965 ₽</span>
+                                    <span class="feature-tag" role="listitem">Льготники</span>
                                 </div>
                             </div>
-                            <div class="card-arrow">→</div>
                         </a>
 
-                        <a href="other-benefits/" class="category-card social-card">
-                            <div class="card-header">
-                                <div class="card-icon">🤝</div>
-                                <h3>Прочие льготы</h3>
-                            </div>
-                            <div class="card-content">
-                                <p class="card-description">
-                                    Социальная поддержка для особых категорий студентов
-                                </p>
-                                <div class="card-highlights">
-                                    <div class="highlight-item">
-                                        <span class="highlight-label">Социальная:</span>
-                                        <span class="highlight-value">2 973 ₽</span>
-                                    </div>
-                                    <div class="highlight-item">
-                                        <span class="highlight-label">Льготные категории:</span>
-                                        <span class="highlight-value">3 965 ₽</span>
-                                    </div>
-                                </div>
-                                <div class="card-features">
-                                    <span class="feature-tag">Инвалидность</span>
-                                    <span class="feature-tag">Сироты</span>
-                                    <span class="feature-tag">Ветераны</span>
+                        <!-- Карта москвича -->
+                        <a href="moscow-card/" class="section-nav-card" aria-label="Перейти к разделу карты москвича">
+                            <div class="nav-icon" aria-hidden="true">🎫</div>
+                            <div class="nav-content">
+                                <h3 class="nav-title">Карта москвича</h3>
+                                <p class="nav-description">Социальная карта для льготного проезда и скидок в Москве</p>
+                                <div class="nav-features" role="list" aria-label="Преимущества карты">
+                                    <span class="feature-tag" role="listitem">Льготный проезд</span>
+                                    <span class="feature-tag" role="listitem">-50% электрички</span>
+                                    <span class="feature-tag" role="listitem">Скидки</span>
                                 </div>
                             </div>
-                            <div class="card-arrow">→</div>
-                        </a>                    </div>
+                        </a>
+                    </nav>
                 </div>
             </section>            <!-- ================================ -->
             <!-- КАЛЬКУЛЯТОР СТИПЕНДИИ           -->
@@ -429,99 +356,7 @@
                         </div>
                     </div>
                 </div>
-            </section>            <!-- ================================ -->
-            <!-- ФИНАНСОВЫЙ КАЛЬКУЛЯТОР          -->
-            <!-- ================================ -->
-            <section class="content-section calculator-section" aria-labelledby="incomeTitle">
-                <div class="container">
-                    <h2 id="incomeTitle" class="section-title">🧮 Возможные доходы студента</h2>
-                    
-                    <div class="calculator-grid">
-                        <div class="scenario-card minimal-scenario">
-                            <h3>🎯 Минимальный сценарий</h3>
-                            <div class="scenario-items">
-                                <div class="scenario-item">
-                                    <span class="item-name">Базовая стипендия (1 курс)</span>
-                                    <span class="item-value">1 982 ₽</span>
-                                </div>
-                                <div class="scenario-total">
-                                    <span class="total-label">Итого в месяц:</span>
-                                    <span class="total-value">1 982 ₽</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="scenario-card optimal-scenario">
-                            <h3>⭐ Оптимальный сценарий</h3>
-                            <div class="scenario-items">
-                                <div class="scenario-item">
-                                    <span class="item-name">Академическая (отличная учеба)</span>
-                                    <span class="item-value">4 068 ₽</span>
-                                </div>
-                                <div class="scenario-item">
-                                    <span class="item-name">Повышенная (активность)</span>
-                                    <span class="item-value">10 000 ₽</span>
-                                </div>
-                                <div class="scenario-item">
-                                    <span class="item-name">Экономия на транспорте</span>
-                                    <span class="item-value">3 000 ₽</span>
-                                </div>
-                                <div class="scenario-total">
-                                    <span class="total-label">Итого в месяц:</span>
-                                    <span class="total-value">17 068 ₽</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="scenario-card maximum-scenario">
-                            <h3>💎 Максимальный сценарий</h3>
-                            <div class="scenario-items">
-                                <div class="scenario-item">
-                                    <span class="item-name">Академическая (5.0)</span>
-                                    <span class="item-value">4 068 ₽</span>
-                                </div>
-                                <div class="scenario-item">
-                                    <span class="item-name">Повышенная (максимум)</span>
-                                    <span class="item-value">20 000 ₽</span>
-                                </div>
-                                <div class="scenario-item">
-                                    <span class="item-name">Социальная (при наличии права)</span>
-                                    <span class="item-value">3 965 ₽</span>
-                                </div>
-                                <div class="scenario-item">
-                                    <span class="item-name">Экономия на транспорте</span>
-                                    <span class="item-value">3 000 ₽</span>
-                                </div>
-                                <div class="scenario-total">
-                                    <span class="total-label">Итого в месяц:</span>
-                                    <span class="total-value">31 033 ₽</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>            <!-- ================================ -->
-            <!-- ПРИЗЫВ К ДЕЙСТВИЮ               -->
-            <!-- ================================ -->
-            <section class="content-section cta-section" aria-labelledby="ctaTitle">
-                <div class="container">
-                    <div class="cta-banner">
-                        <div class="cta-content">
-                            <h2 id="ctaTitle">🎓 Готовы максимизировать свои доходы?</h2>
-                            <p>
-                                Изучите каждый вид стипендий и льгот подробно, чтобы не упустить ни одной возможности 
-                                финансовой поддержки в университете
-                            </p>
-                            <div class="cta-buttons">
-                                <a href="standard/" class="btn btn-primary">📚 Стандартная стипендия</a>
-                                <a href="increased/" class="btn btn-secondary">⭐ Повышенная стипендия</a>
-                                <a href="moscow-card/" class="btn btn-outline">🎫 Карта москвича</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>        <!-- ================================ -->
+            </section>        </main>        <!-- ================================ -->
         <!-- ПОДВАЛ САЙТА                    -->
         <!-- ================================ -->
         <footer class="footer" id="mainFooter" role="contentinfo"></footer>

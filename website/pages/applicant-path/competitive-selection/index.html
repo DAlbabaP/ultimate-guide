@@ -80,11 +80,13 @@
         <!-- ================================ -->
         <section class="content-section tracking-section" aria-labelledby="trackingTitle">
             <div class="container">
-                <h2 id="trackingTitle" class="section-title">🔍 Отслеживание конкурсных списков</h2>
-                <p class="section-subtitle">
-                    Конкурсные списки публикуются и регулярно обновляются в двух официальных источниках.
-                    Следите за изменениями в режиме реального времени!
-                </p>
+                <header class="section-header">
+                    <h2 id="trackingTitle" class="section-title">Отслеживание конкурсных списков</h2>
+                    <p class="section-subtitle">
+                        Конкурсные списки публикуются и регулярно обновляются в двух официальных источниках.
+                        Следите за изменениями в режиме реального времени!
+                    </p>
+                </header>
 
                 <div class="method-cards" role="list" aria-label="Способы отслеживания конкурсных списков">
                     <!-- Портал Госуслуг -->
@@ -97,13 +99,9 @@
                             <span class="feature-tag" role="listitem">Уведомления</span>
                             <span class="feature-tag" role="listitem">24/7</span>
                         </div>
-                        <a href="https://www.gosuslugi.ru/" 
-                           class="method-button" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="Перейти на портал Госуслуги (откроется в новой вкладке)">
-                            Перейти на Госуслуги
-                        </a>
+                        <div class="method-note" role="note">
+                            <strong>Важно:</strong> Доступ к спискам индивидуален для каждого абитуриента через личный кабинет
+                        </div>
                     </article>
 
                     <!-- Сайт академии -->
@@ -132,69 +130,54 @@
         <!-- ================================ -->
         <section class="content-section priority-section" aria-labelledby="priorityTitle">
             <div class="container">
-                <h2 id="priorityTitle" class="section-title">🎯 Система приоритетов</h2>
-                <p class="section-subtitle">
-                    Понимание принципа распределения по приоритетам критически важно для успешного поступления.
-                </p>
+                <header class="section-header">
+                    <h2 id="priorityTitle" class="section-title">Система приоритетов</h2>
+                    <p class="section-subtitle">
+                        Понимание принципа распределения по приоритетам критически важно для успешного поступления.
+                    </p>
+                </header>
 
                 <!-- Пример распределения по приоритетам -->
                 <article class="priority-example">
-                    <h3>Пример распределения по приоритетам</h3>
-                    <div class="priority-scenario">
-                        <!-- Исходные данные -->
-                        <div class="scenario-setup">
-                            <h4>Исходные данные:</h4>
-                            <div class="direction-info" role="list" aria-label="Направления поступления">
-                                <div class="direction-card" role="listitem">
-                                    <span class="priority-number" aria-label="Первый приоритет">1</span>
-                                    <div class="direction-details">
-                                        <strong>Первое направление</strong>
-                                        <span>35 бюджетных мест</span>
-                                    </div>
-                                </div>
-                                <div class="direction-card" role="listitem">
-                                    <span class="priority-number" aria-label="Второй приоритет">2</span>
-                                    <div class="direction-details">
-                                        <strong>Второе направление</strong>
-                                        <span>30 бюджетных мест</span>
-                                    </div>
-                                </div>
+                    <h3>Как работает система приоритетов</h3>
+                    
+                    <!-- Исходные данные -->
+                    <div class="priority-cards">
+                        <div class="priority-card priority-1">
+                            <div class="priority-number">1</div>
+                            <div class="priority-content">
+                                <h4>Первое направление</h4>
+                                <p>35 бюджетных мест</p>
+                                <span class="priority-note">Ваш основной выбор</span>
                             </div>
                         </div>
-
-                        <!-- Процесс отбора -->
-                        <div class="scenario-process">
-                            <h4>Как происходит отбор:</h4>
-                            <div class="process-steps" role="list" aria-label="Этапы конкурсного отбора">
-                                <div class="process-step" role="listitem">
-                                    <div class="step-number" aria-label="Этап 1">1</div>
-                                    <div class="step-content">
-                                        <strong>Первый этап</strong>
-                                        <p>Рассматривают всех абитуриентов, выбравших направление <strong>первым приоритетом</strong></p>
-                                    </div>
-                                </div>
-                                <div class="process-step" role="listitem">
-                                    <div class="step-number" aria-label="Важное замечание">2</div>
-                                    <div class="step-content">
-                                        <strong>Важно!</strong>
-                                        <p>Даже если у кандидата больше баллов, но направление стоит вторым приоритетом, его заявку рассмотрят позже</p>
-                                    </div>
-                                </div>
-                                <div class="process-step" role="listitem">
-                                    <div class="step-number" aria-label="Этап 3">3</div>
-                                    <div class="step-content">
-                                        <strong>Второй этап</strong>
-                                        <p>Если вы не прошли по первому приоритету (36-е место при 35 местах), вас рассмотрят по второму приоритету</p>
-                                    </div>
-                                </div>
+                        <div class="priority-card priority-2">
+                            <div class="priority-number">2</div>
+                            <div class="priority-content">
+                                <h4>Второе направление</h4>
+                                <p>30 бюджетных мест</p>
+                                <span class="priority-note">Запасной вариант</span>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Результат -->
-                        <div class="scenario-result">
-                            <div class="result-box success" role="note" aria-labelledby="resultTitle">
-                                <h4 id="resultTitle">✅ Результат</h4>
-                                <p>Если по второму приоритету вы займете 29-е место из 30 — вас зачислят!</p>
+                    <!-- Процесс отбора -->
+                    <div class="process-explanation">
+                        <div class="process-step">
+                            <div class="step-icon">🥇</div>
+                            <div class="step-content">
+                                <h4>Этап 1: Первый приоритет</h4>
+                                <p>Сначала рассматриваются все заявки с этим направлением как первым приоритетом</p>
+                                <div class="step-highlight">Даже если у кандидата больше баллов, но направление стоит вторым приоритетом — его рассмотрят позже</div>
+                            </div>
+                        </div>
+                        
+                        <div class="process-step">
+                            <div class="step-icon">🥈</div>
+                            <div class="step-content">
+                                <h4>Этап 2: Если не прошли</h4>
+                                <p>Если вы заняли 36-е место при 35 местах — переходите ко второму приоритету</p>
+                                <div class="step-result">✅ Результат: Если по второму направлению займете 29-е место из 30 — вас зачислят!</div>
                             </div>
                         </div>
                     </div>
@@ -206,10 +189,12 @@
         <!-- ================================ -->
         <section class="content-section certificate-section" aria-labelledby="certificateTitle">
             <div class="container">
-                <h2 id="certificateTitle" class="section-title">📋 Подача оригинала аттестата</h2>
-                <p class="section-subtitle">
-                    Оригинал аттестата подтверждает ваше намерение поступить в вуз и является обязательным для зачисления на бюджет.
-                </p>
+                <header class="section-header">
+                    <h2 id="certificateTitle" class="section-title">Подача оригинала аттестата</h2>
+                    <p class="section-subtitle">
+                        Оригинал аттестата подтверждает ваше намерение поступить в вуз и является обязательным для зачисления на бюджет.
+                    </p>
+                </header>
 
                 <!-- Важность аттестата -->
                 <div class="important-info" role="alert" aria-labelledby="certificateImportanceTitle">
@@ -250,25 +235,49 @@
                         </div>
                     </article>
                 </div>
-
-                <!-- Сроки подачи аттестата -->
-                <div class="timeline-section">
-                    <h3>📅 Сроки подачи аттестата</h3>
-                    <div class="timeline" role="list" aria-label="Временные рамки подачи аттестата">
-                        <article class="timeline-item priority" role="listitem">
-                            <div class="timeline-date">до 28 июля</div>
-                            <div class="timeline-content">
+            </div>
+        </section>
+        
+        <!-- ================================ -->
+        <!-- СРОКИ ПОДАЧИ АТТЕСТАТА           -->
+        <!-- ================================ -->
+        <section class="content-section deadlines-section" aria-labelledby="deadlinesTitle">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="deadlinesTitle" class="section-title">Сроки подачи аттестата</h2>
+                    <p class="section-subtitle">
+                        Критически важные даты для подачи оригинала аттестата в зависимости от этапа зачисления.
+                    </p>
+                </header>
+                
+                <div class="deadline-cards">
+                        <div class="deadline-card urgent">
+                            <div class="deadline-date">
+                                <div class="date-day">28</div>
+                                <div class="date-month">ИЮЛ</div>
+                            </div>
+                            <div class="deadline-content">
                                 <h4>Для льготников</h4>
                                 <p>Крайний срок подачи оригинала аттестата для участников приоритетного этапа</p>
+                                <div class="deadline-note">
+                                    <strong>Критично:</strong> Без аттестата исключение из конкурса
+                                </div>
                             </div>
-                        </article>
-                        <article class="timeline-item" role="listitem">
-                            <div class="timeline-date">до 3 августа</div>
-                            <div class="timeline-content">
-                                <h4>Для участников основного этапа</h4>
+                        </div>
+                        
+                        <div class="deadline-card important">
+                            <div class="deadline-date">
+                                <div class="date-day">3</div>
+                                <div class="date-month">АВГ</div>
+                            </div>
+                            <div class="deadline-content">
+                                <h4>Для основного этапа</h4>
                                 <p>Крайний срок подачи оригинала аттестата для основного конкурса</p>
+                                <div class="deadline-note">
+                                    <strong>Важно:</strong> Последний шанс подтвердить намерения
+                                </div>
                             </div>
-                        </article>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -278,64 +287,65 @@
         <!-- ================================ -->
         <section class="content-section orders-section" aria-labelledby="ordersTitle">
             <div class="container">
-                <h2 id="ordersTitle" class="section-title">📜 Даты выхода приказов о зачислении</h2>
-                <p class="section-subtitle">
-                    Официальные даты публикации приказов о зачислении на разных этапах поступления.
-                </p>
+                <header class="section-header">
+                    <h2 id="ordersTitle" class="section-title">Даты выхода приказов о зачислении</h2>
+                    <p class="section-subtitle">
+                        Официальные даты публикации приказов о зачислении на разных этапах поступления.
+                    </p>
+                </header>
 
-                <div class="timeline-section">
-                    <div class="timeline" role="list" aria-label="График выхода приказов о зачислении">
-                        <!-- Приоритетный этап -->
-                        <article class="timeline-item priority" role="listitem">
-                            <div class="timeline-date">29-30 июля</div>
-                            <div class="timeline-content">
-                                <h3>🏆 Приоритетный этап</h3>
-                                <p>Выход приказов о зачислении для льготников и участников особых категорий</p>
-                                <div class="timeline-features" role="list" aria-label="Категории участников приоритетного этапа">
-                                    <span class="feature-tag" role="listitem">Льготники</span>
-                                    <span class="feature-tag" role="listitem">Особые права</span>
-                                </div>
+                <div class="orders-cards">
+                    <!-- Приоритетный этап -->
+                    <div class="order-card priority">
+                        <div class="order-date">
+                            <div class="date-range">29-30</div>
+                            <div class="date-month">ИЮЛЯ</div>
+                        </div>
+                        <div class="order-content">
+                            <h3>🏆 Приоритетный этап</h3>
+                            <p>Выход приказов о зачислении для льготников и участников особых категорий</p>
+                            <div class="order-features">
+                                <span class="feature-tag">Льготники</span>
+                                <span class="feature-tag">Особые права</span>
                             </div>
-                        </article>
-                        
-                        <!-- Основной этап -->
-                        <article class="timeline-item" role="listitem">
-                            <div class="timeline-date">4-9 августа</div>
-                            <div class="timeline-content">
-                                <h3>🎯 Основной этап</h3>
-                                <p>Выход приказов о зачислении для участников основного конкурса по результатам ЕГЭ</p>
-                                <div class="timeline-features" role="list" aria-label="Категории участников основного этапа">
-                                    <span class="feature-tag" role="listitem">ЕГЭ</span>
-                                    <span class="feature-tag" role="listitem">Общий конкурс</span>
-                                </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Основной этап -->
+                    <div class="order-card main">
+                        <div class="order-date">
+                            <div class="date-range">4-9</div>
+                            <div class="date-month">АВГУСТА</div>
+                        </div>
+                        <div class="order-content">
+                            <h3>🎯 Основной этап</h3>
+                            <p>Выход приказов о зачислении для участников основного конкурса по результатам ЕГЭ</p>
+                            <div class="order-features">
+                                <span class="feature-tag">ЕГЭ</span>
+                                <span class="feature-tag">Общий конкурс</span>
                             </div>
-                        </article>
+                        </div>
                     </div>
                 </div>
 
-                <!-- ЧТО ДАЛЬШЕ -->
-                <div class="next-steps" aria-labelledby="nextStepsTitle">
-                    <h3 id="nextStepsTitle">🎯 Что дальше?</h3>
-                    <div class="next-step-cards" role="list" aria-label="Возможные дальнейшие действия">
-                        <article class="next-step-card" role="listitem">
-                            <h4>Если зачислили</h4>
-                            <p>Переходите к оформлению документов для обучения и подготовке к началу учебного года</p>
-                            <a href="../enrollment/" 
-                               class="next-step-link"
-                               aria-label="Перейти к разделу о процедуре зачисления">
-                                Процедура зачисления →
-                            </a>
-                        </article>
-                        <article class="next-step-card" role="listitem">
-                            <h4>Если не прошли</h4>
-                            <p>Рассмотрите возможность поступления на платное обучение или подготовку к следующему году</p>
-                            <a href="../paid-education/" 
-                               class="next-step-link"
-                               aria-label="Перейти к разделу о платном обучении">
-                                Платное обучение →
-                            </a>
-                        </article>
+                <!-- НАВИГАЦИЯ К СЛЕДУЮЩЕМУ ЭТАПУ -->
+                <section class="next-step" aria-labelledby="nextStepTitle">
+                    <div class="container">
+                        <div class="next-step-card">
+                            <div class="next-step-content">
+                                <h3 id="nextStepTitle">Следующий этап</h3>
+                                <p>После конкурсного отбора переходите к процедуре зачисления или рассмотрите альтернативные варианты</p>
+                            </div>
+                            <div class="next-step-action">
+                                <a href="../enrollment/" 
+                                   class="btn btn-primary"
+                                   aria-label="Перейти к разделу о процедуре зачисления">
+                                    Процедура зачисления
+                                </a>
+                            </div>
+                        </div>
                     </div>
+                </section>
                 </div>
             </div>
         </section>

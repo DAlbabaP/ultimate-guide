@@ -93,7 +93,7 @@
     <!-- ================================ -->
     <!-- HEADER                           -->
     <!-- ================================ -->
-    <header id="header" role="banner" aria-label="Навигация по сайту"></header>
+    <div id="header" role="banner" aria-label="Навигация по сайту"></div>
 
     <!-- ================================ -->
     <!-- ОСНОВНОЙ КОНТЕНТ                 -->
@@ -107,7 +107,6 @@
             <section class="page-hero responsibilities-hero" role="banner" aria-labelledby="pageTitle">
                 <div class="container">
                     <header class="page-header">
-                        <div class="hero-icon" aria-hidden="true">⚡</div>
                         <h1 class="page-title" id="pageTitle">Что делают старосты</h1>
                         <p class="page-subtitle">
                             Подробный обзор обязанностей и функций старосты группы в повседневной деятельности
@@ -122,7 +121,6 @@
             <section class="content-section responsibilities-overview" role="region" aria-labelledby="overviewTitle">
                 <div class="container">
                     <article class="intro-card">
-                        <div class="intro-icon" aria-hidden="true">📋</div>
                         <div class="intro-content">
                             <h2 id="overviewTitle">Основные обязанности старосты</h2>
                             <p>В обязанности старосты входит широкий спектр задач, направленных на обеспечение эффективного учебного процесса и поддержание связи между студентами, преподавателями и администрацией университета.</p>
@@ -135,7 +133,7 @@
             <!-- ================================ -->
             <section class="content-section main-responsibilities" role="region" aria-labelledby="mainResponsibilitiesTitle">
                 <div class="container">
-                    <h2 class="section-title" id="mainResponsibilitiesTitle">🔑 Ключевые обязанности</h2>
+                            <h2 class="section-title" id="mainResponsibilitiesTitle">🔑 Ключевые обязанности</h2>
                     <p class="section-subtitle">
                         Пять основных направлений работы старосты группы
                     </p>
@@ -381,7 +379,7 @@
             <!-- ================================ -->
             <section class="content-section skills-section" role="region" aria-labelledby="skillsTitle">
                 <div class="container">
-                    <h2 class="section-title" id="skillsTitle">🎯 Навыки, которые вы развиваете</h2>
+                            <h2 class="section-title" id="skillsTitle">🎯 Навыки, которые вы развиваете</h2>
                     <p class="section-subtitle">
                         Работа старостой помогает развить важные профессиональные и личные качества
                     </p>
@@ -439,7 +437,7 @@
             <!-- ================================ -->
             <section class="content-section tips-section" role="region" aria-labelledby="tipsTitle">
                 <div class="container">
-                    <h2 class="section-title" id="tipsTitle">💡 Полезные советы для эффективной работы</h2>
+                            <h2 class="section-title" id="tipsTitle">💡 Полезные советы для эффективной работы</h2>
                     
                     <div class="tips-grid" role="group" aria-labelledby="tipsTitle">
                         <article class="tip-card" role="group" aria-labelledby="timeTip">
@@ -469,38 +467,40 @@
                 </div>
             </section>
 
-            <!-- ================================ -->
-            <!-- ПРИЗЫВ К ДЕЙСТВИЮ                -->
-            <!-- ================================ -->
-            <section class="content-section cta-section" role="region" aria-labelledby="ctaTitle">
-                <div class="container">
-                    <article class="cta-card">
-                        <div class="cta-icon" aria-hidden="true">🚀</div>
-                        <div class="cta-content">
-                            <h2 id="ctaTitle">Готовы взять на себя ответственность?</h2>
-                            <p>Теперь вы знаете, что входит в обязанности старосты. Если вы готовы к этой ответственной и интересной работе, изучите требования к кандидатам.</p>
-                            <nav class="cta-actions" role="navigation" aria-label="Дополнительная информация">
-                                <a href="../leader-requirements/index.html" class="btn btn-primary" 
-                                   role="button" aria-label="Перейти к требованиям к старосте">
-                                   Требования к старосте
-                                </a>
-                                <a href="../index.html" class="btn btn-secondary" 
-                                   role="button" aria-label="Вернуться к обзору самоуправления">
-                                   Вернуться к обзору
-                                </a>
-                            </nav>
-                        </div>
-                    </article>
-                </div>
-            </section>
         </main>
         
         <!-- ================================ -->
         <!-- FOOTER                           -->
         <!-- ================================ -->
-        <footer id="footer" role="contentinfo" aria-label="Информация о сайте"></footer>
+        <div id="footer" role="contentinfo" aria-label="Информация о сайте"></div>
     </div>
     
+    <!-- ================================ -->
+    <!-- ИНТЕРАКТИВНОСТЬ                  -->
+    <!-- ================================ -->
+    <script>
+        // ===============================
+        // ЗАГРУЗКА КОМПОНЕНТОВ
+        // ===============================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Загрузка хедера
+            fetch('../../../components/header.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('header').innerHTML = html;
+                })
+                .catch(error => console.error('Ошибка загрузки хедера:', error));
+
+            // Загрузка футера
+            fetch('../../../components/footer.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('footer').innerHTML = html;
+                })
+                .catch(error => console.error('Ошибка загрузки футера:', error));
+        });
+    </script>
+
     <!-- ================================ -->
     <!-- СКРИПТЫ                          -->
     <!-- ================================ -->
@@ -565,15 +565,6 @@
         if (typeof initializeSEO === 'function') {
             initializeSEO('responsibilities', 'Обязанности старосты группы РГАУ-МСХА');
         }
-    </script>
-</body>
-</html>
-    
-    <!-- SEO structured data -->
-    <script type="application/ld+json" id="structured-data"></script>
-    <script>
-        // Инициализация SEO для страницы обязанностей старосты
-        initializeSEO('responsibilities', 'Обязанности старосты группы РГАУ-МСХА');
     </script>
 </body>
 </html>

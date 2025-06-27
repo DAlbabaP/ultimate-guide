@@ -207,9 +207,9 @@
 }
 
 .main-content .action-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
 .main-content .action-step {
@@ -352,6 +352,22 @@
 /* ===== УЛУЧШЕННЫЕ НЕОБХОДИМЫЕ ДОКУМЕНТЫ ===== */
 .main-content .required-documents {
   margin: 4rem 0;
+}
+
+/* Добавляем контейнер для горизонтального расположения документов */
+.main-content .documents-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Фотографии занимают 2/3, оригинал аттестата 1/3 */
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+  .main-content .documents-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 .main-content .required-documents h3 {
@@ -1008,13 +1024,7 @@
 }
 
 .main-content .checklist-checkbox {
-  width: 28px;
-  height: 28px;
-  accent-color: var(--primary-green);
-  cursor: pointer;
-  border-radius: 6px;
-  position: relative;
-  z-index: 2;
+  display: none; /* Скрываем стандартный чекбокс */
 }
 
 .main-content .checkmark {
@@ -1028,6 +1038,7 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   z-index: 2;
+  flex-shrink: 0;
 }
 
 .main-content .checklist-item input:checked + .checkmark {
@@ -1055,20 +1066,33 @@
 
 /* ===== СЛЕДУЮЩИЕ ШАГИ - УЛУЧШЕННЫЙ ДИЗАЙН ===== */
 .main-content .next-steps {
-  padding: 5rem 0;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f0fff4 100%);
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #e6fffa 0%, #ffffff 50%, #f0fff4 100%);
   position: relative;
   margin-top: 4rem;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
 }
 
 .main-content .next-steps::before {
   content: "";
   position: absolute;
-  top: -1px;
+  top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(40, 167, 69, 0.2), transparent);
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(40, 167, 69, 0.05) 0%, transparent 60%),
+    radial-gradient(circle at 70% 70%, rgba(32, 201, 151, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.main-content .next-steps .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 .main-content .next-steps h3 {
@@ -1076,8 +1100,9 @@
   font-weight: var(--font-weight-bold);
   color: var(--text-primary);
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   position: relative;
+  z-index: 2;
 }
 
 .main-content .next-steps h3::after {
@@ -1092,43 +1117,27 @@
   border-radius: 2px;
 }
 
-.main-content .next-step-cards {
+.main-content .next-steps-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
-  margin-top: 3rem;
-  justify-content: center;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Центрирование для карточек на больших экранах */
-@media (min-width: 1024px) {
-  .main-content .next-step-cards {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    max-width: 1200px;
-    gap: 3rem;
-  }
+  gap: 6rem;
+  margin: 0 auto;
 }
 
 .main-content .next-step-card {
-  display: flex;
-  flex-direction: column;
-  padding: 2.5rem;
   background: linear-gradient(135deg, #ffffff 0%, #fdfdfd 100%);
-  border: 1px solid rgba(40, 167, 69, 0.1);
-  border-radius: 20px;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
-    0 4px 20px rgba(0, 0, 0, 0.08),
-    0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(40, 167, 69, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
   position: relative;
-  overflow: hidden;
-  min-height: 200px;
-  text-align: left;
+  z-index: 2;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 600px;
 }
 
 .main-content .next-step-card::before {
@@ -1138,16 +1147,15 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(40, 167, 69, 0.02) 0%, rgba(32, 201, 151, 0.04) 100%);
+  background: linear-gradient(135deg, rgba(40, 167, 69, 0.02) 0%, rgba(32, 201, 151, 0.02) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
+  border-radius: 20px;
 }
 
 .main-content .next-step-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 
-    0 20px 40px rgba(40, 167, 69, 0.15),
-    0 8px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(40, 167, 69, 0.12);
   border-color: var(--primary-green);
 }
 
@@ -1155,58 +1163,87 @@
   opacity: 1;
 }
 
-.main-content .next-step-card h4 {
-  font-size: 1.35rem;
+.main-content .next-step-content {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.main-content .next-step-content h4 {
+  color: var(--primary-green);
+  font-size: 1.4rem;
   font-weight: var(--font-weight-bold);
-  color: var(--text-primary);
-  margin: 0 0 0.75rem;
-  transition: color 0.3s ease;
-  position: relative;
-  z-index: 2;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
 }
 
-.main-content .next-step-card:hover h4 {
-  color: var(--primary-green);
-}
-
-.main-content .next-step-card p {
-  font-size: 0.95rem;
+.main-content .next-step-content p {
   color: var(--text-secondary);
-  margin: 0 0 1.5rem;
-  line-height: 1.6;
-  flex-grow: 1;
-  position: relative;
-  z-index: 2;
-}
-
-.main-content .next-step-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--primary-green);
-  font-weight: var(--font-weight-semibold);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border-bottom: 2px solid transparent;
-  position: relative;
-  z-index: 2;
-  margin-top: auto;
+  line-height: 1.5;
+  margin: 0;
   font-size: 1rem;
 }
 
-.main-content .next-step-link:hover {
-  border-bottom-color: var(--primary-green);
-  transform: translateX(8px);
-  color: var(--secondary-blue);
+.main-content .next-step-action {
+  position: relative;
+  z-index: 2;
 }
 
-.main-content .next-step-link::after {
-  content: "→";
-  transition: transform 0.3s ease;
+.main-content .next-step-action .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--primary-green) 0%, #4A9058 100%);
+  color: var(--primary-white);
+  text-decoration: none;
+  border-radius: 16px;
+  font-weight: var(--font-weight-semibold);
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(47, 94, 47, 0.3);
+  position: relative;
+  overflow: hidden;
 }
 
-.main-content .next-step-card:hover .next-step-link::after {
-  transform: translateX(4px);
+.main-content .next-step-action .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.main-content .next-step-action .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(47, 94, 47, 0.4);
+  background: linear-gradient(135deg, #4A9058 0%, var(--secondary-blue) 100%);
+}
+
+.main-content .next-step-action .btn:hover::before {
+  left: 100%;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  .main-content .next-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .main-content .next-step-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+  
+  .main-content .next-steps {
+    padding: 3rem 0;
+  }
 }
 
 /* ===== УЛУЧШЕННАЯ АДАПТИВНОСТЬ ===== */
@@ -1276,16 +1313,8 @@
     padding: 3rem 0;
   }
   
-  .main-content .next-step-cards {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  
   .main-content .next-step-card {
     padding: 2rem;
-    min-height: auto;
-    text-align: center;
   }
 }
 
@@ -1308,13 +1337,13 @@
     padding: 2rem 0;
   }
   
-  .main-content .next-step-cards {
-    gap: 1.5rem;
-    margin-top: 1.5rem;
+  .main-content .next-step-card {
+    padding: 2rem;
   }
   
-  .main-content .next-step-card {
-    padding: 1.5rem;
+  .main-content .documents-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
@@ -1541,4 +1570,13 @@
   --enrollment-success: #38a169;
   --enrollment-warning: #ffc107;
   --enrollment-info: #3182ce;
+}
+
+.step-content {
+    flex: 1;
+    background: transparent;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0;
+    border: 0;
 }

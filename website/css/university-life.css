@@ -91,6 +91,8 @@
   border: 1px solid var(--border-color);
   text-decoration: none;
   color: inherit;
+  display: flex;
+  flex-direction: column;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -114,15 +116,12 @@
   transform: translateY(-12px) scale(1.02);
   box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
   border-color: var(--primary-green);
+  text-decoration: none;
+  color: inherit;
 }
 
 .section-nav-card:hover::before {
   opacity: 1;
-}
-
-.section-nav-card:hover .nav-arrow {
-  transform: translateX(8px) scale(1.2);
-  color: var(--primary-green);
 }
 
 .section-nav-card .nav-icon {
@@ -182,16 +181,6 @@
   transform: translateY(-2px);
 }
 
-.nav-arrow {
-  font-size: 1.8rem;
-  color: var(--accent-blue);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  flex-shrink: 0;
-  position: relative;
-  z-index: 2;
-  align-self: center;
-}
-
 /* Features Section - Улучшенный дизайн */
 .features-section {
   background: linear-gradient(135deg, #f8f9fa 0%, rgba(102, 126, 234, 0.03) 100%);
@@ -213,7 +202,7 @@
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
   gap: var(--spacing-xl);
   margin: var(--spacing-xl) 0;
   position: relative;

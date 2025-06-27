@@ -961,9 +961,23 @@
 
 /* Section Titles */
 .section-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
   text-align: center;
-  color: var(--primary-green);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: 1rem;
+  position: relative;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-green), var(--secondary-blue));
+  border-radius: 2px;
 }
 
 .section-subtitle {

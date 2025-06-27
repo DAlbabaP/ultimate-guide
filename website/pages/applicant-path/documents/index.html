@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="../../../manifest.json">
     <title>Подача документов в РГАУ-МСХА 2025 | Июнь-Июль | Справочник абитуриента</title>
-    <meta name="description" content="Полный перечень документов для поступления в РГАУ-МСХА 2025: сроки подачи, способы подачи заявления, выбор приоритетов специальностей и порядок действий.">
-    <meta name="keywords" content="документы РГАУ-МСХА, подача заявления МСХА, поступление документы, сроки подачи, приоритеты специальностей">
+    <meta name="description" content="Полный перечень документов для поступления в РГАУ-МСХА 2025: сроки подачи, способы подачи заявления и порядок действий.">
+    <meta name="keywords" content="документы РГАУ-МСХА, подача заявления МСХА, поступление документы, сроки подачи">
 
     <!-- ================================ -->
     <!-- PWA И МОБИЛЬНЫЕ НАСТРОЙКИ        -->
@@ -90,14 +90,7 @@
                 <div class="checklist-container" role="list" aria-label="Список необходимых документов">
                     
                     <!-- Паспорт -->
-                    <article class="checklist-item" data-priority="critical" role="listitem">
-                        <div class="checklist-checkbox">
-                            <input type="checkbox" 
-                                   id="passport" 
-                                   onchange="updateProgress()" 
-                                   aria-describedby="passportDesc">
-                            <label for="passport" aria-label="Отметить паспорт как собранный"></label>
-                        </div>
+                    <article class="checklist-item" data-priority="critical" role="listitem" onclick="toggleChecklistItem(this, 'passport')">
                         <div class="checklist-content">
                             <h3 class="checklist-title">Паспорт или удостоверение личности</h3>
                             <p id="passportDesc" class="checklist-description">
@@ -108,17 +101,15 @@
                             </div>
                         </div>
                         <div class="checklist-priority" aria-label="Приоритет: критично">Критично</div>
+                        <div class="checklist-status" data-checked="false" aria-label="Не отмечено">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                        </div>
                     </article>
 
                     <!-- Аттестат -->
-                    <article class="checklist-item" data-priority="critical" role="listitem">
-                        <div class="checklist-checkbox">
-                            <input type="checkbox" 
-                                   id="certificate" 
-                                   onchange="updateProgress()" 
-                                   aria-describedby="certificateDesc">
-                            <label for="certificate" aria-label="Отметить аттестат как собранный"></label>
-                        </div>
+                    <article class="checklist-item" data-priority="critical" role="listitem" onclick="toggleChecklistItem(this, 'certificate')">
                         <div class="checklist-content">
                             <h3 class="checklist-title">Аттестат об окончании школы или диплом</h3>
                             <p id="certificateDesc" class="checklist-description">
@@ -129,17 +120,15 @@
                             </div>
                         </div>
                         <div class="checklist-priority" aria-label="Приоритет: критично">Критично</div>
+                        <div class="checklist-status" data-checked="false" aria-label="Не отмечено">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                        </div>
                     </article>
 
                     <!-- СНИЛС -->
-                    <article class="checklist-item" data-priority="high" role="listitem">
-                        <div class="checklist-checkbox">
-                            <input type="checkbox" 
-                                   id="snils" 
-                                   onchange="updateProgress()" 
-                                   aria-describedby="snilsDesc">
-                            <label for="snils" aria-label="Отметить СНИЛС как собранный"></label>
-                        </div>
+                    <article class="checklist-item" data-priority="high" role="listitem" onclick="toggleChecklistItem(this, 'snils')">
                         <div class="checklist-content">
                             <h3 class="checklist-title">СНИЛС</h3>
                             <p id="snilsDesc" class="checklist-description">
@@ -147,17 +136,15 @@
                             </p>
                         </div>
                         <div class="checklist-priority" aria-label="Приоритет: важно">Важно</div>
+                        <div class="checklist-status" data-checked="false" aria-label="Не отмечено">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                        </div>
                     </article>
 
                     <!-- Заявление -->
-                    <article class="checklist-item" data-priority="high" role="listitem">
-                        <div class="checklist-checkbox">
-                            <input type="checkbox" 
-                                   id="application" 
-                                   onchange="updateProgress()" 
-                                   aria-describedby="applicationDesc">
-                            <label for="application" aria-label="Отметить заявление как заполненное"></label>
-                        </div>
+                    <article class="checklist-item" data-priority="high" role="listitem" onclick="toggleChecklistItem(this, 'application')">
                         <div class="checklist-content">
                             <h3 class="checklist-title">Заявление о приёме на обучение</h3>
                             <p id="applicationDesc" class="checklist-description">
@@ -168,17 +155,15 @@
                             </div>
                         </div>
                         <div class="checklist-priority" aria-label="Приоритет: важно">Важно</div>
+                        <div class="checklist-status" data-checked="false" aria-label="Не отмечено">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                        </div>
                     </article>
 
                     <!-- Фотографии -->
-                    <article class="checklist-item" data-priority="medium" role="listitem">
-                        <div class="checklist-checkbox">
-                            <input type="checkbox" 
-                                   id="photos" 
-                                   onchange="updateProgress()" 
-                                   aria-describedby="photosDesc">
-                            <label for="photos" aria-label="Отметить фотографии как подготовленные"></label>
-                        </div>
+                    <article class="checklist-item" data-priority="medium" role="listitem" onclick="toggleChecklistItem(this, 'photos')">
                         <div class="checklist-content">
                             <h3 class="checklist-title">Фотографии 3×4 см</h3>
                             <p id="photosDesc" class="checklist-description">
@@ -193,17 +178,15 @@
                             </div>
                         </div>
                         <div class="checklist-priority" aria-label="Приоритет: обычно">Обычно</div>
+                        <div class="checklist-status" data-checked="false" aria-label="Не отмечено">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                        </div>
                     </article>
 
                     <!-- Медицинская справка -->
-                    <article class="checklist-item" data-priority="medium" role="listitem">
-                        <div class="checklist-checkbox">
-                            <input type="checkbox" 
-                                   id="medical" 
-                                   onchange="updateProgress()" 
-                                   aria-describedby="medicalDesc">
-                            <label for="medical" aria-label="Отметить медицинскую справку как полученную"></label>
-                        </div>
+                    <article class="checklist-item" data-priority="medium" role="listitem" onclick="toggleChecklistItem(this, 'medical')">
                         <div class="checklist-content">
                             <h3 class="checklist-title">Медицинская справка формы 086/у</h3>
                             <p id="medicalDesc" class="checklist-description">
@@ -214,17 +197,15 @@
                             </div>
                         </div>
                         <div class="checklist-priority" aria-label="Приоритет: обычно">Обычно</div>
+                        <div class="checklist-status" data-checked="false" aria-label="Не отмечено">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                        </div>
                     </article>
 
                     <!-- Согласие на обработку данных -->
-                    <article class="checklist-item" data-priority="low" role="listitem">
-                        <div class="checklist-checkbox">
-                            <input type="checkbox" 
-                                   id="consent" 
-                                   onchange="updateProgress()" 
-                                   aria-describedby="consentDesc">
-                            <label for="consent" aria-label="Отметить согласие как подписанное"></label>
-                        </div>
+                    <article class="checklist-item" data-priority="low" role="listitem" onclick="toggleChecklistItem(this, 'consent')">
                         <div class="checklist-content">
                             <h3 class="checklist-title">Согласие на обработку персональных данных</h3>
                             <p id="consentDesc" class="checklist-description">
@@ -232,17 +213,15 @@
                             </p>
                         </div>
                         <div class="checklist-priority" aria-label="Приоритет: при необходимости">При необходимости</div>
+                        <div class="checklist-status" data-checked="false" aria-label="Не отмечено">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                        </div>
                     </article>
 
                     <!-- Документы о льготах -->
-                    <article class="checklist-item" data-priority="low" role="listitem">
-                        <div class="checklist-checkbox">
-                            <input type="checkbox" 
-                                   id="benefits" 
-                                   onchange="updateProgress()" 
-                                   aria-describedby="benefitsDesc">
-                            <label for="benefits" aria-label="Отметить документы о льготах как подготовленные"></label>
-                        </div>
+                    <article class="checklist-item" data-priority="low" role="listitem" onclick="toggleChecklistItem(this, 'benefits')">
                         <div class="checklist-content">
                             <h3 class="checklist-title">Документы, подтверждающие льготы</h3>
                             <p id="benefitsDesc" class="checklist-description">
@@ -253,6 +232,11 @@
                             </div>
                         </div>
                         <div class="checklist-priority" aria-label="Приоритет: при наличии">При наличии</div>
+                        <div class="checklist-status" data-checked="false" aria-label="Не отмечено">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                        </div>
                     </article>
                 </div>
 
@@ -353,105 +337,7 @@
                 </div>
             </div>
         </section>        
-        <!-- ================================ -->
-        <!-- ВЫБОР ПРИОРИТЕТОВ СПЕЦИАЛЬНОСТЕЙ -->
-        <!-- ================================ -->
-        <section class="priority-selection" aria-labelledby="prioritySelectionTitle">
-            <div class="container">
-                <h2 id="prioritySelectionTitle" class="section-title">Выбор приоритетов специальностей</h2>
-                <p class="section-subtitle">
-                    Правильный выбор приоритетов — ключ к успешному поступлению
-                </p>
-
-                <div class="priority-explanation">
-                    <!-- Объяснение системы приоритетов -->
-                    <article class="priority-card">
-                        <div class="priority-header">
-                            <h3>Как работает система приоритетов?</h3>
-                        </div>
-                        <div class="priority-content">
-                            <p>Приоритеты — система, которая определяет предпочтительные для абитуриента направления и специализации.</p>
-                            
-                            <div class="priority-example" role="region" aria-labelledby="exampleTitle">
-                                <h4 id="exampleTitle">Пример работы системы:</h4>
-                                <div class="example-scenario">
-                                    <div class="scenario-setup">
-                                        <p><strong>Ситуация:</strong> Есть два направления:</p>
-                                        <ul role="list" aria-label="Варианты направлений">
-                                            <li role="listitem">Первое направление — <strong>35 мест</strong> (ваш 1-й приоритет)</li>
-                                            <li role="listitem">Второе направление — <strong>30 мест</strong> (ваш 2-й приоритет)</li>
-                                        </ul>
-                                    </div>
-                                    
-                                    <div class="scenario-process" role="list" aria-label="Процесс рассмотрения заявок">
-                                        <div class="process-step" role="listitem">
-                                            <div class="step-number" aria-label="Шаг 1">1</div>
-                                            <div class="step-content">
-                                                <p>Сначала рассматривают всех абитуриентов по <strong>первому приоритету</strong></p>
-                                                <p class="step-note">Даже если у кандидата больше баллов, но направление стоит вторым приоритетом, его заявку рассмотрят позже</p>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="process-step" role="listitem">
-                                            <div class="step-number" aria-label="Шаг 2">2</div>
-                                            <div class="step-content">
-                                                <p>Если вы не проходите по первому приоритету (например, заняли 36-е место при 35 местах)</p>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="process-step" role="listitem">
-                                            <div class="step-number" aria-label="Шаг 3">3</div>
-                                            <div class="step-content">
-                                                <p>Вашу кандидатуру рассмотрят по <strong>второму приоритету</strong></p>
-                                                <p class="step-note">Если там вы окажетесь на 29-м месте из 30, вас зачислят</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Советы по выбору приоритетов -->
-                    <div class="priority-tips">
-                        <h3>💡 Советы по выбору приоритетов</h3>
-                        <div class="tips-grid" role="list" aria-label="Советы по выбору приоритетов">
-                            <article class="tip-item" role="listitem">
-                                <div class="tip-icon" aria-hidden="true">🎯</div>
-                                <div class="tip-content">
-                                    <h4>Первый приоритет</h4>
-                                    <p>Выбирайте направление, которое вам действительно интересно и где у вас высокие шансы пройти</p>
-                                </div>
-                            </article>
-                            
-                            <article class="tip-item" role="listitem">
-                                <div class="tip-icon" aria-hidden="true">📊</div>
-                                <div class="tip-content">
-                                    <h4>Изучите статистику</h4>
-                                    <p>Посмотрите проходные баллы прошлых лет, чтобы реально оценить свои шансы</p>
-                                </div>
-                            </article>
-                            
-                            <article class="tip-item" role="listitem">
-                                <div class="tip-icon" aria-hidden="true">🔄</div>
-                                <div class="tip-content">
-                                    <h4>Запасные варианты</h4>
-                                    <p>Укажите несколько направлений с разным уровнем конкуренции</p>
-                                </div>
-                            </article>
-                            
-                            <article class="tip-item" role="listitem">
-                                <div class="tip-icon" aria-hidden="true">⚡</div>
-                                <div class="tip-content">
-                                    <h4>Действуйте быстро</h4>
-                                    <p>Часто именно первый приоритет определяет ваше поступление</p>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>        
+        
         <!-- ================================ -->
         <!-- ВАЖНЫЕ СРОКИ И ДЕДЛАЙНЫ         -->
         <!-- ================================ -->
@@ -569,11 +455,25 @@
     <!-- ВСТРОЕННЫЕ СКРИПТЫ               -->
     <!-- ================================ -->
     <script>
-        // Функциональность чек-листа документов
+        // Функциональность чек-листа документов с кликабельными блоками
+        function toggleChecklistItem(element, itemId) {
+            const statusEl = element.querySelector('.checklist-status');
+            const currentState = statusEl.getAttribute('data-checked') === 'true';
+            const newState = !currentState;
+            
+            // Обновляем состояние
+            statusEl.setAttribute('data-checked', newState);
+            element.setAttribute('data-checked', newState);
+            statusEl.setAttribute('aria-label', newState ? 'Отмечено' : 'Не отмечено');
+            
+            // Обновляем прогресс
+            updateProgress();
+        }
+
         function updateProgress() {
-            const checkboxes = document.querySelectorAll('.checklist-checkbox input[type="checkbox"]');
-            const checked = document.querySelectorAll('.checklist-checkbox input[type="checkbox"]:checked');
-            const progress = (checked.length / checkboxes.length) * 100;
+            const totalItems = document.querySelectorAll('.checklist-item').length;
+            const checkedItems = document.querySelectorAll('.checklist-item[data-checked="true"]').length;
+            const progress = (checkedItems / totalItems) * 100;
             
             const progressFill = document.getElementById('progressFill');
             const progressText = document.getElementById('progressText');

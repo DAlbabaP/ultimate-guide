@@ -628,7 +628,7 @@
     width: 4px;
     background: rgba(47, 94, 47, 0.2);
     transform: translateX(-50%);
-    z-index: 2;
+    z-index: 0;
     border-radius: 2px;
 }
 
@@ -671,11 +671,11 @@
 }
 
 .timeline-item:nth-child(odd) {
-    flex-direction: row;
+    flex-direction: row-reverse;
 }
 
 .timeline-item:nth-child(even) {
-    flex-direction: row-reverse;
+    flex-direction: row;
 }
 
 .timeline-marker {
@@ -762,22 +762,22 @@
 }
 
 .timeline-item:nth-child(odd) .timeline-content {
-    margin-right: auto;
-    margin-left: 50px;
+    margin-left: auto;
+    margin-right: 20px;
 }
 
 .timeline-item:nth-child(odd) .timeline-content::before {
-    left: -24px;
+    left: -20px;
     border-right-color: var(--background-primary);
 }
 
 .timeline-item:nth-child(even) .timeline-content {
-    margin-left: auto;
-    margin-right: 50px;
+    margin-right: auto;
+    margin-left: 20px;
 }
 
 .timeline-item:nth-child(even) .timeline-content::before {
-    right: -24px;
+    right: -20px;
     border-left-color: var(--background-primary);
 }
 
@@ -842,15 +842,6 @@
     color: var(--secondary-blue);
     background: rgba(52, 152, 219, 0.1);
     transform: translateX(4px);
-}
-
-.timeline-link::after {
-    content: '→';
-    transition: var(--transition-fast);
-}
-
-.timeline-link:hover::after {
-    transform: translateX(2px);
 }
 
 /* Quick Access Section - Современный дизайн */
