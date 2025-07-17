@@ -598,6 +598,51 @@
     overflow: hidden;
 }
 
+/* Адаптивность для больших экранов */
+@media (min-width: 1200px) {
+    .timeline-container {
+        max-width: 1000px;
+    }
+    
+    .timeline-content {
+        width: calc(50% - 100px);
+        padding: var(--spacing-xxl);
+    }
+    
+    .timeline-marker {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .timeline-icon svg {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* Адаптивность для средних экранов (планшеты в альбомной ориентации) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .timeline-container {
+        max-width: 800px;
+        margin: var(--spacing-xxl) 2rem 0;
+    }
+    
+    .timeline-content {
+        width: calc(50% - 70px);
+        padding: var(--spacing-lg);
+    }
+    
+    .timeline-marker {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .timeline-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+}
+
 .timeline-section::before {
     content: '';
     position: absolute;
@@ -670,9 +715,7 @@
     }
 }
 
-.timeline-item:nth-child(odd) {
-    flex-direction: row-reverse;
-}
+
 
 .timeline-item:nth-child(even) {
     flex-direction: row;
@@ -772,12 +815,12 @@
 }
 
 .timeline-item:nth-child(even) .timeline-content {
-    margin-right: auto;
-    margin-left: 20px;
+    margin: 0 0 0 20px;
+    width: calc(50% - 80px);
 }
 
 .timeline-item:nth-child(even) .timeline-content::before {
-    right: -20px;
+    left: -20px;
     border-left-color: var(--background-primary);
 }
 
@@ -1730,27 +1773,82 @@
         margin: 0 1rem;
     }
     
+    /* Timeline адаптивность для планшетов */
+    .timeline-section {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .timeline-container {
+        max-width: 100%;
+        margin: var(--spacing-xl) 1rem 0;
+    }
+    
     .timeline-item,
     .timeline-item:nth-child(even) {
         flex-direction: column;
+        margin-bottom: var(--spacing-xl);
+        display: flex;
+    }
+    
+    /* В мобильной версии иконка идет первой, потом блок */
+    .timeline-item .timeline-marker {
+        order: 1;
+        position: relative;
+        left: auto;
+        transform: none;
+        margin: 0 auto;
+    }
+    
+    .timeline-item .timeline-content {
+        order: 2;
+        width: 100%;
+        margin: 1.5rem 0 0 0;
+    }
+    
+    /* Убираем стрелки на мобилке */
+    .timeline-content::before {
+        display: none;
     }
     
     .timeline-content,
     .timeline-item:nth-child(even) .timeline-content,
     .timeline-item:nth-child(odd) .timeline-content {
         width: 100%;
-        margin: 2rem 0 0 0;
+        margin: 1.5rem 0 0 0;
+        padding: var(--spacing-lg);
     }
     
     .timeline-marker {
         position: relative;
         left: auto;
         transform: none;
-        margin: 1rem auto;
+        margin: 0 auto;
+        width: 60px;
+        height: 60px;
+    }
+    
+    .timeline-icon svg {
+        width: 24px;
+        height: 24px;
     }
     
     .timeline-progress {
         display: none;
+    }
+    
+
+    
+    /* Дополнительные улучшения для планшетов */
+    .timeline-date {
+        font-size: var(--font-size-sm);
+    }
+    
+    .timeline-title {
+        font-size: var(--font-size-lg);
+    }
+    
+    .timeline-description {
+        font-size: var(--font-size-base);
     }
     
     .quick-access-grid {
@@ -1834,10 +1932,75 @@
         padding: 1rem 1.5rem 1.5rem;
     }
     
-    .timeline-content {
-        padding: 1.5rem;
+    /* Timeline адаптивность для мобильных */
+    .timeline-section {
+        padding: var(--spacing-lg) 0;
     }
-      .widget-title {
+    
+    .timeline-container {
+        margin: var(--spacing-lg) 0.5rem 0;
+    }
+    
+    .timeline-item {
+        margin-bottom: var(--spacing-lg);
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* В мобильной версии иконка идет первой, потом блок */
+    .timeline-item .timeline-marker {
+        order: 1;
+        position: relative;
+        left: auto;
+        transform: none;
+        margin: 0 auto;
+    }
+    
+    .timeline-item .timeline-content {
+        order: 2;
+        width: 100%;
+        margin: 1rem 0 0 0;
+    }
+    
+    /* Убираем стрелки на мобилке */
+    .timeline-content::before {
+        display: none;
+    }
+    
+
+    
+    .timeline-marker {
+        width: 50px;
+        height: 50px;
+        border-width: 4px;
+    }
+    
+    .timeline-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .timeline-date {
+        font-size: var(--font-size-xs);
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .timeline-title {
+        font-size: var(--font-size-base);
+        margin-bottom: 0.5rem;
+    }
+    
+    .timeline-description {
+        font-size: var(--font-size-sm);
+        line-height: 1.5;
+    }
+    
+    .timeline-link {
+        font-size: var(--font-size-sm);
+        margin-top: 0.5rem;
+    }
+    
+    .widget-title {
         font-size: 1.1rem;
         color: white;
     }
